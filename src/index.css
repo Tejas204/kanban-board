@@ -15,6 +15,33 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Background colors */
+  --board-bg--color: #191b2b;
+  --card-bg--color: #272a43;
+  --header-bg--color: #272a43;
+
+  /* Text colors */
+  --primary-text--color: #dfe0e4;
+  --secondary-text--color: #9fa5b4;
+
+  /* User icon colors */
+  --user-icon--bg-color--purple: #c335fb;
+  --user-icon--bg-color--lavender: #915aff;
+  --user-icon--bg-color--blue: #3591fb;
+  --user-icon--bg-color--lightblue: #35cdfb;
+
+  /* Card priority colors */
+  --card-priority--color-high: #e2445b;
+  --card-priority--color-medium: #f5ad40;
+  --card-priority--color-low: #5cca77;
+
+  /* Button colors */
+  --button-bg--color: #915aff;
+  --button-text--color: #dfe0e4;
+  --button-offset--color: #915aff;
+
+
 }
 
 a {
