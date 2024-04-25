@@ -7,7 +7,7 @@ const Header = () => {
         {/* Logo */}
         <div className='flex flex-row gap-x-5 p-4 ml-[7%] text-2xl font-bold text-[color:var(--primary-text--color)]'>
             <img src={Jira} className='h-10 w-10'></img>
-            <p>Kanban Board</p>
+            <p>Kanbanize</p>
         </div>
         {/* Navbar Items */}
         <div className='p-4 mr-[7%]'>
