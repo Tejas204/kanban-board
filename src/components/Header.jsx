@@ -1,5 +1,6 @@
 import React from 'react'
 import Jira from '../assets/Jira.png';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -12,10 +13,10 @@ const Header = () => {
         {/* Navbar Items */}
         <div className='p-4 mr-[7%]'>
             <ul className='flex flex-row gap-x-16 font-semibold text-xl text-[color:var(--secondary-text--color)]'>
-                <li className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer'>Home</li>
-                <li className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer'>Features</li>
-                <li className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer'>Login</li>
-                <li className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer'>Register</li>
+                <Link to='/' className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer'>Home</Link>
+                <Link to='/' className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer'>Features</Link>
+                <Link to='/login' className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer'>Login</Link>
+                <Link to='/register' className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer'>Register</Link>
             </ul>
         </div>
     </div>
