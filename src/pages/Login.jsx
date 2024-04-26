@@ -5,15 +5,15 @@ const Login = () => {
     <div className='flex h-[100%] w-[100%] justify-center items-center'>
       {/* Login Form */}
         <div className='flex flex-col rounded-md mt-[3%] pt-10 pb-10 pl-14 pr-14 gap-y-14 shadow-lg bg-[color:var(--card-bg--color)]'>
-          <div className='flex flex-col items-center'>
+          <div className='flex flex-col items-center gap-y-2'>
             <p className='text-4xl'>Get Started</p>
             <p className='text-xl'>Free for users, no credit card needed</p>
           </div>
           
           <form className='flex flex-col gap-y-5'>
-            <input type='text' placeholder='Email' className='p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg'></input>
-            <input type='password' placeholder='Password' className='p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg'></input>
-            <button type='button' className='p-4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md'>Log In</button>
+            <input className='p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg' type='text' placeholder='Email' ></input>
+            <input className='p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg' type='password' placeholder='Password' ></input>
+            <button className='p-4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md' type='button' >Log In</button>
           </form>
           
           <div className='flex flex-col items-center'>
