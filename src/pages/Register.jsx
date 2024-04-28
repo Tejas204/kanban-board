@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Register = () => {
   return (
@@ -23,8 +24,8 @@ const Register = () => {
             <hr className='w-24'></hr>
           </div>
           
-          <div className='flex flex-col'>
-            <button className='p-4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md' type='button' >Log In</button>
+          <div className='flex flex-col text-center'>
+            <Link className='p-4 border-[0.1rem] text-center font-semibold rounded-md shadow-2xl hover:bg-[color:var(--button-bg--color)] hover:border-[color:var(--button-bg--color)] transition delay-100 ease-in-out cursor-pointer' type='button' to='/login'>Log In</Link>
           </div>
         </div>
     </div>
