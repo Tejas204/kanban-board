@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    // Footer Skeleton
     <div className='grid grid-cols-3 gap-x-2 w-[100%] mt-[5%] py-14 px-10 bg-[color:var(--header-bg--color)]'>
         {/* Footer Hero Section */}
         <div className='flex flex-col gap-y-6 px-6'>
@@ -17,6 +16,10 @@ const Footer = () => {
             {/* Privacy statement and Copyright */}
             <p>&copy; 2024 Kanbanize IND. All rights reserved</p>
         </div>
+
+
+
+
 
         {/* Menu and Social Media */}
         <div className='grid grid-cols-2'>
@@ -49,17 +52,19 @@ const Footer = () => {
             </div>
         </div>
 
+
+
+
+
         {/* Contact Us */}
         <div className='flex flex-col gap-y-6 px-6 border-l-[0.1rem] border-[color:var(--secondary-text--color)]'>
             {/* Call to action */}
             <p className='text-xl font-bold'>Want an improved experience?</p>
 
-            {/* Text area */}
+            {/* Feedback form*/}
             <form className='flex flex-col gap-y-8'>
-                <Link className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer' to='/'>LinkedIn</Link>
-                <Link className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer' to='/' >Instagram</Link>
-                <Link className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer' to='/login' >Twitter</Link>
-                <Link className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer' to='/register' >Facebook</Link>
+                <textarea className='p-4 text-lg rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] h-32' placeholder='Share your feedback...'></textarea>
+                <button className='p-4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md'>Submit</button>
             </form>
         </div>
     </div>
