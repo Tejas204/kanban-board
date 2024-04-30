@@ -64,7 +64,7 @@ const Footer = () => {
             {/* Feedback form*/}
             <form className='flex flex-col gap-y-8'>
                 <textarea className='p-4 text-lg rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] h-32' placeholder='Share your feedback...'></textarea>
-                <button className='p-4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md'>Submit</button>
+                <button className='p-4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md hover:bg-[color:var(--button-hover--color)] transition delay-150 ease-in-out'>Submit</button>
             </form>
         </div>
     </div>

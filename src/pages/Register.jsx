@@ -15,7 +15,7 @@ const Register = () => {
             <input className='p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg' type='text' placeholder='Name' ></input>
             <input className='p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg' type='text' placeholder='Email' ></input>
             <input className='p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg' type='password' placeholder='Password' ></input>
-            <button className='p-4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md' type='button' >Register</button>
+            <button className='p-4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md hover:bg-[color:var(--button-hover--color)] transition delay-150 ease-in-out' type='button' >Register</button>
           </form>
           
           <div className='flex flex-row justify-center items-center gap-x-2'>
@@ -25,7 +25,7 @@ const Register = () => {
           </div>
           
           <div className='flex flex-col text-center'>
-            <Link className='p-4 border-[0.1rem] text-center font-semibold rounded-md shadow-2xl hover:bg-[color:var(--button-bg--color)] hover:border-[color:var(--button-bg--color)] transition delay-100 ease-in-out cursor-pointer' type='button' to='/login'>Log In</Link>
+            <Link className='p-4 border-[0.1rem] text-center font-semibold rounded-md shadow-2xl hover:bg-[color:var(--button-hover--color)] hover:border-[color:var(--button-hover--color)] transition delay-150 ease-in-out cursor-pointer' type='button' to='/login'>Log In</Link>
           </div>
         </div>
     </div>
