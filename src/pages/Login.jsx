@@ -14,7 +14,10 @@ const Login = () => {
           <form className='flex flex-col gap-y-5'>
             <input className='p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg' type='text' placeholder='Email' ></input>
             <input className='p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg' type='password' placeholder='Password' ></input>
-            <button className='p-4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md hover:bg-[color:var(--button-hover--color)] transition delay-150 ease-in-out' type='button' >Log In</button>
+            <button className='p-4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md 
+                hover:bg-[color:var(--button-hover--color)] transition delay-150 ease-in-out' type='button' >
+                  Log In
+            </button>
           </form>
           
           {/* Other Sign in options text */}
@@ -25,11 +28,11 @@ const Login = () => {
           </div>
           
           {/* Other sign in options */}
-          <div className='grid grid-cols-2 gap-x-3 gap-y-2'>
-            <div className='p-2 border-[0.1rem] text-center font-semibold rounded-md shadow-2xl hover:bg-[color:var(--button-bg--color)] hover:border-[color:var(--button-bg--color)] transition delay-100 ease-in-out cursor-pointer'>Google</div>
-            <div className='p-2 border-[0.1rem] text-center font-semibold rounded-md shadow-2xl hover:bg-[color:var(--button-bg--color)] hover:border-[color:var(--button-bg--color)] transition delay-100 ease-in-out cursor-pointer'>Microsoft</div>
-            <div className='p-2 border-[0.1rem] text-center font-semibold rounded-md shadow-2xl hover:bg-[color:var(--button-bg--color)] hover:border-[color:var(--button-bg--color)] transition delay-100 ease-in-out cursor-pointer'>Apple</div>
-            <div className='p-2 border-[0.1rem] text-center font-semibold rounded-md shadow-2xl hover:bg-[color:var(--button-bg--color)] hover:border-[color:var(--button-bg--color)] transition delay-100 ease-in-out cursor-pointer'>Slack</div>
+          <div className='grid grid-cols-2 gap-x-4 gap-y-7'>
+            <div className='p-2 border-[0.1rem] text-center font-semibold rounded-md shadow-lg hover:bg-[color:var(--button-bg--color)] hover:border-[color:var(--button-bg--color)] transition delay-100 ease-in-out cursor-pointer'>Google</div>
+            <div className='p-2 border-[0.1rem] text-center font-semibold rounded-md shadow-lg hover:bg-[color:var(--button-bg--color)] hover:border-[color:var(--button-bg--color)] transition delay-100 ease-in-out cursor-pointer'>Microsoft</div>
+            <div className='p-2 border-[0.1rem] text-center font-semibold rounded-md shadow-lg hover:bg-[color:var(--button-bg--color)] hover:border-[color:var(--button-bg--color)] transition delay-100 ease-in-out cursor-pointer'>Apple</div>
+            <div className='p-2 border-[0.1rem] text-center font-semibold rounded-md shadow-lg hover:bg-[color:var(--button-bg--color)] hover:border-[color:var(--button-bg--color)] transition delay-100 ease-in-out cursor-pointer'>Slack</div>
           </div>
         </div>
     </div>
