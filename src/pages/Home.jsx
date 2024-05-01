@@ -24,7 +24,7 @@ const Home = () => {
 
       {/* Form Div */}
       <div className='w-[100%]'>
-        <img src={UI} className='w-[90%] shadow-xl border-[0.1rem] border-[color:var(--user-icon--bg-color--lavender)]'></img>
+        <img src={UI} className='w-[90%] shadow-2xl border-[0.1rem] border-[color:var(--user-icon--bg-color--lavender)]'></img>
       </div>
       
     </div>
