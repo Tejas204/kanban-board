@@ -15,7 +15,7 @@ const Header = () => {
         <div className='p-4 mr-[7%]'>
             <ul className='flex flex-row gap-x-16 font-semibold text-xl text-[color:var(--secondary-text--color)]'>
                 <Link className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer' to='/'>Home</Link>
-                <Link className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer' to='/' >Features</Link>
+                <Link className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer' to='/card' >Features</Link>
                 <Link className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer' to='/login' >Login</Link>
                 <Link className='hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer' to='/register' >Register</Link>
             </ul>
