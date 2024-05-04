@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Card = () => {
+const Card = ({priority}) => {
+
 
   // SVG for icons
   const messageIcon = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -16,11 +17,12 @@ const Card = () => {
                        </svg>
 
 
-
-
   return (
     // Parent div
-    <div className='flex flex-col w-1/5 rounded-sm border-l-4 border-l-[color:var(--card-priority--color-high)] bg-[color:var(--card-bg--color)]'>
+    <div className={`flex flex-col w-1/5 rounded-sm border-l-4 bg-[color:var(--card-bg--color)] 
+        ${priority == 'high' ? 'border-l-[color:var(--card-priority--color-high)]' : 
+        (priority == 'medium' ? 'border-l-[color:var(--card-priority--color-medium)]': 
+        'border-l-[color:var(--card-priority--color-low)]')}`}>
 
         {/* Content div */}
         <div className='flex flex-col px-6 py-4 border-b-2'>
@@ -33,7 +35,10 @@ const Card = () => {
                     <p className='text-[color:var(--secondary-text--color)]'>Assigned to Tejas</p>
                 </div>
                 {/* User Icon */}
-                <div className='flex justify-center items-center h-11 w-11 p-3 rounded-full bg-[color:var(--card-priority--color-high)]'>
+                <div className={`flex justify-center items-center h-11 w-11 p-3 rounded-full 
+                    ${priority == 'high' ? 'bg[color:var(--card-priority--color-high)]' : 
+                    (priority == 'medium' ? 'bg-[color:var(--card-priority--color-medium)]': 
+                    'bg-[color:var(--card-priority--color-low)]')}`}>
                     AA
                 </div>
             </div>
