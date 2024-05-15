@@ -9,4 +9,12 @@ This repository contains the code for a full stack Kanban board.
 4. Delete cards and states
 5. Update cards
 
+## Technology Stack
+
+| Technology | Command |
+| --- | --- |
+| ReactJS | npm create vite@latest |
+| React-Router-Dom | npm i react-router-dom |
+| Tailwind CSS | npm install -D tailwindcss postcss autoprefixer |
+
 
