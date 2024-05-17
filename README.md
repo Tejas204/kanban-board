@@ -17,4 +17,6 @@ This repository contains the code for a full stack Kanban board.
 | React-Router-Dom | npm i react-router-dom |
 | Tailwind CSS | npm install -D tailwindcss postcss autoprefixer |
 
+## Steps to run the application
+
 
