@@ -1,9 +1,22 @@
-# React + Vite
+# Kanban Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the code for a full stack Kanban board.
 
-Currently, two official plugins are available:
+## Features
+1. Login and authentication
+2. Create a Kanban board
+3. Create cards and states
+4. Delete cards and states
+5. Update cards
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-"# kanban-board" 
+## Technology Stack
+
+| Technology | Command |
+| --- | --- |
+| ReactJS | npm create vite@latest |
+| React-Router-Dom | npm i react-router-dom |
+| Tailwind CSS | npm install -D tailwindcss postcss autoprefixer |
+
+## Steps to run the application
+
+
