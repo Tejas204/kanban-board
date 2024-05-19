@@ -9,6 +9,7 @@ import Register from './pages/Register'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import TestCard from './pages/TestCard'
+import Board from './pages/Board'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,7 +20,7 @@ function App() {
         <Header></Header>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/card' element={<TestCard/>}/>
+          <Route path='/card' element={<Board/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
         </Routes>

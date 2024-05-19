@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <div className='flex flex-row justify-between items-center shadow-lg bg-[color:var(--header-bg--color)]'>
+    <div className='flex flex-row justify-between items-center shadow-lg bg-[color:var(--header-bg--color)] border-b-[0.1rem] border-b-[color:var(--user-icon--bg-color--lavender)]'>
         {/* Logo */}
-        <Link className='flex flex-row gap-x-5 p-4 ml-[7%] text-2xl items-center font-bold text-[color:var(--primary-text--color)]' to='/'>
+        <Link className='flex flex-row gap-x-5 p-4 ml-[2%] text-2xl items-center font-bold text-[color:var(--primary-text--color)]' to='/'>
             <img src={Kanbanize} className='h-10 w-10'></img>
             <p>Kanbanize</p>
         </Link>
