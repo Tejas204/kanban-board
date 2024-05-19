@@ -51,13 +51,13 @@ const Card = ({priority}) => {
 
         {/* Icons div */}
         <div className='flex flex-row justify-between items-center space-x-10 px-6 py-2'>
-            <div className='flex flex-row'>
+            <div className='flex flex-row text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150'>
                 <button>{messageIcon}</button>
             </div>
-            <div className='flex flex-row'>
+            <div className='flex flex-row text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150'>
                 <button>{hamburgerIcon}</button>
             </div>
-            <div className='flex flex-row space-x-2'>
+            <div className='flex flex-row space-x-2 text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150'>
                 <button>{calendarIcon}</button>
                 <p>29/8</p>
             </div>
