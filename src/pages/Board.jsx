@@ -11,12 +11,25 @@ const Board = () => {
     // Parent Div
     <div className='flex flex-row'>
         {/* Filters Div */}
-        <div className='flex flex-col w-[22%] bg-[color:var(--header-bg--color)] h-screen px-14 py-5'>
+        <div className='flex flex-col w-[21%] bg-[#151724] h-screen px-14 py-5'>
             {/* Title */}
             <div className='flex flex-row gap-10 items-center'>
                 <div className='text-[color:var(--user-icon--bg-color--lavender)]'>{filterIcon}</div>
                 <p className='text-2xl text-[color:var(--primary-text--color)]'>Filter tasks</p>
             </div>
+
+            {/* Filters */}
+            <div>
+                {/* State */}
+                <select name='state' id='state'>
+                  <option value='draft'>Draft</option>
+                  <option value='ready'>Ready</option>
+                  <option value='wip'>Work in progress</option>
+                  <option value='review'>Review</option>
+                  <option value='complete'>Complete</option>
+                </select>
+            </div>
+            
         </div>
     </div>
   )
