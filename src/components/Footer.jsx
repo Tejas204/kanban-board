@@ -17,10 +17,6 @@ const Footer = () => {
             <p>&copy; 2024 Kanbanize IND. All rights reserved</p>
         </div>
 
-
-
-
-
         {/* Menu and Social Media */}
         <div className='grid grid-cols-2'>
             {/* Menu */}
@@ -51,9 +47,6 @@ const Footer = () => {
                 </ul>
             </div>
         </div>
-
-
-
 
 
         {/* Contact Us */}
