@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Filters = () => {
+
   return (
     <div className='flex flex-col gap-y-9 w-[21%] bg-[color:var(--filter-bg--color)] h-screen px-14 py-5'>
       {/* Title */}
