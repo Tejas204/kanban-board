@@ -37,7 +37,7 @@ const Card = ({priority}) => {
                 </div>
                 {/* User Icon */}
                 <div className={`flex justify-center items-center h-11 w-11 p-3 rounded-full 
-                    ${priority == 'high' ? 'bg[color:var(--card-priority--color-high)]' : 
+                    ${priority == 'high' ? 'bg-[color:var(--card-priority--color-high)]' : 
                     (priority == 'medium' ? 'bg-[color:var(--card-priority--color-medium)]': 
                     'bg-[color:var(--card-priority--color-low)]')}`}>
                     AA

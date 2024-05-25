@@ -16,8 +16,16 @@ const Board = () => {
         <Filters></Filters>
 
         {/* Cards div */}
-        <div className='flex flex-col w-[21%] border-2 p-6'>
-            <Card></Card>
+        <div className='flex flex-col w-[21%] border-r-2'>
+          {/* Title */}
+
+          {/* Cards */}
+          <div className='flex flex-col gap-y-5 p-5'>
+              <Card priority={'low'}></Card>
+              <Card priority={'medium'}></Card>
+              <Card priority={'high'}></Card>
+          </div>
+            
         </div>
     </div>
   )
