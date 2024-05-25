@@ -1,5 +1,6 @@
 import React from 'react'
 import Filters from '../components/Filters'
+import Card from '../components/Card'
 
 const Board = () => {
 
@@ -13,6 +14,11 @@ const Board = () => {
     <div className='flex flex-row'>
         {/* Filters Div */}
         <Filters></Filters>
+
+        {/* Cards div */}
+        <div className='flex flex-col w-[21%] border-2 p-6'>
+            <Card></Card>
+        </div>
     </div>
   )
 }
