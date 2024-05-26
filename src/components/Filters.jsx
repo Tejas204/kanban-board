@@ -3,7 +3,7 @@ import React from 'react'
 const Filters = () => {
 
   return (
-    <div className='flex flex-col gap-y-9 w-[21%] bg-[color:var(--filter-bg--color)] h-screen px-14 py-5'>
+    <div className='flex flex-col gap-y-9 w-[21%] bg-[color:var(--filter-bg--color)] px-14 py-5'>
       {/* Title */}
       <div className='flex flex-row gap-10 items-center'>
           <p className='text-2xl text-[color:var(--primary-text--color)]'>Filter tasks</p>

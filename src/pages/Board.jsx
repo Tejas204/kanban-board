@@ -6,16 +6,16 @@ import Columns from '../components/Columns'
 const Board = () => {
 
 
-  const columns = ['Draft', 'Ready', 'Work in Progress', 'Review', 'Complete', 'Test'];
+  const columns = ['Draft', 'Ready', 'Work in Progress', 'Review', 'Complete'];
 
   return (
     // Parent Div
-    <div className='flex flex-row'>
+    <div className='flex flex-row h-screen'>
         {/* Filters Div */}
         <Filters></Filters>
 
         {/* Columns */}
-            <div className='flex flex-row w-screen'>
+            <div className='flex flex-row w-screen overflow-x-scroll'>
                   {columns.map((state) => {
                 return (
                   <Columns key={state}></Columns>
