@@ -9,7 +9,7 @@ const Columns = () => {
                       </svg>
 
   return (
-    <div className='flex flex-col w-[25%] shrink-0 relative border-r-2'>
+    <div className='flex flex-col w-[25%] shrink-0 relative border-r-2 border-r-[color:var(--secondary-text--color)]'>
         {/* Title */}
         <div className='flex flex-row justify-between items-center p-5'>
         <p className='text-xl text-[color:var(--primary-text--color)] font-semibold uppercase'>Draft</p>
