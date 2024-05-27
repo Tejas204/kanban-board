@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './Card'
 
-const Columns = () => {
+const Columns = ({columnTitle}) => {
 
     
   const addCardIcon = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8">
@@ -12,7 +12,7 @@ const Columns = () => {
     <div className='flex flex-col w-[25%] shrink-0 relative border-r-2 border-r-[color:var(--secondary-text--color)]'>
         {/* Title */}
         <div className='flex flex-row justify-between items-center p-5'>
-        <p className='text-xl text-[color:var(--primary-text--color)] font-semibold uppercase'>Draft</p>
+        <p className='text-xl text-[color:var(--primary-text--color)] font-semibold uppercase'>{columnTitle}</p>
         <button className='text-[color:var(--user-icon--bg-color--lavender)]'>{addCardIcon}</button>
         </div>
 

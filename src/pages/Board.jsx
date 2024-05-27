@@ -18,7 +18,7 @@ const Board = () => {
             <div className='flex flex-row w-screen overflow-x-scroll'>
                   {columns.map((state) => {
                 return (
-                  <Columns key={state}></Columns>
+                  <Columns key={state} columnTitle = {state}></Columns>
                 )
               })}
             </div>
