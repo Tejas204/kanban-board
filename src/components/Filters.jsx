@@ -38,7 +38,7 @@ const Filters = () => {
           </select>
 
           {/* Due Date */}
-          <select name='priority' id='priority' className='p-3 text-lg rounded-md bg-[color:var(--filter-bg--color)] border-[0.1rem] text-[color:var(--primary-text--color)]'>
+          <select name='dueDate' id='dueDate' className='p-3 text-lg rounded-md bg-[color:var(--filter-bg--color)] border-[0.1rem] text-[color:var(--primary-text--color)]'>
             <option value='Yesterday'>Yesterday</option>
             <option value='Today'>Today</option>
             <option value='Tomorrow'>Tomorrow</option>

@@ -5,5 +5,5 @@ Pending:
 4. COnsider icons for update, delete on the card - update card design - Done
 5. For backend: we will fetch the cards associated with each column/state and belonging to the logged in user. The title of the column will
     be the state of the cards or name of the collection. Also, we will loop over each collection to create that many columns.
-6. Column name should be dynamic
-7. Create Modal for creating card
+6. Column name should be dynamic - Done
+7. Create Modal for creating card - WIP

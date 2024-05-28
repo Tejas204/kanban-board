@@ -1,12 +1,13 @@
 import React from 'react'
 import Card from '../components/Card'
+import CardModal from '../components/CardModal';
 
 const TestCard = () => {
 
   const priority = 'low';
   return (
-    <div className='flex flex-col space-y-10 mt-[10%] ml-[10%]'>
-        <Card priority={priority}></Card>
+    <div>
+        <CardModal></CardModal>
     </div>
   )
 }
