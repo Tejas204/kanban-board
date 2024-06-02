@@ -11,7 +11,7 @@ const CardModal = () => {
     // Parent
     <div className='h-screen w-screen flex justify-center mt-40 mx-auto rounded'>
         {/* Modal */}
-        <div className='flex flex-col border-2 w-2/5 h-1/2 rounded-md px-10 py-4 gap-y-8 backdrop-blur-lg'>
+        <div className='flex flex-col border-2 w-2/5 h-fit rounded-md px-10 py-4 gap-y-8 backdrop-blur-lg'>
 
             {/* Title */}
             <div className='flex flex-row justify-between'>
@@ -30,16 +30,16 @@ const CardModal = () => {
                         <tbody>
                             <tr>
                                 <td>Enter a title</td>
-                                <td><input type='text' className='p-4 w-full text-lg rounded-md '></input></td>
+                                <td><input type='text' className='p-4 w-full text-lg rounded-md mb-2'></input></td>
                             </tr>
                             <tr>
                                 <td>Short Description</td>
-                                <td><input type='text' className='p-4 w-full text-lg rounded-md'></input></td>
+                                <td><input type='text' className='p-4 w-full text-lg rounded-md mb-2'></input></td>
                             </tr>
                             <tr>
                                 <td>Assigned to</td>
                                 <td>
-                                    <select name='newCardPriority' id='newCardPriority' className='p-4 w-full text-lg rounded-md'>
+                                    <select name='newCardPriority' id='newCardPriority' className='p-4 w-full text-lg rounded-md mb-2'>
                                         <option value='priority'>Tejas</option>
                                     </select>
                                 </td>
@@ -47,18 +47,22 @@ const CardModal = () => {
                             <tr>
                                 <td>Priority</td>
                                 <td>
-                                    <select name='newCardPriority' id='newCardPriority' className='p-4 w-full text-lg rounded-md'>
+                                    <select name='newCardPriority' id='newCardPriority' className='p-4 w-full text-lg rounded-md mb-2'>
                                         <option value='priority'>Priority</option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Short Description</td>
-                                <td><input  type="date" id="dueDate" name="dueDate" className='p-4 w-full text-lg rounded-md'></input></td>
+                                <td><input  type="date" id="dueDate" name="dueDate" className='p-4 w-full text-lg rounded-md mb-2'></input></td>
                             </tr>
                         </tbody>
                     </table>
-                    <button type='submit'>Submit</button>
+
+                    <div className='flex flex-row justify-start gap-x-10'>
+                        <button type='submit' className='p-4 w-1/4 bg-[color:var(--board-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md border-4 hover:ring-2 ring-[color:var(--background-white)] ring-offset-4 ring-offset-[color:var(--card-bg--color)] transition delay-150 ease-in-out'>Cancel</button>
+                        <button type='submit' className='p-4 w-1/4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md hover:ring-2 ring-[color:var(--button-bg--color)] ring-offset-4 ring-offset-[color:var(--card-bg--color)] transition delay-150 ease-in-out'>Submit</button>
+                    </div>
                 </form>
             </div>
         </div>      
