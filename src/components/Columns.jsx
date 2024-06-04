@@ -1,7 +1,18 @@
 import React from 'react'
 import Card from './Card'
+import { useState } from 'react'
 
-const Columns = ({columnTitle}) => {
+const Columns = ({columnTitle, setDisplayModal}) => {
+
+  // Hook: Set addCard
+  const [addCard, setAddCard] = useState(false);
+
+  // Function: handle addCard
+  const handleAddCard = () => {
+    setAddCard(!addCard);
+    setDisplayModal(addCard);
+    console.log(addCard)
+  }
 
     
   const addCardIcon = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8">
@@ -13,7 +24,7 @@ const Columns = ({columnTitle}) => {
         {/* Title */}
         <div className='flex flex-row justify-between items-center p-5'>
         <p className='text-xl text-[color:var(--primary-text--color)] font-semibold uppercase'>{columnTitle}</p>
-        <button className='text-[color:var(--user-icon--bg-color--lavender)]'>{addCardIcon}</button>
+        <button className='text-[color:var(--user-icon--bg-color--lavender)]' onClick={handleAddCard}>{addCardIcon}</button>
         </div>
 
         {/* Cards */}

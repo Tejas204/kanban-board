@@ -1,6 +1,7 @@
 import React from 'react'
+import { useState } from 'react'
 
-const CardModal = () => {
+const CardModal = ({displayModal}) => {
 
   const closeIcon = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="size-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
@@ -9,13 +10,13 @@ const CardModal = () => {
 
   return (
     // Parent
-    <div className='h-screen w-screen flex justify-center mx-auto rounded'>
+    <div className={`h-screen w-screen flex justify-center mx-auto rounded absolute ${displayModal? 'visible':'hidden'}`}>
         {/* Modal */}
-        <div className='flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm  bg-white/25'>
+        <div className='flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-white'>
 
             {/* Title */}
             <div className='flex flex-row justify-between'>
-                <p className='text-2xl font-semibold'>
+                <p className='text-3xl font-semibold text-[color:var(--board-bg--color)]'>
                     Create a card
                 </p>
                 <button>
@@ -29,15 +30,15 @@ const CardModal = () => {
                     <table>
                         <tbody>
                             <tr>
-                                <td className='text-xl'>Enter a title</td>
+                                <td className='text-xl font-semibold text-[color:var(--board-bg--color)]'>Enter a title</td>
                                 <td><input type='text' className='p-4 w-full border-[0.1rem] text-lg rounded-md mb-2'></input></td>
                             </tr>
                             <tr>
-                                <td className='text-xl'>Short Description</td>
+                                <td className='text-xl font-semibold text-[color:var(--board-bg--color)]'>Short Description</td>
                                 <td><input type='text' className='p-4 w-full border-[0.1rem] text-lg rounded-md mb-2'></input></td>
                             </tr>
                             <tr>
-                                <td className='text-xl'>Assigned to</td>
+                                <td className='text-xl font-semibold text-[color:var(--board-bg--color)]'>Assigned to</td>
                                 <td>
                                     <select name='newCardPriority' id='newCardPriority' className='p-4 w-full border-[0.1rem] text-lg rounded-md mb-2'>
                                         <option value='priority'>Tejas</option>
@@ -45,7 +46,7 @@ const CardModal = () => {
                                 </td>
                             </tr>
                             <tr>
-                                <td className='text-xl'>Priority</td>
+                                <td className='text-xl font-semibold text-[color:var(--board-bg--color)]'>Priority</td>
                                 <td>
                                     <select name='newCardPriority' id='newCardPriority' className='p-4 w-full border-[0.1rem] text-lg rounded-md mb-2'>
                                         <option value='priority'>Priority</option>
@@ -53,7 +54,7 @@ const CardModal = () => {
                                 </td>
                             </tr>
                             <tr>
-                                <td className='text-xl'>Short Description</td>
+                                <td className='text-xl text-[color:var(--board-bg--color)]'>Short Description</td>
                                 <td><input  type="date" id="dueDate" name="dueDate" className='p-4 w-full border-[0.1rem] text-lg rounded-md mb-2'></input></td>
                             </tr>
                         </tbody>
