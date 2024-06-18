@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Filters from '../components/Filters'
 import Card from '../components/Card'
 import Columns from '../components/Columns'
@@ -8,7 +8,9 @@ import { useState } from 'react'
 const Board = () => {
 
   // Hook: Controls modal display
-  const [displayModal, setDisplayModal] = useState(false);
+  const [displayModal, setDisplayModal] = useState();
+  console.log("Board "+displayModal)
+
 
 
   const columns = ['Draft', 'Ready', 'Work in Progress', 'Review', 'Complete'];
