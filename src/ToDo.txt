@@ -7,4 +7,6 @@ Pending:
     be the state of the cards or name of the collection. Also, we will loop over each collection to create that many columns.
 6. Column name should be dynamic - Done
 7. Create Modal for creating card - Done
-8. Add hook to display modal on click
+8. Add hook to display modal on click - Done
+9. Add hook to close the modal
+10.
