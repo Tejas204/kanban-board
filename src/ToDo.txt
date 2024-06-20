@@ -9,4 +9,4 @@ Pending:
 7. Create Modal for creating card - Done
 8. Add hook to display modal on click - Done
 9. Add hook to close the modal
-10.
+10. Establish basic auth
