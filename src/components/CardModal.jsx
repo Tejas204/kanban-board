@@ -1,11 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 
-const CardModal = ({displayModal}) => {
+const CardModal = ({displayModal, setDisplayModal}) => {
 
+  /**
+   * Set close icon
+   */
   const closeIcon = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="black" class="size-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
+  
+  /**
+   * @Hook: setCloseCardModal
+   * Set value of closeCardModal
+   */
+  const [closeCardModal, setCloseCardModal] = useState(false);
+
+  /**
+   * @Function: handleCardModalClose
+   * Params: None
+   * Returns: none
+   * Sets value of closeCardModal
+   */
+  const handleCardModalClose = () => {
+    setCloseCardModal(!closeCardModal);
+  }
+
+  /**
+   * @Hook: Runs on every update to closeCardModal
+   */
+  useEffect(() => {
+    setDisplayModal(closeCardModal);
+  }, [closeCardModal]);
 
 
   return (
@@ -19,7 +45,7 @@ const CardModal = ({displayModal}) => {
                 <p className='text-3xl font-semibold text-[color:var(--board-bg--color)]'>
                     Create a card
                 </p>
-                <button>
+                <button onClick={handleCardModalClose}>
                     {closeIcon}
                 </button>
             </div>

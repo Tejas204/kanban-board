@@ -7,13 +7,18 @@ import { useState } from 'react'
 
 const Board = () => {
 
-  // Hook: Controls modal display
-  const [displayModal, setDisplayModal] = useState();
-  console.log("Board "+displayModal)
-
-
-
+  /**
+ * Set variables
+ */
   const columns = ['Draft', 'Ready', 'Work in Progress', 'Review', 'Complete'];
+
+  /**
+   * @Hook: setDisplayModal
+   * Controls create card modal display
+   */
+  const [displayModal, setDisplayModal] = useState();
+  console.log("Board: "+displayModal);
+
 
   return (
     // Parent Div
@@ -29,7 +34,7 @@ const Board = () => {
                 )
               })}
             </div>
-            <CardModal displayModal={displayModal}></CardModal>
+            <CardModal displayModal={displayModal} setDisplayModal={setDisplayModal}></CardModal>
           </div>
   )
 }
