@@ -4,15 +4,25 @@ import { useState } from 'react'
 
 const Columns = ({columnTitle, setDisplayModal}) => {
 
-  // Hook: Set addCard
+  /**
+   * @Hook: setAddCard
+   * Set addCard as true when user clicks on add icon
+   */
   const [addCard, setAddCard] = useState(false);
 
-  // Function: handle addCard
+  /*
+  * @Function: handleAddCard
+  * Params: none
+  * Sets the value of addCard using setAddCard
+  */
   const handleAddCard = () => {
     setAddCard(!addCard);
-    setDisplayModal(addCard);
   }
 
+  /**
+   * @Hook: Passes value of addCard to Parent Component: Board.jsx
+   * Runs on every update to addCard
+   */
   useEffect(() => {
     setDisplayModal(addCard);
   }, [addCard])
@@ -23,12 +33,11 @@ const Columns = ({columnTitle, setDisplayModal}) => {
 
   return (
     <div className='flex flex-col w-[25%] shrink-0 relative border-r-2 border-r-[color:var(--secondary-text--color)]'>
+
         {/* Title */}
-        
         <div className='flex flex-row justify-between items-center p-5'>
-        <p className='text-xl text-[color:var(--primary-text--color)] font-semibold uppercase'>{columnTitle}</p>
-        <button className='text-[color:var(--user-icon--bg-color--lavender)]' onClick={handleAddCard}>{addCardIcon}</button>
-        <p className='text-white'>Add card: {addCard}</p>
+          <p className='text-xl text-[color:var(--primary-text--color)] font-semibold uppercase'>{columnTitle}</p>
+          <button className='text-[color:var(--user-icon--bg-color--lavender)]' onClick={handleAddCard}>{addCardIcon}</button>
         </div>
 
         {/* Cards */}
