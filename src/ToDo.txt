@@ -8,5 +8,5 @@ Pending:
 6. Column name should be dynamic - Done
 7. Create Modal for creating card - Done
 8. Add hook to display modal on click - Done
-9. Add hook to close the modal - Idea to pass data between parent and child, unnecessary hook save
+9. Add hook to close the modal - try using useContext or useRef
 10. Establish basic auth
