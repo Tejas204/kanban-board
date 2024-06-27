@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 
-const CardModal = ({displayModal, setDisplayModal}) => {
+const CardModal = ({displayModal, hideModal}) => {
 
   /**
    * Set close icon
@@ -14,7 +14,7 @@ const CardModal = ({displayModal, setDisplayModal}) => {
    * @Hook: setCloseCardModal
    * Set value of closeCardModal
    */
-  const [closeCardModal, setCloseCardModal] = useState(false);
+//   const [closeCardModal, setCloseCardModal] = useState(false);
 
   /**
    * @Function: handleCardModalClose
@@ -22,21 +22,21 @@ const CardModal = ({displayModal, setDisplayModal}) => {
    * Returns: none
    * Sets value of closeCardModal
    */
-  const handleCardModalClose = () => {
-    setCloseCardModal(!closeCardModal);
-  }
+//   const handleCardModalClose = () => {
+//     setCloseCardModal(!closeCardModal);
+//   }
 
   /**
    * @Hook: Runs on every update to closeCardModal
    */
-  useEffect(() => {
-    setDisplayModal(closeCardModal);
-  }, [closeCardModal]);
+//   useEffect(() => {
+//     setDisplayModal(closeCardModal);
+//   }, [closeCardModal]);
 
 
   return (
     // Parent
-    <div className={`h-screen w-screen flex justify-center mx-auto rounded absolute ${displayModal? 'visible':'hidden'}`}>
+    <div className={`z-10 h-screen w-screen flex justify-center mx-auto rounded absolute ${displayModal? 'visible':'hidden'}`}>
         {/* Modal */}
         <div className='flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]'>
 
@@ -45,7 +45,7 @@ const CardModal = ({displayModal, setDisplayModal}) => {
                 <p className='text-3xl font-semibold text-[color:var(--board-bg--color)]'>
                     Create a card
                 </p>
-                <button onClick={handleCardModalClose}>
+                <button onClick={hideModal}>
                     {closeIcon}
                 </button>
             </div>

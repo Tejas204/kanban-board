@@ -16,7 +16,7 @@ const Board = () => {
    * @Hook: setDisplayModal
    * Controls create card modal display
    */
-  const [displayModal, setDisplayModal] = useState();
+  const [displayModal, setDisplayModal] = useState(false);
   console.log("Board: "+displayModal);
 
 
@@ -34,7 +34,7 @@ const Board = () => {
                 )
               })}
             </div>
-            <CardModal displayModal={displayModal} setDisplayModal={setDisplayModal}></CardModal>
+            {/* <CardModal displayModal={displayModal} setDisplayModal={setDisplayModal}></CardModal> */}
           </div>
   )
 }
