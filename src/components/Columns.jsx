@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Card from './Card'
 import { useState } from 'react'
-import CardModal from './CardModal';
 
-const Columns = ({columnTitle}) => {
+const Columns = ({columnTitle, setCardModal, cardModal}) => {
 
   /**
    * @Hook: setDisplayModal
@@ -11,31 +10,32 @@ const Columns = ({columnTitle}) => {
    */
   const [displayModal, setDisplayModal] = useState(false);
 
+
   /*
   * @Function: showModal
   * Params: none
   * Displays the modal
   */
   const showModal = () => {
-    setDisplayModal(true);
+    setDisplayModal(!displayModal);
   }
 
-  /*
-  * @Function: hideModal
-  * Params: none
-  * Displays the modal
-  */
-  const hideModal = () => {
-    setDisplayModal(false);
-  }
+  // /*
+  // * @Function: hideModal
+  // * Params: none
+  // * Displays the modal
+  // */
+  // const hideModal = () => {
+  //   setDisplayModal(false);
+  // }
 
   /**
-   * @Hook: Passes value of addCard to Parent Component: Board.jsx
+   * @Hook: Passes value of displayModal to Parent Component: Board.jsx
    * Runs on every update to addCard
    */
-  // useEffect(() => {
-  //   setDisplayModal(show);
-  // }, [show])
+  useEffect(() => {
+    setCardModal(!displayModal);
+  }, [displayModal])
     
   const addCardIcon = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -55,7 +55,7 @@ const Columns = ({columnTitle}) => {
             <Card priority={'low'}></Card>
         </div>
 
-        <CardModal displayModal={displayModal} hideModal={hideModal}></CardModal>
+        {/* <CardModal displayModal={displayModal} hideModal={hideModal}></CardModal> */}
     </div>
   )
 }

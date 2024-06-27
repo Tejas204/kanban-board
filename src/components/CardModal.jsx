@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 
-const CardModal = ({displayModal, hideModal}) => {
+const CardModal = ({cardModal, hideModal}) => {
 
   /**
    * Set close icon
@@ -9,34 +9,11 @@ const CardModal = ({displayModal, hideModal}) => {
   const closeIcon = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="black" class="size-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
-  
-  /**
-   * @Hook: setCloseCardModal
-   * Set value of closeCardModal
-   */
-//   const [closeCardModal, setCloseCardModal] = useState(false);
-
-  /**
-   * @Function: handleCardModalClose
-   * Params: None
-   * Returns: none
-   * Sets value of closeCardModal
-   */
-//   const handleCardModalClose = () => {
-//     setCloseCardModal(!closeCardModal);
-//   }
-
-  /**
-   * @Hook: Runs on every update to closeCardModal
-   */
-//   useEffect(() => {
-//     setDisplayModal(closeCardModal);
-//   }, [closeCardModal]);
 
 
   return (
     // Parent
-    <div className={`z-10 h-screen w-screen flex justify-center mx-auto rounded absolute ${displayModal? 'visible':'hidden'}`}>
+    <div className={`z-10 h-screen w-screen flex justify-center mx-auto rounded absolute ${cardModal? 'visible':'hidden'}`}>
         {/* Modal */}
         <div className='flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]'>
 
