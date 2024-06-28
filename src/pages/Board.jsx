@@ -8,7 +8,7 @@ import { useState } from 'react'
 const Board = () => {
 
   /**
- * Set variables
+ * @States: Set variables
  */
   const columns = ['Draft', 'Ready', 'Work in Progress', 'Review', 'Complete'];
 

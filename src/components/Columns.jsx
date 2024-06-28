@@ -2,14 +2,34 @@ import React, { useEffect, useRef } from 'react'
 import Card from './Card'
 import { useState } from 'react'
 
+
+/**
+ * @Function: useDidMount
+ * Returns: didMount; boolean
+ * Initialize didMount as false
+ * Set didMount to true upon mounting
+ */
+function useDidMount() {
+  const mountRef = useRef(false);
+
+  useEffect(() => { mountRef.current = true }, []);
+  
+  return () => mountRef.current;
+}
+
 const Columns = ({columnTitle, setCardModal, cardModal}) => {
+
+  /**
+   * @Call: useDidMount
+   * Allows the state to persist between re-renders
+   */
+  const didMount = useDidMount();
 
   /**
    * @Hook: setDisplayModal
    * Set displayModal as true when user clicks on add icon
    */
   const [displayModal, setDisplayModal] = useState(false);
-
 
   /*
   * @Function: showModal
@@ -20,21 +40,15 @@ const Columns = ({columnTitle, setCardModal, cardModal}) => {
     setDisplayModal(!displayModal);
   }
 
-  // /*
-  // * @Function: hideModal
-  // * Params: none
-  // * Displays the modal
-  // */
-  // const hideModal = () => {
-  //   setDisplayModal(false);
-  // }
-
   /**
    * @Hook: Passes value of displayModal to Parent Component: Board.jsx
-   * Runs on every update to addCard
+   * Runs on every update to addCard and every component mount
    */
   useEffect(() => {
-    setCardModal(!displayModal);
+    if(didMount){
+      setCardModal(!cardModal);
+    }
+    
   }, [displayModal])
     
   const addCardIcon = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8">
