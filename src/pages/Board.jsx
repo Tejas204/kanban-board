@@ -16,7 +16,7 @@ const Board = () => {
    * @Hook: setCardModal
    * Controls create card modal display
    */
-  const [cardModal, setCardModal] = useState();
+  const [cardModal, setCardModal] = useState(false);
 
   /*
   * @Function: hideModal
