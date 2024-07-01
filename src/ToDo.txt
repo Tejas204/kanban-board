@@ -10,3 +10,4 @@ Pending:
 8. Add hook to display modal on click - Done
 9. Add hook to close the modal - Done
 10. Establish basic auth
+11. Make the card modal resuable, like instance options

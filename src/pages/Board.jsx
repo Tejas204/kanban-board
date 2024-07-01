@@ -18,12 +18,6 @@ const Board = () => {
    */
   const [showModal, setShowModal] = useState(false);
 
-  /**
-   * @Hook: setAddState
-   * Controls state modal display
-   */
-  const[addState, setAddState] = useState(false);
-
   /*
   * @Function: hideModal
   * Params: none
@@ -33,6 +27,11 @@ const Board = () => {
     setShowModal(!showModal);
   }
 
+  /*
+  * @Function: handleAddState
+  * Params: none
+  * Displays the modal
+  */
   const handleAddState = () => {
     setShowModal(!showModal);
   }
