@@ -29,21 +29,27 @@ const Board = () => {
 
 
   return (
-    // Parent Div
     <div className='flex flex-row h-screen'>
         {/* Filters Div */}
         <Filters></Filters>
 
         {/* Columns */}
-            <div className='flex flex-row w-screen overflow-x-scroll'>
-                  {columns.map((state) => {
-                return (
-                  <Columns key={state} columnTitle = {state} setShowModal={setShowModal} showModal={showModal}></Columns>
-                )
-              })}
-            </div>
-            <CardModal showModal={showModal} hideModal={hideModal}></CardModal>
-          </div>
+        <div className='flex flex-row w-screen overflow-x-scroll'>
+              {columns.map((state) => {
+            return (
+              <Columns key={state} columnTitle = {state} setShowModal={setShowModal} showModal={showModal}></Columns>
+            )
+          })}
+        </div>
+
+        {/* Card Modal */}
+        <CardModal showModal={showModal} hideModal={hideModal}></CardModal>
+
+        {/* Add state button */}
+        <button className='absolute bottom-0 right-10 px-6 py-4 rounded-lg bg-[color:var(--user-icon--bg-color--blue)] font-semibold hover:ring-2 ring-offset-4 ring-offset-[color:var(--filter-bg--color)] ring-[color:var(--user-icon--bg-color--blue)]'>
+            Add State
+        </button>
+      </div>
   )
 }
 
