@@ -16,7 +16,7 @@ const Board = () => {
    * @Hook: setCardModal
    * Controls create card modal display
    */
-  const [cardModal, setCardModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   /*
   * @Function: hideModal
@@ -24,7 +24,7 @@ const Board = () => {
   * Displays the modal
   */
   const hideModal = () => {
-    setCardModal(!cardModal);
+    setShowModal(!showModal);
   }
 
 
@@ -38,11 +38,11 @@ const Board = () => {
             <div className='flex flex-row w-screen overflow-x-scroll'>
                   {columns.map((state) => {
                 return (
-                  <Columns key={state} columnTitle = {state} setCardModal={setCardModal} cardModal={cardModal}></Columns>
+                  <Columns key={state} columnTitle = {state} setShowModal={setShowModal} showModal={showModal}></Columns>
                 )
               })}
             </div>
-            <CardModal cardModal={cardModal} hideModal={hideModal}></CardModal>
+            <CardModal showModal={showModal} hideModal={hideModal}></CardModal>
           </div>
   )
 }

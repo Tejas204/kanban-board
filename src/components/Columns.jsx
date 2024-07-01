@@ -20,7 +20,7 @@ export const useDidMount = () =>{
 
 
 
-const Columns = ({columnTitle, setCardModal, cardModal}) => {
+const Columns = ({columnTitle, setShowModal, showModal}) => {
 
   /**
    * @Call: useDidMount
@@ -40,7 +40,7 @@ const Columns = ({columnTitle, setCardModal, cardModal}) => {
   * Params: none
   * Displays the modal
   */
-  const showModal = () => {
+  const handleShowModal = () => {
     setDisplayModal(!displayModal);
   }
 
@@ -50,7 +50,7 @@ const Columns = ({columnTitle, setCardModal, cardModal}) => {
    */
   useEffect(() => {
     if(!isMount){
-      setCardModal(!cardModal);
+      setShowModal(!showModal);
     } 
   }, [displayModal])
     
@@ -64,7 +64,7 @@ const Columns = ({columnTitle, setCardModal, cardModal}) => {
         {/* Title */}
         <div className='flex flex-row justify-between items-center p-5'>
           <p className='text-xl text-[color:var(--primary-text--color)] font-semibold uppercase'>{columnTitle}</p>
-          <button className='text-[color:var(--user-icon--bg-color--lavender)]' onClick={showModal}>{addCardIcon}</button>
+          <button className='text-[color:var(--user-icon--bg-color--lavender)]' onClick={handleShowModal}>{addCardIcon}</button>
         </div>
 
         {/* Cards */}
@@ -72,7 +72,6 @@ const Columns = ({columnTitle, setCardModal, cardModal}) => {
             <Card priority={'low'}></Card>
         </div>
 
-        {/* <CardModal displayModal={displayModal} hideModal={hideModal}></CardModal> */}
     </div>
   )
 }
