@@ -18,13 +18,24 @@ const Board = () => {
    */
   const [showModal, setShowModal] = useState(false);
 
+  /**
+   * @Hook: setAddState
+   * Controls card modal display
+   */
+  const [addState, setAddState] = useState(false);
+
   /*
   * @Function: hideModal
   * Params: none
   * Displays the modal
   */
   const hideModal = () => {
-    setShowModal(!showModal);
+    if(showModal){
+      setShowModal(!showModal);
+    }
+    else if(addState){
+      setAddState(!addState);
+    }
   }
 
   /*
@@ -33,7 +44,7 @@ const Board = () => {
   * Displays the modal
   */
   const handleAddState = () => {
-    setShowModal(!showModal);
+    setAddState(!addState);
   }
 
 
@@ -52,7 +63,7 @@ const Board = () => {
         </div>
 
         {/* Card Modal */}
-        <CardModal showModal={showModal} hideModal={hideModal}></CardModal>
+        <CardModal showModal={showModal} addState={addState} hideModal={hideModal}></CardModal>
 
         {/* Add state button */}
         <button onClick={handleAddState} className='absolute bottom-0 right-10 px-6 py-4 rounded-lg bg-[color:var(--user-icon--bg-color--blue)] font-semibold hover:ring-2 ring-offset-4 ring-offset-[color:var(--filter-bg--color)] ring-[color:var(--user-icon--bg-color--blue)]'>
