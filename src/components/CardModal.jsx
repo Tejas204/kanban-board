@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 
-const CardModal = ({showModal, hideModal}) => {
+const CardModal = ({showModal, addState,hideModal}) => {
 
   /**
    * @Icon: Set close icon
@@ -12,7 +12,7 @@ const CardModal = ({showModal, hideModal}) => {
 
 
   return (
-    // Parent
+    
     <div className={`z-10 h-screen w-screen flex justify-center mx-auto rounded absolute ${showModal? 'visible':'hidden'}`}>
         {/* Modal */}
         <div className='flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]'>
