@@ -54,7 +54,7 @@ const Board = () => {
         <Filters></Filters>
 
         {/* Columns */}
-        <div className='flex flex-row w-screen overflow-x-scroll'>
+        <div className='flex flex-row w-screen overflow-x-auto'>
               {columns.map((state) => {
             return (
               <Columns key={state} columnTitle = {state} setShowModal={setShowModal} showModal={showModal}></Columns>
