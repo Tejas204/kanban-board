@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Footer from './Footer'
 
-const Card = ({priority}) => {
+const Card = ({id, title, short_description, assigned_to, priority}) => {
+    console.log(title);
 
 
   // SVG for icons
@@ -39,8 +40,8 @@ const Card = ({priority}) => {
             <div className='flex flex-row justify-between pb-4'>
                 {/* Title and assignment */}
                 <div className='flex flex-col'>
-                    <p className='text-xl font-semibold'>Create blog content</p>
-                    <p className='text-[color:var(--secondary-text--color)]'>Assigned to Tejas</p>
+                    <p className='text-xl font-semibold'>{title}</p>
+                    <p className='text-[color:var(--secondary-text--color)]'>Assigned to: {assigned_to}</p>
                 </div>
                 {/* User Icon */}
                 <div className={`flex justify-center items-center h-11 w-11 p-3 rounded-full 
@@ -53,7 +54,7 @@ const Card = ({priority}) => {
 
             {/* Short description */}
             <div className='text-[color:var(--primary-text--color)]'>
-                <p>Write a blog about your design process and get it ready for publishing</p>
+                <p>{short_description}</p>
             </div>
         </div>
 

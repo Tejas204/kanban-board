@@ -4,13 +4,16 @@ import Card from '../components/Card'
 import Columns from '../components/Columns'
 import CardModal from '../components/CardModal'
 import { useState } from 'react'
+import { SortableContext } from '@dnd-kit/sortable'
+import { DndContext } from '@dnd-kit/core'
+import { stateArray } from '../data/tasks'
 
 const Board = () => {
 
   /**
  * @States: Set variables
  */
-  const columns = ['Draft', 'Ready', 'Work in Progress', 'Review', 'Complete'];
+  const [columns, setColumns] = useState(stateArray);
 
   /**
    * @Hook: setCardModal
@@ -54,13 +57,15 @@ const Board = () => {
         <Filters></Filters>
 
         {/* Columns */}
-        <div className='flex flex-row w-screen overflow-x-auto'>
-              {columns.map((state) => {
-            return (
-              <Columns key={state} columnTitle = {state} setShowModal={setShowModal} showModal={showModal}></Columns>
-            )
-          })}
-        </div>
+          <div className='flex flex-row w-screen overflow-x-auto'>
+                {columns.map((column) => {
+                  return (
+                      <Columns key={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
+                          )
+                    }
+                  )
+                }
+          </div>
 
         {/* Card Modal */}
         <CardModal showModal={showModal} addState={addState} hideModal={hideModal}></CardModal>
