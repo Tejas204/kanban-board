@@ -11,3 +11,4 @@ Pending:
 9. Add hook to close the modal - Done
 10. Establish basic auth
 11. Make the card modal resuable, like instance options - done
+14. start backend development.
