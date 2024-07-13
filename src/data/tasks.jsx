@@ -14,35 +14,7 @@ export const cardArray = [
         'priority': "medium"
       },
       {
-        'id': 4,
-        'title': "Improve UI",
-        'short_description': 'Redesign card UI',
-        'assigned_to': "Omkar Ghagare",
-        'priority': "low"
-      },
-      {
-        'id': 5,
-        'title': "Improve UI",
-        'short_description': 'Redesign card UI',
-        'assigned_to': "Omkar Ghagare",
-        'priority': "low"
-      },
-      {
-        'id': 6,
-        'title': "Improve UI",
-        'short_description': 'Redesign card UI',
-        'assigned_to': "Omkar Ghagare",
-        'priority': "low"
-      },
-      {
-        'id': 7,
-        'title': "Improve UI",
-        'short_description': 'Redesign card UI',
-        'assigned_to': "Omkar Ghagare",
-        'priority': "low"
-      },
-      {
-        'id': 8,
+        'id': 3,
         'title': "Improve UI",
         'short_description': 'Redesign card UI',
         'assigned_to': "Omkar Ghagare",

@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import Card from './Card'
 import { useState } from 'react'
 import {cardArray} from '../data/tasks'
+import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
 
   /**
  * @Function: useDidMount
@@ -21,7 +22,7 @@ export const useDidMount = () =>{
 
 
 
-const Columns = ({columnTitle, setShowModal, showModal}) => {
+const Columns = ({cards, columnTitle, setShowModal, showModal}) => {
 
   /**
    * @Call: useDidMount
@@ -55,10 +56,6 @@ const Columns = ({columnTitle, setShowModal, showModal}) => {
     } 
   }, [displayModal])
 
-  /**
-   * @Hook: sets cardArray
-   */
-  const [cards, setCards] = useState(cardArray);
     
   /**
    * Icon
@@ -77,15 +74,17 @@ const Columns = ({columnTitle, setShowModal, showModal}) => {
         </div>
 
         {/* Cards */}
-        <div className='flex flex-col gap-y-7 p-7'>
-          {
-            cards.map((card) => {
-              return(
-                <Card key={card.id} id={card.id} title={card.title} short_description={card.short_description} assigned_to={card.assigned_to} priority={card.priority}></Card>
-              )
-            })
-          }
-        </div>
+        <SortableContext items={cards} strategy={verticalListSortingStrategy}>
+          <div className='flex flex-col gap-y-7 p-7'>
+            {
+              cards.map((card) => {
+                return(
+                  <Card key={card.id} id={card.id} title={card.title} short_description={card.short_description} assigned_to={card.assigned_to} priority={card.priority}></Card>
+                )
+              })
+            }
+          </div>
+        </SortableContext>
 
     </div>
   )

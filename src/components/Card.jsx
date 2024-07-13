@@ -1,8 +1,19 @@
 import React, { useState } from 'react'
 import Footer from './Footer'
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 
 const Card = ({id, title, short_description, assigned_to, priority}) => {
-    console.log(title);
+
+  /**
+   * @Hook: set useSortable
+   */
+  const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id});
+
+  const style = {
+    transition,
+    transform: CSS.Transform.toString(transform)
+  };
 
 
   // SVG for icons
@@ -31,7 +42,11 @@ const Card = ({id, title, short_description, assigned_to, priority}) => {
     <div className={`flex flex-col rounded-sm border-l-8 bg-[color:var(--card-bg--color)] 
         ${priority == 'high' ? 'border-l-[color:var(--card-priority--color-high)]' : 
         (priority == 'medium' ? 'border-l-[color:var(--card-priority--color-medium)]': 
-        'border-l-[color:var(--card-priority--color-low)]')}`}>
+        'border-l-[color:var(--card-priority--color-low)]')}`}
+        ref={setNodeRef}
+        {...attributes}
+        {...listeners}
+        style={style}>
 
         {/* Content div */}
         <div className='flex flex-col px-6 py-4 border-b-2'>

@@ -5,8 +5,8 @@ import Columns from '../components/Columns'
 import CardModal from '../components/CardModal'
 import { useState } from 'react'
 import { SortableContext } from '@dnd-kit/sortable'
-import { DndContext } from '@dnd-kit/core'
-import { stateArray } from '../data/tasks'
+import { closestCorners, DndContext } from '@dnd-kit/core'
+import { stateArray, cardArray } from '../data/tasks'
 
 const Board = () => {
 
@@ -14,6 +14,12 @@ const Board = () => {
  * @States: Set variables
  */
   const [columns, setColumns] = useState(stateArray);
+
+  
+  /**
+   * @Hook: sets cardArray
+   */
+  const [cards, setCards] = useState(cardArray);
 
   /**
    * @Hook: setCardModal
@@ -50,6 +56,25 @@ const Board = () => {
     setAddState(!addState);
   }
 
+  /**
+   * @Function: handleDragEnd
+   * Params: event
+   */
+  const handleDragEnd = (e) => {
+    const {active, over} = e;
+
+    if(active.id === over.id) return;
+
+
+    setTasks((cards) => {
+      const originalPos = getTaskIndex(active.id);
+      const newPos = getTaskIndex(over.id);
+
+      console.log(arrayMove(cards, 1, 2));
+      return arrayMove(cards, originalPos, newPos);
+    });
+  };
+
 
   return (
     <div className='flex flex-row h-screen'>
@@ -57,15 +82,17 @@ const Board = () => {
         <Filters></Filters>
 
         {/* Columns */}
+        <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
           <div className='flex flex-row w-screen overflow-x-auto'>
                 {columns.map((column) => {
                   return (
-                      <Columns key={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
+                      <Columns cards={cards} key={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
                           )
                     }
                   )
                 }
           </div>
+        </DndContext>
 
         {/* Card Modal */}
         <CardModal showModal={showModal} addState={addState} hideModal={hideModal}></CardModal>
