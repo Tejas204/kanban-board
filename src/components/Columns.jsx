@@ -22,7 +22,7 @@ export const useDidMount = () =>{
 
 
 
-const Columns = ({cards, columnTitle, setShowModal, showModal}) => {
+const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
 
   /**
    * @Call: useDidMount
@@ -78,9 +78,11 @@ const Columns = ({cards, columnTitle, setShowModal, showModal}) => {
           <div className='flex flex-col gap-y-7 p-7'>
             {
               cards.map((card) => {
-                return(
-                  <Card key={card.id} id={card.id} title={card.title} short_description={card.short_description} assigned_to={card.assigned_to} priority={card.priority}></Card>
-                )
+                if(card.state_id == columnId){
+                  return(
+                    <Card key={card.id} id={card.id} title={card.title} short_description={card.short_description} assigned_to={card.assigned_to} priority={card.priority} state_id={card.state_id}></Card>
+                  )
+                }
               })
             }
           </div>

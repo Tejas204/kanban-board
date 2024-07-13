@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { SortableContext } from '@dnd-kit/sortable'
 import { closestCorners, DndContext } from '@dnd-kit/core'
 import { stateArray, cardArray } from '../data/tasks'
+import { arrayMove } from '@dnd-kit/sortable'
 
 const Board = () => {
 
@@ -57,8 +58,18 @@ const Board = () => {
   }
 
   /**
+   * @Function: Return index of dragged card
+   * Params: card id <Int>
+   * Returns: index <Int>
+   */
+  const getTaskIndex = (id) => {
+    return cards.findIndex(card => card.id === id);
+  }
+
+  /**
    * @Function: handleDragEnd
-   * Params: event
+   * Params: event <obj>
+   * Returns: array[<obj>]
    */
   const handleDragEnd = (e) => {
     const {active, over} = e;
@@ -66,7 +77,7 @@ const Board = () => {
     if(active.id === over.id) return;
 
 
-    setTasks((cards) => {
+    setCards((cards) => {
       const originalPos = getTaskIndex(active.id);
       const newPos = getTaskIndex(over.id);
 
@@ -86,7 +97,7 @@ const Board = () => {
           <div className='flex flex-row w-screen overflow-x-auto'>
                 {columns.map((column) => {
                   return (
-                      <Columns cards={cards} key={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
+                      <Columns cards={cards} key={column.id} columnId={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
                           )
                     }
                   )

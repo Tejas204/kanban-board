@@ -3,7 +3,7 @@ import Footer from './Footer'
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
-const Card = ({id, title, short_description, assigned_to, priority}) => {
+const Card = ({id, title, short_description, assigned_to, priority, state_id}) => {
 
   /**
    * @Hook: set useSortable
