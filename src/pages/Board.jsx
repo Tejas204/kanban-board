@@ -4,7 +4,7 @@ import Card from '../components/Card'
 import Columns from '../components/Columns'
 import CardModal from '../components/CardModal'
 import { useState } from 'react'
-import { SortableContext } from '@dnd-kit/sortable'
+import { arraySwap, SortableContext } from '@dnd-kit/sortable'
 import { closestCorners, DndContext } from '@dnd-kit/core'
 import { stateArray, cardArray } from '../data/tasks'
 import { arrayMove } from '@dnd-kit/sortable'
@@ -58,12 +58,23 @@ const Board = () => {
   }
 
   /**
-   * @Function: Return index of dragged card
+   * @Function: Return state of dragged card
    * Params: card id <Int>
    * Returns: index <Int>
    */
-  const getTaskIndex = (id) => {
-    return cards.findIndex(card => card.id === id);
+  const getCardId = (id) => {
+    //return cards.findIndex(card => card.id === id);
+    return cards.find(card => card.id === id);
+  }
+
+  /**
+   * @Function: Return state of column
+   * Params: none
+   * Returns: state_id <Int>
+   */
+  const getStateId = (id) => {
+    //return cards.findIndex(card => card.id === id);
+    return columns.find(column => column.id === id);
   }
 
   /**
@@ -74,16 +85,23 @@ const Board = () => {
   const handleDragEnd = (e) => {
     const {active, over} = e;
 
-    if(active.id === over.id) return;
+    //if(active.id === over.id) return;
+
+    if (over && over.data.current.accepts.includes(active.data.current.type)) {
+      // do stuff
+      const cardObject = getCardId(active.id);
+      const newState = getStateId(over.id);
+      cardObject.state_id = newState;
+    }
 
 
-    setCards((cards) => {
-      const originalPos = getTaskIndex(active.id);
-      const newPos = getTaskIndex(over.id);
+    // setCards((cards) => {
+    //   const originalPos = getTaskIndex(active.id);
+    //   const newPos = getTaskIndex(over.id);
 
-      console.log(arrayMove(cards, 1, 2));
-      return arrayMove(cards, originalPos, newPos);
-    });
+    //   console.log(arrayMove(cards, 1, 2));
+    //   return arrayMove(cards, originalPos, newPos);
+    // });
   };
 
 

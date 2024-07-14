@@ -2,13 +2,19 @@ import React, { useState } from 'react'
 import Footer from './Footer'
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+import { useDraggable } from '@dnd-kit/core';
 
 const Card = ({id, title, short_description, assigned_to, priority, state_id}) => {
 
   /**
    * @Hook: set useSortable
    */
-  const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id});
+  const {attributes, listeners, setNodeRef, transform, transition} = useDraggable({
+    id: id,
+    data: {
+        type: 'card',
+    },
+});
 
   const style = {
     transition,

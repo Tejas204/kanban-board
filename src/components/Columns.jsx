@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react'
 import Card from './Card'
 import { useState } from 'react'
 import {cardArray} from '../data/tasks'
-import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { horizontalListSortingStrategy, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { useDroppable } from '@dnd-kit/core'
 
   /**
  * @Function: useDidMount
@@ -56,6 +57,16 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
     } 
   }, [displayModal])
 
+  /**
+   * @Function: Droppable
+   */
+  const {setNodeRef} = useDroppable({
+    id: columnId,
+    data: {
+      accepts: ['card'],
+    },
+  })
+
     
   /**
    * Icon
@@ -65,7 +76,7 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
                       </svg>
 
   return (
-    <div className='flex flex-col h-[100%] w-[28%] shrink-0 relative border-r-2 border-r-[color:var(--secondary-text--color)] overflow-auto no-scrollbar'>
+    <div ref={setNodeRef} className='flex flex-col h-[100%] w-[28%] shrink-0 relative border-r-2 border-r-[color:var(--secondary-text--color)] overflow-auto no-scrollbar'>
 
         {/* Title */}
         <div className='flex flex-row justify-between items-center p-5'>
