@@ -77,6 +77,7 @@ const Board = () => {
 
   /**
    * @Function: handleDragEnd
+   * Update the state of dragged card
    * Params: event <obj>
    * Returns: array[<obj>]
    */
@@ -84,10 +85,9 @@ const Board = () => {
     const {active, over} = e;
 
     if (over && over.data.current.accepts.includes(active.data.current.type)) {
-      // do stuff
       const cardObject = getCardId(active.id);
       const newState = getStateId(over.id);
-      cardObject.state_id = newState;
+      cardObject.state_id = newState.id;
     }
   };
 
