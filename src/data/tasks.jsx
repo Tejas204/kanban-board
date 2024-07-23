@@ -72,3 +72,26 @@ export const stateArray = [
     }
     
 ]
+
+export const headerMenuItems = [
+  {
+    'id': 1,
+    'name': "Home",
+    "link": "/"
+  },
+  {
+    'id': 2,
+    'name': "Board",
+    "link": "/card"
+  },
+  {
+    'id': 3,
+    'name': "Login",
+    "link": "/login"
+  },
+  {
+    'id': 4,
+    'name': "Register",
+    "link": "/register"
+  }
+]
