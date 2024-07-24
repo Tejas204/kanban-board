@@ -12,4 +12,4 @@ Pending:
 10. Establish basic auth
 11. Make the card modal resuable, like instance options - done
 14. start backend development.
-15. Make cards sortable - WIP
+15. Make cards sortable - WIP [try to use nesting]
