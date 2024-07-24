@@ -3,7 +3,7 @@ import Card from './Card'
 import { useState } from 'react'
 import {cardArray} from '../data/tasks'
 import { horizontalListSortingStrategy, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
-import { useDroppable } from '@dnd-kit/core'
+import { closestCorners, DndContext, useDroppable } from '@dnd-kit/core'
 
   /**
  * @Function: useDidMount
@@ -87,17 +87,18 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
         {/* Cards */}
         <SortableContext items={cards}>
           <div className='flex flex-col gap-y-7 p-7'>
-            {
-              cards.map((card) => {
-                if(card.state_id == columnId){
-                  return(
-                    <Card key={card.id} id={card.id} title={card.title} short_description={card.short_description} assigned_to={card.assigned_to} priority={card.priority} state_id={card.state_id}></Card>
-                  )
-                }
-              })
-            }
+              {
+                cards.map((card) => {
+                  if(card.state_id == columnId){
+                    return(
+                      <Card key={card.id} id={card.id} title={card.title} short_description={card.short_description} assigned_to={card.assigned_to} priority={card.priority} state_id={card.state_id}></Card>
+                    )
+                  }
+                })
+              }
           </div>
         </SortableContext>
+            
 
     </div>
   )

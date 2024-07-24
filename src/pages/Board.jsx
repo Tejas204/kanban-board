@@ -62,7 +62,7 @@ const Board = () => {
    * Params: card id <Int>
    * Returns: index <Int>
    */
-  const getCardId = (id) => {
+  const getActiveCard = (id) => {
     return cards.find(card => card.id === id);
   }
 
@@ -71,7 +71,7 @@ const Board = () => {
    * Params: none
    * Returns: state_id <Int>
    */
-  const getStateId = (id) => {
+  const getOverState = (id) => {
     return columns.find(column => column.id === id);
   }
 
@@ -85,8 +85,8 @@ const Board = () => {
     const {active, over} = e;
 
     if (over && over.data.current.accepts.includes(active.data.current.type)) {
-      const cardObject = getCardId(active.id);
-      const newState = getStateId(over.id);
+      const cardObject = getActiveCard(active.id);
+      const newState = getOverState(over.id);
       cardObject.state_id = newState.id;
     }
   };
