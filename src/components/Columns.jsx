@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import Card from './Card'
 import { useState } from 'react'
 import {cardArray} from '../data/tasks'
-import { horizontalListSortingStrategy, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { arrayMove, horizontalListSortingStrategy, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
 import { closestCorners, DndContext, useDroppable } from '@dnd-kit/core'
 
   /**
@@ -66,6 +66,7 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
       accepts: ['card'],
     },
   })
+
 
     
   /**
