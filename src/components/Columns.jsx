@@ -80,9 +80,9 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
     <div ref={setNodeRef} className='flex flex-col h-[100%] w-[28%] shrink-0 overflow-y-clip no-scrollbar'>
 
         {/* Title */}
-        <div className='flex flex-row justify-between items-center p-5'>
-          <p className='text-xl text-[color:var(--primary-text--color)] font-semibold uppercase'>{columnTitle}</p>
-          <button className='text-[color:var(--user-icon--bg-color--lavender)]' onClick={handleShowModal}>{addCardIcon}</button>
+        <div className='flex flex-row justify-between items-center p-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]'>
+          <p className='text-xl text-[color:var(--primary-text--color)] font-semibold uppercase pl-2'>{columnTitle}</p>
+          <button className='text-[color:var(--button-text--color)]' onClick={handleShowModal}>{addCardIcon}</button>
         </div>
 
         {/* Cards */}
