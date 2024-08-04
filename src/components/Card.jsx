@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from './Footer'
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
@@ -42,27 +42,47 @@ const Card = ({id, title, short_description, assigned_to, priority, state_id}) =
   };
 
   /**
+   * @Hook: determine whether component is dragged or not
+   */
+  const [isDragging, setIsDragging] = useState(false);
+
+
+  /**
+   * @Function: set the value of isDragging or not
+   */
+  const eventControl = (event) => {
+    if(event.type === 'dragstart' || event.type === 'dragging' || event.type === "dragend"){
+      setIsDragging(true);
+    }
+    else{
+      setIsDragging(false);
+    }
+  }
+
+  /**
    * @Function: showCardInformation
    * Display the detailed card information 
    */
-  const showCardInformation = () => {
-    console.log("Showing card Information");
+  const showCardDetails = () => {
+    if(clickEvent){
+      alert("Show")
+    }
   }
-
+  
   /**
-   * @Function: deleteCard
-   * Delete the card 
+   * @Function: showCardInformation
+   * Display the detailed card information 
    */
   const deleteCard = () => {
-    alert("Deleting the card");
+    alert("Deleting card");
   }
 
   /**
-   * @Function: updateDueDate
-   * Update the task due date
+   * @Function: showCardInformation
+   * Display the detailed card information 
    */
-  const updateDueDate = () => {
-    alert("Updating due date");
+  const updateDeadline = () => {
+    alert("Update date");
   }
 
 
@@ -76,7 +96,11 @@ const Card = ({id, title, short_description, assigned_to, priority, state_id}) =
         ref={setNodeRef}
         {...attributes}
         {...listeners}
-        style={style}>
+        style={style}
+        draggable={true}
+        clickable={true}
+        onDrag={eventControl}
+        onDragStart={eventControl}>
 
         {/* Content div */}
         <div className='flex flex-col px-6 py-4 border-b-2'>
@@ -100,14 +124,15 @@ const Card = ({id, title, short_description, assigned_to, priority, state_id}) =
             <div className='text-[color:var(--primary-text--color)]'>
                 <p>{short_description}</p>
             </div>
+
+            
         </div>
         
         {/* Icons div */}
         <div className='flex flex-row justify-between items-center space-x-10 px-6 py-2'>
-        
-            <button onClick={showCardInformation} className='flex flex-row text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150'>Message Icon</button>
+            <button onClick={showCardDetails} className='flex flex-row text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150'>Message Icon</button>
             <button onClick={deleteCard} className='flex flex-row text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150'>{deleteIcon}</button>
-            <button onClick={updateDueDate} className='flex flex-row space-x-2 text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150'>{calendarIcon}</button>
+            <button onClick={updateDeadline} className='flex flex-row space-x-2 text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150'>{calendarIcon}</button>
         </div>
     </div>
   )
