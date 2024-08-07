@@ -26,11 +26,19 @@ const Card = ({id, title, short_description, assigned_to, priority, state_id}) =
    * @Hook: determine whether component is dragged or not
    */
   const [isDragging, setIsDragging] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  const [triggerOnClick, setTriggerOnClick] = useState(false);
 
 
   /**
    * @Function: set the value of isDragging or not
    */
+  const clickEventControl = () => {
+    if(!isClicked){
+      setIsClicked(true);
+    }
+  }
+
   const dragEventControl = () => {
     if(!isDragging){
       setIsDragging(true);
@@ -38,14 +46,11 @@ const Card = ({id, title, short_description, assigned_to, priority, state_id}) =
   }
 
   const dropEventControl = () => {
-    setIsDragging(false);
-  }
-
-  const demoFunc = () => {
-    
-    if(!isDragging){
-      alert("I am clicked");
+    if(isClicked && !isDragging){
+      setTriggerOnClick(true);
     }
+    setIsClicked(false);
+    setIsDragging(false);
   }
 
 
@@ -60,9 +65,9 @@ const Card = ({id, title, short_description, assigned_to, priority, state_id}) =
         {...listeners}
         style={style}
         draggable='true'
-        onClick={demoFunc}
-        onDragStart={dragEventControl}
-        onDragEnd={dropEventControl}
+        onMouseDown={clickEventControl}
+        onMouseMove={dragEventControl}
+        onMouseUp={dropEventControl}
         >
 
         {/* Content div */}
