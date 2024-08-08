@@ -34,20 +34,25 @@ const Card = ({id, title, short_description, assigned_to, priority, state_id}) =
    * @Function: set the value of isDragging or not
    */
   const clickEventControl = () => {
-    if(!isClicked){
       setIsClicked(true);
-    }
+      console.log("Clicked: true")
   }
 
   const dragEventControl = () => {
-    if(!isDragging){
+    if(!isDragging && isClicked){
+      console.log("Dragging: true")
       setIsDragging(true);
     }
   }
 
   const dropEventControl = () => {
     if(isClicked && !isDragging){
+      console.log("Trigger on Click: true")
       setTriggerOnClick(true);
+    }
+    else  if(isClicked && isDragging){
+      console.log("Trigger on Click: false")
+      setTriggerOnClick(false);
     }
     setIsClicked(false);
     setIsDragging(false);
@@ -66,7 +71,7 @@ const Card = ({id, title, short_description, assigned_to, priority, state_id}) =
         style={style}
         draggable='true'
         onMouseDown={clickEventControl}
-        onMouseMove={dragEventControl}
+        onDragStart={dragEventControl}
         onMouseUp={dropEventControl}
         >
 
@@ -97,7 +102,7 @@ const Card = ({id, title, short_description, assigned_to, priority, state_id}) =
         </div>
         
         {/* Icons */}
-        <CardFunctions isDragging={isDragging}></CardFunctions>
+        <CardFunctions isDragging={triggerOnClick}></CardFunctions>
         
     </div>
   )

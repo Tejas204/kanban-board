@@ -1,6 +1,7 @@
 import React from 'react'
 
 const CardFunctions = ({isDragging}) => {
+  
 
   
     // SVG for icons
@@ -21,14 +22,11 @@ const CardFunctions = ({isDragging}) => {
    * @Function: showCardInformation
    * Display the detailed card information 
    */
-  const showCardDetails = (isDragging) => {
-    if(!isDragging){
-        alert("Show")
-    }
-    else{
-        alert("wow")
-    }
-    
+  const showCardDetails = () => {
+    if(isDragging){
+      console.log("Triggered")
+      alert("Call API")
+    }    
   }
   
   /**
@@ -49,9 +47,9 @@ const CardFunctions = ({isDragging}) => {
 
   return (
     <div className='flex flex-row justify-between items-center space-x-10 px-6 py-2'>
-        <p className={`${isDragging ? "visible" : "hidden"}`}>Is Dragging</p>
-        <p className={`${!isDragging ? "visible" : "hidden"}`}>Is Not Dragging</p>
-        <button onClick={() => !isDragging && showCardDetails(isDragging)} className='flex flex-row text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150 p-2'>{messageIcon}</button>
+        <p className={`${isDragging ? "visible" : "hidden"}`}>Trigger On Click</p>
+        <p className={`${!isDragging ? "visible" : "hidden"}`}>Dont trigger on click</p>
+        <button onClick={showCardDetails} className='flex flex-row text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150 p-2'>{messageIcon}</button>
         <button onClick={deleteCard} className='flex flex-row text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150 p-2'>{deleteIcon}</button>
         <button onClick={updateDeadline} className='flex flex-row space-x-2 text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150 p-2'>{calendarIcon}</button>
     </div>
