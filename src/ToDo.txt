@@ -13,3 +13,4 @@ Pending:
 11. Make the card modal resuable, like instance options - done
 14. start backend development.
 15. Make cards sortable - WIP [try to use nesting]
+16. Try to use useEffect to set dragging or dropping immediately
