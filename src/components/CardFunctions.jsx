@@ -23,10 +23,13 @@ const CardFunctions = ({isDragging}) => {
    * Display the detailed card information 
    */
   const showCardDetails = () => {
-    if(isDragging){
-      console.log("Triggered")
-      alert("Call API")
-    }    
+    if(true){
+      console.log("Triggered");
+      alert("Call API");
+    }
+    else{
+      console.log("Not triggered");
+    }
   }
   
   /**

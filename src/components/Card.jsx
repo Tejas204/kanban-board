@@ -7,6 +7,7 @@ import CardFunctions from './CardFunctions';
 
 const Card = ({id, title, short_description, assigned_to, priority, state_id}) => {
 
+
   /**
    * @Hook: set useSortable
    */
@@ -28,39 +29,64 @@ const Card = ({id, title, short_description, assigned_to, priority, state_id}) =
   const [isDragging, setIsDragging] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [triggerOnClick, setTriggerOnClick] = useState(false);
+  const delta = 6;
+
+  const [startX, setStartX] = useState();
+  const [startY, setStartY] = useState();
 
 
   /**
    * @Function: set the value of isDragging or not
    */
-  const clickEventControl = () => {
-      setIsClicked(true);
-      console.log("Clicked: true")
+  const clickEventControl = (event) => {
+      //SOlution: 1
+      //setIsClicked(true);
+
+      //SOlution: 2
+      //setIsDragging(false);
+
+      setStartX(event.pageX);
+      setStartY(event.pageY);
   }
 
   const dragEventControl = () => {
-    if(!isDragging && isClicked){
-      console.log("Dragging: true")
-      setIsDragging(true);
-    }
+    //SOlution: 1
+    // if(!isDragging && isClicked){
+    //   setIsDragging(true);
+    // }
+    
+    //Solution: 2
+    //setIsDragging(true);
+    //console.log("Dragging: "+isDragging)
   }
 
-  const dropEventControl = () => {
-    if(isClicked && !isDragging){
-      console.log("Trigger on Click: true")
+  const dropEventControl = (event) => {
+    //SOlution: 1
+    // if(isClicked && !isDragging){
+    //   setTriggerOnClick(true);
+    // }
+    // else  if(isClicked && isDragging){
+    //   setTriggerOnClick(false);
+    // }
+    // console.log("Trigger on Click 1: "+triggerOnClick)
+    // setIsClicked(false);
+    // setIsDragging(false);
+
+    //Solution: 2
+    // isDragging ? setTriggerOnClick(false) : setTriggerOnClick(true);
+
+    var diffX = Math.abs(event.pageX - startX);
+    var diffY = Math.abs(event.pageY - startY);
+
+    if (diffX < delta && diffY < delta) {
       setTriggerOnClick(true);
     }
-    else  if(isClicked && isDragging){
-      console.log("Trigger on Click: false")
-      setTriggerOnClick(false);
-    }
-    setIsClicked(false);
-    setIsDragging(false);
   }
 
 
   return (
     // Parent div
+    //Deleted onMouseMove - add if requred
     <div className={`flex flex-col rounded-sm border-l-8 bg-[color:var(--card-bg--color)] 
         ${priority == 'high' ? 'border-l-[color:var(--card-priority--color-high)]' : 
         (priority == 'medium' ? 'border-l-[color:var(--card-priority--color-medium)]': 
@@ -69,9 +95,7 @@ const Card = ({id, title, short_description, assigned_to, priority, state_id}) =
         {...attributes}
         {...listeners}
         style={style}
-        draggable='true'
         onMouseDown={clickEventControl}
-        onDragStart={dragEventControl}
         onMouseUp={dropEventControl}
         >
 
