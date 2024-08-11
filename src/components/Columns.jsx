@@ -92,7 +92,7 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
                 cards.map((card) => {
                   if(card.state_id == columnId){
                     return(
-                      <Card key={card.id} id={card.id} title={card.title} short_description={card.short_description} assigned_to={card.assigned_to} priority={card.priority} state_id={card.state_id}></Card>
+                      <Card key={card.id} id={card.id} title={card.title} short_description={card.short_description} assigned_to={card.assigned_to} priority={card.priority} due_date={card.due_date} state_id={card.state_id}></Card>
                     )
                   }
                 })

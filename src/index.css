@@ -7,6 +7,14 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    font-size: 1.4rem;
+  }
+
+  input[type="date"]::-webkit-datetime-edit {
+    display: none;
+  }
 }
 
 :root {
