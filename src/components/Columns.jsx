@@ -77,7 +77,7 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
                       </svg>
 
   return (
-    <div ref={setNodeRef} className='flex flex-col h-[90vh] w-[40vh] shrink-0'>
+    <div ref={setNodeRef}  className='flex flex-col h-[90vh] w-[45vh] shrink-0'>
 
         {/* Title */}
         <div className='flex flex-row justify-between items-center p-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]'>
@@ -87,7 +87,7 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
 
         {/* Cards */}
         <SortableContext items={cards}>
-          <div className='flex flex-col gap-y-7 p-7 h-[90%] overflow-y-scroll'>
+          <div className='flex flex-col gap-y-7 p-7 h-[90%]'>
               {
                 cards.map((card) => {
                   if(card.state_id == columnId){

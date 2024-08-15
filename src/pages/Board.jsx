@@ -99,7 +99,7 @@ const Board = () => {
 
         {/* Columns */}
         <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-          <div className='flex flex-row mt-2 gap-x-10 w-screen overflow-x-auto'>
+          <div className='flex flex-row mt-2 gap-x-10 w-screen overflow-x-auto no-scrollbar'>
                 {columns.map((column) => {
                   return (
                       <Columns cards={cards} key={column.id} columnId={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
