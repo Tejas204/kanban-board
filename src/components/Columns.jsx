@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from 'react'
 import Card from './Card'
 import { useState } from 'react'
 import {cardArray} from '../data/tasks'
-import { arrayMove, horizontalListSortingStrategy, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { arrayMove, horizontalListSortingStrategy, SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable'
 import { closestCorners, DndContext, useDroppable } from '@dnd-kit/core'
+import { CSS } from '@dnd-kit/utilities';
 
   /**
  * @Function: useDidMount
@@ -68,6 +69,18 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
   })
 
 
+  /**
+   * @Function: handleVerticalStart
+   * @Params: event
+   * @Return: new array of cards
+   */
+  const handleVerticalStart = (e) => {
+    const {active, over} = e;
+
+    console.log(active.id);
+  }
+
+
     
   /**
    * Icon
@@ -77,7 +90,7 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
                       </svg>
 
   return (
-    <div ref={setNodeRef}  className='flex flex-col h-[90vh] w-[45vh] shrink-0'>
+    <div ref={setNodeRef} className='flex flex-col h-[90vh] w-[45vh] shrink-0'>
 
         {/* Title */}
         <div className='flex flex-row justify-between items-center p-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]'>
