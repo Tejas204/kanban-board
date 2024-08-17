@@ -4,8 +4,8 @@ import Card from '../components/Card'
 import Columns from '../components/Columns'
 import CardModal from '../components/CardModal'
 import { useState } from 'react'
-import { arraySwap, SortableContext } from '@dnd-kit/sortable'
-import { closestCorners, DndContext } from '@dnd-kit/core'
+import { arraySwap, rectSortingStrategy, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { closestCenter, closestCorners, DndContext, DragOverlay } from '@dnd-kit/core'
 import { stateArray, cardArray } from '../data/tasks'
 import { arrayMove } from '@dnd-kit/sortable'
 
@@ -84,13 +84,15 @@ const Board = () => {
   const handleDragEnd = (e) => {
     const {active, over} = e;
 
-    if (over && over.data.current.accepts.includes(active.data.current.type)) {
+    if (over && over.data.current.accepts.includes(active.data.current.type) && over.data.current.type == 'column') {
       const cardObject = getActiveCard(active.id);
       const newState = getOverState(over.id);
       cardObject.state_id = newState.id;
     }
+    // else if(over && over.data.current.accepts.includes(active.data.current.type) && over.data.current.type == 'card'){
+    //   console.log("i am over a card")
+    // }
   };
-
 
   return (
     <div className='flex flex-row h-screen'>
@@ -100,13 +102,17 @@ const Board = () => {
         {/* Columns */}
         <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
           <div className='flex flex-row mt-2 gap-x-10 w-screen overflow-x-auto no-scrollbar'>
+          
                 {columns.map((column) => {
                   return (
-                            <Columns cards={cards} key={column.id} columnId={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
+                    <SortableContext items={cards} strategy={verticalListSortingStrategy}>
+                        <Columns cards={cards} key={column.id} columnId={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
+                    </SortableContext>      
                           )
                     }
                   )
                 }
+            
           </div>
         </DndContext>
 

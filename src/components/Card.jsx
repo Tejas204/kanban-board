@@ -2,7 +2,7 @@ import React, { Component, useEffect, useState } from 'react'
 import Footer from './Footer'
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { useDraggable } from '@dnd-kit/core';
+import { useDraggable, useDroppable } from '@dnd-kit/core';
 import CardFunctions from './CardFunctions';
 
 const Card = ({id, title, short_description, assigned_to, priority, due_date, state_id}) => {
@@ -30,10 +30,11 @@ const Card = ({id, title, short_description, assigned_to, priority, due_date, st
    * @Hook: set useSortable
    * @Accept: elements of type card
    */
-  const {attributes, listeners, setNodeRef, transform, transition} = useDraggable({
+  const {attributes, listeners, setNodeRef, transform, transition} = useSortable({
     id: id,
     data: {
         type: 'card',
+        accepts: ['card'],
         },
     });
 

@@ -65,20 +65,9 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
     id: columnId,
     data: {
       accepts: ['card'],
+      type: 'column'
     },
   })
-
-
-  /**
-   * @Function: handleVerticalStart
-   * @Params: event
-   * @Return: new array of cards
-   */
-  const handleVerticalStart = (e) => {
-    const {active, over} = e;
-
-    console.log(active.id);
-  }
 
 
     
@@ -90,7 +79,7 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
                       </svg>
 
   return (
-    <div ref={setNodeRef} className='flex flex-col h-[90vh] w-[45vh] shrink-0'>
+    <div className='flex flex-col h-[90vh] w-[45vh] shrink-0'>
 
         {/* Title */}
         <div className='flex flex-row justify-between items-center p-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]'>
@@ -99,8 +88,8 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
         </div>
 
         {/* Cards */}
-        <SortableContext items={cards}>
-          <div className='flex flex-col gap-y-7 p-7 h-[90%]'>
+        {/* <SortableContext items={cards}> */}
+          <div className='flex flex-col gap-y-7 p-7 h-[90%]' ref={setNodeRef}>
               {
                 cards.map((card) => {
                   if(card.state_id == columnId){
@@ -111,7 +100,7 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
                 })
               }
           </div>
-        </SortableContext>
+        {/* </SortableContext> */}
             
 
     </div>
