@@ -116,7 +116,7 @@ const Board = () => {
           </div>
         </DndContext>
 
-        {/* Card Modal */}
+        {/* Card Modal **/}
         <CardModal showModal={showModal} addState={addState} hideModal={hideModal}></CardModal>
 
         {/* Add state button */}
