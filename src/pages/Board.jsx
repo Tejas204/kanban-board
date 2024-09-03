@@ -89,9 +89,6 @@ const Board = () => {
       const newState = getOverState(over.id);
       cardObject.state_id = newState.id;
     }
-    // else if(over && over.data.current.accepts.includes(active.data.current.type) && over.data.current.type == 'card'){
-    //   console.log("i am over a card")
-    // }
   };
 
   return (
@@ -105,12 +102,11 @@ const Board = () => {
                 {
                 cards.map((column) => {
                   return (
-                          <Columns cards={cards} key={column.id} columnId={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
-                        )
+                        <Columns cards={cards} key={column.id} columnId={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
+                      )
                     }
                   )
                 }
-            
           </div>
         </DndContext>
 
