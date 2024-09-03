@@ -1,5 +1,8 @@
 export const cardArray = [
-    {
+  {
+    id: 1,
+    cards: [
+      {
         'id': 1,
         'title': "Create blog content",
         'short_description': 'Write a blog about your design process and get it ready for publishing',
@@ -16,7 +19,12 @@ export const cardArray = [
         'priority': "medium",
         'state_id': 1,
         'due_date': "2024-08-09"
-      },
+      }
+    ]
+  },
+  {
+    id: 2,
+    cards: [
       {
         'id': 3,
         'title': "Improve UI",
@@ -53,6 +61,36 @@ export const cardArray = [
         'state_id': 4,
         'due_date': "2024-08-09"
       }
+    ]
+  },
+  {
+    id: 3,
+    cards: [
+      {
+        'id': 5,
+        'title': "Create Login API",
+        'short_description': 'Design Login API',
+        'assigned_to': "Ninad",
+        'priority': "medium",
+        'state_id': 3,
+        'due_date': "2024-08-09"
+      }
+    ]
+  },
+  {
+    id: 4,
+    cards: [
+      {
+        'id': 6,
+        'title': "Create Register API",
+        'short_description': 'Design register API',
+        'assigned_to': "Ritesh",
+        'priority': "medium",
+        'state_id': 4,
+        'due_date': "2024-08-09"
+      }
+    ]
+  }
 ]
 
 export const stateArray = [
