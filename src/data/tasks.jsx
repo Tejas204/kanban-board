@@ -1,6 +1,7 @@
 export const cardArray = [
   {
     id: 1,
+    state: "Draft",
     cards: [
       {
         'id': 1,
@@ -24,6 +25,7 @@ export const cardArray = [
   },
   {
     id: 2,
+    state: "Ready",
     cards: [
       {
         'id': 3,
@@ -42,29 +44,12 @@ export const cardArray = [
         'priority': "high",
         'state_id': 2,
         'due_date': "2024-08-09"
-      },
-      {
-        'id': 5,
-        'title': "Create Login API",
-        'short_description': 'Design Login API',
-        'assigned_to': "Ninad",
-        'priority': "medium",
-        'state_id': 3,
-        'due_date': "2024-08-09"
-      },
-      {
-        'id': 6,
-        'title': "Create Register API",
-        'short_description': 'Design register API',
-        'assigned_to': "Ritesh",
-        'priority': "medium",
-        'state_id': 4,
-        'due_date': "2024-08-09"
       }
     ]
   },
   {
     id: 3,
+    state: "Work in progress",
     cards: [
       {
         'id': 5,
@@ -79,6 +64,7 @@ export const cardArray = [
   },
   {
     id: 4,
+    state: "Review",
     cards: [
       {
         'id': 6,
@@ -89,6 +75,13 @@ export const cardArray = [
         'state_id': 4,
         'due_date': "2024-08-09"
       }
+    ]
+  },
+  {
+    id: 5,
+    state: "Complete",
+    cards: [
+      
     ]
   }
 ]
