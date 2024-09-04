@@ -71,8 +71,46 @@ const Board = () => {
    * Params: none
    * Returns: state_id <Int>
    */
-  const getOverState = (id) => {
-    return columns.find(column => column.id === id);
+  const findColumn = (id) => {
+
+    //If item is dropped over some other area
+    if(!id){
+      return null;
+    }
+
+    //If item is dropped over a column
+    if(cards.some((cardObject) => cardObject.id == id)){
+      return cards.find((c) => c.id == id);
+    }
+
+    //Create a flatmap like {itemId: card.id, columnId: columnId}
+    const itemsWithColumnID = cards.flatMap((cardObject) => {
+      const columnId = cardObject.id;
+      return cardObject.cards.map((c) => ({itemId: c.id, columnId: columnId}));
+    });
+
+    //Find the column id of the card
+    const column = itemsWithColumnID.find((item) => {item.itemId == id});
+    console.log(column);
+    return cards.find((c) => c.id == column.columnId);
+
+  }
+
+  /**
+   * @Function: handleDragOver
+   * Update the state of dragged card
+   * Params: event <obj>
+   * Returns: array[<obj>]
+   */
+  const handleDragOver = (event) => {
+    const {active, over} = event;
+
+    //Find active and over columns
+    const activeColumn = findColumn(active.id);
+    const overColumn = findColumn(over.id);
+    console.log(activeColumn);
+    console.log(overColumn);
+
   }
 
   /**
@@ -83,12 +121,6 @@ const Board = () => {
    */
   const handleDragEnd = (e) => {
     const {active, over} = e;
-
-    if (over && over.data.current.accepts.includes(active.data.current.type) && over.data.current.type == 'column') {
-      const cardObject = getActiveCard(active.id);
-      const newState = getOverState(over.id);
-      cardObject.state_id = newState.id;
-    }
   };
 
   return (
@@ -98,7 +130,6 @@ const Board = () => {
 
         {/* Columns */}
         <DndContext
-          onDragStart={handleDragStart}
           onDragOver={handleDragOver}
           onDragEnd={handleDragEnd}
           collisionDetection={closestCorners}>
