@@ -97,12 +97,16 @@ const Board = () => {
         <Filters></Filters>
 
         {/* Columns */}
-        <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
+        <DndContext
+          onDragStart={handleDragStart}
+          onDragOver={handleDragOver}
+          onDragEnd={handleDragEnd}
+          collisionDetection={closestCorners}>
           <div className='flex flex-row mt-2 gap-x-10 w-screen overflow-x-auto no-scrollbar'>
                 {
                 cards.map((column) => {
                   return (
-                        <Columns cards={cards} key={column.id} columnId={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
+                        <Columns cards={column.cards} key={column.id} columnId={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
                       )
                     }
                   )

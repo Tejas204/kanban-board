@@ -88,7 +88,7 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
         </div>
 
         {/* Cards */}
-        {/* <SortableContext items={cards}> */}
+        <SortableContext items={cards} strategy={verticalListSortingStrategy}>
           <div className='flex flex-col gap-y-7 p-7 h-[90%]' ref={setNodeRef}>
               {
                 cards.map((card) => {
@@ -100,8 +100,7 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
                 })
               }
           </div>
-        {/* </SortableContext> */}
-            
+        </SortableContext>
 
     </div>
   )
