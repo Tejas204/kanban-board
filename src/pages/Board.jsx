@@ -126,14 +126,14 @@ const Board = () => {
   return (
     <div className='flex flex-row h-screen'>
         {/* Filters Div */}
-        <Filters></Filters>
+        {/* <Filters></Filters> */}
 
         {/* Columns */}
         <DndContext
           onDragOver={handleDragOver}
           onDragEnd={handleDragEnd}
           collisionDetection={closestCorners}>
-          <div className='flex flex-row mt-2 gap-x-10 w-screen overflow-x-auto no-scrollbar'>
+          <div className='flex flex-row mt-2 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar'>
                 {
                 cards.map((column) => {
                   return (
