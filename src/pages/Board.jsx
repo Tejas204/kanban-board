@@ -91,7 +91,6 @@ const Board = () => {
 
     //Find the column id of the card
     const column = itemsWithColumnID.find((item) => {item.itemId == id});
-    console.log(column);
     return cards.find((c) => c.id == column.columnId);
 
   }
@@ -108,8 +107,6 @@ const Board = () => {
     //Find active and over columns
     const activeColumn = findColumn(active.id);
     const overColumn = findColumn(over.id);
-    console.log(activeColumn);
-    console.log(overColumn);
 
   }
 
@@ -121,6 +118,12 @@ const Board = () => {
    */
   const handleDragEnd = (e) => {
     const {active, over} = e;
+
+    //Find active and over column
+    const activeColumn = findColumn(active.id);
+    const overColumn = over ? findColumn(over.id) : null;
+    console.log(activeColumn);
+    console.log(overColumn);
   };
 
   return (
