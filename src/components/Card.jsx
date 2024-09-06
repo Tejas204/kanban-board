@@ -31,11 +31,7 @@ const Card = ({id, title, short_description, assigned_to, priority, due_date, st
    * @Accept: elements of type card
    */
   const {attributes, listeners, setNodeRef, transform, transition} = useSortable({
-    id: id,
-    data: {
-        type: 'card',
-        accepts: ['card'],
-        },
+    id: id
     });
 
   const style = {

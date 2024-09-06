@@ -62,11 +62,7 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
    * @Function: Droppable
    */
   const {setNodeRef} = useDroppable({
-    id: columnId,
-    data: {
-      accepts: ['card'],
-      type: 'column'
-    },
+    id: columnId
   })
 
 
@@ -79,7 +75,7 @@ const Columns = ({cards, columnId, columnTitle, setShowModal, showModal}) => {
                       </svg>
 
   return (
-    <div className='flex flex-col h-[90vh] w-[45vh] shrink-0'>
+    <div className='h-screen w-1/4 shrink-0'>
 
         {/* Title */}
         <div className='flex flex-row justify-between items-center p-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]'>
