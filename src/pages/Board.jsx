@@ -80,8 +80,7 @@ const Board = () => {
     }
 
     //If item is dropped over a column
-    if(cards.some(((cardObject) => cardObject.id == id)) && isOverColumn){
-      console.log(cards.find((c) => c.id == id).id);
+    if(cards.some(((cardObject) => cardObject.id == id))){
       return cards.find((c) => c.id == id);
     }
 
@@ -109,8 +108,8 @@ const Board = () => {
     //Find active and over columns
     const activeColumn = findColumn(active.id, false);
     const overColumn = over ? findColumn(over.id, true) : null;
-    console.log(activeColumn);
-    console.log(overColumn);
+    // console.log(activeColumn);
+    // console.log(overColumn);
 
   }
 
@@ -124,8 +123,17 @@ const Board = () => {
     const {active, over} = e;
 
     //Find active and over column
-    const activeColumn = findColumn(active.id);
-    const overColumn = over ? findColumn(over.id) : null;
+    const activeColumn = findColumn(active.id, false);
+    const overColumn = over ? findColumn(over.id, true) : null;
+    console.log(activeColumn);
+    console.log(overColumn);
+
+    //Check if the drop zone is valid
+    //AND active column is same as over column
+    if(activeColumn && overColumn && activeColumn.id == overColumn.id){
+      
+      //Find the active card
+    }
     
   };
 

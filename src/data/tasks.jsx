@@ -1,6 +1,6 @@
 export const cardArray = [
   {
-    id: 1,
+    id: 100,
     state: "Draft",
     cards: [
       {
@@ -24,7 +24,7 @@ export const cardArray = [
     ]
   },
   {
-    id: 2,
+    id: 200,
     state: "Ready",
     cards: [
       {
@@ -48,7 +48,7 @@ export const cardArray = [
     ]
   },
   {
-    id: 3,
+    id: 300,
     state: "Work in progress",
     cards: [
       {
@@ -63,7 +63,7 @@ export const cardArray = [
     ]
   },
   {
-    id: 4,
+    id: 400,
     state: "Review",
     cards: [
       {
@@ -78,7 +78,7 @@ export const cardArray = [
     ]
   },
   {
-    id: 5,
+    id: 500,
     state: "Complete",
     cards: [
       
