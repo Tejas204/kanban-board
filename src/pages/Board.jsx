@@ -68,10 +68,11 @@ const Board = () => {
 
   /**
    * @Function: Return state of column
-   * Params: none
+   * Params: id --> id of the active card or over column
+   * Params: isOverColumn --> 
    * Returns: state_id <Int>
    */
-  const findColumn = (id) => {
+  const findColumn = (id, isOverColumn) => {
 
     //If item is dropped over some other area
     if(!id){
@@ -79,18 +80,16 @@ const Board = () => {
     }
 
     //If item is dropped over a column
-    // if(cards.some((cardObject) => cardObject.id == id)){
-    //   console.log(cards.find((c) => c.id == id).id);
-    //   return cards.find((c) => c.id == id);
-    // }
+    if(cards.some(((cardObject) => cardObject.id == id)) && isOverColumn){
+      console.log(cards.find((c) => c.id == id).id);
+      return cards.find((c) => c.id == id);
+    }
 
     //Create a flatmap like {itemId: card.id, columnId: columnId}
     const itemsWithColumnID = cards.flatMap((cardObject) => {
       const columnId = cardObject.id;
       return cardObject.cards.map((c) => ({itemId: c.id, columnId: columnId}));
     });
-
-    console.log(itemsWithColumnID);
 
     //Find the column id of the card
     const column = itemsWithColumnID.find((item) => item.itemId == id || item.columnId == id);
@@ -108,8 +107,8 @@ const Board = () => {
     const {active, over} = event;
 
     //Find active and over columns
-    const activeColumn = findColumn(active.id);
-    const overColumn = over ? findColumn(over.id) : null;
+    const activeColumn = findColumn(active.id, false);
+    const overColumn = over ? findColumn(over.id, true) : null;
     console.log(activeColumn);
     console.log(overColumn);
 
