@@ -80,7 +80,7 @@ const Board = () => {
     }
 
     //If item is dropped over a column
-    if(cards.some(((cardObject) => cardObject.id == id))){
+    if(cards.some((cardObject) => cardObject.id == id)){
       return cards.find((c) => c.id == id);
     }
 
@@ -108,8 +108,6 @@ const Board = () => {
     //Find active and over columns
     const activeColumn = findColumn(active.id, false);
     const overColumn = over ? findColumn(over.id, true) : null;
-    // console.log(activeColumn);
-    // console.log(overColumn);
 
   }
 
@@ -125,14 +123,28 @@ const Board = () => {
     //Find active and over column
     const activeColumn = findColumn(active.id, false);
     const overColumn = over ? findColumn(over.id, true) : null;
-    console.log(activeColumn);
-    console.log(overColumn);
 
     //Check if the drop zone is valid
     //AND active column is same as over column
     if(activeColumn && overColumn && activeColumn.id == overColumn.id){
       
-      //Find the active card
+      //Find the active card and over card
+      const activeCard = activeColumn.cards.findIndex((card) => card.id == active.id);
+      const overCard = activeColumn.cards.findIndex((card) => card.id == over.id);
+      console.log(activeCard, overCard)
+
+      //Set new cards after swapping
+      setCards((previousCards) => {
+        return previousCards.map((cardObject) => {
+          if(cardObject.id == activeColumn.id){
+            cardObject.cards = arrayMove(cardObject.cards, activeCard, overCard);
+            return cardObject;
+          }
+          else{
+            return cardObject;
+          }
+        })
+      })
     }
     
   };
