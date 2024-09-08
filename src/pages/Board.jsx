@@ -120,7 +120,8 @@ const Board = () => {
     setCards((previousCards) => {
       return previousCards.map((cardObject) => {
         if(cardObject.id == activeColumn.id){
-          cardObject.cards = []
+          cardObject.cards = activeCards.filter((card) => card.id != active.id);
+          return cardObject;
         }
       })
     })
