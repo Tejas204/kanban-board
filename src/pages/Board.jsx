@@ -72,7 +72,7 @@ const Board = () => {
    * Params: isOverColumn --> 
    * Returns: state_id <Int>
    */
-  const findColumn = (id, isOverColumn) => {
+  const findColumn = (id) => {
 
     //If item is dropped over some other area
     if(!id){
@@ -91,7 +91,7 @@ const Board = () => {
     });
 
     //Find the column id of the card
-    const column = itemsWithColumnID.find((item) => item.itemId == id || item.columnId == id);
+    const column = itemsWithColumnID.find((item) => item.itemId == id);
     return cards.find((c) => c.id == column.columnId);
 
   }
@@ -106,8 +106,8 @@ const Board = () => {
     const {active, over} = event;
 
     //Find active and over columns
-    const activeColumn = findColumn(active.id, false);
-    const overColumn = over ? findColumn(over.id, true) : null;
+    const activeColumn = findColumn(active.id);
+    const overColumn = over ? findColumn(over.id) : null;
 
     //Fetch the cards from active and over columns
     const activeCards = activeColumn.cards;
@@ -115,12 +115,27 @@ const Board = () => {
 
     //Fetch the active card
     const activeCardIndex = activeCards.find((card) => card.id == active.id);
+    const overCardIndex = overCards.find((card) => card.id == over.id);
 
-    //Set the cards
+    //If card is dragged over it's own column
+    //return null
+    if(!activeColumn || !overColumn || activeColumn == overColumn){
+      return null;
+    }
+
+    //If card is dragged over another column
+    //return updated set of cards
     setCards((previousCards) => {
       return previousCards.map((cardObject) => {
         if(cardObject.id == activeColumn.id){
-          cardObject.cards = activeCards.filter((card) => card.id != active.id);
+          cardObject.cards = cardObject.cards.filter((card) => card.id != active.id);
+          return cardObject;
+        }
+        else if(cardObject.id == overColumn.id){
+          cardObject.cards = [...overCards.slice(0, overCardIndex), activeCards[activeCardIndex], ...overCards.slice(overCardIndex, overCards.length)];
+          return cardObject;
+        }
+        else{
           return cardObject;
         }
       })
@@ -139,8 +154,8 @@ const Board = () => {
     const {active, over} = e;
 
     //Find active and over column
-    const activeColumn = findColumn(active.id, false);
-    const overColumn = over ? findColumn(over.id, true) : null;
+    const activeColumn = findColumn(active.id);
+    const overColumn = over ? findColumn(over.id) : null;
 
     //Check if the drop zone is valid
     //AND active column is same as over column
