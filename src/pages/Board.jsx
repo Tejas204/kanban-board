@@ -109,6 +109,23 @@ const Board = () => {
     const activeColumn = findColumn(active.id, false);
     const overColumn = over ? findColumn(over.id, true) : null;
 
+    //Fetch the cards from active and over columns
+    const activeCards = activeColumn.cards;
+    const overCards = overColumn.cards;
+
+    //Fetch the active card
+    const activeCardIndex = activeCards.find((card) => card.id == active.id);
+
+    //Set the cards
+    setCards((previousCards) => {
+      return previousCards.map((cardObject) => {
+        if(cardObject.id == activeColumn.id){
+          cardObject.cards = []
+        }
+      })
+    })
+
+
   }
 
   /**
@@ -131,7 +148,6 @@ const Board = () => {
       //Find the active card and over card
       const activeCard = activeColumn.cards.findIndex((card) => card.id == active.id);
       const overCard = activeColumn.cards.findIndex((card) => card.id == over.id);
-      console.log(activeCard, overCard)
 
       //Set new cards after swapping
       setCards((previousCards) => {
