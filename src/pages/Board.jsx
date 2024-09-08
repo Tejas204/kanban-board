@@ -103,7 +103,7 @@ const Board = () => {
    * Returns: array[<obj>]
    */
   const handleDragOver = (event) => {
-    const {active, over} = event;
+    const {active, over, delta} = event;
 
     //Find active and over columns
     const activeColumn = findColumn(active.id);
@@ -117,6 +117,12 @@ const Board = () => {
     const activeCardIndex = activeCards.find((card) => card.id == active.id);
     const overCardIndex = overCards.find((card) => card.id == over.id);
 
+    const newIndex = () => {
+      const placeBelowLastCard = overCardIndex == overCards.length - 1 && delta.y > 0;
+      const indexModifier = placeBelowLastCard ? 1 : 0;
+      return overCardIndex >= 0 ? overCardIndex + indexModifier : overCards.length + 1;
+    }
+
     //If card is dragged over it's own column
     //return null
     if(!activeColumn || !overColumn || activeColumn == overColumn){
@@ -128,11 +134,11 @@ const Board = () => {
     setCards((previousCards) => {
       return previousCards.map((cardObject) => {
         if(cardObject.id == activeColumn.id){
-          cardObject.cards = cardObject.cards.filter((card) => card.id != active.id);
+          cardObject.cards = activeCards.filter((card) => card.id != active.id);
           return cardObject;
         }
         else if(cardObject.id == overColumn.id){
-          cardObject.cards = [...overCards.slice(0, overCardIndex), activeCards[activeCardIndex], ...overCards.slice(overCardIndex, overCards.length)];
+          cardObject.cards = [...overCards.slice(0, newIndex()), activeCards[activeCardIndex], ...overCards.slice(newIndex(), overCards.length)];
           return cardObject;
         }
         else{
