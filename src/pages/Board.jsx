@@ -114,8 +114,8 @@ const Board = () => {
     const overCards = overColumn.cards;
 
     //Fetch the active card
-    const activeCardIndex = activeCards.find((card) => card.id == active.id);
-    const overCardIndex = overCards.find((card) => card.id == over.id);
+    const activeCardIndex = activeCards.findIndex((card) => card.id == active.id);
+    const overCardIndex = overCards.findIndex((card) => card.id == over.id);
 
     const newIndex = () => {
       const placeBelowLastCard = overCardIndex == overCards.length - 1 && delta.y > 0;
@@ -135,10 +135,12 @@ const Board = () => {
       return previousCards.map((cardObject) => {
         if(cardObject.id == activeColumn.id){
           cardObject.cards = activeCards.filter((card) => card.id != active.id);
+          console.log(cardObject.cards);
           return cardObject;
         }
         else if(cardObject.id == overColumn.id){
           cardObject.cards = [...overCards.slice(0, newIndex()), activeCards[activeCardIndex], ...overCards.slice(newIndex(), overCards.length)];
+          console.log(activeCards[activeCardIndex]);
           return cardObject;
         }
         else{
