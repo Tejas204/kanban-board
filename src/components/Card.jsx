@@ -94,6 +94,16 @@ const Card = ({id, title, short_description, assigned_to, priority, due_date, st
     setNewDueDate(event.target.value)
   }
 
+  /**
+   * @Function: getIntials
+   * @Input: <string> assigned to of the card
+   * @Returns: <string> Initials
+   */
+  const getInitials = (assignee) => {
+    const nameArray = assignee.split(" ");
+    return nameArray[0].slice(0, 1) + nameArray[nameArray.length - 1].slice(0, 1);
+  }
+
   return (
     // Parent div
     //Deleted onMouseMove - add if requred
@@ -117,11 +127,11 @@ const Card = ({id, title, short_description, assigned_to, priority, due_date, st
                     <p className='text-[color:var(--secondary-text--color)]'>Assigned to: {assigned_to}</p>
                 </div>
                 {/* User Icon */}
-                <div className={`flex justify-center items-center h-11 w-11 p-3 rounded-full 
+                <div className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full 
                     ${priority == 'high' ? 'bg-[color:var(--card-priority--color-high)]' : 
                     (priority == 'medium' ? 'bg-[color:var(--card-priority--color-medium)]': 
                     'bg-[color:var(--card-priority--color-low)]')}`}>
-                    AA
+                    {getInitials(assigned_to)}
                 </div>
             </div>
 

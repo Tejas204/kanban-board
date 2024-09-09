@@ -135,12 +135,10 @@ const Board = () => {
       return previousCards.map((cardObject) => {
         if(cardObject.id == activeColumn.id){
           cardObject.cards = activeCards.filter((card) => card.id != active.id);
-          console.log(cardObject.cards);
           return cardObject;
         }
         else if(cardObject.id == overColumn.id){
           cardObject.cards = [...overCards.slice(0, newIndex()), activeCards[activeCardIndex], ...overCards.slice(newIndex(), overCards.length)];
-          console.log(activeCards[activeCardIndex]);
           return cardObject;
         }
         else{
