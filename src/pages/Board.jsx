@@ -4,10 +4,11 @@ import Card from '../components/Card'
 import Columns from '../components/Columns'
 import CardModal from '../components/CardModal'
 import { useState } from 'react'
-import { arraySwap, rectSortingStrategy, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { arraySwap, horizontalListSortingStrategy, rectSortingStrategy, SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable'
 import { closestCenter, closestCorners, DndContext, DragOverlay } from '@dnd-kit/core'
 import { stateArray, cardArray } from '../data/tasks'
 import { arrayMove } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
 const Board = () => {
 
@@ -104,6 +105,7 @@ const Board = () => {
    */
   const handleDragOver = (event) => {
     const {active, over, delta} = event;
+    console.log(active.id)
 
     //Find active and over columns
     const activeColumn = findColumn(active.id);
@@ -184,8 +186,16 @@ const Board = () => {
         })
       })
     }
-    
   };
+
+  const {attributes, listeners, setNodeRef, transform, transition} = useSortable({
+    id: cards.map((cardObject) => {return cardObject.id})
+    });
+
+    const style = {
+      transition,
+      transform: CSS.Translate.toString(transform),
+    };
 
   return (
     <div className='flex flex-row h-screen'>
@@ -197,16 +207,18 @@ const Board = () => {
           onDragOver={handleDragOver}
           onDragEnd={handleDragEnd}
           collisionDetection={closestCorners}>
-          <div className='flex flex-row mt-2 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar'>
-                {
-                cards.map((column) => {
-                  return (
-                        <Columns cards={column.cards} key={column.id} columnId={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
-                      )
-                    }
-                  )
-                }
-          </div>
+          <SortableContext items={cards} strategy={horizontalListSortingStrategy}>
+            <div className='flex flex-row mt-2 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar' ref={setNodeRef} {...attributes} {...listeners} style={style}>
+                  {
+                    cards.map((column) => {
+                      return (
+                          <Columns cards={column.cards} key={column.id} columnId={column.id} columnTitle = {column.state} setShowModal={setShowModal} showModal={showModal}></Columns>
+                        )
+                      }
+                    )
+                  }
+            </div>
+          </SortableContext>
         </DndContext>
 
         {/* Card Modal **/}
