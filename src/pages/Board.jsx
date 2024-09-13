@@ -105,7 +105,6 @@ const Board = () => {
    */
   const handleDragOver = (event) => {
     const {active, over, delta} = event;
-    console.log(active.id)
 
     //Find active and over columns
     const activeColumn = findColumn(active.id);
