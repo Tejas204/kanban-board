@@ -8,6 +8,8 @@ This repository contains the code for a full stack Kanban board.
 3. Create cards and states
 4. Delete cards and states
 5. Update cards
+6. Drag cards between columns
+7. Sort the cards vertically
 
 ## Technology Stack
 
