@@ -25,4 +25,6 @@ This repository contains the code for a full stack Kanban board.
 ![](src/assets/API_Design_Create.png)
 ![](src/assets/API_Design_Update.png)
 ![](src/assets/API_Design_Get.png)
+![](src/assets/API_Design_Delete.png)
+
 
