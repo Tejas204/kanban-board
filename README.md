@@ -27,10 +27,7 @@ This repository contains the code for a full stack Kanban board.
 
 ## Database Design
 
-![](src/assets/Database_Design.png)
-![](src/assets/API_Design_Create.png)
-![](src/assets/API_Design_Update.png)
-![](src/assets/API_Design_Get.png)
-![](src/assets/API_Design_Delete.png)
+![](src/assets/UI_HomePage.png)
+![](src/assets/UI_KanbanBoard.png)
 
 
