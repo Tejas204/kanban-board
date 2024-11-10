@@ -8,6 +8,8 @@ This repository contains the code for a full stack Kanban board.
 3. Create cards and states
 4. Delete cards and states
 5. Update cards
+6. Drag cards between columns
+7. Sort the cards vertically
 
 ## Technology Stack
 
@@ -17,7 +19,15 @@ This repository contains the code for a full stack Kanban board.
 | React-Router-Dom | npm i react-router-dom |
 | Tailwind CSS | npm install -D tailwindcss postcss autoprefixer |
 
+## Front-end Components
+1. Board
+2. Card
+3. Card Modal
+
+
 ## Database Design
 
-![](src/assets/Database_Design.png)
+![](src/assets/UI_HomePage.png)
+![](src/assets/UI_KanbanBoard.png)
+
 
