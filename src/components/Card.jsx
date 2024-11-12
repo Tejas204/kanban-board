@@ -104,6 +104,10 @@ const Card = ({
    */
   const [clickEvent, setClickEvent] = useState();
 
+  useEffect(() => {
+    console.log(clickEvent);
+  }, [clickEvent]);
+
   /**
    * @Function: set the value of isDragging or not
    * @Params: none
@@ -126,9 +130,9 @@ const Card = ({
     if (diffX < delta && diffY < delta) {
       console.log(event);
       if (event.target.id == "updateButton") {
-        alert("Updated!");
+        setClickEvent("update");
       } else if (event.target.id == "deleteButton") {
-        alert("Deleted!");
+        setClickEvent("delete");
       } else if (event.target.id == "dateButton") {
         alert("Date!");
       }
