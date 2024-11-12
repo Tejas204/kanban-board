@@ -25,9 +25,12 @@ This repository contains the code for a full stack Kanban board.
 3. Card Modal
 
 
-## Database Design
+## UI Design
 
+### Home Page
 ![](src/assets/UI_HomePage.png)
+
+### Kanban Board
 ![](src/assets/UI_KanbanBoard.png)
 
 
