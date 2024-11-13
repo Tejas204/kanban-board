@@ -103,9 +103,9 @@ const Card = ({
    * @Hook: set click event and display modal accordingly
    */
   const [clickEvent, setClickEvent] = useState();
-
+  let userClickEvent;
   useEffect(() => {
-    console.log(clickEvent);
+    userClickEvent = clickEvent;
   }, [clickEvent]);
 
   /**
@@ -243,7 +243,7 @@ const Card = ({
         showModal={false}
         addState={false}
         hideModal={false}
-        clickEvent={clickEvent}
+        clickEvent={userClickEvent}
       ></CardModal>
     </div>
   );

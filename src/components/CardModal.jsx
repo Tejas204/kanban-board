@@ -5,6 +5,7 @@ const CardModal = ({ showModal, addState, hideModal, clickEvent }) => {
   /**
    * @Icon: Set close icon
    */
+  console.log(clickEvent);
   const closeIcon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
