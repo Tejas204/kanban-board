@@ -1,15 +1,14 @@
-import React from 'react'
-import Card from '../components/Card'
-import CardModal from '../components/CardModal';
+import React from "react";
+import Card from "../components/Card";
+import CardModal from "../components/NewStateCardModal";
 
 const TestCard = () => {
-
-  const priority = 'low';
+  const priority = "low";
   return (
     <div>
-        <CardModal></CardModal>
+      <CardModal></CardModal>
     </div>
-  )
-}
+  );
+};
 
-export default TestCard
+export default TestCard;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-const CardModal = ({ showModal, addState, hideModal }) => {
+const NewStateCardModal = ({ showModal, addState, hideModal }) => {
   /**
    * @Icon: Set close icon
    */
@@ -198,4 +198,4 @@ const CardModal = ({ showModal, addState, hideModal }) => {
 
 const formStyle = `p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-lg rounded-md mb-2 bg-[color:var(--background-white)] text-[color:var(--card-bg--color)]`;
 
-export default CardModal;
+export default NewStateCardModal;

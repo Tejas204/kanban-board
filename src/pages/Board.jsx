@@ -1,23 +1,14 @@
 import React, { useEffect } from "react";
-import Filters from "../components/Filters";
-import Card from "../components/Card";
 import Columns from "../components/Columns";
-import CardModal from "../components/CardModal";
+import NewStateCardModal from "../components/NewStateCardModal";
 import { useState } from "react";
 import {
-  arraySwap,
   horizontalListSortingStrategy,
-  rectSortingStrategy,
   SortableContext,
   useSortable,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import {
-  closestCenter,
-  closestCorners,
-  DndContext,
-  DragOverlay,
-} from "@dnd-kit/core";
+import { closestCorners, DndContext } from "@dnd-kit/core";
 import { stateArray, cardArray } from "../data/tasks";
 import { arrayMove } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -231,7 +222,7 @@ const Board = () => {
         onDragEnd={handleDragEnd}
         collisionDetection={closestCorners}
       >
-        <SortableContext items={cards} strategy={horizontalListSortingStrategy}>
+        <SortableContext items={cards} strategy={verticalListSortingStrategy}>
           <div
             className="flex flex-row mt-2 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar"
             ref={setNodeRef}
@@ -256,11 +247,11 @@ const Board = () => {
       </DndContext>
 
       {/* Card Modal **/}
-      <CardModal
+      <NewStateCardModal
         showModal={showModal}
         addState={addState}
         hideModal={hideModal}
-      ></CardModal>
+      ></NewStateCardModal>
 
       {/* Add state button */}
       <button

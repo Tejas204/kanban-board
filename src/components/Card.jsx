@@ -4,7 +4,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useDraggable, useDroppable } from "@dnd-kit/core";
 import CardFunctions from "./CardFunctions";
-import CardModal from "./CardModal";
+import CardModal from "./NewStateCardModal";
 
 const Card = ({
   id,
