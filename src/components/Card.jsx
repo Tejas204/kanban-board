@@ -106,6 +106,7 @@ const Card = ({
   let userClickEvent;
   useEffect(() => {
     userClickEvent = clickEvent;
+    console.log(clickEvent);
   }, [clickEvent]);
 
   /**
@@ -162,9 +163,9 @@ const Card = ({
 
   return (
     // Parent div
-    //Deleted onMouseMove - add if requred
-    <div
-      className={`flex flex-col rounded-sm border-l-8 bg-[color:var(--card-bg--color)] 
+    <div>
+      <div
+        className={`flex flex-col rounded-sm border-l-8 bg-[color:var(--card-bg--color)] 
         ${
           priority == "high"
             ? "border-l-[color:var(--card-priority--color-high)]"
@@ -172,25 +173,25 @@ const Card = ({
             ? "border-l-[color:var(--card-priority--color-medium)]"
             : "border-l-[color:var(--card-priority--color-low)]"
         }`}
-      ref={setNodeRef}
-      {...attributes}
-      {...listeners}
-      style={style}
-    >
-      {/* Content div */}
-      <div className="flex flex-col px-6 py-4 border-b-2 gap-y-2">
-        {/* Header */}
-        <div className="flex flex-row justify-between pb-4">
-          {/* Title and assignment */}
-          <div className="flex flex-col">
-            <p className="text-xl font-semibold">{title}</p>
-            <p className="text-[color:var(--secondary-text--color)]">
-              Assigned to: {assigned_to}
-            </p>
-          </div>
-          {/* User Icon */}
-          <div
-            className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full 
+        ref={setNodeRef}
+        {...attributes}
+        {...listeners}
+        style={style}
+      >
+        {/* Content div */}
+        <div className="flex flex-col px-6 py-4 border-b-2 gap-y-2">
+          {/* Header */}
+          <div className="flex flex-row justify-between pb-4">
+            {/* Title and assignment */}
+            <div className="flex flex-col">
+              <p className="text-xl font-semibold">{title}</p>
+              <p className="text-[color:var(--secondary-text--color)]">
+                Assigned to: {assigned_to}
+              </p>
+            </div>
+            {/* User Icon */}
+            <div
+              className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full 
                     ${
                       priority == "high"
                         ? "bg-[color:var(--card-priority--color-high)]"
@@ -198,44 +199,48 @@ const Card = ({
                         ? "bg-[color:var(--card-priority--color-medium)]"
                         : "bg-[color:var(--card-priority--color-low)]"
                     }`}
-          >
-            {getInitials(assigned_to)}
+            >
+              {getInitials(assigned_to)}
+            </div>
           </div>
+
+          {/* Short description */}
+          <div className="text-[color:var(--primary-text--color)]">
+            <p>{short_description}</p>
+          </div>
+
+          <div className="">Due date: {newDueDate}</div>
         </div>
 
-        {/* Short description */}
-        <div className="text-[color:var(--primary-text--color)]">
-          <p>{short_description}</p>
+        {/* Icons */}
+        {/* <CardFunctions isDragging={triggerOnClick}></CardFunctions> */}
+        <div className="flex flex-row justify-between items-center space-x-10 px-6 py-3">
+          <button
+            onMouseDown={clickEventControl}
+            onMouseUp={dropEventControl}
+            className="flex flex-row text-white transition p-2"
+          >
+            {messageIcon}
+          </button>
+          <button
+            onMouseDown={clickEventControl}
+            onMouseUp={dropEventControl}
+            className="flex flex-row text-white transition ease-in-out delay-150 p-2"
+          >
+            {deleteIcon}
+          </button>
+          <form>
+            <input
+              type="date"
+              onChange={handleDateChange}
+              className="text-white p-2 bg-transparent"
+            ></input>
+          </form>
         </div>
-
-        <div className="">Due date: {newDueDate}</div>
       </div>
 
-      {/* Icons */}
-      {/* <CardFunctions isDragging={triggerOnClick}></CardFunctions> */}
-      <div className="flex flex-row justify-between items-center space-x-10 px-6 py-3">
-        <button
-          onMouseDown={clickEventControl}
-          onMouseUp={dropEventControl}
-          className="flex flex-row text-white transition p-2"
-        >
-          {messageIcon}
-        </button>
-        <button
-          onMouseDown={clickEventControl}
-          onMouseUp={dropEventControl}
-          className="flex flex-row text-white transition ease-in-out delay-150 p-2"
-        >
-          {deleteIcon}
-        </button>
-        <form>
-          <input
-            type="date"
-            onChange={handleDateChange}
-            className="text-white p-2 bg-transparent"
-          ></input>
-        </form>
-      </div>
+      {/* Test div */}
+      <div className={`${clickEvent ? "visible" : "hidden"}`}>{clickEvent}</div>
     </div>
   );
 };
