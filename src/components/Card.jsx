@@ -14,6 +14,7 @@ const Card = ({
   priority,
   due_date,
   state_id,
+  setShowModal,
 }) => {
   /**
    * @Contants: SVG icons and delta variables
@@ -100,16 +101,6 @@ const Card = ({
   const [newDueDate, setNewDueDate] = useState(due_date);
 
   /**
-   * @Hook: set click event and display modal accordingly
-   */
-  const [clickEvent, setClickEvent] = useState("");
-  let userClickEvent;
-  useEffect(() => {
-    userClickEvent = clickEvent;
-    console.log(clickEvent);
-  }, [clickEvent]);
-
-  /**
    * @Function: set the value of isDragging or not
    * @Params: none
    * @Returns: none
@@ -131,11 +122,11 @@ const Card = ({
     if (diffX < delta && diffY < delta) {
       console.log(event);
       if (event.target.id == "updateButton") {
-        setClickEvent("update");
+        setShowModal(true);
       } else if (event.target.id == "deleteButton") {
-        setClickEvent("delete");
+        setShowModal(true);
       } else if (event.target.id == "dateButton") {
-        alert("Date!");
+        setShowModal(true);
       }
     }
   };
@@ -240,7 +231,7 @@ const Card = ({
       </div>
 
       {/* Test div */}
-      <div className={`${clickEvent ? "visible" : "hidden"}`}>{clickEvent}</div>
+      {/* <div className={`${clickEvent ? "visible" : "hidden"}`}>{clickEvent}</div> */}
     </div>
   );
 };
