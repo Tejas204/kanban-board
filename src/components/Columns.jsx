@@ -24,7 +24,14 @@ export const useDidMount = () => {
   return didMount.current;
 };
 
-const Columns = ({ cards, columnId, columnTitle, setShowModal, showModal }) => {
+const Columns = ({
+  cards,
+  columnId,
+  columnTitle,
+  setShowModal,
+  showModal,
+  setUpdateDeleteCard,
+}) => {
   /**
    * @Call: useDidMount
    * call useDidMount() on render
@@ -113,6 +120,7 @@ const Columns = ({ cards, columnId, columnTitle, setShowModal, showModal }) => {
                 due_date={card.due_date}
                 state_id={card.state_id}
                 setShowModal={setShowModal}
+                setUpdateDeleteCard={setUpdateDeleteCard}
               ></Card>
             );
           })}

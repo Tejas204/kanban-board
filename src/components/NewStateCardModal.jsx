@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-const NewStateCardModal = ({ showModal, addState, hideModal }) => {
+const NewStateCardModal = ({
+  showModal,
+  addState,
+  hideModal,
+  setUpdateDeleteCard,
+}) => {
   /**
    * @Icon: Set close icon
    */

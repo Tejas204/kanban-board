@@ -15,12 +15,8 @@ import { CSS } from "@dnd-kit/utilities";
 
 const Board = () => {
   /**
-   * @States: Set variables
-   */
-  const [columns, setColumns] = useState(stateArray);
-
-  /**
    * @Hook: sets cardArray
+   * Sets array of cards from data
    */
   const [cards, setCards] = useState(cardArray);
 
@@ -35,6 +31,11 @@ const Board = () => {
    * Controls card modal display
    */
   const [addState, setAddState] = useState(false);
+
+  /**
+   * @Hook: sets value if user wants to update card or delete card
+   */
+  const [updateDeleteCard, setUpdateDeleteCard] = useState("");
 
   /*
    * @Function: hideModal
@@ -239,6 +240,7 @@ const Board = () => {
                   columnTitle={column.state}
                   setShowModal={setShowModal}
                   showModal={showModal}
+                  setUpdateDeleteCard={setUpdateDeleteCard}
                 ></Columns>
               );
             })}
@@ -251,6 +253,7 @@ const Board = () => {
         showModal={showModal}
         addState={addState}
         hideModal={hideModal}
+        setUpdateDeleteCard={setUpdateDeleteCard}
       ></NewStateCardModal>
 
       {/* Add state button */}
