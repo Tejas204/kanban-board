@@ -119,7 +119,6 @@ const Columns = ({
                 priority={card.priority}
                 due_date={card.due_date}
                 state_id={card.state_id}
-                setShowModal={setShowModal}
                 setUpdateDeleteCard={setUpdateDeleteCard}
               ></Card>
             );

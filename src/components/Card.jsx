@@ -14,7 +14,6 @@ const Card = ({
   priority,
   due_date,
   state_id,
-  setShowModal,
   setUpdateDeleteCard,
 }) => {
   /**
@@ -123,13 +122,10 @@ const Card = ({
     if (diffX < delta && diffY < delta) {
       console.log(event);
       if (event.target.id == "updateButton") {
-        setShowModal(true);
         setUpdateDeleteCard("update");
       } else if (event.target.id == "deleteButton") {
-        setShowModal(true);
         setUpdateDeleteCard("delete");
       } else if (event.target.id == "dateButton") {
-        setShowModal(true);
       }
     }
   };
