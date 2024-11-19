@@ -7,7 +7,6 @@ const NewStateCardModal = ({
   hideModal,
   updateDeleteCard,
 }) => {
-  console.log(updateDeleteCard);
   /**
    * @Icon: Set close icon
    */
