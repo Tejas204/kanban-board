@@ -36,9 +36,6 @@ const Board = () => {
    * @Hook: sets value if user wants to update card or delete card
    */
   const [updateDeleteCard, setUpdateDeleteCard] = useState();
-  // useEffect(() => {
-  //   console.log(updateDeleteCard);
-  // }, updateDeleteCard);
 
   /*
    * @Function: hideModal

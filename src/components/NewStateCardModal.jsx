@@ -54,7 +54,7 @@ const NewStateCardModal = ({
                 <tbody>
                   <tr>
                     <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
-                      Enter a title
+                      Title
                     </td>
                     <td>
                       <input
@@ -209,7 +209,9 @@ const NewStateCardModal = ({
           {/* Title */}
           <div className="flex flex-row justify-between">
             <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
-              {updateDeleteCard}
+              {updateDeleteCard === "update"
+                ? "Update Card"
+                : "Do you want to delete this card?"}
             </p>
             <button onClick={hideModal}>{closeIcon}</button>
           </div>
@@ -221,7 +223,7 @@ const NewStateCardModal = ({
                 <tbody>
                   <tr>
                     <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
-                      Enter a title
+                      Title
                     </td>
                     <td>
                       <input
@@ -296,9 +298,17 @@ const NewStateCardModal = ({
                 </button>
                 <button
                   type="submit"
-                  className="p-4 w-1/4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md hover:ring-4 ring-[color:var(--button-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+                  className={`p-4 w-1/4 ${
+                    updateDeleteCard === "update"
+                      ? "bg-[color:var(--button-bg--color)]"
+                      : "bg-[color:var(--card-priority--color-high)]"
+                  } text-[color:var(--button-text--color)] text-lg font-bold rounded-md hover:ring-4 ${
+                    updateDeleteCard === "update"
+                      ? "ring-[color:var(--button-bg--color)]"
+                      : "ring-[color:var(--card-priority--color-high)]"
+                  } ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out`}
                 >
-                  Submit
+                  {updateDeleteCard === "update" ? "Update" : "Delete"}
                 </button>
               </div>
             </form>
