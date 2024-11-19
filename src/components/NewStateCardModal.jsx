@@ -7,6 +7,7 @@ const NewStateCardModal = ({
   hideModal,
   updateDeleteCard,
 }) => {
+  console.log(updateDeleteCard);
   /**
    * @Icon: Set close icon
    */
@@ -198,10 +199,10 @@ const NewStateCardModal = ({
         </div>
       </div>
     );
-  } else if (updateDeleteCard == "update" || updateDeleteCard == "delete") {
-    <div>
+  } else if (updateDeleteCard) {
+    return (
       <div
-        className={`z-10 h-screen w-screen flex justify-center mx-auto rounded absolute ${"visible"}`}
+        className={`z-10 h-screen w-screen flex justify-center mx-auto rounded absolute`}
       >
         {/* Modal */}
         <div className="flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
@@ -304,7 +305,7 @@ const NewStateCardModal = ({
           </div>
         </div>
       </div>
-    </div>;
+    );
   }
 };
 
