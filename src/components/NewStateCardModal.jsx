@@ -256,7 +256,7 @@ const NewStateCardModal = ({
                         id="newCardPriority"
                         className={formStyle}
                       >
-                        <option value="priority">Tejas</option>
+                        <option value={updateDeleteCard.priority}>Tejas</option>
                       </select>
                     </td>
                   </tr>
@@ -270,13 +270,15 @@ const NewStateCardModal = ({
                         id="newCardPriority"
                         className={formStyle}
                       >
-                        <option value="priority">Priority</option>
+                        <option value={updateDeleteCard.priority}>
+                          Priority
+                        </option>
                       </select>
                     </td>
                   </tr>
                   <tr>
                     <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
-                      Short Description
+                      Due Date
                     </td>
                     <td>
                       <input
@@ -284,6 +286,7 @@ const NewStateCardModal = ({
                         id="dueDate"
                         name="dueDate"
                         className={formStyle}
+                        value={updateDeleteCard.due_date}
                       ></input>
                     </td>
                   </tr>
@@ -292,7 +295,8 @@ const NewStateCardModal = ({
 
               <div className="flex flex-row justify-start gap-x-10">
                 <button
-                  type="submit"
+                  type="button"
+                  onClick={hideModal}
                   className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 border-[color:var(--board-bg--color)] text-lg font-bold rounded-md hover:ring-4 ring-[color:var(--card-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
                 >
                   Cancel
