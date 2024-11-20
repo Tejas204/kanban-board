@@ -105,7 +105,7 @@ const NewStateCardModal = ({
                   </tr>
                   <tr>
                     <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
-                      Short Description
+                      Due Date
                     </td>
                     <td>
                       <input
