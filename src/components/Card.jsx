@@ -183,7 +183,7 @@ const Card = ({
           {/* Title and assignment */}
           <div className="flex flex-col">
             <p className="text-xl font-semibold">{title}</p>
-            <p className="text-[color:var(--secondary-text--color)]">
+            <p className="text-[color:var(--secondary-text--color)] text-lg">
               Assigned to: {assigned_to}
             </p>
           </div>
@@ -203,11 +203,11 @@ const Card = ({
         </div>
 
         {/* Short description */}
-        <div className="text-[color:var(--primary-text--color)]">
+        <div className="text-[color:var(--primary-text--color)] text-lg">
           <p>{short_description}</p>
         </div>
 
-        <div className="">Due date: {newDueDate}</div>
+        <div className="text-lg">Due date: {newDueDate}</div>
       </div>
 
       {/* Icons */}
