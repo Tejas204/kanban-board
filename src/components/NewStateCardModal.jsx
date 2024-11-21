@@ -283,10 +283,9 @@ const NewStateCardModal = ({
                     <td>
                       <input
                         type="date"
-                        id="dueDate"
-                        name="dueDate"
                         className={formStyle}
-                        value={updateDeleteCard.due_date}
+                        name="dueDate"
+                        id="dueDate"
                       ></input>
                     </td>
                   </tr>

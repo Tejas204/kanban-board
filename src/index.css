@@ -12,6 +12,15 @@
     font-size: 1.4rem;
   }
 
+  #dueDate::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(50%) sepia(100%) saturate(10000%)
+      hue-rotate(180deg);
+  }
+
+  #dueDate::-webkit-datetime-edit {
+    display: block;
+  }
+
   input[type="date"]::-webkit-datetime-edit {
     display: none;
   }
@@ -58,10 +67,7 @@
   --button-text--color: #dfe0e4;
   --button-offset--color: #915aff;
   --button-hover--color: #7c22fc;
-
-
 }
-
 
 /**a {
   font-weight: 500;
