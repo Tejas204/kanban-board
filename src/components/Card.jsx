@@ -133,7 +133,16 @@ const Card = ({
           state_id: state_id,
         });
       } else if (event.target.id == "deleteButton") {
-        setUpdateDeleteCard("delete");
+        setUpdateDeleteCard({
+          action: "delete",
+          id: id,
+          title: title,
+          short_description: short_description,
+          assigned_to: assigned_to,
+          priority: priority,
+          due_date: due_date,
+          state_id: state_id,
+        });
       } else if (event.target.id == "dateButton") {
       }
     }
@@ -216,14 +225,14 @@ const Card = ({
         <button
           onMouseDown={clickEventControl}
           onMouseUp={dropEventControl}
-          className="flex flex-row text-white transition p-2"
+          className="flex flex-row text-white p-4"
         >
           {messageIcon}
         </button>
         <button
           onMouseDown={clickEventControl}
           onMouseUp={dropEventControl}
-          className="flex flex-row text-white transition ease-in-out delay-150 p-2"
+          className="flex flex-row text-white p-4"
         >
           {deleteIcon}
         </button>
@@ -231,7 +240,7 @@ const Card = ({
           <input
             type="date"
             onChange={handleDateChange}
-            className="text-white p-2 bg-transparent"
+            className="text-white p-4 bg-transparent"
           ></input>
         </form>
       </div>
