@@ -75,10 +75,13 @@ const Columns = ({
     <div className="h-screen w-1/4 shrink-0">
       {/* Title */}
       <div className="flex flex-row justify-between items-center p-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]">
-        <p className="text-xl text-[color:var(--primary-text--color)] font-semibold uppercase pl-2">
-          {columnTitle}
-        </p>
-        {/* Buttons */}
+        <input
+          type="text"
+          disabled="true"
+          value={columnTitle}
+          className="text-xl text-[color:var(--primary-text--color)] bg-transparent font-semibold uppercase pl-2"
+        ></input>
+        {/* Buttons and Icons */}
         <div className="flex flex-row gap-x-5 items-center">
           <button
             className="text-[color:var(--button-text--color)]"
