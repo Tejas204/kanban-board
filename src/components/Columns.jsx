@@ -65,6 +65,13 @@ const Columns = ({
   }, [displayModal]);
 
   /**
+   * @Hook: setUpdateState
+   * Used to update the name of the state
+   */
+  const [updateState, setUpdateState] = useState(false);
+  console.log(updateState);
+
+  /**
    * @Function: Droppable
    */
   const { setNodeRef } = useDroppable({
@@ -77,7 +84,7 @@ const Columns = ({
       <div className="flex flex-row justify-between items-center p-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]">
         <input
           type="text"
-          disabled="true"
+          disabled={updateState}
           value={columnTitle}
           className="text-xl text-[color:var(--primary-text--color)] bg-transparent font-semibold uppercase pl-2"
         ></input>
@@ -87,6 +94,7 @@ const Columns = ({
             className="text-[color:var(--button-text--color)]"
             type="button"
             title="Update State"
+            onClick={() => setUpdateState(!updateState)}
           >
             {updateIcon}
           </button>
