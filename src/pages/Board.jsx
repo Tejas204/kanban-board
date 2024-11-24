@@ -33,9 +33,16 @@ const Board = () => {
   const [addState, setAddState] = useState(false);
 
   /**
-   * @Hook: sets value if user wants to update card or delete card
+   * @Hook: setUpdateDeleteCard
+   * Sets value if user wants to update card or delete card
    */
   const [updateDeleteCard, setUpdateDeleteCard] = useState();
+
+  /**
+   * Hook:
+   * Sets value if user wants to delete state
+   */
+  const [deleteState, setDeleteState] = useState();
 
   /*
    * @Function: hideModal
@@ -49,6 +56,8 @@ const Board = () => {
       setAddState(!addState);
     } else if (updateDeleteCard) {
       setUpdateDeleteCard();
+    } else if (deleteState) {
+      setDeleteState(!deleteState);
     }
   };
 
@@ -243,6 +252,7 @@ const Board = () => {
                   setShowModal={setShowModal}
                   showModal={showModal}
                   setUpdateDeleteCard={setUpdateDeleteCard}
+                  setDeleteState={setDeleteState}
                 ></Columns>
               );
             })}
@@ -256,6 +266,7 @@ const Board = () => {
         addState={addState}
         hideModal={hideModal}
         updateDeleteCard={updateDeleteCard}
+        deleteState={deleteState}
       ></NewStateCardModal>
 
       {/* Add state button */}

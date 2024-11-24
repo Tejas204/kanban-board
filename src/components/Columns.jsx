@@ -32,6 +32,7 @@ const Columns = ({
   setShowModal,
   showModal,
   setUpdateDeleteCard,
+  setDeleteState,
 }) => {
   /**
    * @Call: useDidMount
@@ -102,6 +103,7 @@ const Columns = ({
             className="text-[color:var(--button-text--color)]"
             type="button"
             title="Delete State"
+            onClick={() => setDeleteState(true)}
           >
             {deleteIcon}
           </button>
