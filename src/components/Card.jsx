@@ -173,6 +173,7 @@ const Card = ({
           onMouseDown={clickEventControl}
           onMouseUp={dropEventControl}
           className="flex flex-row text-white p-4"
+          title="Update Card"
         >
           {updateIcon}
         </button>
@@ -180,6 +181,7 @@ const Card = ({
           onMouseDown={clickEventControl}
           onMouseUp={dropEventControl}
           className="flex flex-row text-white p-4"
+          title="Delete Card"
         >
           {deleteIcon}
         </button>
@@ -188,6 +190,7 @@ const Card = ({
             type="date"
             onChange={handleDateChange}
             className="text-white p-4 bg-transparent"
+            title="Update Due Date"
           ></input>
         </form>
       </div>

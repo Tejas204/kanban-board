@@ -82,16 +82,18 @@ const Columns = ({
           className="text-xl text-[color:var(--primary-text--color)] bg-transparent font-semibold uppercase pl-2"
         ></input>
         {/* Buttons and Icons */}
-        <div className="flex flex-row gap-x-5 items-center">
+        <div className="flex flex-row gap-x-7 items-center">
           <button
             className="text-[color:var(--button-text--color)]"
             type="button"
+            title="Update State"
           >
             {updateIcon}
           </button>
           <button
             className="text-[color:var(--button-text--color)]"
             type="button"
+            title="Delete State"
           >
             {deleteIcon}
           </button>
@@ -99,6 +101,7 @@ const Columns = ({
             className="text-[color:var(--button-text--color)]"
             onClick={handleShowModal}
             type="button"
+            title="Add Card"
           >
             {addCardIcon}
           </button>
