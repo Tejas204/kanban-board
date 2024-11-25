@@ -69,7 +69,8 @@ const Columns = ({
    * @Hook: setUpdateState
    * Used to update the name of the state
    */
-  const [updateState, setUpdateState] = useState(false);
+  const [updateState, setUpdateState] = useState(true);
+  const [updatedColumnTitle, setUpdatedColumnTitle] = useState(columnTitle);
   console.log(updateState);
 
   /**
@@ -86,7 +87,8 @@ const Columns = ({
         <input
           type="text"
           disabled={updateState}
-          value={columnTitle}
+          value={updatedColumnTitle}
+          onChange={(event) => setUpdatedColumnTitle(event.target.value)}
           className="text-xl text-[color:var(--primary-text--color)] bg-transparent font-semibold uppercase pl-2"
         ></input>
         {/* Buttons and Icons */}
