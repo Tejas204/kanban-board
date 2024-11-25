@@ -70,6 +70,11 @@ const Columns = ({
    * Used to update the name of the state
    */
   const [updateState, setUpdateState] = useState(true);
+
+  /**
+   * @Hook: setUpdatedColumnTitle
+   * Used to set value of the state field
+   */
   const [updatedColumnTitle, setUpdatedColumnTitle] = useState(columnTitle);
   console.log(updateState);
 
