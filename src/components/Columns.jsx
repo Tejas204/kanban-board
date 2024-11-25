@@ -7,7 +7,12 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { useDroppable } from "@dnd-kit/core";
-import { updateIcon, deleteIcon, addCardIcon } from "../data/icons";
+import {
+  updateIcon,
+  deleteIcon,
+  addCardIcon,
+  confirmIcon,
+} from "../data/icons";
 
 /**
  * @Function: useDidMount
@@ -76,7 +81,6 @@ const Columns = ({
    * Used to set value of the state field
    */
   const [updatedColumnTitle, setUpdatedColumnTitle] = useState(columnTitle);
-  console.log(updateState);
 
   /**
    * @Function: Droppable
@@ -94,7 +98,9 @@ const Columns = ({
           disabled={updateState}
           value={updatedColumnTitle}
           onChange={(event) => setUpdatedColumnTitle(event.target.value)}
-          className="text-xl text-[color:var(--primary-text--color)] bg-transparent font-semibold uppercase pl-2"
+          className={`text-xl text-[color:var(--primary-text--color)] bg-transparent font-semibold uppercase pl-2 pr-14 py-2 ${
+            !updateState ? "border-2 border-white" : ""
+          }`}
         ></input>
         {/* Buttons and Icons */}
         <div className="flex flex-row gap-x-7 items-center">
@@ -104,7 +110,7 @@ const Columns = ({
             title="Update State"
             onClick={() => setUpdateState(!updateState)}
           >
-            {updateIcon}
+            {updateState ? updateIcon : confirmIcon}
           </button>
           <button
             className="text-[color:var(--button-text--color)]"
