@@ -80,7 +80,7 @@ const Columns = ({
    * @Hook: setUpdatedColumnTitle
    * Used to set value of the state field
    */
-  const [updatedColumnTitle, setUpdatedColumnTitle] = useState(columnTitle);
+  const [updatedStateTitle, setUpdatedStateTitle] = useState(columnTitle);
 
   /**
    * @Function: Droppable
@@ -96,8 +96,8 @@ const Columns = ({
         <input
           type="text"
           disabled={updateState}
-          value={updatedColumnTitle}
-          onChange={(event) => setUpdatedColumnTitle(event.target.value)}
+          value={updatedStateTitle}
+          onChange={(event) => setUpdatedStateTitle(event.target.value)}
           className={`text-xl text-[color:var(--primary-text--color)] bg-transparent font-semibold uppercase pl-2 pr-14 py-2 ${
             !updateState ? "border-2 border-white" : ""
           }`}
@@ -107,7 +107,7 @@ const Columns = ({
           <button
             className="text-[color:var(--button-text--color)]"
             type="button"
-            title="Update State"
+            title={updateState ? "Update State" : "Confirm Update"}
             onClick={() => setUpdateState(!updateState)}
           >
             {updateState ? updateIcon : confirmIcon}
