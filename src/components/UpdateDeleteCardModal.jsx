@@ -2,11 +2,30 @@ import React, { useState } from "react";
 import { closeIcon } from "../data/icons";
 
 const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
+  /**
+   * @Hook: setTitle
+   * Used to set title of card on the modal
+   */
   const [title, setTitle] = useState(updateDeleteCard.title);
+
+  /**
+   * @Hook: setShortDescription
+   * Used to set short description of card on the modal
+   */
   const [shortDescription, setShortDescription] = useState(
     updateDeleteCard.short_description
   );
+
+  /**
+   * @Hook: setAssignedTo
+   * Used to set assignee of card on the modal
+   */
   const [assignedTo, setAssignedTo] = useState(updateDeleteCard.assigned_to);
+
+  /**
+   * @Hook: setPriority
+   * Used to set priority of card on the modal
+   */
   const [priority, setPriority] = useState(updateDeleteCard.priority);
 
   return (
