@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { closeIcon } from "../data/icons";
 
 const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
+  const [title, setTitle] = useState(updateDeleteCard.title);
+  const [shortDescription, setShortDescription] = useState(
+    updateDeleteCard.short_description
+  );
+  const [assignedTo, setAssignedTo] = useState(updateDeleteCard.assigned_to);
+  const [priority, setPriority] = useState(updateDeleteCard.priority);
+
   return (
     <div className="flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
       {/* Title */}
@@ -28,7 +35,8 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     type="text"
                     placeholder="Create a new API"
                     className={formStyle}
-                    value={updateDeleteCard.title}
+                    value={title}
+                    onChange={(event) => setTitle(event.target.value)}
                   ></input>
                 </td>
               </tr>
@@ -41,7 +49,10 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     type="text"
                     placeholder="The API should make a GET call"
                     className={formStyle}
-                    value={updateDeleteCard.short_description}
+                    value={shortDescription}
+                    onChange={(event) =>
+                      setShortDescription(event.target.value)
+                    }
                   ></input>
                 </td>
               </tr>
@@ -54,8 +65,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     name="newCardPriority"
                     id="newCardPriority"
                     className={formStyle}
+                    onChange={(event) => setAssignedTo(event.target.value)}
                   >
-                    <option value={updateDeleteCard.priority}>Tejas</option>
+                    <option value={assignedTo}>{assignedTo}</option>
                   </select>
                 </td>
               </tr>
@@ -68,8 +80,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     name="newCardPriority"
                     id="newCardPriority"
                     className={formStyle}
+                    onChange={(event) => setPriority(event.target.value)}
                   >
-                    <option value={updateDeleteCard.priority}>Priority</option>
+                    <option value={priority}>{priority}</option>
                   </select>
                 </td>
               </tr>
