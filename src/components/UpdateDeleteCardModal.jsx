@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { closeIcon } from "../data/icons";
+import { priorities } from "../data/tasks";
 
 const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   /**
@@ -101,7 +102,17 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     className={formStyle}
                     onChange={(event) => setPriority(event.target.value)}
                   >
-                    <option value={priority}>{priority}</option>
+                    {priorities.map((priorityValue) => {
+                      return (
+                        <option
+                          key={priorityValue.id}
+                          selected={priorityValue.id == priority ? true : false}
+                        >
+                          {priorityValue.id} - {priorityValue.name}
+                        </option>
+                      );
+                    })}
+                    {/* <option value={priority}>{priority}</option> */}
                   </select>
                 </td>
               </tr>
