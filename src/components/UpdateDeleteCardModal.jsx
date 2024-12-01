@@ -29,6 +29,12 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
    */
   const [priority, setPriority] = useState(updateDeleteCard.priority);
 
+  /**
+   * @Hook: setAction
+   * Set the action; update or delete
+   */
+  const [action, setAction] = useState(updateDeleteCard.action);
+
   return (
     <div className="flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
       {/* Title */}
@@ -57,6 +63,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     className={formStyle}
                     value={title}
                     onChange={(event) => setTitle(event.target.value)}
+                    disabled={action === "delete" ? true : false}
                   ></input>
                 </td>
               </tr>
@@ -73,6 +80,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     onChange={(event) =>
                       setShortDescription(event.target.value)
                     }
+                    disabled={action === "delete" ? true : false}
                   ></input>
                 </td>
               </tr>
@@ -86,6 +94,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     id="newCardPriority"
                     className={formStyle}
                     onChange={(event) => setAssignedTo(event.target.value)}
+                    disabled={action === "delete" ? true : false}
                   >
                     <option value={assignedTo}>{assignedTo}</option>
                   </select>
@@ -101,6 +110,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     id="newCardPriority"
                     className={formStyle}
                     onChange={(event) => setPriority(event.target.value)}
+                    disabled={action === "delete" ? true : false}
                   >
                     {priorities.map((priorityValue) => {
                       return (
@@ -127,6 +137,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     name="dueDate"
                     id="dueDate"
                     value={updateDeleteCard.due_date}
+                    disabled={action === "delete" ? true : false}
                   ></input>
                 </td>
               </tr>
