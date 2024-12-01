@@ -1,5 +1,6 @@
 import React from "react";
 import { closeIcon } from "../data/icons";
+import { priorities } from "../data/tasks";
 
 const CreateCardModal = ({ hideModal }) => {
   return (
@@ -65,7 +66,13 @@ const CreateCardModal = ({ hideModal }) => {
                     id="newCardPriority"
                     className={formStyle}
                   >
-                    <option value="priority">Priority</option>
+                    {priorities.map((priority, key) => {
+                      return (
+                        <option key={priority.id}>
+                          {priority.id} - {priority.name}
+                        </option>
+                      );
+                    })}
                   </select>
                 </td>
               </tr>

@@ -6,22 +6,23 @@ export const cardArray = [
       {
         id: 1,
         title: "Create blog content",
-        short_description: 'Write a blog about your design process and get it ready for publishing',
+        short_description:
+          "Write a blog about your design process and get it ready for publishing",
         assigned_to: "Tejas Dhopavkar",
-        priority: "high",
+        priority: 1,
         state_id: 1,
-        due_date: "2024-08-09"
+        due_date: "2024-08-09",
       },
       {
         id: 2,
         title: "Configure API",
-        short_description: 'Configure API to fetch card details',
+        short_description: "Configure API to fetch card details",
         assigned_to: "Abhinav Sharma",
-        priority: "medium",
+        priority: 2,
         state_id: 1,
-        due_date: "2024-08-09"
-      }
-    ]
+        due_date: "2024-08-09",
+      },
+    ],
   },
   {
     id: 200,
@@ -30,22 +31,22 @@ export const cardArray = [
       {
         id: 3,
         title: "Improve UI",
-        short_description: 'Redesign card UI',
+        short_description: "Redesign card UI",
         assigned_to: "Omkar Ghagare",
-        priority: "low",
+        priority: 3,
         state_id: 2,
-        due_date: "2024-08-09"
+        due_date: "2024-08-09",
       },
       {
         id: 4,
         title: "Draggable components",
-        short_description: 'Make components draggable',
+        short_description: "Make components draggable",
         assigned_to: "Advait Naik",
-        priority: "high",
+        priority: 1,
         state_id: 2,
-        due_date: "2024-08-09"
-      }
-    ]
+        due_date: "2024-08-09",
+      },
+    ],
   },
   {
     id: 300,
@@ -54,13 +55,13 @@ export const cardArray = [
       {
         id: 5,
         title: "Create Login API",
-        short_description: 'Design Login API',
+        short_description: "Design Login API",
         assigned_to: "Ninad",
-        priority: "medium",
+        priority: 2,
         state_id: 3,
-        due_date: "2024-08-09"
-      }
-    ]
+        due_date: "2024-08-09",
+      },
+    ],
   },
   {
     id: 400,
@@ -69,66 +70,78 @@ export const cardArray = [
       {
         id: 6,
         title: "Create Register API",
-        short_description: 'Design register API',
+        short_description: "Design register API",
         assigned_to: "Ritesh",
-        priority: "medium",
+        priority: 2,
         state_id: 4,
-        due_date: "2024-08-09"
-      }
-    ]
+        due_date: "2024-08-09",
+      },
+    ],
   },
   {
     id: 500,
     state: "Complete",
-    cards: [
-      
-    ]
-  }
-]
+    cards: [],
+  },
+];
 
 export const stateArray = [
-    {
-        'id': 1,
-        'state': 'Draft'
-    },
-    {
-        'id': 2,
-        'state': 'Ready'
-    },
-    {
-        'id': 3,
-        'state': 'Work in Progress'
-    },
-    {
-        'id': 4,
-        'state': 'Review'
-    },
-    {
-        'id': 5,
-        'state': 'Complete'
-    }
-    
-]
+  {
+    id: 1,
+    state: "Draft",
+  },
+  {
+    id: 2,
+    state: "Ready",
+  },
+  {
+    id: 3,
+    state: "Work in Progress",
+  },
+  {
+    id: 4,
+    state: "Review",
+  },
+  {
+    id: 5,
+    state: "Complete",
+  },
+];
 
 export const headerMenuItems = [
   {
-    'id': 1,
-    'name': "Home",
-    "link": "/"
+    id: 1,
+    name: "Home",
+    link: "/",
   },
   {
-    'id': 2,
-    'name': "Board",
-    "link": "/card"
+    id: 2,
+    name: "Board",
+    link: "/card",
   },
   {
-    'id': 3,
-    'name': "Login",
-    "link": "/login"
+    id: 3,
+    name: "Login",
+    link: "/login",
   },
   {
-    'id': 4,
-    'name': "Register",
-    "link": "/register"
-  }
-]
+    id: 4,
+    name: "Register",
+    link: "/register",
+  },
+];
+
+export const priorities = [
+  {
+    id: 1,
+    name: "High",
+  },
+  {
+    id: 2,
+    name: "Medium",
+  },
+  {
+    id: 3,
+    name: "Low",
+  },
+];
