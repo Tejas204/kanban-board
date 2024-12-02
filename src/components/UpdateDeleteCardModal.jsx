@@ -41,8 +41,15 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
    */
   const [dueDate, updateDueDate] = useState(updateDeleteCard.due_date);
 
+  const handleDateChange = (event) => {
+    if (new Date(event.target.value) >= new Date()) {
+      console.log(event.target.value);
+      //updateDueDate(event.target.value);
+    }
+  };
+
   return (
-    <div className="flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
+    <div className="flex flex-col border-2 w-2/5 h-fit mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
       {/* Title */}
       <div className="flex flex-row justify-between">
         <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
@@ -163,7 +170,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     id="dueDate"
                     value={dueDate}
                     disabled={action === "delete" ? true : false}
-                    onChange={(event) => updateDueDate(event.target.value)}
+                    onChange={(event) => handleDateChange(event)}
                   ></input>
                 </td>
               </tr>
