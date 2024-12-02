@@ -60,7 +60,11 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                   <input
                     type="text"
                     placeholder="Create a new API"
-                    className={formStyle}
+                    className={`p-4 w-full border-[0.15rem] ${
+                      updateDeleteCard.action == "delete"
+                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)]"
+                        : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
+                    } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     value={title}
                     onChange={(event) => setTitle(event.target.value)}
                     disabled={action === "delete" ? true : false}
@@ -75,7 +79,11 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                   <input
                     type="text"
                     placeholder="The API should make a GET call"
-                    className={formStyle}
+                    className={`p-4 w-full border-[0.15rem] ${
+                      updateDeleteCard.action == "delete"
+                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)]"
+                        : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
+                    } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     value={shortDescription}
                     onChange={(event) =>
                       setShortDescription(event.target.value)
@@ -133,7 +141,11 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                 <td>
                   <input
                     type="date"
-                    className={formStyle}
+                    className={`p-4 w-full border-[0.15rem] ${
+                      updateDeleteCard.action == "delete"
+                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)]"
+                        : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
+                    } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     name="dueDate"
                     id="dueDate"
                     value={updateDeleteCard.due_date}
@@ -173,6 +185,6 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   );
 };
 
-const formStyle = `p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-lg rounded-md mb-2 bg-[color:var(--background-white)] text-[color:var(--card-bg--color)]`;
+const formStyle = `p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2 text-[color:var(--card-bg--color)]`;
 
 export default UpdateDeleteCardModal;
