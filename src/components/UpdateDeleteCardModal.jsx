@@ -35,6 +35,12 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
    */
   const [action, setAction] = useState(updateDeleteCard.action);
 
+  /**
+   * @Hook: updateDueDate
+   * Update the due date when user wants to modify due date
+   */
+  const [dueDate, updateDueDate] = useState(updateDeleteCard.due_date);
+
   return (
     <div className="flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
       {/* Title */}
@@ -155,8 +161,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     name="dueDate"
                     id="dueDate"
-                    value={updateDeleteCard.due_date}
+                    value={dueDate}
                     disabled={action === "delete" ? true : false}
+                    onChange={(event) => updateDueDate(event.target.value)}
                   ></input>
                 </td>
               </tr>
@@ -191,7 +198,5 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
     </div>
   );
 };
-
-const formStyle = `p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2 text-[color:var(--card-bg--color)]`;
 
 export default UpdateDeleteCardModal;
