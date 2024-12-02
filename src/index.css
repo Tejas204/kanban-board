@@ -50,8 +50,8 @@
   /* Text colors */
   --primary-text--color: #dfe0e4;
   --secondary-text--color: #9fa5b4;
-  --field-disabled--color: #bcc0ca;
-  --text-disabled--color: #67697b;
+  --field-disabled--color: #d0d3da;
+  --text-disabled--color: #9496a2;
 
   /* User icon colors */
   --user-icon--bg-color--purple: #c335fb;

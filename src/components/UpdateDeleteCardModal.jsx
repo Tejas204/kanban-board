@@ -62,7 +62,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     placeholder="Create a new API"
                     className={`p-4 w-full border-[0.15rem] ${
                       updateDeleteCard.action == "delete"
-                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)]"
+                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)] cursor-not-allowed"
                         : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
                     } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     value={title}
@@ -81,7 +81,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     placeholder="The API should make a GET call"
                     className={`p-4 w-full border-[0.15rem] ${
                       updateDeleteCard.action == "delete"
-                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)]"
+                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)] cursor-not-allowed"
                         : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
                     } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     value={shortDescription}
@@ -100,7 +100,11 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                   <select
                     name="newCardPriority"
                     id="newCardPriority"
-                    className={formStyle}
+                    className={`p-4 w-full border-[0.15rem] ${
+                      updateDeleteCard.action == "delete"
+                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)] cursor-not-allowed"
+                        : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
+                    } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     onChange={(event) => setAssignedTo(event.target.value)}
                     disabled={action === "delete" ? true : false}
                   >
@@ -116,7 +120,11 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                   <select
                     name="newCardPriority"
                     id="newCardPriority"
-                    className={formStyle}
+                    className={`p-4 w-full border-[0.15rem] ${
+                      updateDeleteCard.action == "delete"
+                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)] cursor-not-allowed"
+                        : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
+                    } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     onChange={(event) => setPriority(event.target.value)}
                     disabled={action === "delete" ? true : false}
                   >
@@ -130,7 +138,6 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                         </option>
                       );
                     })}
-                    {/* <option value={priority}>{priority}</option> */}
                   </select>
                 </td>
               </tr>
@@ -143,7 +150,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     type="date"
                     className={`p-4 w-full border-[0.15rem] ${
                       updateDeleteCard.action == "delete"
-                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)]"
+                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)] cursor-not-allowed"
                         : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
                     } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     name="dueDate"
