@@ -42,10 +42,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   const [dueDate, updateDueDate] = useState(updateDeleteCard.due_date);
 
   const handleDateChange = (event) => {
-    if (new Date(event.target.value) >= new Date()) {
-      console.log(event.target.value);
-      //updateDueDate(event.target.value);
-    }
+    updateDueDate(event.target.value);
   };
 
   return (
