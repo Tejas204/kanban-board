@@ -224,41 +224,49 @@ const Board = () => {
   };
 
   return (
-    <div className="flex flex-row h-screen">
+    <div className={`flex flex-row h-screen `}>
       {/* Filters Div */}
       {/* <Filters></Filters> */}
 
       {/* Columns */}
-      <DndContext
-        onDragOver={handleDragOver}
-        onDragEnd={handleDragEnd}
-        collisionDetection={closestCorners}
+      <div
+        className={`${
+          showModal || addState || updateDeleteCard || deleteState
+            ? "blur-sm"
+            : "blur-none"
+        }`}
       >
-        <SortableContext items={cards} strategy={verticalListSortingStrategy}>
-          <div
-            className="flex flex-row mt-2 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar"
-            ref={setNodeRef}
-            {...attributes}
-            {...listeners}
-            style={style}
-          >
-            {cards.map((column) => {
-              return (
-                <Columns
-                  cards={column.cards}
-                  key={column.id}
-                  columnId={column.id}
-                  columnTitle={column.state}
-                  setShowModal={setShowModal}
-                  showModal={showModal}
-                  setUpdateDeleteCard={setUpdateDeleteCard}
-                  setDeleteState={setDeleteState}
-                ></Columns>
-              );
-            })}
-          </div>
-        </SortableContext>
-      </DndContext>
+        <DndContext
+          onDragOver={handleDragOver}
+          onDragEnd={handleDragEnd}
+          collisionDetection={closestCorners}
+        >
+          <SortableContext items={cards} strategy={verticalListSortingStrategy}>
+            <div
+              className="flex flex-row mt-2 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar"
+              ref={setNodeRef}
+              {...attributes}
+              {...listeners}
+              style={style}
+            >
+              {cards.map((column) => {
+                return (
+                  <Columns
+                    cards={column.cards}
+                    key={column.id}
+                    columnId={column.id}
+                    columnTitle={column.state}
+                    setShowModal={setShowModal}
+                    showModal={showModal}
+                    setUpdateDeleteCard={setUpdateDeleteCard}
+                    setDeleteState={setDeleteState}
+                  ></Columns>
+                );
+              })}
+            </div>
+          </SortableContext>
+        </DndContext>
+      </div>
 
       {/* Card Modal **/}
       <NewStateCardModal
