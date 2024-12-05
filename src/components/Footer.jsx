@@ -1,5 +1,5 @@
 import React from "react";
-import Kanbanize from "../assets/Kanbanize-Logo.png";
+import Kanbanize from "../assets/Kanbanize.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
