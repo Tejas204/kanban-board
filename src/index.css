@@ -9,11 +9,12 @@
   }
 
   input[type="date"]::-webkit-calendar-picker-indicator {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    filter: var(--background-white);
   }
 
   #dueDate::-webkit-calendar-picker-indicator {
-    filter: invert(1) brightness(50%) sepia(100%) saturate(10000%)
+    filter: invert(0) brightness(50%) sepia(100%) saturate(10000%)
       hue-rotate(180deg);
   }
 

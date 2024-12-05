@@ -138,7 +138,9 @@ const Card = ({
         <div className="flex flex-row justify-between pb-4">
           {/* Title and assignment */}
           <div className="flex flex-col">
-            <p className="text-xl font-semibold">{title}</p>
+            <p className="text-xl text-[color:var(--primary-text--color)] font-semibold">
+              {title}
+            </p>
             <p className="text-[color:var(--secondary-text--color)] text-lg">
               Assigned to: {assigned_to}
             </p>
@@ -163,7 +165,9 @@ const Card = ({
           <p>{short_description}</p>
         </div>
 
-        <div className="text-lg">Due date: {newDueDate}</div>
+        <div className="text-lg text-[color:var(--primary-text--color)]">
+          Due date: {newDueDate}
+        </div>
       </div>
 
       {/* Icons */}
