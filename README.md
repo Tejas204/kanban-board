@@ -28,7 +28,7 @@ This repository contains the code for a full stack Kanban board.
 ## UI Design
 
 ### Home Page
-![](src/assets/UI_HomePage.png)
+![](src/assets/UI_HomePage_2.png)
 
 ### Kanban Board
 ![](src/assets/UI_KanbanBoard.png)
