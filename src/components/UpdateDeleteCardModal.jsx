@@ -178,7 +178,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
             <button
               type="button"
               onClick={hideModal}
-              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 border-[color:var(--board-bg--color)] text-lg font-bold rounded-md hover:ring-4 ring-[color:var(--card-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--card-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
             >
               Cancel
             </button>
@@ -188,7 +188,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                 updateDeleteCard.action === "update"
                   ? "bg-[color:var(--button-bg--color)]"
                   : "bg-[color:var(--card-priority--color-high)]"
-              } text-[color:var(--button-text--color)] text-lg font-bold rounded-md hover:ring-4 ${
+              } text-[color:var(--button-text--color)] text-xl font-bold rounded-md hover:ring-4 ${
                 updateDeleteCard.action === "update"
                   ? "ring-[color:var(--button-bg--color)]"
                   : "ring-[color:var(--card-priority--color-high)]"
