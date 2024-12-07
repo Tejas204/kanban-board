@@ -20,9 +20,15 @@ This repository contains the code for a full stack Kanban board.
 | Tailwind CSS | npm install -D tailwindcss postcss autoprefixer |
 
 ## Front-end Components
-1. Board
-2. Card
-3. Card Modal
+1. Header
+2. Footer
+3. Board
+4. Column
+5. Card
+6. Add State Modal
+7. Create Card Modal
+8. Delete State Modal
+9. Update/Delete Card Modal
 
 
 ## UI Design
