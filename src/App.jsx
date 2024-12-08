@@ -5,10 +5,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Header from "./components/Header";
 import Board from "./pages/Board";
+import { Toaster } from "react-hot-toast";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <Router>
       <Header></Header>
@@ -18,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
+      <Toaster></Toaster>
     </Router>
   );
 }

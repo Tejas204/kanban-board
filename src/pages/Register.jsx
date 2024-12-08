@@ -1,15 +1,34 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import axios from "axios";
+import { server } from "../main";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const registrationHandler = (event) => {
+  const registrationHandler = async (event) => {
     event.preventDefault();
     console.log(name, email, password);
+    toast.success("Working toaster");
+
+    // const { data } = await axios.post(
+    //   `${server}/users/register`,
+    //   {
+    //     name,
+    //     email,
+    //     password,
+    //   },
+    //   {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     withCredentials: true,
+    //   }
+    // );
   };
 
   return (
