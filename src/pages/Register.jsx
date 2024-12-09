@@ -13,22 +13,26 @@ const Register = () => {
   const registrationHandler = async (event) => {
     event.preventDefault();
     console.log(name, email, password);
-    toast.success("Working toaster");
 
-    // const { data } = await axios.post(
-    //   `${server}/users/register`,
-    //   {
-    //     name,
-    //     email,
-    //     password,
-    //   },
-    //   {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     withCredentials: true,
-    //   }
-    // );
+    try {
+      const { data } = await axios.post(
+        `${server}/users/register`,
+        {
+          name,
+          email,
+          password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      toast.success(data.message);
+    } catch (error) {
+      toast.error("Some errors");
+    }
   };
 
   return (
