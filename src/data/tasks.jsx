@@ -129,6 +129,11 @@ export const headerMenuItems = [
     name: "Register",
     link: "/register",
   },
+  {
+    id: 5,
+    name: "Logout",
+    link: "/",
+  },
 ];
 
 export const priorities = [

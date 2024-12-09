@@ -12,7 +12,6 @@ const Register = () => {
 
   const registrationHandler = async (event) => {
     event.preventDefault();
-    console.log(name, email, password);
 
     try {
       const { data } = await axios.post(
