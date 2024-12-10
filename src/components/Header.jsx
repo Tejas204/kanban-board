@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import Jira from "../assets/Jira.png";
 import Kanbanize from "../assets/Kanbanize.png";
 import { Link } from "react-router-dom";
 import { headerMenuItems } from "../data/tasks";
+import { Context } from "../main";
 
 const Header = () => {
+  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  console.log(isAuthenticated);
+
   return (
     <div className="flex flex-row justify-between sticky top-0 z-50 w-full items-center shadow-lg bg-[color:var(--header-bg--color)]">
-      {/* Logo */}
       <Link
         className="flex flex-row gap-x-5 p-4 ml-[2%] text-2xl items-center font-bold text-[color:var(--primary-text--color)]"
         to="/"
@@ -15,27 +18,34 @@ const Header = () => {
         <img src={Kanbanize} className="h-10 w-10"></img>
         <p>Kanbanize</p>
       </Link>
-      {/* Navbar Items */}
+
       <div className="p-4 mr-[7%]">
         <ul className="flex flex-row gap-x-16 font-semibold text-xl text-[color:var(--secondary-text--color)]">
-          {headerMenuItems.map((menuItem) => {
-            // Add authenticated check here
-            if (menuItem.name != "Logout") {
-              return (
-                <Link
-                  key={menuItem.id}
-                  className="hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer"
-                  to={menuItem.link}
-                >
-                  {menuItem.name}
-                </Link>
-              );
-            }
-          })}
+          <Link className={headerMenuItem} to="/">
+            Home
+          </Link>
+          <Link className={headerMenuItem} to="/card">
+            Board
+          </Link>
+          <Link className={headerMenuItem} to="/register">
+            Register
+          </Link>
+          {isAuthenticated ? (
+            <Link className={headerMenuItem} to="/">
+              Logout
+            </Link>
+          ) : (
+            <Link className={headerMenuItem} to="/login">
+              Login
+            </Link>
+          )}
         </ul>
       </div>
     </div>
   );
 };
+
+const headerMenuItem =
+  "hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer";
 
 export default Header;
