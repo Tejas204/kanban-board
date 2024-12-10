@@ -147,7 +147,7 @@ const Card = ({
           </div>
           {/* User Icon */}
           <div
-            className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full 
+            className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full text-[color:var(--primary-text--color)]
                     ${
                       priority == 1
                         ? "bg-[color:var(--card-priority--color-high)]"
