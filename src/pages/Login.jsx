@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import { Context, server } from "../main";
 import toast from "react-hot-toast";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   /**
@@ -38,10 +39,12 @@ const Login = () => {
       toast.success(data.message);
       setIsAuthenticated(true);
     } catch (error) {
-      toast.error("Login error");
+      toast.error(error.response.data.message);
       setIsAuthenticated(false);
     }
   };
+
+  if (isAuthenticated) return <Navigate to="/card" />;
 
   return (
     <div>

@@ -33,7 +33,7 @@ const Register = () => {
       toast.success(data.message);
     } catch (error) {
       setIsAuthenticated(false);
-      toast.error("Some errors");
+      toast.error(error.response.data.message);
     }
   };
 
