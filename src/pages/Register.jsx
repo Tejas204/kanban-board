@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import axios from "axios";
-import { server } from "../main";
+import { Context, server } from "../main";
 import toast from "react-hot-toast";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
   const registrationHandler = async (event) => {
     event.preventDefault();
@@ -28,11 +29,15 @@ const Register = () => {
           withCredentials: true,
         }
       );
+      setIsAuthenticated(true);
       toast.success(data.message);
     } catch (error) {
+      setIsAuthenticated(false);
       toast.error("Some errors");
     }
   };
+
+  if (isAuthenticated) return <Navigate to="/card" />;
 
   return (
     <div>
