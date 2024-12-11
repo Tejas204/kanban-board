@@ -22,7 +22,7 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      const data = await axios.post(
+      const { data } = await axios.post(
         `${server}/users/login`,
         {
           email,

@@ -3,11 +3,26 @@ import Jira from "../assets/Jira.png";
 import Kanbanize from "../assets/Kanbanize.png";
 import { Link } from "react-router-dom";
 import { headerMenuItems } from "../data/tasks";
-import { Context } from "../main";
+import { Context, server } from "../main";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Header = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
-  console.log(isAuthenticated);
+
+  const logoutHandler = async () => {
+    try {
+      const { data } = await axios.get(`${server}/users/logout`, {
+        withCredentials: true,
+      });
+
+      toast.success(data.message);
+      setIsAuthenticated(false);
+    } catch (error) {
+      toast.error(error.response.data.message);
+      setIsAuthenticated(true);
+    }
+  };
 
   return (
     <div className="flex flex-row justify-between sticky top-0 z-50 w-full items-center shadow-lg bg-[color:var(--header-bg--color)]">
@@ -31,9 +46,9 @@ const Header = () => {
             Register
           </Link>
           {isAuthenticated ? (
-            <Link className={headerMenuItem} to="/">
+            <button onClick={logoutHandler} className={headerMenuItem} to="/">
               Logout
-            </Link>
+            </button>
           ) : (
             <Link className={headerMenuItem} to="/login">
               Login
