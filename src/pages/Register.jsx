@@ -12,6 +12,11 @@ const Register = () => {
   const { isAuthenticated, setIsAuthenticated, isLoading, setIsLoading } =
     useContext(Context);
 
+  /**
+   * @Function: registrationHandler
+   * @Params: event
+   * Function to make register API call
+   */
   const registrationHandler = async (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -32,6 +37,7 @@ const Register = () => {
       );
       setIsAuthenticated(true);
       toast.success(data.message);
+      setIsLoading(false);
     } catch (error) {
       setIsAuthenticated(false);
       toast.error(error.response.data.message);

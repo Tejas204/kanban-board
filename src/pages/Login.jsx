@@ -40,6 +40,7 @@ const Login = () => {
 
       toast.success(data.message);
       setIsAuthenticated(true);
+      setIsLoading(false);
     } catch (error) {
       toast.error(error.response.data.message);
       setIsAuthenticated(false);
