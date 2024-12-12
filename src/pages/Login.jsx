@@ -11,7 +11,8 @@ const Login = () => {
    */
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, isLoading, setIsLoading } =
+    useContext(Context);
 
   /**
    * @Function: handleLogin
@@ -20,6 +21,7 @@ const Login = () => {
    */
   const handleLogin = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     try {
       const { data } = await axios.post(
@@ -41,6 +43,7 @@ const Login = () => {
     } catch (error) {
       toast.error(error.response.data.message);
       setIsAuthenticated(false);
+      setIsLoading(false);
     }
   };
 
@@ -74,6 +77,7 @@ const Login = () => {
               className="p-4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md 
                   hover:ring-2 ring-[color:var(--button-bg--color)] ring-offset-4 ring-offset-[color:var(--card-bg--color)] transition delay-150 ease-in-out"
               type="submit"
+              disabled={isLoading}
             >
               Log In
             </button>

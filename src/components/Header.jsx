@@ -8,7 +8,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const Header = () => {
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, isLoading, setIsLoading } =
+    useContext(Context);
 
   const logoutHandler = async () => {
     try {
@@ -46,7 +47,7 @@ const Header = () => {
             Register
           </Link>
           {isAuthenticated ? (
-            <button onClick={logoutHandler} className={headerMenuItem} to="/">
+            <button onClick={logoutHandler} className={headerMenuItem}>
               Logout
             </button>
           ) : (

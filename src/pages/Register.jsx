@@ -9,11 +9,12 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, isLoading, setIsLoading } =
+    useContext(Context);
 
   const registrationHandler = async (event) => {
     event.preventDefault();
-
+    setIsLoading(true);
     try {
       const { data } = await axios.post(
         `${server}/users/register`,
@@ -34,6 +35,7 @@ const Register = () => {
     } catch (error) {
       setIsAuthenticated(false);
       toast.error(error.response.data.message);
+      setIsLoading(false);
     }
   };
 
@@ -77,6 +79,7 @@ const Register = () => {
             <button
               className="p-4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md hover:ring-2 ring-[color:var(--button-bg--color)] ring-offset-4 ring-offset-[color:var(--card-bg--color)] transition delay-150 ease-in-out"
               type="submit"
+              disabled={isLoading}
             >
               Register
             </button>
