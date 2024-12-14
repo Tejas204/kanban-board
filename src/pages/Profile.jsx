@@ -12,11 +12,11 @@ const Profile = () => {
         <div className="grid grid-cols-2 gap-x-1 gap-y-5 px-3">
           <div className="px-10 py-2 text-2xl">Name</div>
           <div className="px-10 py-2 text-2xl border-b-2 border-b-[color:var(--secondary-text--color)]">
-            Tejas Dhopavkar
+            {user.name}
           </div>
           <div className="px-10 py-2 text-2xl">Email</div>
           <div className="px-10 py-2 text-2xl border-b-2 border-b-[color:var(--secondary-text--color)]">
-            tdhopavkar@test.com
+            {user.email}
           </div>
         </div>
       </div>
