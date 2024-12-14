@@ -47,14 +47,16 @@ const Header = () => {
           <Link className={headerMenuItem} to="/card">
             Board
           </Link>
-          <Link
-            className={`hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer ${
-              isAuthenticated ? "hidden" : "visible"
-            }`}
-            to="/register"
-          >
-            Register
-          </Link>
+          {isAuthenticated ? (
+            <Link className={headerMenuItem} to="/profile">
+              Profile
+            </Link>
+          ) : (
+            <Link className={headerMenuItem} to="/register">
+              Register
+            </Link>
+          )}
+
           {isAuthenticated ? (
             <button onClick={logoutHandler} className={headerMenuItem}>
               Logout

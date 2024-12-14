@@ -8,6 +8,7 @@ import Board from "./pages/Board";
 import { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { Context, server } from "./main";
+import Profile from "./pages/Profile";
 
 function App() {
   const { setUser, setIsAuthenticated } = useContext(Context);
@@ -39,6 +40,7 @@ function App() {
         <Route path="/card" element={<Board />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />}></Route>
       </Routes>
       <Toaster></Toaster>
     </Router>
