@@ -9,6 +9,11 @@ const Profile = () => {
         <div className="text-center text-3xl font-semibold pt-3">
           Your profile
         </div>
+        <div className="flex justify-center items-center text-center ">
+          <div className="flex justify-center items-center p-10 rounded-full w-24 h-24 font-bold text-center bg-[color:var(--card-priority--color-high)]">
+            TD
+          </div>
+        </div>
         <div className="grid grid-cols-2 gap-x-1 gap-y-5 px-3">
           <div className="px-10 py-2 text-2xl">Name:</div>
           <div className="px-10 py-2 text-2xl border-b-2 border-b-[color:var(--secondary-text--color)]">
