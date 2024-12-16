@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import { Context } from "../main";
+import Loader from "../components/Loader";
 
 const Profile = () => {
-  const { isAuthenticated, user } = useContext(Context);
-  return (
+  const { isAuthenticated, user, isLoading } = useContext(Context);
+  return isLoading ? (
+    <Loader />
+  ) : (
     <div className="flex h-fit mt-60 items-center justify-center">
       <div className="flex flex-col gap-y-10 w-1/3 bg-[color:var(--card-bg--color)] shadow-xl rounded-lg text-[color:var(--primary-text--color)] text-xl pb-10">
         <div className="text-center text-3xl font-semibold pt-3">

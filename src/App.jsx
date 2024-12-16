@@ -11,13 +11,14 @@ import { Context, server } from "./main";
 import Profile from "./pages/Profile";
 
 function App() {
-  const { setUser, setIsAuthenticated } = useContext(Context);
+  const { setUser, setIsAuthenticated, setIsLoading } = useContext(Context);
 
   /**
    * @Hook: Runs on every render to keep user logged in on refresh
    * By verifying authentication, we can check if user is logged in or not
    */
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get(`${server}/users/myProfile`, {
         withCredentials: true,
@@ -25,10 +26,12 @@ function App() {
       .then((res) => {
         setUser(res.data.user);
         setIsAuthenticated(true);
+        setIsLoading(false);
       })
       .catch((error) => {
         setUser({});
         setIsAuthenticated(false);
+        setIsLoading(false);
       });
   }, []);
 
