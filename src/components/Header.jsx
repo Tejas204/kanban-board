@@ -23,7 +23,6 @@ const Header = () => {
 
       toast.success(data.message);
       setIsAuthenticated(false);
-      return <Navigate to="/" />;
     } catch (error) {
       toast.error(error.response.data.message);
       setIsAuthenticated(true);
@@ -59,9 +58,9 @@ const Header = () => {
           )}
 
           {isAuthenticated ? (
-            <button onClick={logoutHandler} className={headerMenuItem}>
+            <Link onClick={logoutHandler} className={headerMenuItem} to="/">
               Logout
-            </button>
+            </Link>
           ) : (
             <Link className={headerMenuItem} to="/login">
               Login
