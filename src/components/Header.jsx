@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Jira from "../assets/Jira.png";
 import Kanbanize from "../assets/Kanbanize.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { headerMenuItems } from "../data/tasks";
 import { Context, server } from "../main";
 import axios from "axios";
@@ -23,6 +23,7 @@ const Header = () => {
 
       toast.success(data.message);
       setIsAuthenticated(false);
+      return <Navigate to="/" />;
     } catch (error) {
       toast.error(error.response.data.message);
       setIsAuthenticated(true);

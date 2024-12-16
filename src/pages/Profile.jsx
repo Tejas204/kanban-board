@@ -10,7 +10,7 @@ const Profile = () => {
           Your profile
         </div>
         <div className="flex justify-center items-center text-center ">
-          <div className="flex justify-center items-center p-10 rounded-full w-24 h-24 font-bold text-center bg-[color:var(--card-priority--color-high)]">
+          <div className="flex justify-center items-center p-10 rounded-full w-24 h-24 font-bold text-center text-3xl bg-[color:var(--user-icon--bg-color--lavender)]">
             TD
           </div>
         </div>
