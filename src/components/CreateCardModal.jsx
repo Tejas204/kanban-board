@@ -3,6 +3,10 @@ import { closeIcon } from "../data/icons";
 import { priorities } from "../data/tasks";
 
 const CreateCardModal = ({ hideModal }) => {
+  /**
+   * @Hook: setTitle, setShorDescription, setAssignedTo, setDueDate, setPriority
+   * Use the hooks to create a new card under a state.
+   */
   return (
     <div className="flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
       {/* Title */}
