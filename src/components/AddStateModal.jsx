@@ -80,6 +80,7 @@ const AddStateModal = ({ hideModal }) => {
       {/* Buttons */}
       <div className="flex flex-row justify-start gap-x-10">
         <button
+          onClick={hideModal}
           type="submit"
           className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--card-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
         >
