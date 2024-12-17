@@ -44,9 +44,13 @@ const Header = () => {
           <Link className={headerMenuItem} to="/">
             Home
           </Link>
-          <Link className={headerMenuItem} to="/card">
-            Board
-          </Link>
+          {isAuthenticated ? (
+            <Link className={headerMenuItem} to="/card">
+              Board
+            </Link>
+          ) : (
+            ""
+          )}
           {isAuthenticated ? (
             <Link className={headerMenuItem} to="/profile">
               Profile
