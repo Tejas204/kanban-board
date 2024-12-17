@@ -1,7 +1,49 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { closeIcon } from "../data/icons";
+import { Context, server } from "../main";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const AddStateModal = ({ hideModal }) => {
+  /**
+   * @Hooks: setStateName, useContext
+   * Set the name of the new state created by current logged in user
+   * Set the context for component to use
+   */
+  const { isAuthenticated, setIsAuthenticated, isLoading, setIsLoading, user } =
+    useContext(Context);
+  const [stateName, setStateName] = useState();
+
+  /**
+   * @Function: createNewState
+   * Create new state when form is submitted
+   */
+  const createNewState = async (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const { data } = await axios.post(
+        `${server}/states/createState`,
+        {
+          name: stateName,
+          user: user._id,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      setIsLoading(false);
+      toast.success(data.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
       {/* Title */}
@@ -26,6 +68,7 @@ const AddStateModal = ({ hideModal }) => {
                     type="text"
                     placeholder="Backlog"
                     className={formStyle}
+                    onChange={(event) => setStateName(event.target.value)}
                   ></input>
                 </td>
               </tr>
@@ -43,6 +86,7 @@ const AddStateModal = ({ hideModal }) => {
           Cancel
         </button>
         <button
+          onClick={createNewState}
           type="submit"
           className="p-4 w-1/4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--button-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
         >
