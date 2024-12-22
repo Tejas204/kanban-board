@@ -21,7 +21,7 @@ This repository contains the code for a full stack Kanban board.
 
 ## How to install and run
 1. Download the code from `GitHub`.
-2. Make sure to have the latest stable version of node installed in your machine.
+2. Make sure to have the latest stable version of node installed in your machine from `https://nodejs.org/en/download/package-manager`.
 3. In the command prompt, run the command `npm i`.
 
 ## Front-end Components
