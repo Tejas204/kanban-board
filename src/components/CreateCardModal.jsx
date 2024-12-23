@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { closeIcon } from "../data/icons";
 import { priorities } from "../data/tasks";
 
-const CreateCardModal = ({ hideModal }) => {
+const CreateCardModal = ({ hideModal, columnId }) => {
   /**
    * @Hook: setTitle. setShortDescription, setAssignedTo. setPriority, updateDueDate
    * Used to set title, short desc, assigned to, priority, due date of new card on the modal
@@ -12,6 +12,22 @@ const CreateCardModal = ({ hideModal }) => {
   const [assignedTo, setAssignedTo] = useState();
   const [priority, setPriority] = useState();
   const [dueDate, setDueDate] = useState();
+
+  /**
+   * @Function: handleCreateCard
+   * Used to create a new card with new values
+   */
+  const handleCreateCard = (event) => {
+    event.preventDefault();
+    console.log(
+      title,
+      shortDescription,
+      assignedTo,
+      priority,
+      dueDate,
+      columnId
+    );
+  };
 
   return (
     <div className="flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
@@ -25,7 +41,10 @@ const CreateCardModal = ({ hideModal }) => {
 
       {/* Form */}
       <div className="flex flex-col">
-        <form className="flex flex-col justify-center gap-y-10">
+        <form
+          className="flex flex-col justify-center gap-y-10"
+          onSubmit={handleCreateCard}
+        >
           <table>
             <tbody>
               <tr>
@@ -63,11 +82,12 @@ const CreateCardModal = ({ hideModal }) => {
                 <td>
                   <select
                     name="newCardPriority"
-                    id="newCardPriority"
+                    id="newAssignedTo"
                     className={formStyle}
                     onChange={(event) => setAssignedTo(event.target.value)}
                   >
-                    <option value="priority">Tejas</option>
+                    <option>Tejas</option>
+                    <option>Abhinav</option>
                   </select>
                 </td>
               </tr>

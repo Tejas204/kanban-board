@@ -24,7 +24,10 @@ const Board = () => {
    * @Hook: setCardModal
    * Controls card modal display
    */
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState({
+    active: false,
+    columnId: "",
+  });
 
   /**
    * @Hook: setAddState
@@ -50,8 +53,11 @@ const Board = () => {
    * Displays the modal
    */
   const hideModal = () => {
-    if (showModal) {
-      setShowModal(!showModal);
+    if (showModal.active) {
+      setShowModal({
+        active: !showModal.active,
+        columnId: "",
+      });
     } else if (addState) {
       setAddState(!addState);
     } else if (updateDeleteCard) {
@@ -231,7 +237,7 @@ const Board = () => {
       {/* Columns */}
       <div
         className={`${
-          showModal || addState || updateDeleteCard || deleteState
+          showModal.active || addState || updateDeleteCard || deleteState
             ? "blur-sm"
             : "blur-none"
         }`}

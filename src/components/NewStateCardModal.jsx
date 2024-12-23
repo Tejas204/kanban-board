@@ -14,10 +14,18 @@ const NewStateCardModal = ({
   deleteState,
 }) => {
   // If user wants to add card
-  if (showModal) {
+  console.log(showModal);
+  if (showModal.active) {
     return (
-      <div className={commonFormStyle + ` ${showModal ? "visible" : "hidden"}`}>
-        <CreateCardModal hideModal={hideModal}></CreateCardModal>
+      <div
+        className={
+          commonFormStyle + ` ${showModal.active ? "visible" : "hidden"}`
+        }
+      >
+        <CreateCardModal
+          hideModal={hideModal}
+          columnId={showModal.columnId}
+        ></CreateCardModal>
       </div>
     );
   } else if (addState) {

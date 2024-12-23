@@ -52,7 +52,7 @@ const Columns = ({
   const [displayModal, setDisplayModal] = useState(false);
 
   /*
-   * @Function: showModal
+   * @Function: handleShowModal
    * Params: none
    * Displays the modal
    */
@@ -66,7 +66,10 @@ const Columns = ({
    */
   useEffect(() => {
     if (!isMount) {
-      setShowModal(!showModal);
+      setShowModal({
+        active: !showModal.active,
+        columnId: columnId,
+      });
     }
   }, [displayModal]);
 
