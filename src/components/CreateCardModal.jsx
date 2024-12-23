@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { closeIcon } from "../data/icons";
 import { priorities } from "../data/tasks";
 
 const CreateCardModal = ({ hideModal }) => {
   /**
-   * @Hook: setTitle, setShorDescription, setAssignedTo, setDueDate, setPriority
-   * Use the hooks to create a new card under a state.
+   * @Hook: setTitle. setShortDescription, setAssignedTo. setPriority, updateDueDate
+   * Used to set title, short desc, assigned to, priority, due date of new card on the modal
    */
+  const [title, setTitle] = useState("");
+  const [shortDescription, setShortDescription] = useState("");
+  const [assignedTo, setAssignedTo] = useState();
+  const [priority, setPriority] = useState();
+  const [dueDate, setDueDate] = useState();
+
   return (
     <div className="flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
       {/* Title */}
@@ -31,6 +37,7 @@ const CreateCardModal = ({ hideModal }) => {
                     type="text"
                     placeholder="Create a new API"
                     className={formStyle}
+                    onChange={(event) => setTitle(event.target.value)}
                   ></input>
                 </td>
               </tr>
@@ -43,6 +50,9 @@ const CreateCardModal = ({ hideModal }) => {
                     type="text"
                     placeholder="The API should make a GET call"
                     className={formStyle}
+                    onChange={(event) =>
+                      setShortDescription(event.target.value)
+                    }
                   ></input>
                 </td>
               </tr>
@@ -55,6 +65,7 @@ const CreateCardModal = ({ hideModal }) => {
                     name="newCardPriority"
                     id="newCardPriority"
                     className={formStyle}
+                    onChange={(event) => setAssignedTo(event.target.value)}
                   >
                     <option value="priority">Tejas</option>
                   </select>
@@ -69,6 +80,7 @@ const CreateCardModal = ({ hideModal }) => {
                     name="newCardPriority"
                     id="newCardPriority"
                     className={formStyle}
+                    onChange={(event) => setPriority(event.target.value)}
                   >
                     {priorities.map((priority, key) => {
                       return (
@@ -90,6 +102,7 @@ const CreateCardModal = ({ hideModal }) => {
                     id="dueDate"
                     name="dueDate"
                     className={formStyle}
+                    onChange={(event) => setDueDate(event.target.value)}
                   ></input>
                 </td>
               </tr>
