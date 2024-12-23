@@ -14,7 +14,6 @@ const NewStateCardModal = ({
   deleteState,
 }) => {
   // If user wants to add card
-  console.log(showModal);
   if (showModal.active) {
     return (
       <div

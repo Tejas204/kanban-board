@@ -15,6 +15,8 @@ const AppWrapper = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState({});
+  const [states, setStates] = useState();
+  const [cards, setCards] = useState();
 
   return (
     <Context.Provider
