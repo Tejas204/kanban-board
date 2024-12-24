@@ -15,8 +15,8 @@ import { CSS } from "@dnd-kit/utilities";
 import { Context } from "../main";
 
 const Board = () => {
-  // const { cards, states } = useContext(Context);
-  // console.log(states, cards);
+  const { stateCardArr } = useContext(Context);
+  console.log(stateCardArr);
   /**
    * @Hook: sets cardArray
    * Sets array of cards from data

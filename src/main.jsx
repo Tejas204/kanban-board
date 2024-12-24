@@ -17,6 +17,7 @@ const AppWrapper = () => {
   const [user, setUser] = useState({});
   const [states, setStates] = useState([]);
   const [cards, setCards] = useState([]);
+  const [stateCardArr, setStateCardArr] = useState([]);
 
   return (
     <Context.Provider
@@ -31,6 +32,8 @@ const AppWrapper = () => {
         setStates,
         cards,
         setCards,
+        stateCardArr,
+        setStateCardArr,
       }}
     >
       <App />

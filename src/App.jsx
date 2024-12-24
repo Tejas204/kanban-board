@@ -11,8 +11,37 @@ import { Context, server } from "./main";
 import Profile from "./pages/Profile";
 
 function App() {
-  const { setUser, setIsAuthenticated, setIsLoading, setStates, setCards } =
-    useContext(Context);
+  const {
+    setUser,
+    setIsAuthenticated,
+    setIsLoading,
+    stateCardArr,
+    setStateCardArr,
+  } = useContext(Context);
+
+  /**
+   * @Function: createStateCardArray
+   * Uses the states and cards to create an array of states and cards in below format
+   *     [
+   *      {
+   *        ID: INT
+   *        STATE: STR
+   *        CARDS: ARR[OBJ]
+   *      }
+   *     ]
+   */
+  const createStateCardArray = (receivedStates, receivedCards) => {
+    var arr = [];
+    receivedStates.map((state) => {
+      var obj = {
+        id: state.id,
+        state: state.name,
+        cards: receivedCards,
+      };
+      setStateCardArr([...stateCardArr, obj]);
+    });
+    return;
+  };
 
   /**
    * @Hook: Runs on every render to keep user logged in on refresh
@@ -25,7 +54,7 @@ function App() {
         axios.get(`${server}/users/myProfile`, {
           withCredentials: true,
         }),
-        axios.get(`${server}/states/allStates`, {
+        axios.get(`${server}/states/getMyStates`, {
           withCredentials: true,
         }),
         axios.get(`${server}/cards/myCards`, {
@@ -35,9 +64,8 @@ function App() {
       .then(
         axios.spread((resUser, resStates, resCards) => {
           setUser(resUser.data.user);
-          setStates(resStates.data.columns);
-          setCards(resCards.data.cards);
           setIsAuthenticated(true);
+          createStateCardArray(resStates.data.columns, resCards.data.cards);
           setIsLoading(false);
         })
       )
