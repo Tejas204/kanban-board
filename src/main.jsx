@@ -27,6 +27,10 @@ const AppWrapper = () => {
         setIsLoading,
         user,
         setUser,
+        states,
+        setStates,
+        cards,
+        setCards,
       }}
     >
       <App />

@@ -11,7 +11,8 @@ import { Context, server } from "./main";
 import Profile from "./pages/Profile";
 
 function App() {
-  const { setUser, setIsAuthenticated, setIsLoading } = useContext(Context);
+  const { setUser, setIsAuthenticated, setIsLoading, setStates, setCards } =
+    useContext(Context);
 
   /**
    * @Hook: Runs on every render to keep user logged in on refresh
@@ -20,14 +21,26 @@ function App() {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`${server}/users/myProfile`, {
-        withCredentials: true,
-      })
-      .then((res) => {
-        setUser(res.data.user);
-        setIsAuthenticated(true);
-        setIsLoading(false);
-      })
+      .all([
+        axios.get(`${server}/users/myProfile`, {
+          withCredentials: true,
+        }),
+        axios.get(`${server}/states/allStates`, {
+          withCredentials: true,
+        }),
+        axios.get(`${server}/cards/myCards`, {
+          withCredentials: true,
+        }),
+      ])
+      .then(
+        axios.spread((resUser, resStates, resCards) => {
+          setUser(resUser.data.user);
+          setStates(resStates.data.columns);
+          setCards(resCards.data.cards);
+          setIsAuthenticated(true);
+          setIsLoading(false);
+        })
+      )
       .catch((error) => {
         setUser({});
         setIsAuthenticated(false);
