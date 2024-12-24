@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import Columns from "../components/Columns";
 import NewStateCardModal from "../components/NewStateCardModal";
 import { useState } from "react";
@@ -12,8 +12,11 @@ import { closestCorners, DndContext } from "@dnd-kit/core";
 import { stateArray, cardArray } from "../data/tasks";
 import { arrayMove } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { Context } from "../main";
 
 const Board = () => {
+  // const { cards, states } = useContext(Context);
+  // console.log(states, cards);
   /**
    * @Hook: sets cardArray
    * Sets array of cards from data
