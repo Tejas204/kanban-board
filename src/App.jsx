@@ -65,7 +65,7 @@ function App() {
         axios.spread((resUser, resStates, resCards) => {
           setUser(resUser.data.user);
           setIsAuthenticated(true);
-          createStateCardArray(resStates.data.columns, resCards.data.cards);
+          createStateCardArray(resStates.data.states, resCards.data.cards);
           setIsLoading(false);
         })
       )

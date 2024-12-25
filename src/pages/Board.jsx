@@ -16,7 +16,7 @@ import { Context } from "../main";
 
 const Board = () => {
   const { stateCardArr } = useContext(Context);
-  console.log(stateCardArr);
+
   /**
    * @Hook: sets cardArray
    * Sets array of cards from data
