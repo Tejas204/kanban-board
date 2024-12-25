@@ -15,9 +15,9 @@ const AppWrapper = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState({});
-  const [states, setStates] = useState([]);
-  const [cards, setCards] = useState([]);
-  const [stateCardArr, setStateCardArr] = useState([]);
+  // const [states, setStates] = useState([]);
+  // const [cards, setCards] = useState([]);
+  const [cards, setStateCardArr] = useState([]);
 
   return (
     <Context.Provider
@@ -28,11 +28,7 @@ const AppWrapper = () => {
         setIsLoading,
         user,
         setUser,
-        states,
-        setStates,
         cards,
-        setCards,
-        stateCardArr,
         setStateCardArr,
       }}
     >

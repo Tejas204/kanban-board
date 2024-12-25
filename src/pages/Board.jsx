@@ -15,13 +15,15 @@ import { CSS } from "@dnd-kit/utilities";
 import { Context } from "../main";
 
 const Board = () => {
-  const { stateCardArr } = useContext(Context);
+  const { cards } = useContext(Context);
+  console.log(cards);
 
   /**
    * @Hook: sets cardArray
    * Sets array of cards from data
    */
-  const [cards, setCards] = useState(cardArray);
+  // const [cards, setCards] = useState(stateCardArr);
+  // console.log(cards);
 
   /**
    * @Hook: setCardModal

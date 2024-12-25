@@ -11,13 +11,8 @@ import { Context, server } from "./main";
 import Profile from "./pages/Profile";
 
 function App() {
-  const {
-    setUser,
-    setIsAuthenticated,
-    setIsLoading,
-    stateCardArr,
-    setStateCardArr,
-  } = useContext(Context);
+  const { setUser, setIsAuthenticated, setIsLoading, cards, setStateCardArr } =
+    useContext(Context);
 
   /**
    * @Function: createStateCardArray
@@ -31,14 +26,13 @@ function App() {
    *     ]
    */
   const createStateCardArray = (receivedStates, receivedCards) => {
-    var arr = [];
     receivedStates.map((state) => {
       var obj = {
-        id: state.id,
+        id: state._id,
         state: state.name,
         cards: receivedCards,
       };
-      setStateCardArr([...stateCardArr, obj]);
+      setStateCardArr([...cards, obj]);
     });
     return;
   };
