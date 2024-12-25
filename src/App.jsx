@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useDeferredValue, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -14,6 +14,8 @@ function App() {
   const { setUser, setIsAuthenticated, setIsLoading, cards, setStateCardArr } =
     useContext(Context);
 
+  const [cardArray, setCardArray] = useState([]);
+
   /**
    * @Function: createStateCardArray
    * Uses the states and cards to create an array of states and cards in below format
@@ -27,7 +29,6 @@ function App() {
    */
   const createStateCardArray = (receivedStates, receivedCards) => {
     receivedStates.map((state) => {
-      console.log(state._id);
       var obj = {
         id: state._id,
         state: state.name,
@@ -35,7 +36,6 @@ function App() {
       };
       setStateCardArr([...cards, obj]);
     });
-    return;
   };
 
   /**

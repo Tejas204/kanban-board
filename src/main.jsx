@@ -18,6 +18,7 @@ const AppWrapper = () => {
   // const [states, setStates] = useState([]);
   // const [cards, setCards] = useState([]);
   const [cards, setStateCardArr] = useState([]);
+  console.log(cards);
 
   return (
     <Context.Provider
