@@ -27,6 +27,7 @@ function App() {
    */
   const createStateCardArray = (receivedStates, receivedCards) => {
     receivedStates.map((state) => {
+      console.log(state._id);
       var obj = {
         id: state._id,
         state: state.name,

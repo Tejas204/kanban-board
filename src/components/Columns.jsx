@@ -13,6 +13,9 @@ import {
   addCardIcon,
   confirmIcon,
 } from "../data/icons";
+import axios from "axios";
+import { server } from "../main";
+import toast from "react-hot-toast";
 
 /**
  * @Function: useDidMount
@@ -86,6 +89,34 @@ const Columns = ({
   const [updatedStateTitle, setUpdatedStateTitle] = useState(columnTitle);
 
   /**
+   * @Function: handleStateNameUpdate
+   * Used to call the API to update the name of the state
+   */
+  const handleStateNameUpdate = () => {
+    try {
+      setUpdateState(!updateState);
+      if (!updateState) {
+        axios.put(
+          `${server}/states/${columnId}`,
+          {
+            name: updatedStateTitle,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+
+        toast.success("State Updated Successfully");
+      }
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+
+  /**
    * @Function: Droppable
    */
   const { setNodeRef } = useDroppable({
@@ -111,7 +142,7 @@ const Columns = ({
             className="text-[color:var(--button-text--color)]"
             type="button"
             title={updateState ? "Update State" : "Confirm Update"}
-            onClick={() => setUpdateState(!updateState)}
+            onClick={handleStateNameUpdate}
           >
             {updateState ? updateIcon : confirmIcon}
           </button>
