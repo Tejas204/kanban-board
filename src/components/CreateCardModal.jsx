@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { closeIcon } from "../data/icons";
 import { priorities } from "../data/tasks";
+import toast from "react-hot-toast";
+import axios from "axios";
+import { server } from "../main";
 
 const CreateCardModal = ({ hideModal, columnId }) => {
   /**
@@ -17,7 +20,7 @@ const CreateCardModal = ({ hideModal, columnId }) => {
    * @Function: handleCreateCard
    * Used to create a new card with new values
    */
-  const handleCreateCard = (event) => {
+  const handleCreateCard = async (event) => {
     event.preventDefault();
     console.log(
       title,
@@ -27,6 +30,29 @@ const CreateCardModal = ({ hideModal, columnId }) => {
       dueDate,
       columnId
     );
+    try {
+      const { data } = await axios.post(
+        `${server}/cards/createCard`,
+        {
+          name: title,
+          shortDescription: shortDescription,
+          assignedTo: assignedTo,
+          priority: priority,
+          state: columnId,
+          dueDate: dueDate,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+
+      toast.success("Card created successfully");
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
   };
 
   return (
