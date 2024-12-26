@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
@@ -18,8 +18,6 @@ const AppWrapper = () => {
   // const [states, setStates] = useState([]);
   // const [cards, setCards] = useState([]);
   const [cards, setStateCardArr] = useState([]);
-  console.log(cards);
-
   return (
     <Context.Provider
       value={{

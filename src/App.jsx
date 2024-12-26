@@ -14,8 +14,6 @@ function App() {
   const { setUser, setIsAuthenticated, setIsLoading, cards, setStateCardArr } =
     useContext(Context);
 
-  const [cardArray, setCardArray] = useState([]);
-
   /**
    * @Function: createStateCardArray
    * Uses the states and cards to create an array of states and cards in below format
@@ -28,14 +26,16 @@ function App() {
    *     ]
    */
   const createStateCardArray = (receivedStates, receivedCards) => {
+    var arr = [];
     receivedStates.map((state) => {
       var obj = {
         id: state._id,
         state: state.name,
         cards: receivedCards,
       };
-      setStateCardArr([...cards, obj]);
+      arr.push(obj);
     });
+    setStateCardArr(arr);
   };
 
   /**
