@@ -171,14 +171,14 @@ const Columns = ({
           {cards.map((card) => {
             return (
               <Card
-                key={card.id}
-                id={card.id}
-                title={card.title}
-                short_description={card.short_description}
-                assigned_to={card.assigned_to}
+                key={card._id}
+                id={card._id}
+                title={card.name}
+                short_description={card.shortDescription}
+                assigned_to={card.assignedTo}
                 priority={card.priority}
-                due_date={card.due_date}
-                state_id={card.state_id}
+                due_date={card.dueDate}
+                state_id={card.state}
                 setUpdateDeleteCard={setUpdateDeleteCard}
               ></Card>
             );

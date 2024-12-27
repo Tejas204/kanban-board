@@ -22,14 +22,6 @@ const CreateCardModal = ({ hideModal, columnId }) => {
    */
   const handleCreateCard = async (event) => {
     event.preventDefault();
-    console.log(
-      title,
-      shortDescription,
-      assignedTo,
-      parseInt(priority.slice(0, 1)),
-      dueDate,
-      columnId
-    );
     try {
       const { data } = await axios.post(
         `${server}/cards/createCard`,
