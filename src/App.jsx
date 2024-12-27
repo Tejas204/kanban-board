@@ -31,7 +31,7 @@ function App() {
       var obj = {
         id: state._id,
         state: state.name,
-        cards: receivedCards,
+        cards: receivedCards.filter((c) => c.state == state._id),
       };
       arr.push(obj);
     });

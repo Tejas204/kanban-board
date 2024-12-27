@@ -110,7 +110,6 @@ const Card = ({
    * @Returns: <string> Initials
    */
   const getInitials = (assignee) => {
-    console.log(assignee);
     const nameArray = assignee.split(" ");
     return (
       nameArray[0].slice(0, 1) + nameArray[nameArray.length - 1].slice(0, 1)
