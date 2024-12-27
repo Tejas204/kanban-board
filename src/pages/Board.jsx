@@ -15,7 +15,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { Context } from "../main";
 
 const Board = () => {
-  const { cards } = useContext(Context);
+  const { cards, setStateCardArr } = useContext(Context);
   console.log(cards);
 
   /**
@@ -111,7 +111,7 @@ const Board = () => {
     const itemsWithColumnID = cards.flatMap((cardObject) => {
       const columnId = cardObject.id;
       return cardObject.cards.map((c) => ({
-        itemId: c.id,
+        itemId: c._id,
         columnId: columnId,
       }));
     });
@@ -140,9 +140,9 @@ const Board = () => {
 
     //Fetch the active card
     const activeCardIndex = activeCards.findIndex(
-      (card) => card.id == active.id
+      (card) => card._id == active.id
     );
-    const overCardIndex = overCards.findIndex((card) => card.id == over.id);
+    const overCardIndex = overCards.findIndex((card) => card._id == over.id);
 
     const newIndex = () => {
       const placeBelowLastCard =
@@ -161,7 +161,7 @@ const Board = () => {
 
     //If card is dragged over another column
     //return updated set of cards
-    setCards((previousCards) => {
+    setStateCardArr((previousCards) => {
       return previousCards.map((cardObject) => {
         if (cardObject.id == activeColumn.id) {
           cardObject.cards = activeCards.filter((card) => card.id != active.id);
@@ -198,14 +198,14 @@ const Board = () => {
     if (activeColumn && overColumn && activeColumn.id == overColumn.id) {
       //Find the active card and over card
       const activeCard = activeColumn.cards.findIndex(
-        (card) => card.id == active.id
+        (card) => card._id == active.id
       );
       const overCard = activeColumn.cards.findIndex(
-        (card) => card.id == over.id
+        (card) => card._id == over.id
       );
 
       //Set new cards after swapping
-      setCards((previousCards) => {
+      setStateCardArr((previousCards) => {
         return previousCards.map((cardObject) => {
           if (cardObject.id == activeColumn.id) {
             cardObject.cards = arrayMove(
