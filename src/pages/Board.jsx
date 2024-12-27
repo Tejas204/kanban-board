@@ -164,7 +164,9 @@ const Board = () => {
     setStateCardArr((previousCards) => {
       return previousCards.map((cardObject) => {
         if (cardObject.id == activeColumn.id) {
-          cardObject.cards = activeCards.filter((card) => card.id != active.id);
+          cardObject.cards = activeCards.filter(
+            (card) => card._id != active.id
+          );
           return cardObject;
         } else if (cardObject.id == overColumn.id) {
           cardObject.cards = [
