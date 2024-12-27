@@ -26,7 +26,7 @@ const CreateCardModal = ({ hideModal, columnId }) => {
       title,
       shortDescription,
       assignedTo,
-      priority,
+      parseInt(priority.slice(0, 1)),
       dueDate,
       columnId
     );
@@ -36,8 +36,7 @@ const CreateCardModal = ({ hideModal, columnId }) => {
         {
           name: title,
           shortDescription: shortDescription,
-          assignedTo: assignedTo,
-          priority: priority,
+          priority: parseInt(priority.slice(0, 1)),
           state: columnId,
           dueDate: dueDate,
         },
@@ -49,7 +48,7 @@ const CreateCardModal = ({ hideModal, columnId }) => {
         }
       );
 
-      toast.success("Card created successfully");
+      toast.success(data.message);
     } catch (error) {
       toast.error(error.response.data.message);
     }
