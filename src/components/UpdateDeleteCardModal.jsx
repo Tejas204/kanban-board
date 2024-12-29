@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { closeIcon } from "../data/icons";
 import { priorities } from "../data/tasks";
+import axios from "axios";
+import { server } from "../main";
+import toast from "react-hot-toast";
 
 const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   /**
@@ -21,8 +24,47 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
    */
   const [action, setAction] = useState(updateDeleteCard.action);
 
-  const handleDateChange = (event) => {
-    updateDueDate(event.target.value);
+  /**
+   * @Function: handleUpdateDeleteCard
+   * Used to make PUT or DEL API call to update or delete the card
+   */
+  const handleUpdateDeleteCard = async (event) => {
+    event.preventDefault();
+
+    try {
+      if (updateDeleteCard.action === "update") {
+        const { data } = await axios.put(
+          `${server}/cards/${updateDeleteCard.id}`,
+          {
+            name: title,
+            shortDescription: shortDescription,
+            assignedTo: assignedTo,
+            priority: priority,
+            dueDate: dueDate,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+
+        toast.success(data.message);
+        console.log(updateDeleteCard.id);
+      } else if (updateDeleteCard.action === "delete") {
+        const { data } = await axios.delete(
+          `${server}/cards/${updateDeleteCard.id}`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        toast.success(data.message);
+      }
+    } catch (error) {
+      toast.success(error.data.response.message);
+    }
   };
 
   return (
@@ -39,7 +81,10 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
 
       {/* Form */}
       <div className="flex flex-col">
-        <form className="flex flex-col justify-center gap-y-10">
+        <form
+          className="flex flex-col justify-center gap-y-10"
+          onSubmit={handleUpdateDeleteCard}
+        >
           <table>
             <tbody>
               <tr>
@@ -147,7 +192,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     id="dueDate"
                     value={dueDate}
                     disabled={action === "delete" ? true : false}
-                    onChange={(event) => handleDateChange(event)}
+                    onChange={(event) => updateDueDate(event.target.value)}
                   ></input>
                 </td>
               </tr>
