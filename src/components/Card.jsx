@@ -1,10 +1,7 @@
 import React, { Component, useEffect, useState } from "react";
-import Footer from "./Footer";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useDraggable, useDroppable } from "@dnd-kit/core";
-import CardFunctions from "./CardFunctions";
-import CardModal from "./NewStateCardModal";
 import { updateIcon, deleteIcon } from "../data/icons";
 
 const Card = ({
@@ -26,16 +23,22 @@ const Card = ({
    * @Hook: set useSortable
    * @Accept: elements of type card
    */
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({
-      id: id,
-    });
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({
+    id: id,
+  });
 
   const style = {
     transition,
     transform: CSS.Translate.toString(transform),
+    posiiton: "static",
   };
-  console.log(style);
 
   /**
    * @Hook: Set the X and Y coordinate
@@ -49,8 +52,8 @@ const Card = ({
   const [newDueDate, setNewDueDate] = useState(due_date);
 
   /**
-   * @Function: set the value of isDragging or not
-   * @Params: none
+   * @Function: set the value of starting x and y coordinates
+   * @Params: event
    * @Returns: none
    */
   const clickEventControl = (event) => {
