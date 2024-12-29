@@ -51,7 +51,6 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         );
 
         toast.success(data.message);
-        console.log(updateDeleteCard.id);
       } else if (updateDeleteCard.action === "delete") {
         const { data } = await axios.delete(
           `${server}/cards/${updateDeleteCard.id}`,
