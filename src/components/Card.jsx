@@ -35,6 +35,7 @@ const Card = ({
     transition,
     transform: CSS.Translate.toString(transform),
   };
+  console.log(style);
 
   /**
    * @Hook: Set the X and Y coordinate
@@ -67,7 +68,6 @@ const Card = ({
     var diffY = Math.abs(event.pageY - startY);
 
     if (diffX < delta && diffY < delta) {
-      console.log(event);
       if (event.target.id == "updateButton") {
         setUpdateDeleteCard({
           action: "update",

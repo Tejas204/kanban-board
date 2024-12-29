@@ -16,14 +16,12 @@ import { Context } from "../main";
 
 const Board = () => {
   const { cards, setStateCardArr } = useContext(Context);
-  console.log(cards);
 
   /**
    * @Hook: sets cardArray
    * Sets array of cards from data
    */
-  // const [cards, setCards] = useState(stateCardArr);
-  // console.log(cards);
+  // const [cards, setStateCardArr] = useState(stateCardArr);
 
   /**
    * @Hook: setCardModal
@@ -87,7 +85,7 @@ const Board = () => {
    * Returns: index <Int>
    */
   const getActiveCard = (id) => {
-    return cards.find((card) => card.id === id);
+    return cards.find((card) => card._id === id);
   };
 
   /**
@@ -235,6 +233,7 @@ const Board = () => {
     transition,
     transform: CSS.Translate.toString(transform),
   };
+  //console.log(style);
 
   return (
     <div className={`flex flex-row h-screen `}>
