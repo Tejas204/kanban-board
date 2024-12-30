@@ -11,8 +11,14 @@ import { Context, server } from "./main";
 import Profile from "./pages/Profile";
 
 function App() {
-  const { setUser, setIsAuthenticated, setIsLoading, cards, setStateCardArr } =
-    useContext(Context);
+  const {
+    setUser,
+    setIsAuthenticated,
+    setIsLoading,
+    cards,
+    setStateCardArr,
+    setAllUsers,
+  } = useContext(Context);
 
   /**
    * @Function: createStateCardArray
@@ -49,6 +55,9 @@ function App() {
         axios.get(`${server}/users/myProfile`, {
           withCredentials: true,
         }),
+        axios.get(`${server}/users/allUsers`, {
+          withCredentials: true,
+        }),
         axios.get(`${server}/states/getMyStates`, {
           withCredentials: true,
         }),
@@ -57,8 +66,9 @@ function App() {
         }),
       ])
       .then(
-        axios.spread((resUser, resStates, resCards) => {
+        axios.spread((resUser, resAllUsers, resStates, resCards) => {
           setUser(resUser.data.user);
+          setAllUsers(resAllUsers.data.users);
           setIsAuthenticated(true);
           createStateCardArray(resStates.data.states, resCards.data.cards);
           setIsLoading(false);
