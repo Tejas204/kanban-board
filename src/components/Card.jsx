@@ -49,7 +49,9 @@ const Card = ({
   /**
    * @Hook: set the new date from date picker
    */
-  const [newDueDate, setNewDueDate] = useState(due_date);
+  const [newDueDate, setNewDueDate] = useState(() =>
+    new Date(due_date).toLocaleDateString()
+  );
 
   /**
    * @Function: set the value of starting x and y coordinates
