@@ -64,7 +64,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         toast.success(data.message);
       }
     } catch (error) {
-      toast.success(error.data.response.message);
+      toast.success(error.response.data.message);
     }
   };
 
