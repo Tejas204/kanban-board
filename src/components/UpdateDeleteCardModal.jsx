@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { closeIcon } from "../data/icons";
 import { priorities } from "../data/tasks";
 import axios from "axios";
-import { server } from "../main";
+import { Context, server } from "../main";
 import toast from "react-hot-toast";
 
 const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
+  const { allUsers, setAllUsers } = useContext(Context);
+  console.log(allUsers);
   /**
    * @Hook: setTitle. setShortDescription, setAssignedTo. setPriority, updateDueDate
    * Used to set title, short desc, assigned to, priority, due date of card on the modal
@@ -142,7 +144,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     onChange={(event) => setAssignedTo(event.target.value)}
                     disabled={action === "delete" ? true : false}
                   >
-                    <option value={assignedTo}>{assignedTo}</option>
+                    {allUsers.map((user) => {
+                      return <option value={user._id}>{user.name}</option>;
+                    })}
                   </select>
                 </td>
               </tr>
