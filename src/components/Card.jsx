@@ -1,8 +1,9 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useContext, useEffect, useState } from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useDraggable, useDroppable } from "@dnd-kit/core";
 import { updateIcon, deleteIcon } from "../data/icons";
+import { Context } from "../main";
 
 const Card = ({
   id,
@@ -14,6 +15,9 @@ const Card = ({
   state_id,
   setUpdateDeleteCard,
 }) => {
+  const { allUsers } = useContext(Context);
+  console.log(allUsers.filter((user) => user._id == assigned_to));
+
   /**
    * @Contants: Delta variables
    */
@@ -115,10 +119,15 @@ const Card = ({
    * @Returns: <string> Initials
    */
   const getInitials = (assignee) => {
-    const nameArray = assignee.split(" ");
-    return (
-      nameArray[0].slice(0, 1) + nameArray[nameArray.length - 1].slice(0, 1)
-    );
+    const userObj = allUsers.filter((user) => user._id == assignee);
+    const nameArray = userObj[0].name.split(" ");
+
+    var nameObj = {
+      initials:
+        nameArray[0].slice(0, 1) + nameArray[nameArray.length - 1].slice(0, 1),
+      userName: userObj[0].name,
+    };
+    return nameObj;
   };
 
   return (
@@ -147,7 +156,7 @@ const Card = ({
               {title}
             </p>
             <p className="text-[color:var(--secondary-text--color)] text-lg">
-              Assigned to: {assigned_to}
+              Assigned to: {getInitials(assigned_to).userName}
             </p>
           </div>
           {/* User Icon */}
@@ -161,7 +170,7 @@ const Card = ({
                         : "bg-[color:var(--card-priority--color-low)]"
                     }`}
           >
-            {getInitials(assigned_to)}
+            {getInitials(assigned_to).initials}
           </div>
         </div>
 

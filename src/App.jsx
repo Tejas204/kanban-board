@@ -45,6 +45,25 @@ function App() {
   };
 
   /**
+   * @Function: createUserMap
+   * Converts the users into a flatmap so that names of users can be used
+   *     [
+   *      {
+   *        ID1 : NAME1
+   *        ID2 : NAME2
+   *      }
+   *     ]
+   */
+  // const createUserMap = (receivedUsers) => {
+  //   var userArr = [];
+  //   receivedUsers.flatmap((user) => {
+  //     var obj = {
+  //       user._id : user.name
+  //     }
+  //   })
+  // }
+
+  /**
    * @Hook: Runs on every render to keep user logged in on refresh
    * By verifying authentication, we can check if user is logged in or not
    */
