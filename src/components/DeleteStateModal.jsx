@@ -1,7 +1,28 @@
 import React from "react";
 import { closeIcon } from "../data/icons";
+import axios from "axios";
+import { server } from "../main";
+import toast from "react-hot-toast";
 
-const DeleteStateModal = ({ hideModal }) => {
+const DeleteStateModal = ({ hideModal, columnId }) => {
+  /**
+   * @Function: handleDeleteState
+   * Makes a DEL call to the server to delete the state and coresponding calls
+   */
+  const handleDeleteState = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await axios.delete(`${server}/states/${columnId}`, {
+        withCredentials: true,
+      });
+
+      toast.success(data.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+
   return (
     <div className="flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
       {/* Title */}
@@ -14,7 +35,10 @@ const DeleteStateModal = ({ hideModal }) => {
 
       {/* Form */}
       <div className="flex flex-col">
-        <form className="flex flex-col justify-center gap-y-10">
+        <form
+          className="flex flex-col justify-center gap-y-10"
+          onSubmit={handleDeleteState}
+        >
           <div className="flex flex-col py-7 items-start justify-start">
             <p className="text-[color:var(--board-bg--color)] font-medium text-xl">
               If you delete this state, then all cards belonging to this state

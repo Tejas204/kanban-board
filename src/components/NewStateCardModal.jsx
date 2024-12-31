@@ -43,10 +43,13 @@ const NewStateCardModal = ({
         ></UpdateDeleteCardModal>
       </div>
     );
-  } else if (deleteState) {
+  } else if (deleteState.active) {
     return (
       <div className={commonFormStyle}>
-        <DeleteStateModal hideModal={hideModal}></DeleteStateModal>
+        <DeleteStateModal
+          hideModal={hideModal}
+          columnId={deleteState.columnId}
+        ></DeleteStateModal>
       </div>
     );
   }

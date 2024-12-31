@@ -150,7 +150,12 @@ const Columns = ({
             className="text-[color:var(--button-text--color)]"
             type="button"
             title="Delete State"
-            onClick={() => setDeleteState(true)}
+            onClick={() =>
+              setDeleteState({
+                active: true,
+                columnId: columnId,
+              })
+            }
           >
             {deleteIcon}
           </button>

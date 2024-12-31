@@ -16,7 +16,6 @@ const Card = ({
   setUpdateDeleteCard,
 }) => {
   const { allUsers } = useContext(Context);
-  console.log(allUsers.filter((user) => user._id == assigned_to));
 
   /**
    * @Contants: Delta variables

@@ -17,6 +17,12 @@ import { Context } from "../main";
 
 const Board = () => {
   const { cards, setStateCardArr } = useContext(Context);
+  // console.log(typeof cardArray[0].id);
+  // console.log(
+  //   cards.map((card) => {
+  //     console.log(typeof card.id);
+  //   })
+  // );
 
   /**
    * @Hook: sets cardArray
@@ -49,7 +55,10 @@ const Board = () => {
    * Hook:
    * Sets value if user wants to delete state
    */
-  const [deleteState, setDeleteState] = useState();
+  const [deleteState, setDeleteState] = useState({
+    active: false,
+    columnId: "",
+  });
 
   /*
    * @Function: hideModal
@@ -66,8 +75,11 @@ const Board = () => {
       setAddState(!addState);
     } else if (updateDeleteCard) {
       setUpdateDeleteCard();
-    } else if (deleteState) {
-      setDeleteState(!deleteState);
+    } else if (deleteState.active) {
+      setDeleteState({
+        active: !deleteState.active,
+        columnId: "",
+      });
     }
   };
 
@@ -234,7 +246,6 @@ const Board = () => {
     transition,
     transform: CSS.Translate.toString(transform),
   };
-  //console.log(style);
 
   return (
     <div className={`flex flex-row h-screen `}>
@@ -244,7 +255,7 @@ const Board = () => {
       {/* Columns */}
       <div
         className={`${
-          showModal.active || addState || updateDeleteCard || deleteState
+          showModal.active || addState || updateDeleteCard || deleteState.active
             ? "blur-sm"
             : "blur-none"
         }`}
