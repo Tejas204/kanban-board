@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   const { allUsers, setAllUsers } = useContext(Context);
-  console.log(allUsers);
+
   /**
    * @Hook: setTitle. setShortDescription, setAssignedTo. setPriority, updateDueDate
    * Used to set title, short desc, assigned to, priority, due date of card on the modal
@@ -18,7 +18,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   );
   const [assignedTo, setAssignedTo] = useState(updateDeleteCard.assigned_to);
   const [priority, setPriority] = useState(updateDeleteCard.priority);
-  const [dueDate, updateDueDate] = useState(updateDeleteCard.due_date);
+  const [dueDate, updateDueDate] = useState(
+    updateDeleteCard.due_date.split("T")[0]
+  );
 
   /**
    * @Hook: setAction
