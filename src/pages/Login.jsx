@@ -22,6 +22,7 @@ const Login = () => {
   const handleLogin = async (event) => {
     event.preventDefault();
     setIsLoading(true);
+    console.log("Logged in");
 
     try {
       const { data } = await axios.post(

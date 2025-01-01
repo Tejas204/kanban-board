@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { closeIcon } from "../data/icons";
 import { priorities } from "../data/tasks";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { server } from "../main";
+import { Context, server } from "../main";
 
 const CreateCardModal = ({ hideModal, columnId }) => {
+  const { allUsers } = useContext(Context);
+
   /**
    * @Hook: setTitle. setShortDescription, setAssignedTo. setPriority, updateDueDate
    * Used to set title, short desc, assigned to, priority, due date of new card on the modal
@@ -103,8 +105,9 @@ const CreateCardModal = ({ hideModal, columnId }) => {
                     className={formStyle}
                     onChange={(event) => setAssignedTo(event.target.value)}
                   >
-                    <option>Tejas</option>
-                    <option>Abhinav</option>
+                    {allUsers.map((user) => {
+                      return <option value={user._id}>{user.name}</option>;
+                    })}
                   </select>
                 </td>
               </tr>

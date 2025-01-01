@@ -41,7 +41,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
             name: title,
             shortDescription: shortDescription,
             assignedTo: assignedTo,
-            priority: priority,
+            priority: parseInt(priority.slice(0, 1)),
             dueDate: dueDate,
           },
           {
@@ -53,6 +53,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         );
 
         toast.success(data.message);
+        hideModal(true);
       } else if (updateDeleteCard.action === "delete") {
         const { data } = await axios.delete(
           `${server}/cards/${updateDeleteCard.id}`,
@@ -64,7 +65,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         toast.success(data.message);
       }
     } catch (error) {
-      toast.success(error.response.data.message);
+      toast.error(error.response.data.message);
     }
   };
 
