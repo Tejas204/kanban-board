@@ -13,7 +13,9 @@ import { closestCorners, DndContext } from "@dnd-kit/core";
 import { stateArray, cardArray } from "../data/tasks";
 import { arrayMove } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { Context } from "../main";
+import { Context, server } from "../main";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Board = () => {
   const { cards, setStateCardArr } = useContext(Context);
@@ -90,6 +92,31 @@ const Board = () => {
    */
   const handleAddState = () => {
     setAddState(!addState);
+  };
+
+  /**
+   * @Function: handleStateChange
+   * @Params: id of new state and card
+   * @Return: none
+   * Make API call to update the state of the card
+   */
+  const handleStateChange = async (cardId, stateId) => {
+    try {
+      const { data } = await axios.put(
+        `${server}/cards/changeCardState/${cardId}`,
+        {
+          state: stateId,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
   };
 
   /**
@@ -185,6 +212,7 @@ const Board = () => {
             activeCards[activeCardIndex],
             ...overCards.slice(newIndex(), overCards.length),
           ];
+          handleStateChange(active.id, overColumn.id);
           return cardObject;
         } else {
           return cardObject;
