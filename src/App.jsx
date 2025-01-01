@@ -76,6 +76,8 @@ function App() {
       )
       .catch((error) => {
         setUser({});
+        setAllUsers({});
+        setStateCardArr([]);
         setIsAuthenticated(false);
         setIsLoading(false);
       });
