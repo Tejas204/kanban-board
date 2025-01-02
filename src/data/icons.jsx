@@ -4,7 +4,7 @@ export const addCardIcon = (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="currentColor"
-    class="size-7"
+    className="size-7"
   >
     <path
       fill-rule="evenodd"
@@ -19,7 +19,7 @@ export const deleteIcon = (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="currentColor"
-    class="size-7"
+    className="size-7"
     id="deleteButton"
   >
     <path
@@ -35,7 +35,7 @@ export const updateIcon = (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="currentColor"
-    class="size-7"
+    className="size-7"
     id="updateButton"
   >
     <path
@@ -51,7 +51,7 @@ export const confirmIcon = (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="green"
-    class="size-8"
+    className="size-8"
   >
     <path
       fill-rule="evenodd"
@@ -68,7 +68,7 @@ export const closeIcon = (
     viewBox="0 0 24 24"
     stroke-width="3"
     stroke="black"
-    class="size-8"
+    className="size-8"
   >
     <path
       stroke-linecap="round"
@@ -85,7 +85,7 @@ export const tickmark = (
     viewBox="0 0 24 24"
     stroke-width="4"
     stroke="currentColor"
-    class="w-6 h-6"
+    className="w-6 h-6"
   >
     <path
       stroke-linecap="round"

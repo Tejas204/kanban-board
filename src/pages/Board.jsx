@@ -30,7 +30,7 @@ const Board = () => {
    * @Hook: sets cardArray
    * Sets array of cards from data
    */
-  // const [cards, setStateCardArr] = useState(stateCardArr);
+  // const [cards, setStateCardArr] = useState(cardss);
 
   /**
    * @Hook: setCardModal
