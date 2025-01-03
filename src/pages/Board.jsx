@@ -30,7 +30,7 @@ const Board = () => {
    * @Hook: sets cardArray
    * Sets array of cards from data
    */
-  // const [cards, setStateCardArr] = useState(cardss);
+  //const [cards, setStateCardArr] = useState(cardArray);
 
   /**
    * @Hook: setCardModal
@@ -166,6 +166,7 @@ const Board = () => {
    * Returns: array[<obj>]
    */
   const handleDragOver = (event) => {
+    console.log("I am dragged over");
     const { active, over, delta } = event;
 
     //Find active and over columns
@@ -229,6 +230,7 @@ const Board = () => {
    */
   const handleDragEnd = (e) => {
     const { active, over } = e;
+    console.log("I am drag end");
 
     //Find active and over column
     const activeColumn = findColumn(active.id);

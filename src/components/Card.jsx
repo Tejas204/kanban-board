@@ -40,7 +40,6 @@ const Card = ({
   const style = {
     transition,
     transform: CSS.Translate.toString(transform),
-    posiiton: "static",
   };
 
   /**

@@ -4,7 +4,7 @@ export const cardArray = [
     state: "Draft",
     cards: [
       {
-        id: 1,
+        _id: 1,
         title: "Create blog content",
         short_description:
           "Write a blog about your design process and get it ready for publishing",
@@ -14,7 +14,7 @@ export const cardArray = [
         due_date: "2024-08-09",
       },
       {
-        id: 2,
+        _id: 2,
         title: "Configure API",
         short_description: "Configure API to fetch card details",
         assigned_to: "Abhinav Sharma",
@@ -29,7 +29,7 @@ export const cardArray = [
     state: "Ready",
     cards: [
       {
-        id: 3,
+        _id: 3,
         title: "Improve UI",
         short_description: "Redesign card UI",
         assigned_to: "Omkar Ghagare",
@@ -38,7 +38,7 @@ export const cardArray = [
         due_date: "2024-08-09",
       },
       {
-        id: 4,
+        _id: 4,
         title: "Draggable components",
         short_description: "Make components draggable",
         assigned_to: "Advait Naik",
@@ -53,7 +53,7 @@ export const cardArray = [
     state: "Work in progress",
     cards: [
       {
-        id: 5,
+        _id: 5,
         title: "Create Login API",
         short_description: "Design Login API",
         assigned_to: "Ninad",
@@ -68,7 +68,7 @@ export const cardArray = [
     state: "Review",
     cards: [
       {
-        id: 6,
+        _id: 6,
         title: "Create Register API",
         short_description: "Design register API",
         assigned_to: "Ritesh",
