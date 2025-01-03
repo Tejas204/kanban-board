@@ -33,7 +33,7 @@ const Card = ({
     transform,
     transition,
     isDragging,
-  } = useSortable({
+  } = useDraggable({
     id: id,
   });
 
