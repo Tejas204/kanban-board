@@ -129,7 +129,6 @@ const Card = ({
   };
 
   return (
-    // Parent div
     <div
       className={`flex flex-col z-50 rounded-sm border-l-8 bg-[color:var(--card-bg--color)] 
         ${
@@ -154,7 +153,7 @@ const Card = ({
               {title}
             </p>
             <p className="text-[color:var(--secondary-text--color)] text-lg">
-              Assigned to: {assigned_to}
+              Assigned to: {getInitials(assigned_to).userName}
             </p>
           </div>
           {/* User Icon */}

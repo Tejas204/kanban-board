@@ -13,12 +13,6 @@ import Card from "../components/Card";
 
 const Board = () => {
   const { cards, setStateCardArr } = useContext(Context);
-  // console.log(typeof cardArray[0].id);
-  // console.log(
-  //   cards.map((card) => {
-  //     console.log(typeof card.id);
-  //   })
-  // );
 
   /**
    * @Hook: sets cardArray
@@ -60,7 +54,7 @@ const Board = () => {
    * @Hook: setActiveId
    * sets the ID of the active card
    */
-  const [activeId, setActiveId] = useState(null);
+  const [activeCard, setActiveCard] = useState(null);
 
   /*
    * @Function: hideModal
@@ -229,7 +223,7 @@ const Board = () => {
    */
   const handleDragEnd = (e) => {
     const { active, over } = e;
-    setActiveId(null);
+    setActiveCard(null);
 
     //Find active and over column
     const activeColumn = findColumn(active.id);
@@ -264,9 +258,18 @@ const Board = () => {
     }
   };
 
+  /**
+   * @Function: handleDragStart
+   * @Params: event
+   * @Return: component
+   * It sets the active id of the active card and fetches its details for overlay
+   */
   const handleDragStart = (e) => {
     const { active, over } = e;
-    setActiveId(active.id);
+
+    setActiveCard(
+      active.data.current.sortable.items.find((card) => card._id == active.id)
+    );
   };
 
   return (
@@ -306,15 +309,16 @@ const Board = () => {
           </div>
 
           <DragOverlay>
-            {activeId ? (
+            {activeCard ? (
               <Card
-                id={activeId}
-                title="Test"
-                short_description="Test"
-                assigned_to="6757242876c414fa662743db"
-                priority="1"
-                due_date="2025-02-01"
-                state_id="6761b2407701a64c86487893"
+                key={activeCard._id}
+                id={activeCard._id}
+                title={activeCard.name}
+                short_description={activeCard.shortDescription}
+                assigned_to={activeCard.assignedTo}
+                priority={activeCard.priority}
+                due_date={activeCard.dueDate}
+                state_id={activeCard.state}
               ></Card>
             ) : null}
           </DragOverlay>
