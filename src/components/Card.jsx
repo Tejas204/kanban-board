@@ -154,7 +154,7 @@ const Card = ({
               {title}
             </p>
             <p className="text-[color:var(--secondary-text--color)] text-lg">
-              Assigned to: {getInitials(assigned_to).userName}
+              Assigned to: {assigned_to}
             </p>
           </div>
           {/* User Icon */}

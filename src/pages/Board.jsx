@@ -2,13 +2,14 @@ import React, { useContext, useEffect } from "react";
 import Columns from "../components/Columns";
 import NewStateCardModal from "../components/NewStateCardModal";
 import { useState } from "react";
-import { closestCorners, DndContext } from "@dnd-kit/core";
+import { closestCorners, DndContext, DragOverlay } from "@dnd-kit/core";
 import { stateArray, cardArray } from "../data/tasks";
 import { arrayMove } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { Context, server } from "../main";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Card from "../components/Card";
 
 const Board = () => {
   const { cards, setStateCardArr } = useContext(Context);
@@ -54,6 +55,12 @@ const Board = () => {
     active: false,
     columnId: "",
   });
+
+  /**
+   * @Hook: setActiveId
+   * sets the ID of the active card
+   */
+  const [activeId, setActiveId] = useState(null);
 
   /*
    * @Function: hideModal
@@ -222,6 +229,7 @@ const Board = () => {
    */
   const handleDragEnd = (e) => {
     const { active, over } = e;
+    setActiveId(null);
 
     //Find active and over column
     const activeColumn = findColumn(active.id);
@@ -258,6 +266,7 @@ const Board = () => {
 
   const handleDragStart = (e) => {
     const { active, over } = e;
+    setActiveId(active.id);
   };
 
   return (
@@ -295,6 +304,20 @@ const Board = () => {
               );
             })}
           </div>
+
+          <DragOverlay>
+            {activeId ? (
+              <Card
+                id={activeId}
+                title="Test"
+                short_description="Test"
+                assigned_to="6757242876c414fa662743db"
+                priority="1"
+                due_date="2025-02-01"
+                state_id="6761b2407701a64c86487893"
+              ></Card>
+            ) : null}
+          </DragOverlay>
         </DndContext>
       </div>
 
