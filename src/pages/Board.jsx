@@ -2,13 +2,6 @@ import React, { useContext, useEffect } from "react";
 import Columns from "../components/Columns";
 import NewStateCardModal from "../components/NewStateCardModal";
 import { useState } from "react";
-import {
-  horizontalListSortingStrategy,
-  SortableContext,
-  sortableKeyboardCoordinates,
-  useSortable,
-  verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
 import { closestCorners, DndContext } from "@dnd-kit/core";
 import { stateArray, cardArray } from "../data/tasks";
 import { arrayMove } from "@dnd-kit/sortable";
@@ -166,7 +159,6 @@ const Board = () => {
    * Returns: array[<obj>]
    */
   const handleDragOver = (event) => {
-    console.log("I am dragged over");
     const { active, over, delta } = event;
 
     //Find active and over columns
@@ -230,7 +222,6 @@ const Board = () => {
    */
   const handleDragEnd = (e) => {
     const { active, over } = e;
-    console.log("I am drag end");
 
     //Find active and over column
     const activeColumn = findColumn(active.id);
@@ -265,16 +256,8 @@ const Board = () => {
     }
   };
 
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({
-      id: cards.map((cardObject) => {
-        return cardObject.id;
-      }),
-    });
-
-  const style = {
-    transition,
-    transform: CSS.Translate.toString(transform),
+  const handleDragStart = (e) => {
+    const { active, over } = e;
   };
 
   return (
@@ -293,32 +276,25 @@ const Board = () => {
         <DndContext
           onDragOver={handleDragOver}
           onDragEnd={handleDragEnd}
+          onDragStart={handleDragStart}
           collisionDetection={closestCorners}
         >
-          <SortableContext items={cards} strategy={verticalListSortingStrategy}>
-            <div
-              className="flex flex-row mt-2 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar"
-              ref={setNodeRef}
-              {...attributes}
-              {...listeners}
-              style={style}
-            >
-              {cards.map((column) => {
-                return (
-                  <Columns
-                    cards={column.cards}
-                    key={column.id}
-                    columnId={column.id}
-                    columnTitle={column.state}
-                    setShowModal={setShowModal}
-                    showModal={showModal}
-                    setUpdateDeleteCard={setUpdateDeleteCard}
-                    setDeleteState={setDeleteState}
-                  ></Columns>
-                );
-              })}
-            </div>
-          </SortableContext>
+          <div className="flex flex-row mt-2 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar">
+            {cards.map((column) => {
+              return (
+                <Columns
+                  cards={column.cards}
+                  key={column.id}
+                  columnId={column.id}
+                  columnTitle={column.state}
+                  setShowModal={setShowModal}
+                  showModal={showModal}
+                  setUpdateDeleteCard={setUpdateDeleteCard}
+                  setDeleteState={setDeleteState}
+                ></Columns>
+              );
+            })}
+          </div>
         </DndContext>
       </div>
 

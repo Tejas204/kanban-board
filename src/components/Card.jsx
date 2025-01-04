@@ -33,13 +33,13 @@ const Card = ({
     transform,
     transition,
     isDragging,
-  } = useDraggable({
+  } = useSortable({
     id: id,
   });
 
   const style = {
-    transition,
     transform: CSS.Translate.toString(transform),
+    transition,
   };
 
   /**
@@ -131,7 +131,7 @@ const Card = ({
   return (
     // Parent div
     <div
-      className={`flex flex-col rounded-sm border-l-8 bg-[color:var(--card-bg--color)] 
+      className={`flex flex-col z-50 rounded-sm border-l-8 bg-[color:var(--card-bg--color)] 
         ${
           priority == 1
             ? "border-l-[color:var(--card-priority--color-high)]"
