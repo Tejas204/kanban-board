@@ -137,7 +137,7 @@ const Card = ({
             : priority == 2
             ? "border-l-[color:var(--card-priority--color-medium)]"
             : "border-l-[color:var(--card-priority--color-low)]"
-        }`}
+        } ${isDragging ? "opacity-20" : ""}`}
       ref={setNodeRef}
       {...attributes}
       {...listeners}

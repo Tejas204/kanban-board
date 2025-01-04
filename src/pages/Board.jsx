@@ -330,7 +330,12 @@ const Board = () => {
             })}
           </div>
 
-          <DragOverlay>
+          <DragOverlay
+            dropAnimation={{
+              duration: 500,
+              easing: "cubic-bezier(0.18, 0.67, 0.6, 1.22)",
+            }}
+          >
             {activeCard ? (
               <Card
                 key={activeCard._id}
