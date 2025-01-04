@@ -2,7 +2,15 @@ import React, { useContext, useEffect } from "react";
 import Columns from "../components/Columns";
 import NewStateCardModal from "../components/NewStateCardModal";
 import { useState } from "react";
-import { closestCorners, DndContext, DragOverlay } from "@dnd-kit/core";
+import {
+  closestCorners,
+  DndContext,
+  DragOverlay,
+  KeyboardSensor,
+  MouseSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 import { stateArray, cardArray } from "../data/tasks";
 import { arrayMove } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -19,6 +27,19 @@ const Board = () => {
    * Sets array of cards from data
    */
   //const [cards, setStateCardArr] = useState(cardArray);
+
+  /**
+   * @Hook: Sensors
+   * Ensure that sorting starts when dragging for 10px or more
+   */
+  const mouseSensor = useSensor(MouseSensor, {
+    activationConstraint: {
+      distance: 10,
+    },
+  });
+
+  const keyboardSensor = useSensor(KeyboardSensor);
+  const sensors = useSensors(mouseSensor, keyboardSensor);
 
   /**
    * @Hook: setCardModal
@@ -290,6 +311,7 @@ const Board = () => {
           onDragEnd={handleDragEnd}
           onDragStart={handleDragStart}
           collisionDetection={closestCorners}
+          sensors={sensors}
         >
           <div className="flex flex-row mt-2 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar">
             {cards.map((column) => {
