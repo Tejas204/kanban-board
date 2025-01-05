@@ -18,9 +18,10 @@ import { Context, server } from "../main";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Card from "../components/Card";
+import Loader from "../components/Loader";
 
 const Board = () => {
-  const { cards, setStateCardArr } = useContext(Context);
+  const { cards, setStateCardArr, isLoading } = useContext(Context);
 
   /**
    * @Hook: sets cardArray
@@ -293,7 +294,9 @@ const Board = () => {
     );
   };
 
-  return (
+  return isLoading ? (
+    <Loader></Loader>
+  ) : (
     <div className={`flex flex-row h-screen `}>
       {/* Filters Div */}
       {/* <Filters></Filters> */}
