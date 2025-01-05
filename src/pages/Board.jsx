@@ -24,12 +24,6 @@ const Board = () => {
   const { cards, setStateCardArr, isLoading } = useContext(Context);
 
   /**
-   * @Hook: sets cardArray
-   * Sets array of cards from data
-   */
-  //const [cards, setStateCardArr] = useState(cardArray);
-
-  /**
    * @Hook: Sensors
    * Ensure that sorting starts when dragging for 10px or more
    */
@@ -64,7 +58,7 @@ const Board = () => {
   const [updateDeleteCard, setUpdateDeleteCard] = useState();
 
   /**
-   * Hook:
+   * @Hook: setDeleteState
    * Sets value if user wants to delete state
    */
   const [deleteState, setDeleteState] = useState({
@@ -80,7 +74,8 @@ const Board = () => {
 
   /*
    * @Function: hideModal
-   * Params: none
+   * @Params: none
+   * @Returns: none
    * Displays the modal
    */
   const hideModal = () => {
@@ -103,7 +98,8 @@ const Board = () => {
 
   /*
    * @Function: handleAddState
-   * Params: none
+   * @Params: none
+   * @Returns: none
    * Displays the modal
    */
   const handleAddState = () => {
@@ -137,8 +133,8 @@ const Board = () => {
 
   /**
    * @Function: Return state of dragged card
-   * Params: card id <Int>
-   * Returns: index <Int>
+   * @Params: card id <Int>
+   * @Returns: index <Int>
    */
   const getActiveCard = (id) => {
     return cards.find((card) => card._id === id);
@@ -146,9 +142,8 @@ const Board = () => {
 
   /**
    * @Function: Return state of column
-   * Params: id --> id of the active card or over column
-   * Params: isOverColumn -->
-   * Returns: state_id <Int>
+   * @Params: id <Str>
+   * @Returns: state_id <Str>
    */
   const findColumn = (id) => {
     //If item is dropped over some other area
@@ -177,9 +172,9 @@ const Board = () => {
 
   /**
    * @Function: handleDragOver
+   * @Params: event <obj>
+   * @Returns: array[<obj>]
    * Update the state of dragged card
-   * Params: event <obj>
-   * Returns: array[<obj>]
    */
   const handleDragOver = (event) => {
     const { active, over, delta } = event;
@@ -239,9 +234,9 @@ const Board = () => {
 
   /**
    * @Function: handleDragEnd
+   * @Params: event <obj>
+   * @Returns: array[<obj>]
    * Update the state of dragged card
-   * Params: event <obj>
-   * Returns: array[<obj>]
    */
   const handleDragEnd = (e) => {
     const { active, over } = e;
@@ -283,7 +278,7 @@ const Board = () => {
   /**
    * @Function: handleDragStart
    * @Params: event
-   * @Return: component
+   * @Return: npne
    * It sets the active id of the active card and fetches its details for overlay
    */
   const handleDragStart = (e) => {

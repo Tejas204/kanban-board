@@ -51,7 +51,6 @@ function App() {
    */
   useEffect(() => {
     setIsLoading(true);
-    console.log("I am fetching data");
     axios
       .all([
         axios.get(`${server}/users/myProfile`, {
