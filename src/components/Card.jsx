@@ -173,7 +173,9 @@ const Card = ({
 
         {/* Short description */}
         <div className="text-[color:var(--primary-text--color)] text-lg">
-          <p>{short_description}</p>
+          <p className="w-[100%] overflow-hidden overflow-ellipsis text-nowrap">
+            {short_description}
+          </p>
         </div>
 
         <div className="text-lg text-[color:var(--primary-text--color)]">
