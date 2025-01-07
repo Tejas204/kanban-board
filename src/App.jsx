@@ -19,6 +19,7 @@ function App() {
     cards,
     setStateCardArr,
     setAllUsers,
+    refresh,
   } = useContext(Context);
 
   /**
@@ -50,7 +51,6 @@ function App() {
    * By verifying authentication, we can check if user is logged in or not
    */
   useEffect(() => {
-    setIsLoading(true);
     axios
       .all([
         axios.get(`${server}/users/myProfile`, {
@@ -72,7 +72,6 @@ function App() {
           setAllUsers(resAllUsers.data.users);
           setIsAuthenticated(true);
           createStateCardArray(resStates.data.states, resCards.data.cards);
-          setIsLoading(false);
         })
       )
       .catch((error) => {
@@ -80,9 +79,8 @@ function App() {
         setAllUsers({});
         setStateCardArr([]);
         setIsAuthenticated(false);
-        setIsLoading(false);
       });
-  }, [isAuthenticated]);
+  }, [isAuthenticated, refresh]);
 
   return (
     <Router>

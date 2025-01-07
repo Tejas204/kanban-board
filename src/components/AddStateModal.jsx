@@ -10,8 +10,14 @@ const AddStateModal = ({ hideModal }) => {
    * Set the name of the new state created by current logged in user
    * Set the context for component to use
    */
-  const { isAuthenticated, setIsAuthenticated, isLoading, setIsLoading, user } =
-    useContext(Context);
+  const {
+    isAuthenticated,
+    setIsAuthenticated,
+    isLoading,
+    setIsLoading,
+    user,
+    setRefresh,
+  } = useContext(Context);
   const [stateName, setStateName] = useState();
 
   /**
@@ -20,7 +26,6 @@ const AddStateModal = ({ hideModal }) => {
    */
   const createNewState = async (event) => {
     event.preventDefault();
-    setIsLoading(true);
 
     try {
       const { data } = await axios.post(
@@ -36,11 +41,10 @@ const AddStateModal = ({ hideModal }) => {
           withCredentials: true,
         }
       );
-      setIsLoading(false);
+      setRefresh((prev) => !prev);
       toast.success(data.message);
     } catch (error) {
       toast.error(error.response.data.message);
-      setIsLoading(false);
     }
   };
 

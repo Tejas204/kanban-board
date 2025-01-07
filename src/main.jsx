@@ -17,6 +17,7 @@ const AppWrapper = () => {
   const [user, setUser] = useState({});
   const [allUsers, setAllUsers] = useState({});
   const [cards, setStateCardArr] = useState([]);
+  const [refresh, setRefresh] = useState(false);
   return (
     <Context.Provider
       value={{
@@ -30,6 +31,8 @@ const AppWrapper = () => {
         setStateCardArr,
         allUsers,
         setAllUsers,
+        refresh,
+        setRefresh,
       }}
     >
       <App />
