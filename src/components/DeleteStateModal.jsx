@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { closeIcon } from "../data/icons";
 import axios from "axios";
-import { server } from "../main";
+import { Context, server } from "../main";
 import toast from "react-hot-toast";
 
 const DeleteStateModal = ({ hideModal, columnId }) => {
+  const { setRefresh } = useContext(Context);
+
   /**
    * @Function: handleDeleteState
    * Makes a DEL call to the server to delete the state and coresponding calls
@@ -16,7 +18,7 @@ const DeleteStateModal = ({ hideModal, columnId }) => {
       const { data } = await axios.delete(`${server}/states/${columnId}`, {
         withCredentials: true,
       });
-
+      setRefresh((prev) => !prev);
       toast.success(data.message);
       hideModal(true);
     } catch (error) {

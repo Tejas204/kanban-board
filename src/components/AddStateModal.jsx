@@ -10,14 +10,7 @@ const AddStateModal = ({ hideModal }) => {
    * Set the name of the new state created by current logged in user
    * Set the context for component to use
    */
-  const {
-    isAuthenticated,
-    setIsAuthenticated,
-    isLoading,
-    setIsLoading,
-    user,
-    setRefresh,
-  } = useContext(Context);
+  const { user, setRefresh } = useContext(Context);
   const [stateName, setStateName] = useState();
 
   /**
@@ -43,6 +36,7 @@ const AddStateModal = ({ hideModal }) => {
       );
       setRefresh((prev) => !prev);
       toast.success(data.message);
+      hideModal(false);
     } catch (error) {
       toast.error(error.response.data.message);
     }
