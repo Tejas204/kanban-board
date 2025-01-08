@@ -6,7 +6,7 @@ import axios from "axios";
 import { Context, server } from "../main";
 
 const CreateCardModal = ({ hideModal, columnId }) => {
-  const { allUsers } = useContext(Context);
+  const { allUsers, setRefresh } = useContext(Context);
 
   /**
    * @Hook: setTitle. setShortDescription, setAssignedTo. setPriority, updateDueDate
@@ -42,6 +42,7 @@ const CreateCardModal = ({ hideModal, columnId }) => {
         }
       );
 
+      setRefresh((prev) => !prev);
       toast.success(data.message);
       hideModal(true);
     } catch (error) {

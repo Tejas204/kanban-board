@@ -6,7 +6,7 @@ import { Context, server } from "../main";
 import toast from "react-hot-toast";
 
 const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
-  const { allUsers, setAllUsers } = useContext(Context);
+  const { allUsers, setAllUsers, setRefresh } = useContext(Context);
 
   /**
    * @Hook: setTitle. setShortDescription, setAssignedTo. setPriority, updateDueDate
@@ -53,7 +53,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
             withCredentials: true,
           }
         );
-
+        setRefresh((prev) => !prev);
         toast.success(data.message);
         hideModal(true);
       } else if (updateDeleteCard.action === "delete") {
@@ -63,7 +63,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
             withCredentials: true,
           }
         );
-
+        setRefresh((prev) => !prev);
         toast.success(data.message);
         hideModal(true);
       }
