@@ -282,7 +282,7 @@ const Board = () => {
    * It sets the active id of the active card and fetches its details for overlay
    */
   const handleDragStart = (e) => {
-    const { active, over } = e;
+    const { active } = e;
 
     setActiveCard(
       active.data.current.sortable.items.find((card) => card._id == active.id)
@@ -292,7 +292,7 @@ const Board = () => {
   return isLoading ? (
     <Loader></Loader>
   ) : (
-    <div className={`flex flex-row h-screen `}>
+    <div className={`flex flex-row h-screen overflow-x-clip`}>
       {/* Filters Div */}
       {/* <Filters></Filters> */}
 

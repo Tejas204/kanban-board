@@ -4,6 +4,7 @@ import { useState } from "react";
 import {
   horizontalListSortingStrategy,
   SortableContext,
+  useSortable,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { useDroppable } from "@dnd-kit/core";

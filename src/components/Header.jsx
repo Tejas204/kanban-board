@@ -30,7 +30,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex flex-row justify-between sticky top-0 z-50 w-full items-center shadow-lg bg-[color:var(--header-bg--color)]">
+    <div className="flex flex-row justify-between sticky top-0 z-50 w-[100%] items-center shadow-lg bg-[color:var(--header-bg--color)]">
       <Link
         className="flex flex-row gap-x-5 p-4 ml-[2%] text-2xl items-center font-bold text-[color:var(--primary-text--color)]"
         to="/"
