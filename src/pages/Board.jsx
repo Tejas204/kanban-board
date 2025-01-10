@@ -253,7 +253,7 @@ const Board = () => {
       const activeCard = activeColumn.cards.findIndex(
         (card) => card._id == active.id
       );
-      const overCard = activeColumn.cards.findIndex(
+      const overCard = overColumn.cards.findIndex(
         (card) => card._id == over.id
       );
 
