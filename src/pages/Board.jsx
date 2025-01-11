@@ -12,7 +12,11 @@ import {
   useSensors,
 } from "@dnd-kit/core";
 import { stateArray, cardArray } from "../data/tasks";
-import { arrayMove } from "@dnd-kit/sortable";
+import {
+  arrayMove,
+  horizontalListSortingStrategy,
+  SortableContext,
+} from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { Context, server } from "../main";
 import axios from "axios";
@@ -67,10 +71,11 @@ const Board = () => {
   });
 
   /**
-   * @Hook: setActiveId
-   * sets the ID of the active card
+   * @Hook: setActiveCard, setActiveState
+   * sets the ID of the active card and state
    */
   const [activeCard, setActiveCard] = useState(null);
+  const [activeState, setActiveState] = useState(null);
 
   /*
    * @Function: hideModal
@@ -210,14 +215,24 @@ const Board = () => {
 
     //If card is dragged over another column
     //return updated set of cards
+    //If active and over card indices do not exist
+    //it implies a column is being moved
     setStateCardArr((previousCards) => {
       return previousCards.map((cardObject) => {
-        if (cardObject.id == activeColumn.id) {
+        if (
+          cardObject.id == activeColumn.id &&
+          activeCardIndex >= 0 &&
+          overCardIndex >= 0
+        ) {
           cardObject.cards = activeCards.filter(
             (card) => card._id != active.id
           );
           return cardObject;
-        } else if (cardObject.id == overColumn.id) {
+        } else if (
+          cardObject.id == overColumn.id &&
+          activeCardIndex >= 0 &&
+          overCardIndex >= 0
+        ) {
           cardObject.cards = [
             ...overCards.slice(0, newIndex()),
             activeCards[activeCardIndex],
@@ -272,6 +287,12 @@ const Board = () => {
           }
         });
       });
+    } else if (activeColumn && overColumn && activeColumn.id != overColumn.id) {
+      setStateCardArr((prev) => {
+        const oldIndex = prev.indexOf(activeColumn);
+        const newIndex = prev.indexOf(overColumn);
+        return arrayMove(prev, oldIndex, newIndex);
+      });
     }
   };
 
@@ -286,6 +307,12 @@ const Board = () => {
 
     setActiveCard(
       active.data.current.sortable.items.find((card) => card._id == active.id)
+    );
+    console.log(
+      cards.find((cardArrayObjects) => cardArrayObjects.id == active.id)
+    );
+    setActiveState(
+      cards.find((cardArrayObjects) => cardArrayObjects.id == active.id)
     );
   };
 
@@ -312,20 +339,25 @@ const Board = () => {
           sensors={sensors}
         >
           <div className="flex flex-row mt-2 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar">
-            {cards.map((column) => {
-              return (
-                <Columns
-                  cards={column.cards}
-                  key={column.id}
-                  columnId={column.id}
-                  columnTitle={column.state}
-                  setShowModal={setShowModal}
-                  showModal={showModal}
-                  setUpdateDeleteCard={setUpdateDeleteCard}
-                  setDeleteState={setDeleteState}
-                ></Columns>
-              );
-            })}
+            <SortableContext
+              items={cards}
+              strategy={horizontalListSortingStrategy}
+            >
+              {cards.map((column) => {
+                return (
+                  <Columns
+                    cards={column.cards}
+                    key={column.id}
+                    columnId={column.id}
+                    columnTitle={column.state}
+                    setShowModal={setShowModal}
+                    showModal={showModal}
+                    setUpdateDeleteCard={setUpdateDeleteCard}
+                    setDeleteState={setDeleteState}
+                  ></Columns>
+                );
+              })}
+            </SortableContext>
           </div>
 
           <DragOverlay
@@ -345,6 +377,13 @@ const Board = () => {
                 due_date={activeCard.dueDate}
                 state_id={activeCard.state}
               ></Card>
+            ) : activeState ? (
+              <Columns
+                cards={activeState.cards}
+                key={activeState.id}
+                columnId={activeState.id}
+                columnTitle={activeState.state}
+              ></Columns>
             ) : null}
           </DragOverlay>
         </DndContext>
