@@ -17,6 +17,7 @@ import {
 import axios from "axios";
 import { server } from "../main";
 import toast from "react-hot-toast";
+import { CSS } from "@dnd-kit/utilities";
 
 /**
  * @Function: useDidMount
@@ -120,12 +121,27 @@ const Columns = ({
   /**
    * @Function: Droppable
    */
-  const { setNodeRef } = useDroppable({
-    id: columnId,
-  });
+  // const { setNodeRef } = useDroppable({
+  //   id: columnId,
+  // });
+  const { setNodeRef, transform, transition, listeners, attributes } =
+    useSortable({
+      id: columnId,
+    });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
 
   return (
-    <div className="h-screen w-1/4 shrink-0">
+    <div
+      className="h-screen w-1/4 shrink-0"
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
+    >
       {/* Title */}
       <div className="flex flex-row justify-between items-center p-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]">
         <input
