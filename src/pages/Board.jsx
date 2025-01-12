@@ -217,34 +217,29 @@ const Board = () => {
     //return updated set of cards
     //If active and over card indices do not exist
     //it implies a column is being moved
-    setStateCardArr((previousCards) => {
-      return previousCards.map((cardObject) => {
-        if (
-          cardObject.id == activeColumn.id &&
-          activeCardIndex >= 0 &&
-          overCardIndex >= 0
-        ) {
-          cardObject.cards = activeCards.filter(
-            (card) => card._id != active.id
-          );
-          return cardObject;
-        } else if (
-          cardObject.id == overColumn.id &&
-          activeCardIndex >= 0 &&
-          overCardIndex >= 0
-        ) {
-          cardObject.cards = [
-            ...overCards.slice(0, newIndex()),
-            activeCards[activeCardIndex],
-            ...overCards.slice(newIndex(), overCards.length),
-          ];
-          handleStateChange(active.id, overColumn.id);
-          return cardObject;
-        } else {
-          return cardObject;
-        }
+    if (activeCardIndex >= 0 && overCardIndex >= 0) {
+      console.log("I am gragging");
+      setStateCardArr((previousCards) => {
+        return previousCards.map((cardObject) => {
+          if (cardObject.id == activeColumn.id) {
+            cardObject.cards = activeCards.filter(
+              (card) => card._id != active.id
+            );
+            return cardObject;
+          } else if (cardObject.id == overColumn.id) {
+            cardObject.cards = [
+              ...overCards.slice(0, newIndex()),
+              activeCards[activeCardIndex],
+              ...overCards.slice(newIndex(), overCards.length),
+            ];
+            handleStateChange(active.id, overColumn.id);
+            return cardObject;
+          } else {
+            return cardObject;
+          }
+        });
       });
-    });
+    }
   };
 
   /**
@@ -256,6 +251,7 @@ const Board = () => {
   const handleDragEnd = (e) => {
     const { active, over } = e;
     setActiveCard(null);
+    setActiveState(null);
 
     //Find active and over column
     const activeColumn = findColumn(active.id);
@@ -307,9 +303,6 @@ const Board = () => {
 
     setActiveCard(
       active.data.current.sortable.items.find((card) => card._id == active.id)
-    );
-    console.log(
-      cards.find((cardArrayObjects) => cardArrayObjects.id == active.id)
     );
     setActiveState(
       cards.find((cardArrayObjects) => cardArrayObjects.id == active.id)

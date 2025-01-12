@@ -136,7 +136,7 @@ const Columns = ({
 
   return (
     <div
-      className="h-screen w-1/4 shrink-0"
+      className="h-screen shrink-0"
       ref={setNodeRef}
       style={style}
       {...attributes}
@@ -189,7 +189,10 @@ const Columns = ({
 
       {/* Cards */}
       <SortableContext items={cards} strategy={verticalListSortingStrategy}>
-        <div className="flex flex-col gap-y-7 p-7 h-[90%]" ref={setNodeRef}>
+        <div
+          className="flex flex-col w-[100%] gap-y-7 p-7 h-[90%]"
+          ref={setNodeRef}
+        >
           {cards.map((card) => {
             return (
               <Card
