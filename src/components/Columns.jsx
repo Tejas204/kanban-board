@@ -124,10 +124,16 @@ const Columns = ({
   // const { setNodeRef } = useDroppable({
   //   id: columnId,
   // });
-  const { setNodeRef, transform, transition, listeners, attributes } =
-    useSortable({
-      id: columnId,
-    });
+  const {
+    setNodeRef,
+    transform,
+    transition,
+    listeners,
+    attributes,
+    isDragging,
+  } = useSortable({
+    id: columnId,
+  });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -136,7 +142,9 @@ const Columns = ({
 
   return (
     <div
-      className="h-screen shrink-0"
+      className={`h-screen w-[550px] shrink-0 ${
+        isDragging ? "opacity-20" : ""
+      }`}
       ref={setNodeRef}
       style={style}
       {...attributes}
@@ -189,10 +197,7 @@ const Columns = ({
 
       {/* Cards */}
       <SortableContext items={cards} strategy={verticalListSortingStrategy}>
-        <div
-          className="flex flex-col w-[100%] gap-y-7 p-7 h-[90%]"
-          ref={setNodeRef}
-        >
+        <div className="flex flex-col w-[100%] gap-y-7 p-7 h-[90%]">
           {cards.map((card) => {
             return (
               <Card

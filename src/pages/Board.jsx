@@ -218,7 +218,6 @@ const Board = () => {
     //If active and over card indices do not exist
     //it implies a column is being moved
     if (activeCardIndex >= 0 && overCardIndex >= 0) {
-      console.log("I am gragging");
       setStateCardArr((previousCards) => {
         return previousCards.map((cardObject) => {
           if (cardObject.id == activeColumn.id) {
