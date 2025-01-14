@@ -282,13 +282,14 @@ const Board = () => {
           }
         });
       });
-    } else if (activeColumn && overColumn && activeColumn.id != overColumn.id) {
-      setStateCardArr((prev) => {
-        const oldIndex = prev.indexOf(activeColumn);
-        const newIndex = prev.indexOf(overColumn);
-        return arrayMove(prev, oldIndex, newIndex);
-      });
-    }
+    } 
+    // else if (activeColumn && overColumn && activeColumn.id != overColumn.id) {
+    //   setStateCardArr((prev) => {
+    //     const oldIndex = prev.indexOf(activeColumn);
+    //     const newIndex = prev.indexOf(overColumn);
+    //     return arrayMove(prev, oldIndex, newIndex);
+    //   });
+    // }
   };
 
   /**
@@ -331,10 +332,10 @@ const Board = () => {
           sensors={sensors}
         >
           <div className="flex flex-row mt-0 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar">
-            <SortableContext
+            {/* <SortableContext
               items={cards}
               strategy={horizontalListSortingStrategy}
-            >
+            > */}
               {cards.map((column) => {
                 return (
                   <Columns
@@ -349,7 +350,7 @@ const Board = () => {
                   ></Columns>
                 );
               })}
-            </SortableContext>
+            {/* </SortableContext> */}
           </div>
 
           <DragOverlay

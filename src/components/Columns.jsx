@@ -142,39 +142,34 @@ const Columns = ({
   /**
    * @Function: Droppable
    */
-  // const { setNodeRef } = useDroppable({
-  //   id: columnId,
-  // });
-  const {
-    setNodeRef,
-    transform,
-    transition,
-    listeners,
-    attributes,
-    isDragging,
-  } = useSortable({
+  const { setNodeRef } = useDroppable({
     id: columnId,
   });
+  // const {
+  //   setNodeRef,
+  //   transform,
+  //   transition,
+  //   listeners,
+  //   attributes,
+  //   isDragging,
+  // } = useSortable({
+  //   id: columnId,
+  // });
 
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-  };
+  // const style = {
+  //   transform: CSS.Transform.toString(transform),
+  //   transition,
+  // };
 
   return (
     <div
-      className={`h-screen w-[550px] shrink-0 ${
-        isDragging ? "opacity-20" : ""
-      }`}
+      className={`h-screen w-[550px] shrink-0`}
       ref={setNodeRef}
-      style={style}
-      {...attributes}
-      {...listeners}
     >
       {/* Drag handle */}
-      <div className="flex flex-row justify-center top-0 items-center w-[100%]">
+      {/* <div className="flex flex-row justify-center top-0 items-center w-[100%]">
         <div onDragStart={handleStateDrag} onDragEnd={handleDragEnd} draggable='true'>{dragHandleIcon}</div>
-      </div>
+      </div> */}
 
       {/* Title */}
       <div className="flex flex-row justify-between items-center pb-5 pl-5 pr-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]">
