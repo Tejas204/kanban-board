@@ -70,7 +70,7 @@ const Columns = ({
    * @Hook: Passes value of displayModal to Parent Component: Board.jsx
    * Does not display in first render
    */
-  useEffect(() => {
+  useEffect(() => { 
     if (!isMount) {
       setShowModal({
         active: !showModal.active,
@@ -90,6 +90,26 @@ const Columns = ({
    * Used to set value of the state field
    */
   const [updatedStateTitle, setUpdatedStateTitle] = useState(columnTitle);
+
+  /**
+   * @Hook: setColumnDrag
+   * Used to give sortable reference to column if it is dragged with handle
+   */
+  const [columnDrag, setColumnDrag] = useState(false);
+
+  /**
+   * @Function: handleStateDrag
+   * Used to determine if column can be dragged or not
+   */
+  const handleStateDrag = () => {
+    console.log("Dragging started");
+    setColumnDrag(true);
+  }
+
+  const handleDragEnd = (e) => {
+    console.log("Dragging ended");
+    setColumnDrag(false);
+  }
 
   /**
    * @Function: handleStateNameUpdate
@@ -151,9 +171,11 @@ const Columns = ({
       {...attributes}
       {...listeners}
     >
+      {/* Drag handle */}
       <div className="flex flex-row justify-center top-0 items-center w-[100%]">
-        <button>{dragHandleIcon}</button>
+        <div onDragStart={handleStateDrag} onDragEnd={handleDragEnd} draggable='true'>{dragHandleIcon}</div>
       </div>
+
       {/* Title */}
       <div className="flex flex-row justify-between items-center pb-5 pl-5 pr-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]">
         <input
