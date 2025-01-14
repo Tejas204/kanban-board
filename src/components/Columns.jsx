@@ -70,7 +70,7 @@ const Columns = ({
    * @Hook: Passes value of displayModal to Parent Component: Board.jsx
    * Does not display in first render
    */
-  useEffect(() => { 
+  useEffect(() => {
     if (!isMount) {
       setShowModal({
         active: !showModal.active,
@@ -104,12 +104,12 @@ const Columns = ({
   const handleStateDrag = () => {
     console.log("Dragging started");
     setColumnDrag(true);
-  }
+  };
 
   const handleDragEnd = (e) => {
     console.log("Dragging ended");
     setColumnDrag(false);
-  }
+  };
 
   /**
    * @Function: handleStateNameUpdate
@@ -142,34 +142,43 @@ const Columns = ({
   /**
    * @Function: Droppable
    */
-  const { setNodeRef } = useDroppable({
-    id: columnId,
-  });
-  // const {
-  //   setNodeRef,
-  //   transform,
-  //   transition,
-  //   listeners,
-  //   attributes,
-  //   isDragging,
-  // } = useSortable({
+  // const { setNodeRef } = useDroppable({
   //   id: columnId,
   // });
+  const {
+    setNodeRef,
+    transform,
+    transition,
+    listeners,
+    attributes,
+    isDragging,
+  } = useSortable({
+    id: columnId,
+  });
 
-  // const style = {
-  //   transform: CSS.Transform.toString(transform),
-  //   transition,
-  // };
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
 
   return (
     <div
       className={`h-screen w-[550px] shrink-0`}
       ref={setNodeRef}
+      {...attributes}
+      {...listeners}
+      style={style}
     >
       {/* Drag handle */}
-      {/* <div className="flex flex-row justify-center top-0 items-center w-[100%]">
-        <div onDragStart={handleStateDrag} onDragEnd={handleDragEnd} draggable='true'>{dragHandleIcon}</div>
-      </div> */}
+      <div className="flex flex-row justify-center top-0 items-center w-[100%]">
+        <div
+          onDragStart={handleStateDrag}
+          onDragEnd={handleDragEnd}
+          draggable="true"
+        >
+          {dragHandleIcon}
+        </div>
+      </div>
 
       {/* Title */}
       <div className="flex flex-row justify-between items-center pb-5 pl-5 pr-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]">

@@ -212,12 +212,16 @@ const Board = () => {
     if (!activeColumn || !overColumn || activeColumn == overColumn) {
       return null;
     }
+    console.log(overCardIndex);
 
     //If card is dragged over another column
-    //return updated set of cards
+    //return updated set of card
     //If active and over card indices do not exist
     //it implies a column is being moved
-    if (activeCardIndex >= 0 && overCardIndex >= 0) {
+    if (
+      (activeCardIndex >= 0 && overCardIndex >= 0) ||
+      (activeCardIndex >= 0 && overCardIndex == -1)
+    ) {
       setStateCardArr((previousCards) => {
         return previousCards.map((cardObject) => {
           if (cardObject.id == activeColumn.id) {
@@ -256,25 +260,25 @@ const Board = () => {
     const activeColumn = findColumn(active.id);
     const overColumn = over ? findColumn(over.id) : null;
 
+    //Find the active card and over card
+    const activeCardIndex = activeColumn.cards.findIndex(
+      (card) => card._id == active.id
+    );
+    const overCardIndex = overColumn.cards.findIndex(
+      (card) => card._id == over.id
+    );
+
     //Check if the drop zone is valid
     //AND active column is same as over column
     if (activeColumn && overColumn && activeColumn.id == overColumn.id) {
-      //Find the active card and over card
-      const activeCard = activeColumn.cards.findIndex(
-        (card) => card._id == active.id
-      );
-      const overCard = overColumn.cards.findIndex(
-        (card) => card._id == over.id
-      );
-
       //Set new cards after swapping
       setStateCardArr((previousCards) => {
         return previousCards.map((cardObject) => {
           if (cardObject.id == activeColumn.id) {
             cardObject.cards = arrayMove(
               cardObject.cards,
-              activeCard,
-              overCard
+              activeCardIndex,
+              overCardIndex
             );
             return cardObject;
           } else {
@@ -282,14 +286,19 @@ const Board = () => {
           }
         });
       });
-    } 
-    // else if (activeColumn && overColumn && activeColumn.id != overColumn.id) {
-    //   setStateCardArr((prev) => {
-    //     const oldIndex = prev.indexOf(activeColumn);
-    //     const newIndex = prev.indexOf(overColumn);
-    //     return arrayMove(prev, oldIndex, newIndex);
-    //   });
-    // }
+    } else if (
+      activeColumn &&
+      overColumn &&
+      activeColumn.id != overColumn.id &&
+      activeCardIndex == -1 &&
+      overCardIndex == -1
+    ) {
+      setStateCardArr((prev) => {
+        const oldIndex = prev.indexOf(activeColumn);
+        const newIndex = prev.indexOf(overColumn);
+        return arrayMove(prev, oldIndex, newIndex);
+      });
+    }
   };
 
   /**
@@ -317,6 +326,7 @@ const Board = () => {
       {/* <Filters></Filters> */}
 
       {/* Columns */}
+
       <div
         className={`${
           showModal.active || addState || updateDeleteCard || deleteState.active
@@ -332,10 +342,10 @@ const Board = () => {
           sensors={sensors}
         >
           <div className="flex flex-row mt-0 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar">
-            {/* <SortableContext
+            <SortableContext
               items={cards}
               strategy={horizontalListSortingStrategy}
-            > */}
+            >
               {cards.map((column) => {
                 return (
                   <Columns
@@ -350,7 +360,7 @@ const Board = () => {
                   ></Columns>
                 );
               })}
-            {/* </SortableContext> */}
+            </SortableContext>
           </div>
 
           <DragOverlay
