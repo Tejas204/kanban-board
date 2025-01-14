@@ -330,7 +330,7 @@ const Board = () => {
           collisionDetection={closestCorners}
           sensors={sensors}
         >
-          <div className="flex flex-row mt-2 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar">
+          <div className="flex flex-row mt-0 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar">
             <SortableContext
               items={cards}
               strategy={horizontalListSortingStrategy}

@@ -13,6 +13,7 @@ import {
   deleteIcon,
   addCardIcon,
   confirmIcon,
+  dragHandleIcon,
 } from "../data/icons";
 import axios from "axios";
 import { server } from "../main";
@@ -150,8 +151,11 @@ const Columns = ({
       {...attributes}
       {...listeners}
     >
+      <div className="flex flex-row justify-center top-0 items-center w-[100%]">
+        <button>{dragHandleIcon}</button>
+      </div>
       {/* Title */}
-      <div className="flex flex-row justify-between items-center p-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]">
+      <div className="flex flex-row justify-between items-center pb-5 pl-5 pr-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]">
         <input
           type="text"
           disabled={updateState}
@@ -161,6 +165,7 @@ const Columns = ({
             !updateState ? "border-2 border-white" : ""
           }`}
         ></input>
+
         {/* Buttons and Icons */}
         <div className="flex flex-row gap-x-7 items-center">
           <button
