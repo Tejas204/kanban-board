@@ -212,7 +212,6 @@ const Board = () => {
     if (!activeColumn || !overColumn || activeColumn == overColumn) {
       return null;
     }
-    console.log(overCardIndex);
 
     //If card is dragged over another column
     //return updated set of card
