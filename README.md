@@ -1,6 +1,6 @@
 # Kanban Board
 
-This repository contains the code for a full stack Kanban board.
+This repository contains the code for a full stack Kanban board. The details of the project are mentioned below.
 
 ## Features
 1. Login and authentication
@@ -18,6 +18,7 @@ This repository contains the code for a full stack Kanban board.
 | ReactJS | npm create vite@latest |
 | React-Router-Dom | npm i react-router-dom |
 | Tailwind CSS | npm install -D tailwindcss postcss autoprefixer |
+| React hot toast | npm i react-hot-toast |
 
 ## How to install and run
 1. Download the code from `GitHub`.
