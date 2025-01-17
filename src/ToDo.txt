@@ -2,11 +2,11 @@
 ** Making columns sortable **
 
 * DB changes *
-1. In the database, add a new field called index, which will have a numeric value.
-2. When making a call to fetch states created by me, sort the values according to the index field.
+1. In the database, add a new field called index, which will have a numeric value. - Done
+2. When making a call to fetch states created by me, sort the values according to the index field. - Done
 
 * API changes *
-1. In the POST call to create a new state, send a new value for index, whose value will be cards.length
+1. In the POST call to create a new state, send a new value for index, whose value will be cards.length - Done
 2. Create a new API to update all the column states that have changed
 
 * Front end changes *
