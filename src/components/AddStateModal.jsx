@@ -10,7 +10,7 @@ const AddStateModal = ({ hideModal }) => {
    * Set the name of the new state created by current logged in user
    * Set the context for component to use
    */
-  const { user, setRefresh } = useContext(Context);
+  const { user, setRefresh, cards } = useContext(Context);
   const [stateName, setStateName] = useState();
 
   /**
@@ -26,6 +26,7 @@ const AddStateModal = ({ hideModal }) => {
         {
           name: stateName,
           user: user._id,
+          index: cards.length,
         },
         {
           headers: {
