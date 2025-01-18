@@ -138,7 +138,7 @@ const Board = () => {
 
   /**
    * @Function: handleStateIndexUpdate
-   * @Params: moveDistance <Int>
+   * @Params: moveDistance <Int>, oldIndex<Int>, newIndex<Int>
    * @Returns: None
    * Makes a PUT API call to update the index of states
    */
@@ -147,6 +147,11 @@ const Board = () => {
       while (moveDistance >= 0) {
         console.log(cards[moveDistance].index + cards[moveDistance].state);
         moveDistance--;
+      }
+    }
+    if (moveDistance < 0) {
+      while (moveDistance <= 0) {
+        moveDistance++;
       }
     }
   };

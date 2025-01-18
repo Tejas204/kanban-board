@@ -24,6 +24,8 @@ function App() {
 
   /**
    * @Function: createStateCardArray
+   * @Params: receivedStates, receivedCards <Obj>
+   * @Returns: stateCardArray <Array[Obj]>
    * Uses the states and cards to create an array of states and cards in below format
    *     [
    *      {
