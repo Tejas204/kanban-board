@@ -137,6 +137,21 @@ const Board = () => {
   };
 
   /**
+   * @Function: handleStateIndexUpdate
+   * @Params: moveDistance <Int>
+   * @Returns: None
+   * Makes a PUT API call to update the index of states
+   */
+  const handleStateIndexUpdate = (moveDistance) => {
+    if (moveDistance > 0) {
+      while (moveDistance >= 0) {
+        console.log(cards[moveDistance].index + cards[moveDistance].state);
+        moveDistance--;
+      }
+    }
+  };
+
+  /**
    * @Function: Return state of dragged card
    * @Params: card id <Int>
    * @Returns: index <Int>
@@ -173,6 +188,23 @@ const Board = () => {
     //Find the column id of the card
     const column = itemsWithColumnID.find((item) => item.itemId == id);
     return cards.find((c) => c.id == column.columnId);
+  };
+
+  /**
+   * @Function: handleDragStart
+   * @Params: event
+   * @Return: npne
+   * It sets the active id of the active card and fetches its details for overlay
+   */
+  const handleDragStart = (e) => {
+    const { active } = e;
+
+    setActiveCard(
+      active.data.current.sortable.items.find((card) => card._id == active.id)
+    );
+    setActiveState(
+      cards.find((cardArrayObjects) => cardArrayObjects.id == active.id)
+    );
   };
 
   /**
@@ -295,26 +327,11 @@ const Board = () => {
       setStateCardArr((prev) => {
         const oldIndex = prev.indexOf(activeColumn);
         const newIndex = prev.indexOf(overColumn);
+        const moveDistance = newIndex - oldIndex;
         return arrayMove(prev, oldIndex, newIndex);
       });
+      handleStateIndexUpdate(2);
     }
-  };
-
-  /**
-   * @Function: handleDragStart
-   * @Params: event
-   * @Return: npne
-   * It sets the active id of the active card and fetches its details for overlay
-   */
-  const handleDragStart = (e) => {
-    const { active } = e;
-
-    setActiveCard(
-      active.data.current.sortable.items.find((card) => card._id == active.id)
-    );
-    setActiveState(
-      cards.find((cardArrayObjects) => cardArrayObjects.id == active.id)
-    );
   };
 
   return isLoading ? (

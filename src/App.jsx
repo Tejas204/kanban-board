@@ -39,6 +39,7 @@ function App() {
       var obj = {
         id: state._id,
         state: state.name,
+        index: state.index,
         cards: receivedCards.filter((c) => c.state == state._id),
       };
       arr.push(obj);
