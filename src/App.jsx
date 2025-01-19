@@ -52,7 +52,15 @@ function App() {
 
   /**
    * @Hook: runs on every update to move distance and cards, indicating a change in state indices
+   * Make a flatmap of updated state id and new indices
    * Makes a PUT API call to update the index of states
+   *
+   * Flatmap:
+   * [
+   *    {
+   *      id: "78ksd", index: 0
+   *    }
+   * ]
    */
   useEffect(() => {
     let distance = Math.abs(moveDistance);
