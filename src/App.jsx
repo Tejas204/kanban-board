@@ -50,6 +50,10 @@ function App() {
     setStateCardArr(arr);
   };
 
+  /**
+   * @Hook: runs on every update to move distance and cards, indicating a change in state indices
+   * Makes a PUT API call to update the index of states
+   */
   useEffect(() => {
     let distance = Math.abs(moveDistance);
     if (moveDistance > 0 || moveDistance < 0) {

@@ -138,26 +138,6 @@ const Board = () => {
   };
 
   /**
-   * @Function: handleStateIndexUpdate
-   * @Params: moveDistance <Int>, oldIndex<Int>, newIndex<Int>
-   * @Returns: None
-   * Makes a PUT API call to update the index of states
-   */
-  const handleStateIndexUpdate = (moveDistance, oldIndex, newIndex) => {
-    if (moveDistance > 0) {
-      while (moveDistance >= 0) {
-        console.log(cards[moveDistance].index + cards[moveDistance].state);
-        moveDistance--;
-      }
-    }
-    if (moveDistance < 0) {
-      while (moveDistance <= 0) {
-        moveDistance++;
-      }
-    }
-  };
-
-  /**
    * @Function: Return state of dragged card
    * @Params: card id <Int>
    * @Returns: index <Int>
