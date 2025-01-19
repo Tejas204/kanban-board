@@ -51,8 +51,18 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(cards);
-    console.log(moveDistance);
+    let distance = Math.abs(moveDistance);
+    if (moveDistance > 0 || moveDistance < 0) {
+      while (distance >= 0) {
+        console.log(
+          "Card " +
+            cards[distance].state +
+            " will be moved to index " +
+            distance
+        );
+        distance--;
+      }
+    }
   }, [cards, moveDistance]);
 
   /**
