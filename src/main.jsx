@@ -18,6 +18,8 @@ const AppWrapper = () => {
   const [allUsers, setAllUsers] = useState({});
   const [cards, setStateCardArr] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const [moveDistance, setMoveDistance] = useState(0);
+
   return (
     <Context.Provider
       value={{
@@ -33,6 +35,8 @@ const AppWrapper = () => {
         setAllUsers,
         refresh,
         setRefresh,
+        moveDistance,
+        setMoveDistance,
       }}
     >
       <App />

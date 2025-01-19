@@ -20,6 +20,7 @@ function App() {
     setStateCardArr,
     setAllUsers,
     refresh,
+    moveDistance,
   } = useContext(Context);
 
   /**
@@ -48,6 +49,11 @@ function App() {
     });
     setStateCardArr(arr);
   };
+
+  useEffect(() => {
+    console.log(cards);
+    console.log(moveDistance);
+  }, [cards, moveDistance]);
 
   /**
    * @Hook: Runs on every render to keep user logged in on refresh

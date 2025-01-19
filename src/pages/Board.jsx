@@ -25,7 +25,8 @@ import Card from "../components/Card";
 import Loader from "../components/Loader";
 
 const Board = () => {
-  const { cards, setStateCardArr, isLoading } = useContext(Context);
+  const { cards, setStateCardArr, isLoading, setMoveDistance } =
+    useContext(Context);
 
   /**
    * @Hook: Sensors
@@ -142,7 +143,7 @@ const Board = () => {
    * @Returns: None
    * Makes a PUT API call to update the index of states
    */
-  const handleStateIndexUpdate = (moveDistance) => {
+  const handleStateIndexUpdate = (moveDistance, oldIndex, newIndex) => {
     if (moveDistance > 0) {
       while (moveDistance >= 0) {
         console.log(cards[moveDistance].index + cards[moveDistance].state);
@@ -333,9 +334,9 @@ const Board = () => {
         const oldIndex = prev.indexOf(activeColumn);
         const newIndex = prev.indexOf(overColumn);
         const moveDistance = newIndex - oldIndex;
+        setMoveDistance(moveDistance);
         return arrayMove(prev, oldIndex, newIndex);
       });
-      handleStateIndexUpdate(2);
     }
   };
 
