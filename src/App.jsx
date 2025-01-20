@@ -52,10 +52,10 @@ function App() {
 
   /**
    * @Hook: runs on every update to move distance and cards, indicating a change in state indices
-   * Make a flatmap of updated state id and new indices
+   * Make a array of objects of updated state id and new indices
    * Makes a PUT API call to update the index of states
    *
-   * Flatmap:
+   * Array:
    * [
    *    {
    *      id: "78ksd", index: 0
@@ -64,14 +64,13 @@ function App() {
    */
   useEffect(() => {
     let distance = Math.abs(moveDistance);
+    const stateIdIndexArray = [];
     if (moveDistance > 0 || moveDistance < 0) {
       while (distance >= 0) {
-        console.log(
-          "Card " +
-            cards[distance].state +
-            " will be moved to index " +
-            distance
-        );
+        stateIdIndexArray.push({
+          state_id: cards[distance].id,
+          index: distance,
+        });
         distance--;
       }
     }
