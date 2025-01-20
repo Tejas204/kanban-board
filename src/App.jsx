@@ -73,6 +73,8 @@ function App() {
         });
         distance--;
       }
+
+      // Make API call
     }
   }, [cards, moveDistance]);
 
