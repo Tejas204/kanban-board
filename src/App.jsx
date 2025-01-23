@@ -63,40 +63,40 @@ function App() {
    *    }
    * ]
    */
-  // useEffect(() => {
-  //   let distance = Math.abs(moveDistance);
-  //   const stateIdIndexArray = [];
-  //   console.log(moveDistance);
-  //   if (moveDistance > 0 || moveDistance < 0) {
-  //     while (distance >= 0) {
-  //       stateIdIndexArray.push({
-  //         state_id: cards[distance].id,
-  //         index: distance,
-  //       });
-  //       distance--;
-  //     }
+  useEffect(() => {
+    let distance = Math.abs(moveDistance);
+    const stateIdIndexArray = [];
+    console.log(moveDistance);
+    if (moveDistance > 0 || moveDistance < 0) {
+      while (distance >= 0) {
+        stateIdIndexArray.push({
+          state_id: cards[distance].id,
+          index: distance,
+        });
+        distance--;
+      }
 
-  //     // Make API call
-  //     try {
-  //       axios.put(
-  //         `${server}/states/updateStateIndices`,
-  //         {
-  //           stateIdIndexArray: stateIdIndexArray,
-  //         },
-  //         {
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //           withCredentials: true,
-  //         }
-  //       );
-  //       setRefresh((prev) => !prev);
-  //       toast.success("States updated");
-  //     } catch (error) {
-  //       toast.error(error.response.data.message);
-  //     }
-  //   }
-  // }, [cards, moveDistance]);
+      // Make API call
+      // try {
+      //   axios.put(
+      //     `${server}/states/updateStateIndices`,
+      //     {
+      //       stateIdIndexArray: stateIdIndexArray,
+      //     },
+      //     {
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //       withCredentials: true,
+      //     }
+      //   );
+      //   setRefresh((prev) => !prev);
+      //   toast.success("States updated");
+      // } catch (error) {
+      //   toast.error(error.response.data.message);
+      // }
+    }
+  }, [moveDistance]);
 
   /**
    * @Hook: Runs on every render to keep user logged in on refresh
