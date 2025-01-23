@@ -75,6 +75,18 @@ function App() {
       }
 
       // Make API call
+      axios.put(
+        `${server}/states/updateStateIndices`,
+        {
+          stateIdIndexArray: stateIdIndexArray,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
     }
   }, [cards, moveDistance]);
 
