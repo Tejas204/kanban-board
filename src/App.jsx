@@ -5,7 +5,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Header from "./components/Header";
 import Board from "./pages/Board";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { Context, server } from "./main";
 import Profile from "./pages/Profile";
@@ -21,6 +21,7 @@ function App() {
     setAllUsers,
     refresh,
     moveDistance,
+    setRefresh,
   } = useContext(Context);
 
   /**
@@ -62,33 +63,40 @@ function App() {
    *    }
    * ]
    */
-  useEffect(() => {
-    let distance = Math.abs(moveDistance);
-    const stateIdIndexArray = [];
-    if (moveDistance > 0 || moveDistance < 0) {
-      while (distance >= 0) {
-        stateIdIndexArray.push({
-          state_id: cards[distance].id,
-          index: distance,
-        });
-        distance--;
-      }
+  // useEffect(() => {
+  //   let distance = Math.abs(moveDistance);
+  //   const stateIdIndexArray = [];
+  //   console.log(moveDistance);
+  //   if (moveDistance > 0 || moveDistance < 0) {
+  //     while (distance >= 0) {
+  //       stateIdIndexArray.push({
+  //         state_id: cards[distance].id,
+  //         index: distance,
+  //       });
+  //       distance--;
+  //     }
 
-      // Make API call
-      axios.put(
-        `${server}/states/updateStateIndices`,
-        {
-          stateIdIndexArray: stateIdIndexArray,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
-      );
-    }
-  }, [cards, moveDistance]);
+  //     // Make API call
+  //     try {
+  //       axios.put(
+  //         `${server}/states/updateStateIndices`,
+  //         {
+  //           stateIdIndexArray: stateIdIndexArray,
+  //         },
+  //         {
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //           withCredentials: true,
+  //         }
+  //       );
+  //       setRefresh((prev) => !prev);
+  //       toast.success("States updated");
+  //     } catch (error) {
+  //       toast.error(error.response.data.message);
+  //     }
+  //   }
+  // }, [cards, moveDistance]);
 
   /**
    * @Hook: Runs on every render to keep user logged in on refresh
