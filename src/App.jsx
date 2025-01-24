@@ -75,26 +75,26 @@ function App() {
         });
         distance--;
       }
+      console.log(stateIdIndexArray);
 
       // Make API call
-      // try {
-      //   axios.put(
-      //     `${server}/states/updateStateIndices`,
-      //     {
-      //       stateIdIndexArray: stateIdIndexArray,
-      //     },
-      //     {
-      //       headers: {
-      //         "Content-Type": "application/json",
-      //       },
-      //       withCredentials: true,
-      //     }
-      //   );
-      //   setRefresh((prev) => !prev);
-      //   toast.success("States updated");
-      // } catch (error) {
-      //   toast.error(error.response.data.message);
-      // }
+      try {
+        axios.put(
+          `${server}/states/updateStateIndices`,
+          {
+            stateIdIndexArray: stateIdIndexArray,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+        //setRefresh((prev) => !prev);
+      } catch (error) {
+        toast.error(error.response.data.message);
+      }
     }
   }, [moveDistance]);
 
