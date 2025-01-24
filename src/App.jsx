@@ -66,7 +66,6 @@ function App() {
   useEffect(() => {
     let distance = Math.abs(moveDistance);
     const stateIdIndexArray = [];
-    console.log(moveDistance);
     if (moveDistance > 0 || moveDistance < 0) {
       while (distance >= 0) {
         stateIdIndexArray.push({
@@ -75,7 +74,6 @@ function App() {
         });
         distance--;
       }
-      console.log(stateIdIndexArray);
 
       // Make API call
       try {
