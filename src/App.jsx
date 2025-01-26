@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { Context, server } from "./main";
 import Profile from "./pages/Profile";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
   const {
@@ -141,6 +142,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/resetPassword" element={<ResetPassword />}></Route>
       </Routes>
       <Toaster></Toaster>
     </Router>

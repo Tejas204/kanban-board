@@ -83,7 +83,7 @@ const Login = () => {
               Log In
             </button>
             <Link
-              to="/"
+              to="/resetPassword"
               className="text-center text-lg text-[color:var(--primary-text--color)] hover:underline hover:decoration-2 hover:underline-offset-4 hover:decoration-[color:var(--user-icon--bg-color--purple)] transition ease-linear duration-150"
             >
               Forgot password?
