@@ -22,3 +22,4 @@
 1. Add the feature to add groups
 2. Re-define card UI for a modern look
 3. Resolve remaining bugs
+4. API to change password

@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import { Context, server } from "../main";
 import toast from "react-hot-toast";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Login = () => {
   /**
@@ -82,6 +82,12 @@ const Login = () => {
             >
               Log In
             </button>
+            <Link
+              to="/"
+              className="text-center text-lg text-[color:var(--primary-text--color)] hover:underline hover:decoration-2 hover:underline-offset-4 hover:decoration-[color:var(--user-icon--bg-color--purple)] transition ease-linear duration-150"
+            >
+              Forgot password?
+            </Link>
           </form>
 
           {/* Other Sign in options text */}
