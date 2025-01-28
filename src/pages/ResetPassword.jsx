@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { Context } from "../main";
+import toast from "react-hot-toast";
 
 const ResetPassword = () => {
   /**
@@ -17,6 +18,21 @@ const ResetPassword = () => {
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
+  /**
+   * @Function: handlePasswordReset
+   * @Params: event
+   * @Returns: none
+   * Used for password validation and to call the password reset API
+   */
+  const handlePasswordReset = (event) => {
+    event.preventDefault();
+    if (password === newPassword) {
+      // Call API here
+    } else {
+      toast.error("New and confirmed password does not match");
+    }
+  };
+
   return (
     <div>
       <div className="flex h-[100%] w-[100%] justify-center items-center">
@@ -26,7 +42,10 @@ const ResetPassword = () => {
             <p className="text-xl">Enter and confirm your new password</p>
           </div>
 
-          <form className="flex flex-col gap-y-5">
+          <form
+            className="flex flex-col gap-y-5"
+            onSubmit={handlePasswordReset}
+          >
             <input
               className="p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg"
               type="text"
