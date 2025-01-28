@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Context } from "../main";
 import toast from "react-hot-toast";
 
@@ -28,6 +28,12 @@ const ResetPassword = () => {
     event.preventDefault();
     if (password === newPassword) {
       // Call API here
+      setEmail("");
+      setPassword("");
+      setNewPassword("");
+      toast.success(
+        "Password had been reset. Please login with your new password"
+      );
     } else {
       toast.error("New and confirmed password does not match");
     }
