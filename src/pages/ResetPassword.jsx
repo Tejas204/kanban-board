@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import Footer from "../components/Footer";
 import { Link, Navigate } from "react-router-dom";
-import { Context } from "../main";
+import { Context, server } from "../main";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const ResetPassword = () => {
   /**
@@ -24,16 +25,30 @@ const ResetPassword = () => {
    * @Returns: none
    * Used for password validation and to call the password reset API
    */
-  const handlePasswordReset = (event) => {
+  const handlePasswordReset = async (event) => {
     event.preventDefault();
     if (password === newPassword) {
       // Call API here
+      try {
+        const { data } = await axios.put(
+          `${server}/users/resetPassword`,
+          {
+            email: email,
+            password: password,
+            newPassword: newPassword,
+          },
+          {
+            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+          }
+        );
+        toast.success(data.message);
+      } catch (error) {
+        toast.error(error.response.data.message);
+      }
       setEmail("");
       setPassword("");
       setNewPassword("");
-      toast.success(
-        "Password had been reset. Please login with your new password"
-      );
     } else {
       toast.error("New and confirmed password does not match");
     }
