@@ -77,14 +77,14 @@ const ResetPassword = () => {
             <input
               className="p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg"
               type="password"
-              placeholder="Password"
+              placeholder="New Password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             ></input>
             <input
               className="p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg"
               type="password"
-              placeholder="Password"
+              placeholder="Confirm New Password"
               value={newPassword}
               onChange={(event) => setNewPassword(event.target.value)}
             ></input>
