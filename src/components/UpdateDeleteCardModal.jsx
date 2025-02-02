@@ -35,15 +35,20 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   const handleUpdateDeleteCard = async (event) => {
     event.preventDefault();
 
-    try {
-      if (updateDeleteCard.action === "update") {
+    // Update
+    if (updateDeleteCard.action === "update") {
+      console.log(typeof priority === "string" ? true : false);
+      try {
         const { data } = await axios.put(
           `${server}/cards/${updateDeleteCard.id}`,
           {
             name: title,
             shortDescription: shortDescription,
             assignedTo: assignedTo,
-            priority: parseInt(priority.slice(0, 1)),
+            priority:
+              typeof priority === "string"
+                ? parseInt(priority.slice(0, 1))
+                : priority,
             dueDate: dueDate,
           },
           {
@@ -56,7 +61,13 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         setRefresh((prev) => !prev);
         toast.success(data.message);
         hideModal(true);
-      } else if (updateDeleteCard.action === "delete") {
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    // Delete
+    else if (updateDeleteCard.action === "delete") {
+      try {
         const { data } = await axios.delete(
           `${server}/cards/${updateDeleteCard.id}`,
           {
@@ -66,9 +77,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         setRefresh((prev) => !prev);
         toast.success(data.message);
         hideModal(true);
+      } catch (error) {
+        toast.error(error.response.data.message);
       }
-    } catch (error) {
-      toast.error(error.response.data.message);
     }
   };
 
