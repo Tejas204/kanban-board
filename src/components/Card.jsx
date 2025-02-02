@@ -144,7 +144,9 @@ const Card = ({
       style={style}
     >
       {/* Content div */}
-      <div className="flex flex-col px-6 py-4 border-b-2 border-b-gray-600 gap-y-2">
+      <div
+        className={`flex flex-col px-6 py-4 border-b-2 border-b-gray-600 gap-y-2 `}
+      >
         {/* Header */}
         <div className="flex flex-row justify-between pb-4">
           {/* Title and assignment */}

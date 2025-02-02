@@ -370,6 +370,11 @@ const Board = () => {
               duration: 500,
               easing: "cubic-bezier(0.18, 0.67, 0.6, 1.22)",
             }}
+            style={{
+              opacity: 0.8,
+              border: "2px solid white",
+              borderRadius: "8px",
+            }}
           >
             {activeCard ? (
               <Card
