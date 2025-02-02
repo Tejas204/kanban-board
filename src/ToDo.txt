@@ -21,5 +21,5 @@
 ** Additional functionality ideas **
 1. Add the feature to add groups
 2. Re-define card UI for a modern look - WIP
-3. Resolve remaining bugs
+3. Resolve remaining bugs - WIP
 4. API to change password - Done

@@ -37,7 +37,6 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
 
     // Update
     if (updateDeleteCard.action === "update") {
-      console.log(typeof priority === "string" ? true : false);
       try {
         const { data } = await axios.put(
           `${server}/cards/${updateDeleteCard.id}`,
