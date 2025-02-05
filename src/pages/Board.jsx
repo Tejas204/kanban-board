@@ -374,8 +374,8 @@ const Board = () => {
               opacity: 0.8,
               border: "1px solid gray",
               borderRadius: "8px",
-
               backdropFilter: "blur(20px)",
+              rotate: "3deg",
             }}
           >
             {activeCard ? (
