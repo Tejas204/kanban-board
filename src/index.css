@@ -43,7 +43,8 @@
 
   /* Background colors */
   --board-bg--color: #191b2b;
-  --card-bg--color: #272a43;
+  /*--card-bg--color: #272a43;*/
+  --card-bg--color: rgba(39, 42, 67, 0.65);
   --header-bg--color: #272a43;
   --filter-bg--color: #151724;
   --background-white: #ffffff;

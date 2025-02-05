@@ -130,7 +130,7 @@ const Card = ({
 
   return (
     <div
-      className={`flex flex-col w-[100%] shadow-2xl rounded-lg border-l-8 bg-[color:var(--card-bg--color)] 
+      className={`flex flex-col w-[100%] shadow-2xl rounded-lg border-l-8 bg-[color:var(--card-bg--color)]
         ${
           priority == 1
             ? "border-l-[color:var(--card-priority--color-high)]"
@@ -145,7 +145,7 @@ const Card = ({
     >
       {/* Content div */}
       <div
-        className={`flex flex-col px-6 py-4 border-b-2 border-b-gray-600 gap-y-2 `}
+        className={`flex flex-col px-6 py-4 border-b-2 border-b-gray-600 gap-y-2`}
       >
         {/* Header */}
         <div className="flex flex-row justify-between pb-4">
