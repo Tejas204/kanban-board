@@ -163,7 +163,7 @@ const Columns = ({
 
   return (
     <div
-      className={`h-screen w-max shrink-0 ${isDragging ? "opacity-20" : ""}`}
+      className={`h-screen w-fit shrink-0 ${isDragging ? "opacity-20" : ""}`}
       ref={setNodeRef}
       {...attributes}
       {...listeners}

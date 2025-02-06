@@ -371,10 +371,10 @@ const Board = () => {
               easing: "cubic-bezier(0.18, 0.67, 0.6, 1.22)",
             }}
             style={{
-              opacity: 0.8,
               border: "1px solid gray",
               borderRadius: "8px",
-              backdropFilter: "blur(20px)",
+              backgroundColor: "rgba(39, 42, 67, 0.15)",
+              backdropFilter: "blur(15px)",
               rotate: "3deg",
             }}
           >
