@@ -163,9 +163,7 @@ const Columns = ({
 
   return (
     <div
-      className={`h-screen w-[550px] shrink-0 ${
-        isDragging ? "opacity-20" : ""
-      }`}
+      className={`h-screen w-max shrink-0 ${isDragging ? "opacity-20" : ""}`}
       ref={setNodeRef}
       {...attributes}
       {...listeners}
@@ -230,7 +228,7 @@ const Columns = ({
 
       {/* Cards */}
       <SortableContext items={cards} strategy={verticalListSortingStrategy}>
-        <div className="flex flex-col w-[100%] gap-y-7 p-7 h-[90%]">
+        <div className="flex flex-col items-center w-[100%] gap-y-7 p-7 h-[90%]">
           {cards.map((card) => {
             return (
               <Card
