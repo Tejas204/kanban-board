@@ -2,7 +2,7 @@ import React, { Component, useContext, useEffect, useState } from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useDraggable, useDroppable } from "@dnd-kit/core";
-import { updateIcon, deleteIcon } from "../data/icons";
+import { updateIcon, deleteIcon, viewIcon } from "../data/icons";
 import { Context } from "../main";
 
 const Card = ({
@@ -97,7 +97,7 @@ const Card = ({
           due_date: due_date,
           state_id: state_id,
         });
-      } else if (event.target.id == "dateButton") {
+      } else if (event.target.id == "viewButton") {
       }
     }
   };
@@ -191,7 +191,7 @@ const Card = ({
         <button
           onMouseDown={clickEventControl}
           onMouseUp={dropEventControl}
-          className="flex flex-row text-white p-4"
+          className="flex flex-row text-white/50 p-4"
           title="Update Card"
         >
           {updateIcon}
@@ -199,19 +199,26 @@ const Card = ({
         <button
           onMouseDown={clickEventControl}
           onMouseUp={dropEventControl}
-          className="flex flex-row text-white p-4"
+          className="flex flex-row text-white/50 p-4"
           title="Delete Card"
         >
           {deleteIcon}
         </button>
-        <form>
-          <input
+        {/* <input
             type="date"
             onChange={handleDateChange}
-            className="text-white p-4 bg-transparent"
+            className="text-white/50 p-4 bg-transparent"
             title="Update Due Date"
-          ></input>
-        </form>
+          ></input> */}
+        <button
+          onMouseDown={clickEventControl}
+          onMouseUp={dropEventControl}
+          className="flex flex-row text-white/50 p-4"
+          title="View Card"
+          id="viewButton"
+        >
+          {viewIcon}
+        </button>
       </div>
     </div>
   );
