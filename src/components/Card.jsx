@@ -140,25 +140,18 @@ const Card = ({
 
   return (
     <div
-      className={`flex flex-col w-[100%] shadow-2xl rounded-lg border-l-8 bg-[color:var(--card-bg--color)]
-        ${
-          priority == 1
-            ? "border-l-[color:var(--card-priority--color-high)]"
-            : priority == 2
-            ? "border-l-[color:var(--card-priority--color-medium)]"
-            : "border-l-[color:var(--card-priority--color-low)]"
-        } ${isDragging ? "opacity-20" : ""}`}
+      className={`flex flex-col w-[100%] shadow-2xl rounded-lg  bg-[color:var(--card-bg--color)] ${
+        isDragging ? "opacity-20" : ""
+      }`}
       ref={setNodeRef}
       {...attributes}
       {...listeners}
       style={style}
     >
-      {/* Content div */}
       <div
         className={`flex flex-col px-6 py-4 border-b-2 border-b-gray-600 gap-y-2`}
       >
-        {/* Header */}
-        <div className="flex flex-row justify-between pb-4">
+        <div className="flex flex-row justify-between pb-2">
           {/* Title and assignment */}
           <div className="flex flex-col">
             <p className="text-xl text-[color:var(--primary-text--color)] font-semibold">
@@ -184,9 +177,17 @@ const Card = ({
         </div>
 
         {/* Short description */}
-        <div className="text-[color:var(--primary-text--color)] text-lg">
-          <p className="w-[100%] overflow-hidden overflow-ellipsis text-nowrap">
-            {short_description}
+        <div className="text-[color:var(--primary-text--color)] text-lg w-fit">
+          <p
+            className={`w-[100%] overflow-hidden text-[color:var(--primary-text--color)] font-semibold overflow-ellipsis text-nowrap px-4 py-1 rounded-full ${
+              priority == 1
+                ? "bg-[color:var(--card-priority--color-high)]"
+                : priority == 2
+                ? "bg-[color:var(--card-priority--color-medium)]"
+                : "bg-[color:var(--card-priority--color-low)]"
+            }`}
+          >
+            {priority == 1 ? "High" : priority == 2 ? "Medium" : "Low"}
           </p>
         </div>
 
