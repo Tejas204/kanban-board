@@ -64,7 +64,7 @@
   /* Card priority colors */
   --card-priority--color-high: #e2445b;
   --card-priority--color-medium: #f5ad40;
-  --card-priority--color-low: #00bf00; /*#5cca77*/
+  --card-priority--color-low: #5cca77; /*#5cca77*/
 
   /* Button colors */
   --button-bg--color: #915aff;
