@@ -98,6 +98,16 @@ const Card = ({
           state_id: state_id,
         });
       } else if (event.target.id == "viewButton") {
+        setUpdateDeleteCard({
+          action: "view",
+          id: id,
+          title: title,
+          short_description: short_description,
+          assigned_to: assigned_to,
+          priority: priority,
+          due_date: due_date,
+          state_id: state_id,
+        });
       }
     }
   };

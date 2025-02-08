@@ -89,6 +89,8 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
           {updateDeleteCard.action === "update"
             ? "Update Card"
+            : updateDeleteCard.action === "view"
+            ? "Card details"
             : "Do you want to delete this card?"}
         </p>
         <button onClick={hideModal}>{closeIcon}</button>
@@ -117,7 +119,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     value={title}
                     onChange={(event) => setTitle(event.target.value)}
-                    disabled={action === "delete" ? true : false}
+                    disabled={action === "delete" || "view" ? true : false}
                   ></input>
                 </td>
               </tr>
@@ -138,7 +140,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     onChange={(event) =>
                       setShortDescription(event.target.value)
                     }
-                    disabled={action === "delete" ? true : false}
+                    disabled={action === "delete" || "view" ? true : false}
                   ></input>
                 </td>
               </tr>
@@ -156,7 +158,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                         : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
                     } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     onChange={(event) => setAssignedTo(event.target.value)}
-                    disabled={action === "delete" ? true : false}
+                    disabled={action === "delete" || "view" ? true : false}
                   >
                     {allUsers.map((user) => {
                       return <option value={user._id}>{user.name}</option>;
@@ -178,7 +180,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                         : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
                     } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     onChange={(event) => setPriority(event.target.value)}
-                    disabled={action === "delete" ? true : false}
+                    disabled={action === "delete" || "view" ? true : false}
                   >
                     {priorities.map((priorityValue) => {
                       return (
@@ -208,7 +210,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     name="dueDate"
                     id="dueDate"
                     value={dueDate}
-                    disabled={action === "delete" ? true : false}
+                    disabled={action === "delete" || "view" ? true : false}
                     onChange={(event) => updateDueDate(event.target.value)}
                   ></input>
                 </td>
@@ -216,7 +218,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
             </tbody>
           </table>
 
-          <div className="flex flex-row justify-start gap-x-10">
+          <div className={`flex flex-row justify-start gap-x-10 `}>
             <button
               type="button"
               onClick={hideModal}
@@ -227,6 +229,8 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
             <button
               type="submit"
               className={`p-4 w-1/4 ${
+                updateDeleteCard.action === "view" ? "hidden" : "visible"
+              } ${
                 updateDeleteCard.action === "update"
                   ? "bg-[color:var(--button-bg--color)]"
                   : "bg-[color:var(--card-priority--color-high)]"
@@ -236,7 +240,11 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                   : "ring-[color:var(--card-priority--color-high)]"
               } ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out`}
             >
-              {updateDeleteCard.action === "update" ? "Update" : "Delete"}
+              {updateDeleteCard.action === "update"
+                ? "Update"
+                : updateDeleteCard.action === "delete"
+                ? "Delete"
+                : "View"}
             </button>
           </div>
         </form>
