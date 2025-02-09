@@ -181,14 +181,14 @@ const Card = ({
             <div className="flex flex-col gap-y-2">
               <button>{cardMenuIcon}</button>
               <div className="bg-white/70 backdrop-blur-sm shadow-lg p-3 rounded-lg fixed mt-[1.35rem] w-[7rem] ml-[0.5rem] text-center">
-                <ul className="flex flex-col gap-y-4">
-                  <li>
+                <ul className="flex flex-col gap-y-4 text-lg font-semibold">
+                  <li className="hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
                     <button>Update</button>
                   </li>
-                  <li>
+                  <li className="hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
                     <button>Delete</button>
                   </li>
-                  <li>
+                  <li className="hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
                     <button>View</button>
                   </li>
                 </ul>
