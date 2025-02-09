@@ -2,7 +2,7 @@ import React, { Component, useContext, useEffect, useState } from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useDraggable, useDroppable } from "@dnd-kit/core";
-import { updateIcon, deleteIcon, viewIcon } from "../data/icons";
+import { updateIcon, deleteIcon, viewIcon, cardMenuIcon } from "../data/icons";
 import { Context } from "../main";
 
 const Card = ({
@@ -151,6 +151,7 @@ const Card = ({
       <div
         className={`flex flex-col px-6 py-4 border-b-2 border-b-gray-600 gap-y-2`}
       >
+        {/* Primary details */}
         <div className="flex flex-row justify-between pb-2">
           {/* Title and assignment */}
           <div className="flex flex-col">
@@ -161,9 +162,11 @@ const Card = ({
               Assigned to: {getInitials(assigned_to).userName}
             </p>
           </div>
-          {/* User Icon */}
-          <div
-            className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full text-[color:var(--primary-text--color)]
+
+          {/* User Icon and menu options */}
+          <div className="flex flex-row items-center gap-x-4">
+            <div
+              className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full text-[color:var(--primary-text--color)]
                     ${
                       priority == 1
                         ? "bg-[color:var(--card-priority--color-high)]"
@@ -171,12 +174,30 @@ const Card = ({
                         ? "bg-[color:var(--card-priority--color-medium)]"
                         : "bg-[color:var(--card-priority--color-low)]"
                     }`}
-          >
-            {getInitials(assigned_to).initials}
+            >
+              {getInitials(assigned_to).initials}
+            </div>
+
+            <div className="flex flex-col gap-y-2">
+              <button>{cardMenuIcon}</button>
+              <div className="bg-white/70 backdrop-blur-sm shadow-lg p-3 rounded-lg fixed mt-[1.35rem] w-[7rem] ml-[0.5rem] text-center">
+                <ul className="flex flex-col gap-y-4">
+                  <li>
+                    <button>Update</button>
+                  </li>
+                  <li>
+                    <button>Delete</button>
+                  </li>
+                  <li>
+                    <button>View</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Short description */}
+        {/* Priority */}
         <div className="text-[color:var(--primary-text--color)] text-lg w-fit">
           <p
             className={`w-[100%] overflow-hidden text-[color:var(--primary-text--color)] font-semibold overflow-ellipsis text-nowrap px-4 py-1 rounded-full ${
@@ -191,6 +212,7 @@ const Card = ({
           </p>
         </div>
 
+        {/* Due date */}
         <div className="text-lg text-[color:var(--primary-text--color)]">
           Due date: {newDueDate}
         </div>
