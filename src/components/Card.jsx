@@ -43,17 +43,25 @@ const Card = ({
   };
 
   /**
-   * @Hook: Set the X and Y coordinate
+   * @Hook: setStartX, setStartY
+   * Set the X and Y coordinate
    */
   const [startX, setStartX] = useState();
   const [startY, setStartY] = useState();
 
   /**
-   * @Hook: set the new date from date picker
+   * @Hook: setNewDueDate
+   * Set the new date from date picker
    */
   const [newDueDate, setNewDueDate] = useState(() =>
     new Date(due_date).toLocaleDateString()
   );
+
+  /**
+   * @Hook: setIsMenuVisible
+   * Set the visibility of menu items for a card
+   */
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   /**
    * @Function: set the value of starting x and y coordinates
@@ -179,17 +187,41 @@ const Card = ({
             </div>
 
             <div className="flex flex-col gap-y-2">
-              <button>{cardMenuIcon}</button>
-              <div className="bg-white/70 backdrop-blur-sm shadow-lg p-3 rounded-lg fixed mt-[1.35rem] w-[7rem] ml-[0.5rem] text-center">
+              <button onClick={() => setIsMenuVisible(!isMenuVisible)}>
+                {cardMenuIcon}
+              </button>
+              <div
+                className={`bg-white/70 backdrop-blur-sm shadow-lg p-3 rounded-lg fixed mt-[1.35rem] w-[7rem] ml-[0.5rem] text-center ${
+                  isMenuVisible ? "visible" : "hidden"
+                }`}
+              >
                 <ul className="flex flex-col gap-y-4 text-lg font-semibold">
                   <li className="hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
-                    <button>Update</button>
+                    <button
+                      onClick={(event) => {
+                        console.log(id);
+                      }}
+                    >
+                      Update
+                    </button>
                   </li>
                   <li className="hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
-                    <button>Delete</button>
+                    <button
+                      onClick={() => {
+                        console.log("I am deleted");
+                      }}
+                    >
+                      Delete
+                    </button>
                   </li>
                   <li className="hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
-                    <button>View</button>
+                    <button
+                      onClick={() => {
+                        console.log("I am viewed");
+                      }}
+                    >
+                      View
+                    </button>
                   </li>
                 </ul>
               </div>
