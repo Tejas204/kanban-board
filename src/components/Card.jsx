@@ -2,7 +2,14 @@ import React, { Component, useContext, useEffect, useState } from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useDraggable, useDroppable } from "@dnd-kit/core";
-import { updateIcon, deleteIcon, viewIcon, cardMenuIcon } from "../data/icons";
+import {
+  updateIcon,
+  deleteIcon,
+  viewIcon,
+  cardMenuIcon,
+  messageIcon,
+  attachmentIcon,
+} from "../data/icons";
 import { Context } from "../main";
 
 const Card = ({
@@ -160,19 +167,19 @@ const Card = ({
         className={`flex flex-col px-6 py-4 border-b-2 border-b-gray-600 gap-y-2`}
       >
         {/* Primary details */}
-        <div className="flex flex-row justify-between pb-2">
+        <div className="flex flex-row justify-between">
           {/* Title and assignment */}
           <div className="flex flex-col">
             <p className="text-xl text-[color:var(--primary-text--color)] font-semibold">
               {title}
             </p>
-            <p className="text-[color:var(--secondary-text--color)] text-lg">
-              Assigned to: {getInitials(assigned_to).userName}
+            <p className="w-[100%] text-[color:var(--secondary-text--color)] overflow-hidden overflow-ellipsis text-nowrap text-lg">
+              {short_description}
             </p>
           </div>
 
-          {/* User Icon and menu options */}
-          <div className="flex flex-row items-center gap-x-4">
+          {/* Menu options */}
+          <div className="flex flex-row items-center">
             {/* <div
               className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)]
                     ${
@@ -229,6 +236,11 @@ const Card = ({
           </div>
         </div>
 
+        {/* Due date */}
+        <div className="text-lg text-[color:var(--secondary-text--color)] pb-1">
+          Due by: {newDueDate}
+        </div>
+
         {/* Priority */}
         <div className="text-[color:var(--primary-text--color)] text-lg w-fit">
           <p
@@ -243,16 +255,11 @@ const Card = ({
             {priority == 1 ? "High" : priority == 2 ? "Medium" : "Low"}
           </p>
         </div>
-
-        {/* Due date */}
-        <div className="text-lg text-[color:var(--primary-text--color)]">
-          Due by: {newDueDate}
-        </div>
       </div>
 
       {/* Icons */}
       {/* <CardFunctions isDragging={triggerOnClick}></CardFunctions> */}
-      <div className="flex flex-row justify-between items-center space-x-10 px-6 py-3">
+      <div className="flex flex-row justify-between items-center space-x-5 px-6 py-3">
         <div
           className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)]
                     ${
@@ -265,7 +272,25 @@ const Card = ({
         >
           {getInitials(assigned_to).initials}
         </div>
-        <button
+        <div className="flex flex-row gap-x-6">
+          <div className="flex flex-row gap-x-2">
+            <button className="text-gray-500">{messageIcon}</button>
+            <div className="text-lg text-[color:var(--secondary-text--color)]">
+              2
+            </div>
+          </div>
+          <div className="flex flex-row gap-x-2">
+            <button className="text-gray-500">{attachmentIcon}</button>
+            <div className="text-lg text-[color:var(--secondary-text--color)]">
+              2
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="text-lg text-[color:var(--primary-text--color)]">
+          {getInitials(assigned_to).userName}
+        </div> */}
+        {/* <button
           onMouseDown={clickEventControl}
           onMouseUp={dropEventControl}
           className="flex flex-row text-white/50 p-4"
@@ -280,14 +305,14 @@ const Card = ({
           title="Delete Card"
         >
           {deleteIcon}
-        </button>
+        </button> */}
         {/* <input
             type="date"
             onChange={handleDateChange}
             className="text-white/50 p-4 bg-transparent"
             title="Update Due Date"
           ></input> */}
-        <button
+        {/* <button
           onMouseDown={clickEventControl}
           onMouseUp={dropEventControl}
           className="flex flex-row text-white/50 p-4"
@@ -295,7 +320,7 @@ const Card = ({
           id="viewButton"
         >
           {viewIcon}
-        </button>
+        </button> */}
       </div>
     </div>
   );
