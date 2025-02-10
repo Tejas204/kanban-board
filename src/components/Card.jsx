@@ -246,7 +246,7 @@ const Card = ({
 
         {/* Due date */}
         <div className="text-lg text-[color:var(--primary-text--color)]">
-          Due date: {newDueDate}
+          Due by: {newDueDate}
         </div>
       </div>
 

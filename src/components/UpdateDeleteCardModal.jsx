@@ -119,7 +119,13 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     value={title}
                     onChange={(event) => setTitle(event.target.value)}
-                    disabled={action === "delete" || "view" ? true : false}
+                    disabled={
+                      action === "delete"
+                        ? true
+                        : action === "view"
+                        ? true
+                        : false
+                    }
                   ></input>
                 </td>
               </tr>
@@ -140,7 +146,13 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     onChange={(event) =>
                       setShortDescription(event.target.value)
                     }
-                    disabled={action === "delete" || "view" ? true : false}
+                    disabled={
+                      action === "delete"
+                        ? true
+                        : action === "view"
+                        ? true
+                        : false
+                    }
                   ></input>
                 </td>
               </tr>
@@ -158,7 +170,13 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                         : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
                     } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     onChange={(event) => setAssignedTo(event.target.value)}
-                    disabled={action === "delete" || "view" ? true : false}
+                    disabled={
+                      action === "delete"
+                        ? true
+                        : action === "view"
+                        ? true
+                        : false
+                    }
                   >
                     {allUsers.map((user) => {
                       return <option value={user._id}>{user.name}</option>;
@@ -180,7 +198,13 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                         : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
                     } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     onChange={(event) => setPriority(event.target.value)}
-                    disabled={action === "delete" || "view" ? true : false}
+                    disabled={
+                      action === "delete"
+                        ? true
+                        : action === "view"
+                        ? true
+                        : false
+                    }
                   >
                     {priorities.map((priorityValue) => {
                       return (
@@ -210,7 +234,13 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     name="dueDate"
                     id="dueDate"
                     value={dueDate}
-                    disabled={action === "delete" || "view" ? true : false}
+                    disabled={
+                      action === "delete"
+                        ? true
+                        : action === "view"
+                        ? true
+                        : false
+                    }
                     onChange={(event) => updateDueDate(event.target.value)}
                   ></input>
                 </td>
@@ -222,7 +252,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
             <button
               type="button"
               onClick={hideModal}
-              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--card-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--board-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
             >
               Cancel
             </button>
@@ -234,7 +264,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                 updateDeleteCard.action === "update"
                   ? "bg-[color:var(--button-bg--color)]"
                   : "bg-[color:var(--card-priority--color-high)]"
-              } text-[color:var(--button-text--color)] text-xl font-bold rounded-md hover:ring-4 ${
+              } text-white text-xl font-bold rounded-md hover:ring-4 ${
                 updateDeleteCard.action === "update"
                   ? "ring-[color:var(--button-bg--color)]"
                   : "ring-[color:var(--card-priority--color-high)]"
