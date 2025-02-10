@@ -272,6 +272,8 @@ const Card = ({
         >
           {getInitials(assigned_to).initials}
         </div>
+
+        {/* Comments and attachments */}
         <div className="flex flex-row gap-x-6">
           <div className="flex flex-row gap-x-2">
             <button className="text-gray-500">{messageIcon}</button>
