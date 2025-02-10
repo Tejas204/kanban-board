@@ -51,6 +51,7 @@
 
   /* Text colors */
   --primary-text--color: #dfe0e4;
+  --primary-dark--text-color: var(--board-bg--color);
   --secondary-text--color: #9fa5b4;
   --field-disabled--color: #d0d3da;
   --text-disabled--color: #9496a2;

@@ -173,8 +173,8 @@ const Card = ({
 
           {/* User Icon and menu options */}
           <div className="flex flex-row items-center gap-x-4">
-            <div
-              className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full text-[color:var(--primary-text--color)]
+            {/* <div
+              className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)]
                     ${
                       priority == 1
                         ? "bg-[color:var(--card-priority--color-high)]"
@@ -184,7 +184,7 @@ const Card = ({
                     }`}
             >
               {getInitials(assigned_to).initials}
-            </div>
+            </div> */}
 
             <div className="flex flex-col gap-y-2">
               <button onClick={() => setIsMenuVisible(!isMenuVisible)}>
@@ -232,7 +232,7 @@ const Card = ({
         {/* Priority */}
         <div className="text-[color:var(--primary-text--color)] text-lg w-fit">
           <p
-            className={`w-[100%] overflow-hidden text-[color:var(--primary-text--color)] font-semibold overflow-ellipsis text-nowrap px-4 py-1 rounded-full ${
+            className={`w-[100%] overflow-hidden text-[color:var(--primary-dark--text-color)] font-semibold overflow-ellipsis text-nowrap px-4 py-1 rounded-full ${
               priority == 1
                 ? "bg-[color:var(--card-priority--color-high)]"
                 : priority == 2
@@ -253,6 +253,18 @@ const Card = ({
       {/* Icons */}
       {/* <CardFunctions isDragging={triggerOnClick}></CardFunctions> */}
       <div className="flex flex-row justify-between items-center space-x-10 px-6 py-3">
+        <div
+          className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)]
+                    ${
+                      priority == 1
+                        ? "bg-[color:var(--card-priority--color-high)]"
+                        : priority == 2
+                        ? "bg-[color:var(--card-priority--color-medium)]"
+                        : "bg-[color:var(--card-priority--color-low)]"
+                    }`}
+        >
+          {getInitials(assigned_to).initials}
+        </div>
         <button
           onMouseDown={clickEventControl}
           onMouseUp={dropEventControl}
