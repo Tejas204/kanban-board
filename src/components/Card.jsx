@@ -71,60 +71,27 @@ const Card = ({
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   /**
-   * @Function: set the value of starting x and y coordinates
-   * @Params: event
+   * @Function: handleModalDisplay
+   * @Params: Id of button
    * @Returns: none
+   * Depending on the button clicked, display the modal
    */
-  const clickEventControl = (event) => {
-    setStartX(event.pageX);
-    setStartY(event.pageY);
-  };
-
-  /**
-   * @Function: Calculate the difference between X and Y coordinates
-   * @Params: none
-   * @Returns: none
-   */
-  const dropEventControl = (event) => {
-    var diffX = Math.abs(event.pageX - startX);
-    var diffY = Math.abs(event.pageY - startY);
-
-    if (diffX < delta && diffY < delta) {
-      if (event.target.id == "updateButton") {
-        setUpdateDeleteCard({
-          action: "update",
-          id: id,
-          title: title,
-          short_description: short_description,
-          assigned_to: assigned_to,
-          priority: priority,
-          due_date: due_date,
-          state_id: state_id,
-        });
-      } else if (event.target.id == "deleteButton") {
-        setUpdateDeleteCard({
-          action: "delete",
-          id: id,
-          title: title,
-          short_description: short_description,
-          assigned_to: assigned_to,
-          priority: priority,
-          due_date: due_date,
-          state_id: state_id,
-        });
-      } else if (event.target.id == "viewButton") {
-        setUpdateDeleteCard({
-          action: "view",
-          id: id,
-          title: title,
-          short_description: short_description,
-          assigned_to: assigned_to,
-          priority: priority,
-          due_date: due_date,
-          state_id: state_id,
-        });
-      }
-    }
+  const handleModalDisplay = (buttonId) => {
+    setUpdateDeleteCard({
+      action:
+        buttonId === "updateButton"
+          ? "update"
+          : buttonId === "deleteButton"
+          ? "delete"
+          : "view",
+      id: id,
+      title: title,
+      short_description: short_description,
+      assigned_to: assigned_to,
+      priority: priority,
+      due_date: due_date,
+      state_id: state_id,
+    });
   };
 
   /**
@@ -205,8 +172,9 @@ const Card = ({
                 <ul className="flex flex-col gap-y-4 text-lg font-semibold">
                   <li className="hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
                     <button
+                      id="updateButton"
                       onClick={(event) => {
-                        console.log(id);
+                        handleModalDisplay(event.target.id);
                       }}
                     >
                       Update
@@ -214,8 +182,9 @@ const Card = ({
                   </li>
                   <li className="hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
                     <button
-                      onClick={() => {
-                        console.log("I am deleted");
+                      id="deleteButton"
+                      onClick={(event) => {
+                        handleModalDisplay(event.target.id);
                       }}
                     >
                       Delete
@@ -223,8 +192,9 @@ const Card = ({
                   </li>
                   <li className="hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
                     <button
-                      onClick={() => {
-                        console.log("I am viewed");
+                      id="viewButton"
+                      onClick={(event) => {
+                        handleModalDisplay(event.target.id);
                       }}
                     >
                       View
