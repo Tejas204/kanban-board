@@ -83,7 +83,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   };
 
   return (
-    <div className="flex flex-col border-2 w-2/5 h-fit mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
+    <div className="flex flex-col border-2 w-2/5 h-3/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
       {/* Title */}
       <div className="flex flex-row justify-between">
         <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
@@ -281,22 +281,28 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
       </div>
 
       {/* Comments Section */}
-      <div>
-        <div>Comments</div>
-        <div>
-          <form>
-            <input type="text" />
+      <div className="flex flex-col gap-y-3">
+        <div className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
+          Comments
+        </div>
+        <div className="flex flex-col gap-y-5">
+          <form className="bg-slate-100 p-3 rounded-lg">
+            <input
+              className="w-[100%] focus:ring focus:ring-[color:var(--user-icon--bg-color--lavender)] outline-none p-3 rounded-lg"
+              placeholder="Add comment"
+              type="text"
+            />
           </form>
-          <div>
-            <div>
+          <div className="flex flex-col gap-y-3 w-[100%]">
+            <div className="flex flex-row justify-between">
               <p>Comment 1</p>
               <p>delete icon</p>
             </div>
-            <div>
+            <div className="flex flex-row justify-between">
               <p>Comment 1</p>
               <p>delete icon</p>
             </div>
-            <div>
+            <div className="flex flex-row justify-between">
               <p>Comment 1</p>
               <p>delete icon</p>
             </div>
