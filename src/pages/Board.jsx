@@ -413,7 +413,7 @@ const Board = () => {
       {/* Add state button */}
       <button
         onClick={handleAddState}
-        className="absolute bottom-0 right-10 px-6 py-4 rounded-lg text-[color:var(--primary-text--color)] bg-[color:var(--user-icon--bg-color--blue)] font-semibold hover:ring-2 ring-offset-4 ring-offset-[color:var(--filter-bg--color)] ring-[color:var(--user-icon--bg-color--blue)]"
+        className="absolute bottom-0 right-10 px-6 py-4 rounded-lg text-[color:var(--primary-text--color)] bg-[color:var(--user-icon--bg-color--blue)] font-semibold hover:ring-2 ring-offset-4 ring-offset-[color:var(--filter-bg--color)] ring-[color:var(--user-icon--bg-color--blue)] transition ease-in-out duration-150"
       >
         Add State
       </button>

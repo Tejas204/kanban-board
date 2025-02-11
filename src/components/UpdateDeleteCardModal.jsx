@@ -279,6 +279,30 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
           </div>
         </form>
       </div>
+
+      {/* Comments Section */}
+      <div>
+        <div>Comments</div>
+        <div>
+          <form>
+            <input type="text" />
+          </form>
+          <div>
+            <div>
+              <p>Comment 1</p>
+              <p>delete icon</p>
+            </div>
+            <div>
+              <p>Comment 1</p>
+              <p>delete icon</p>
+            </div>
+            <div>
+              <p>Comment 1</p>
+              <p>delete icon</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
