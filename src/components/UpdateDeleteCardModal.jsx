@@ -294,9 +294,27 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
             />
           </form>
           <div className="flex flex-col gap-y-3 w-[100%]">
-            <div className="flex flex-row justify-between">
-              <p>Comment 1</p>
-              <p>delete icon</p>
+            <div className="grid grid-cols-6 w-[100%]">
+              <div className="col-span-1">
+                <div className="flex items-center h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)] bg-[color:var(--card-priority--color-high)]">
+                  TD
+                </div>
+              </div>
+              <div className="col-span-5 flex flex-col gap-y-2">
+                <div className="font-semibold">Tejas Dhopavkar</div>
+                <div>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+              </div>
             </div>
             <div className="flex flex-row justify-between">
               <p>Comment 1</p>
