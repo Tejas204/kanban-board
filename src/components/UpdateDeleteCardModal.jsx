@@ -286,6 +286,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
           Comments
         </div>
         <div className="flex flex-col gap-y-5">
+          {/* New comment */}
           <form className="bg-slate-100 p-3 rounded-lg">
             <input
               className="w-[100%] focus:ring focus:ring-[color:var(--user-icon--bg-color--lavender)] outline-none p-3 rounded-lg"
@@ -293,16 +294,18 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
               type="text"
             />
           </form>
+
+          {/* Existing comments */}
           <div className="flex flex-col gap-y-3 w-[100%]">
-            <div className="grid grid-cols-6 w-[100%]">
+            <div className="grid grid-cols-10 w-[100%] p-3 bg-gray-100 rounded-lg">
               <div className="col-span-1">
-                <div className="flex items-center h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)] bg-[color:var(--card-priority--color-high)]">
+                <div className="flex items-center font-semibold h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)] bg-orange-400">
                   TD
                 </div>
               </div>
-              <div className="col-span-5 flex flex-col gap-y-2">
+              <div className="col-span-9 flex flex-col gap-y-2">
                 <div className="font-semibold">Tejas Dhopavkar</div>
-                <div>
+                <div className="line-clamp-4">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s, when an unknown
