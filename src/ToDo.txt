@@ -1,5 +1,14 @@
+** Additional functionality ideas **
+1. Add the feature to add groups
+2. Re-define card UI for a modern look - Done
+3. Resolve remaining bugs - Done
+4. API to change password - Done
+5. Comments - WIP
 
-** Making columns sortable - Complete **
+
+** Making columns sortable **
+
+* Status: Complete
 
 * DB changes *
 1. In the database, add a new field called index, which will have a numeric value. - Done
@@ -18,8 +27,20 @@
 3. The updated state array, active card's new index and the distance will be shared to an API.
 4. The API will update the indices in the DB for a distance D.
 
-** Additional functionality ideas **
-1. Add the feature to add groups
-2. Re-define card UI for a modern look - WIP
-3. Resolve remaining bugs - WIP
-4. API to change password - Done
+** Adding Comments **
+
+* Status - WIP
+
+* DB changes *
+1. Create a new DB called comments with the following structure
+    comment: String
+    User: Reference --> User table
+    Created: Date
+
+* API *
+1. Create API to add a new comment
+2. Create API to delete a comment. Deletion allowed only if user who added the comment and user who is logged in are same
+
+* UI *
+1. Make GET call to fetch all comments
+2. Design functions to make POST and DELETE calls
