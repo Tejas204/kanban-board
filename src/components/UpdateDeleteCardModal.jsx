@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { closeIcon } from "../data/icons";
+import { closeIcon, deleteCommentIcon, deleteIcon } from "../data/icons";
 import { priorities } from "../data/tasks";
 import axios from "axios";
 import { Context, server } from "../main";
@@ -333,7 +333,12 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                 </div>
               </div>
               <div className="col-span-9 flex flex-col gap-y-2">
-                <div className="font-semibold">Tejas Dhopavkar</div>
+                <div className="font-semibold flex flex-row justify-between w-[100%]">
+                  <div>Tejas Dhopavkar</div>
+                  <button className="text-[color:var(--board-bg--color)]">
+                    {deleteCommentIcon}
+                  </button>
+                </div>
                 <div className="text-justify">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
