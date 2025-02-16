@@ -310,7 +310,10 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                 </div>
               </div>
               <div className="col-span-9 flex flex-col gap-y-2">
-                <div className="font-semibold">Tejas Dhopavkar</div>
+                <div className="font-semibold flex flex-row justify-between w-[100%]">
+                  <div>Tejas Dhopavkar</div>
+                  <button className="text-gray-500">{deleteCommentIcon}</button>
+                </div>
                 <div className="text-justify">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
@@ -335,9 +338,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
               <div className="col-span-9 flex flex-col gap-y-2">
                 <div className="font-semibold flex flex-row justify-between w-[100%]">
                   <div>Tejas Dhopavkar</div>
-                  <button className="text-[color:var(--board-bg--color)]">
-                    {deleteCommentIcon}
-                  </button>
+                  <button className="text-gray-500">{deleteCommentIcon}</button>
                 </div>
                 <div className="text-justify">
                   Lorem Ipsum is simply dummy text of the printing and
@@ -361,7 +362,10 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                 </div>
               </div>
               <div className="col-span-9 flex flex-col gap-y-2">
-                <div className="font-semibold">Tejas Dhopavkar</div>
+                <div className="font-semibold flex flex-row justify-between w-[100%]">
+                  <div>Tejas Dhopavkar</div>
+                  <button className="text-gray-500">{deleteCommentIcon}</button>
+                </div>
                 <div className="text-justify">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
