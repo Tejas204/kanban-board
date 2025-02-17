@@ -299,7 +299,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
               placeholder="Add comment"
               type="text"
             />
-            <button className="px-8 py-3 font-bold rounded-lg bg-[color:var(--user-icon--bg-color--lavender)] text-white">
+            <button className="px-8 py-3 font-bold rounded-lg bg-[color:var(--user-icon--bg-color--lavender)] hover:ring-4 ring-[color:var(--button-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out text-white">
               Add
             </button>
           </form>
