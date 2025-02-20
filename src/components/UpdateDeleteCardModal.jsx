@@ -29,10 +29,10 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   const [action, setAction] = useState(updateDeleteCard.action);
 
   /**
-   * @Hook: setShowMoreComments
-   * Allows the user to view the entire comment
+   * @Hook: setNewComment
+   * Allows the user to add a new comment
    */
-  const [setShowMoreComments, showMoreComments] = useState(false);
+  const [newComment, setNewComment] = useState();
 
   /**
    * @Function: handleUpdateDeleteCard
@@ -86,6 +86,21 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         toast.error(error.response.data.message);
       }
     }
+  };
+
+  /**
+   * @Function: handleAddNewComment
+   * @Params:
+   * @Returns: none
+   * Used to create a new comment for a card
+   */
+  const handleAddNewComment = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await axios.post(`${server}/comments/createComment`, {
+        comment: comment,
+      });
+    } catch (error) {}
   };
 
   return (
@@ -298,6 +313,8 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
               className="w-[100%] focus:ring focus:ring-[color:var(--user-icon--bg-color--lavender)] outline-none rounded-lg p-2"
               placeholder="Add comment"
               type="text"
+              value={newComment}
+              onChange={(event) => setNewComment(event.target.value)}
             />
             <button className="px-8 py-3 font-bold rounded-lg bg-[color:var(--user-icon--bg-color--lavender)] hover:ring-4 ring-[color:var(--button-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out text-white">
               Add
