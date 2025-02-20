@@ -95,12 +95,28 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
    * Used to create a new comment for a card
    */
   const handleAddNewComment = async (event) => {
+    console.log(updateDeleteCard.id);
     event.preventDefault();
     try {
-      const { data } = await axios.post(`${server}/comments/createComment`, {
-        comment: comment,
-      });
-    } catch (error) {}
+      const { data } = await axios.post(
+        `${server}/comments/createComment`,
+        {
+          comment: newComment,
+          card: updateDeleteCard.id,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+
+      setRefresh((prev) => !prev);
+      toast.success(data.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
   };
 
   return (
@@ -316,7 +332,10 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
               value={newComment}
               onChange={(event) => setNewComment(event.target.value)}
             />
-            <button className="px-8 py-3 font-bold rounded-lg bg-[color:var(--user-icon--bg-color--lavender)] hover:ring-4 ring-[color:var(--button-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out text-white">
+            <button
+              onClick={handleAddNewComment}
+              className="px-8 py-3 font-bold rounded-lg bg-[color:var(--user-icon--bg-color--lavender)] hover:ring-4 ring-[color:var(--button-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out text-white"
+            >
               Add
             </button>
           </form>
