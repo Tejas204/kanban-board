@@ -23,8 +23,6 @@ const Card = ({
   state_id,
   setUpdateDeleteCard,
 }) => {
-  const { allUsers } = useContext(Context);
-
   /**
    * @Contants: Delta variables
    */

@@ -121,6 +121,30 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
     }
   };
 
+  /**
+   * @Function: handleDeleteComment
+   * @Params: commend id <String>
+   * @Returns: none
+   * Used to delete comment added by a user
+   */
+  const handleDeleteComment = async (commentId, event) => {
+    console.log(commentId);
+    event.preventDefault();
+    try {
+      const { data } = await axios.delete(
+        `${server}/deleteMyComment/` + commentId,
+        {
+          withCredentials: true,
+        }
+      );
+
+      setRefresh((prev) => !prev);
+      toast.success(data.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+
   return (
     <div className="flex flex-col border-2 w-2/5 h-3/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
       {/* Title */}
@@ -359,7 +383,12 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                   <div className="col-span-9 flex flex-col gap-y-2">
                     <div className="font-semibold flex flex-row justify-between w-[100%]">
                       <div>{getInitials(comment.user).userName}</div>
-                      <button className="text-gray-500">
+                      <button
+                        className="text-gray-500"
+                        onClick={(event) =>
+                          handleDeleteComment(comment._id, event)
+                        }
+                      >
                         {deleteCommentIcon}
                       </button>
                     </div>
