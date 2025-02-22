@@ -11,6 +11,7 @@ import {
   attachmentIcon,
 } from "../data/icons";
 import { Context } from "../main";
+import { getInitials } from "../utils/utilities";
 
 const Card = ({
   id,
@@ -103,23 +104,6 @@ const Card = ({
     setNewDueDate(event.target.value);
   };
 
-  /**
-   * @Function: getIntials
-   * @Input: <string> assigned to of the card
-   * @Returns: <string> Initials
-   */
-  const getInitials = (assignee) => {
-    const userObj = allUsers.filter((user) => user._id == assignee);
-    const nameArray = userObj[0].name.split(" ");
-
-    var nameObj = {
-      initials:
-        nameArray[0].slice(0, 1) + nameArray[nameArray.length - 1].slice(0, 1),
-      userName: userObj[0].name,
-    };
-    return nameObj;
-  };
-
   return (
     <div
       className={`flex flex-col w-[100%] shadow-2xl rounded-lg  bg-[color:var(--card-bg--color)] ${
@@ -147,19 +131,6 @@ const Card = ({
 
           {/* Menu options */}
           <div className="flex flex-row items-center">
-            {/* <div
-              className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)]
-                    ${
-                      priority == 1
-                        ? "bg-[color:var(--card-priority--color-high)]"
-                        : priority == 2
-                        ? "bg-[color:var(--card-priority--color-medium)]"
-                        : "bg-[color:var(--card-priority--color-low)]"
-                    }`}
-            >
-              {getInitials(assigned_to).initials}
-            </div> */}
-
             <div className="flex flex-col gap-y-2">
               <button onClick={() => setIsMenuVisible(!isMenuVisible)}>
                 {cardMenuIcon}
@@ -258,41 +229,6 @@ const Card = ({
             </div>
           </div>
         </div>
-
-        {/* <div className="text-lg text-[color:var(--primary-text--color)]">
-          {getInitials(assigned_to).userName}
-        </div> */}
-        {/* <button
-          onMouseDown={clickEventControl}
-          onMouseUp={dropEventControl}
-          className="flex flex-row text-white/50 p-4"
-          title="Update Card"
-        >
-          {updateIcon}
-        </button>
-        <button
-          onMouseDown={clickEventControl}
-          onMouseUp={dropEventControl}
-          className="flex flex-row text-white/50 p-4"
-          title="Delete Card"
-        >
-          {deleteIcon}
-        </button> */}
-        {/* <input
-            type="date"
-            onChange={handleDateChange}
-            className="text-white/50 p-4 bg-transparent"
-            title="Update Due Date"
-          ></input> */}
-        {/* <button
-          onMouseDown={clickEventControl}
-          onMouseUp={dropEventControl}
-          className="flex flex-row text-white/50 p-4"
-          title="View Card"
-          id="viewButton"
-        >
-          {viewIcon}
-        </button> */}
       </div>
     </div>
   );

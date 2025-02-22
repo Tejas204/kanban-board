@@ -4,6 +4,7 @@ import { priorities } from "../data/tasks";
 import axios from "axios";
 import { Context, server } from "../main";
 import toast from "react-hot-toast";
+import { getInitials } from "../utils/utilities";
 
 const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   const { allUsers, setAllUsers, setRefresh, comments } = useContext(Context);
@@ -208,6 +209,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                         : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
                     } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     onChange={(event) => setAssignedTo(event.target.value)}
+                    value={getInitials(assignedTo).userName}
                     disabled={
                       action === "delete"
                         ? true
@@ -351,12 +353,12 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                 >
                   <div className="col-span-1">
                     <div className="flex items-center font-semibold h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)] bg-orange-400">
-                      TD
+                      {getInitials(comment.user).initials}
                     </div>
                   </div>
                   <div className="col-span-9 flex flex-col gap-y-2">
                     <div className="font-semibold flex flex-row justify-between w-[100%]">
-                      <div>Tejas Dhopavkar</div>
+                      <div>{getInitials(comment.user).userName}</div>
                       <button className="text-gray-500">
                         {deleteCommentIcon}
                       </button>
