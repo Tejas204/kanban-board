@@ -23,6 +23,7 @@ function App() {
     refresh,
     moveDistance,
     setRefresh,
+    setComments,
   } = useContext(Context);
 
   /**
@@ -116,14 +117,20 @@ function App() {
         axios.get(`${server}/cards/myCards`, {
           withCredentials: true,
         }),
+        axios.get(`${server}/comments/getMyComments`, {
+          withCredentials: true,
+        }),
       ])
       .then(
-        axios.spread((resUser, resAllUsers, resStates, resCards) => {
-          setUser(resUser.data.user);
-          setAllUsers(resAllUsers.data.users);
-          setIsAuthenticated(true);
-          createStateCardArray(resStates.data.states, resCards.data.cards);
-        })
+        axios.spread(
+          (resUser, resAllUsers, resStates, resCards, resComments) => {
+            setUser(resUser.data.user);
+            setAllUsers(resAllUsers.data.users);
+            setIsAuthenticated(true);
+            createStateCardArray(resStates.data.states, resCards.data.cards);
+            setComments(resComments.data.comments);
+          }
+        )
       )
       .catch((error) => {
         setUser({});

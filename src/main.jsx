@@ -19,6 +19,7 @@ const AppWrapper = () => {
   const [cards, setStateCardArr] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const [moveDistance, setMoveDistance] = useState(0);
+  const [comments, setComments] = useState({});
 
   return (
     <Context.Provider
@@ -37,6 +38,8 @@ const AppWrapper = () => {
         setRefresh,
         moveDistance,
         setMoveDistance,
+        comments,
+        setComments,
       }}
     >
       <App />

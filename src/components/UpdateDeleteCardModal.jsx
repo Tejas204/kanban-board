@@ -6,7 +6,8 @@ import { Context, server } from "../main";
 import toast from "react-hot-toast";
 
 const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
-  const { allUsers, setAllUsers, setRefresh } = useContext(Context);
+  const { allUsers, setAllUsers, setRefresh, comments } = useContext(Context);
+  console.log(comments);
 
   /**
    * @Hook: setTitle. setShortDescription, setAssignedTo. setPriority, updateDueDate
