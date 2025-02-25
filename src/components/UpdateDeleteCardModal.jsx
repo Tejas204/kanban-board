@@ -367,32 +367,34 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
           {/* Existing comments */}
           <div className="flex flex-col gap-y-3 w-[100%]">
             {comments.map((comment) => {
-              return (
-                <div
-                  key={comment._id}
-                  className="grid grid-cols-10 w-[100%] p-3 bg-gray-100 rounded-lg"
-                >
-                  <div className="col-span-1">
-                    <div className="flex items-center font-semibold h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)] bg-orange-400">
-                      {getInitials(comment.user).initials}
+              if (comment.card == updateDeleteCard.id) {
+                return (
+                  <div
+                    key={comment._id}
+                    className="grid grid-cols-10 w-[100%] p-3 bg-gray-100 rounded-lg"
+                  >
+                    <div className="col-span-1">
+                      <div className="flex items-center font-semibold h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)] bg-orange-400">
+                        {getInitials(comment.user).initials}
+                      </div>
+                    </div>
+                    <div className="col-span-9 flex flex-col gap-y-2">
+                      <div className="font-semibold flex flex-row justify-between w-[100%]">
+                        <div>{getInitials(comment.user).userName}</div>
+                        <button
+                          className="text-gray-500"
+                          onClick={(event) =>
+                            handleDeleteComment(comment._id, event)
+                          }
+                        >
+                          {deleteCommentIcon}
+                        </button>
+                      </div>
+                      <div className="text-justify">{comment.comment}</div>
                     </div>
                   </div>
-                  <div className="col-span-9 flex flex-col gap-y-2">
-                    <div className="font-semibold flex flex-row justify-between w-[100%]">
-                      <div>{getInitials(comment.user).userName}</div>
-                      <button
-                        className="text-gray-500"
-                        onClick={(event) =>
-                          handleDeleteComment(comment._id, event)
-                        }
-                      >
-                        {deleteCommentIcon}
-                      </button>
-                    </div>
-                    <div className="text-justify">{comment.comment}</div>
-                  </div>
-                </div>
-              );
+                );
+              }
             })}
           </div>
         </div>

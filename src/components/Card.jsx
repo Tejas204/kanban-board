@@ -29,6 +29,12 @@ const Card = ({
   const delta = 10;
 
   /**
+   * @Hook: useContext
+   * Utilize context variables
+   */
+  const { comments } = useContext(Context);
+
+  /**
    * @Hook: set useSortable
    * @Accept: elements of type card
    */
@@ -217,7 +223,11 @@ const Card = ({
           <div className="flex flex-row gap-x-2">
             <button className="text-gray-500">{messageIcon}</button>
             <div className="text-lg text-[color:var(--secondary-text--color)]">
-              2
+              {
+                comments.filter((comment) => {
+                  return comment.card == id;
+                }).length
+              }
             </div>
           </div>
           <div className="flex flex-row gap-x-2">
