@@ -8,7 +8,6 @@ import { getInitials } from "../utils/utilities";
 
 const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   const { allUsers, setAllUsers, setRefresh, comments } = useContext(Context);
-  console.log(comments);
 
   /**
    * @Hook: setTitle. setShortDescription, setAssignedTo. setPriority, updateDueDate
@@ -97,7 +96,6 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
    * Used to create a new comment for a card
    */
   const handleAddNewComment = async (event) => {
-    console.log(updateDeleteCard.id);
     event.preventDefault();
     try {
       const { data } = await axios.post(
@@ -128,11 +126,10 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
    * Used to delete comment added by a user
    */
   const handleDeleteComment = async (commentId, event) => {
-    console.log(commentId);
     event.preventDefault();
     try {
       const { data } = await axios.delete(
-        `${server}/deleteMyComment/` + commentId,
+        `${server}/comments/deleteMyComment/` + commentId,
         {
           withCredentials: true,
         }
