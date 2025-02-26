@@ -29,7 +29,7 @@
 
 ** Adding Comments **
 
-* Status - WIP
+* Status - Complete
 
 * DB changes *
 1. Create a new DB called comments with the following structure
@@ -39,8 +39,15 @@
 
 * API *
 1. Create API to add a new comment
-2. Create API to delete a comment. Deletion allowed only if user who added the comment and user who is logged in are same
+2. Create API to delete a comment. Deletion allowed only if user who added the comment and user who is logged in are same - Pending, dependency on adding teams
 
 * UI *
 1. Make GET call to fetch all comments
 2. Design functions to make POST and DELETE calls
+
+** Redefine home page **
+
+* Status - WIP
+
+* UI Changes *
+Modify the homepage UI to give a more modern look
