@@ -348,7 +348,11 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         </div>
         <div className="flex flex-col gap-y-5">
           {/* New comment */}
-          <form className="flex flex-row gap-x-4 bg-gray-100 p-3 rounded-lg">
+          <form
+            className={`flex flex-row gap-x-4 bg-gray-100 p-3 rounded-lg ${
+              updateDeleteCard.action === "update" ? "visible" : "hidden"
+            }`}
+          >
             <input
               className="w-[100%] focus:ring focus:ring-[color:var(--user-icon--bg-color--lavender)] outline-none rounded-lg p-2"
               placeholder="Add comment"
