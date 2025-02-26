@@ -382,7 +382,11 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                       <div className="font-semibold flex flex-row justify-between w-[100%]">
                         <div>{getInitials(comment.user).userName}</div>
                         <button
-                          className="text-gray-500"
+                          className={`text-gray-500 ${
+                            updateDeleteCard.action === "update"
+                              ? "visible"
+                              : "hidden"
+                          }`}
                           onClick={(event) =>
                             handleDeleteComment(comment._id, event)
                           }
