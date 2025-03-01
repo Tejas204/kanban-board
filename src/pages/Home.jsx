@@ -1,5 +1,6 @@
 import React from "react";
 import UI from "../assets/UI_KanbanBoard_Squares.png";
+import UIImage from "../assets/Kanban_Board_UI.png";
 import Footer from "../components/Footer";
 import { tickmark } from "../data/icons";
 
@@ -34,7 +35,7 @@ const Home = () => {
         {/* Form Div */}
         <div className="w-[100%]">
           <img
-            src={UI}
+            src={UIImage}
             className="w-[90%] shadow-2xl border-[0.1rem] border-[color:var(--user-icon--bg-color--lavender)]"
           ></img>
         </div>

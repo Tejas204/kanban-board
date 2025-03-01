@@ -341,6 +341,14 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         </form>
       </div>
 
+      {/* Attachment section */}
+      <div className="flex flex-col gap-y-3">
+        <div className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
+          Attachments
+        </div>
+        <div>You do not have any attachments at the moment</div>
+      </div>
+
       {/* Comments Section */}
       <div className="flex flex-col gap-y-3">
         <div className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
