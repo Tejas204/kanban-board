@@ -110,7 +110,7 @@ const Card = ({
 
   return (
     <div
-      className={`flex flex-col w-[100%] shadow-2xl rounded-lg  bg-[color:var(--card-bg--color)] ${
+      className={`flex flex-col w-[430px] shadow-2xl rounded-lg  bg-[color:var(--card-bg--color)] ${
         isDragging ? "opacity-20" : ""
       }`}
       ref={setNodeRef}
@@ -128,7 +128,7 @@ const Card = ({
             <p className="text-xl text-[color:var(--primary-text--color)] font-semibold">
               {title}
             </p>
-            <p className="w-[100%] text-[color:var(--secondary-text--color)] overflow-hidden overflow-ellipsis text-nowrap text-lg">
+            <p className="text-[color:var(--secondary-text--color)] line-clamp-2">
               {short_description}
             </p>
           </div>
