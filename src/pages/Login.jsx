@@ -25,7 +25,7 @@ const Login = () => {
 
     try {
       const { data } = await axios.post(
-        console.log(email, password)`${server}/users/login`,
+        `${server}/users/login`,
         {
           email,
           password,
@@ -42,7 +42,6 @@ const Login = () => {
       setIsAuthenticated(true);
       setIsLoading(false);
     } catch (error) {
-      console.log(error.response.data.message);
       toast.error(error.response.data.message);
       setIsAuthenticated(false);
       setIsLoading(false);

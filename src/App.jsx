@@ -137,7 +137,6 @@ function App() {
         setAllUsers({});
         setStateCardArr([]);
         setComments({});
-        console.log(error);
         setIsAuthenticated(false);
       });
   }, [isAuthenticated, refresh]);

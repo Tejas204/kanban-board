@@ -119,7 +119,7 @@ const Card = ({
       style={style}
     >
       <div
-        className={`flex flex-col px-6 py-4 border-b-2 border-b-gray-600 gap-y-2`}
+        className={`flex flex-col px-4 py-4 border-b-2 border-b-gray-600 gap-y-2`}
       >
         {/* Primary details */}
         <div className="flex flex-row justify-between">
