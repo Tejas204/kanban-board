@@ -346,24 +346,30 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         <div className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
           Attachments
         </div>
-        <div className="grid grid-cols-3 gap-2">
-          <div className="px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            Attachment 1
+        <div className="grid grid-cols-3 gap-x-2 gap-y-4">
+          <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
+            <div>Attachment 1</div>
+            <button className={`text-gray-500`}>{deleteCommentIcon}</button>
           </div>
-          <div className="px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            Attachment 2
+          <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
+            <div>Attachment 1</div>
+            <button className={`text-gray-500`}>{deleteCommentIcon}</button>
           </div>
-          <div className="px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            Attachment 3
+          <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
+            <div>Attachment 1</div>
+            <button className={`text-gray-500`}>{deleteCommentIcon}</button>
           </div>
-          <div className="px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            Attachment 4
+          <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
+            <div>Attachment 1</div>
+            <button className={`text-gray-500`}>{deleteCommentIcon}</button>
           </div>
-          <div className="px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            Attachment 5
+          <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
+            <div>Attachment 1</div>
+            <button className={`text-gray-500`}>{deleteCommentIcon}</button>
           </div>
-          <div className="px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            Attachment 6
+          <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
+            <div>Attachment 1</div>
+            <button className={`text-gray-500`}>{deleteCommentIcon}</button>
           </div>
         </div>
       </div>
