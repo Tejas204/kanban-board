@@ -349,27 +349,52 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         <div className="grid grid-cols-3 gap-x-2 gap-y-4">
           <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
             <div>Attachment 1</div>
-            <button className={`text-gray-500`}>{deleteCommentIcon}</button>
+            <button
+              onClick={() => alert("Attachment is deleted")}
+              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+            >
+              {deleteCommentIcon}
+            </button>
           </div>
           <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            <div>Attachment 1</div>
-            <button className={`text-gray-500`}>{deleteCommentIcon}</button>
+            <div>Attachment 2</div>
+            <button
+              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+            >
+              {deleteCommentIcon}
+            </button>
           </div>
           <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            <div>Attachment 1</div>
-            <button className={`text-gray-500`}>{deleteCommentIcon}</button>
+            <div>Attachment 3</div>
+            <button
+              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+            >
+              {deleteCommentIcon}
+            </button>
           </div>
           <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            <div>Attachment 1</div>
-            <button className={`text-gray-500`}>{deleteCommentIcon}</button>
+            <div>Attachment 4</div>
+            <button
+              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+            >
+              {deleteCommentIcon}
+            </button>
           </div>
           <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            <div>Attachment 1</div>
-            <button className={`text-gray-500`}>{deleteCommentIcon}</button>
+            <div>Attachment 5</div>
+            <button
+              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+            >
+              {deleteCommentIcon}
+            </button>
           </div>
           <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            <div>Attachment 1</div>
-            <button className={`text-gray-500`}>{deleteCommentIcon}</button>
+            <div>Attachment 6</div>
+            <button
+              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+            >
+              {deleteCommentIcon}
+            </button>
           </div>
         </div>
       </div>
@@ -419,7 +444,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                       <div className="font-semibold flex flex-row justify-between w-[100%]">
                         <div>{getInitials(comment.user).userName}</div>
                         <button
-                          className={`text-gray-500 ${
+                          className={`text-gray-500 hover:text-black transition ease-in-out duration-150 ${
                             updateDeleteCard.action === "update"
                               ? "visible"
                               : "hidden"
