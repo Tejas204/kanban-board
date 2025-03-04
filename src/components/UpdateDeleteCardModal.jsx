@@ -1,5 +1,10 @@
 import React, { useContext, useState } from "react";
-import { closeIcon, deleteCommentIcon, deleteIcon } from "../data/icons";
+import {
+  closeIcon,
+  deleteCommentIcon,
+  deleteIcon,
+  downloadIcon,
+} from "../data/icons";
 import { priorities } from "../data/tasks";
 import axios from "axios";
 import { Context, server } from "../main";
@@ -347,54 +352,55 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
           Attachments
         </div>
         <div className="grid grid-cols-3 gap-x-2 gap-y-4">
-          <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
+          <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-lg bg-gray-200">
             <div>Attachment 1</div>
-            <button
-              onClick={() => alert("Attachment is deleted")}
-              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
-            >
-              {deleteCommentIcon}
-            </button>
+            <div className="flex flex-row items-center gap-x-2">
+              <button
+                className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+              >
+                {downloadIcon}
+              </button>
+              <button
+                onClick={() => alert("Attachment is deleted")}
+                className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+              >
+                {deleteCommentIcon}
+              </button>
+            </div>
           </div>
-          <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            <div>Attachment 2</div>
-            <button
-              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
-            >
-              {deleteCommentIcon}
-            </button>
+
+          <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-lg bg-gray-200">
+            <div>Attachment 1</div>
+            <div className="flex flex-row items-center gap-x-2">
+              <button
+                className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+              >
+                {downloadIcon}
+              </button>
+              <button
+                onClick={() => alert("Attachment is deleted")}
+                className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+              >
+                {deleteCommentIcon}
+              </button>
+            </div>
           </div>
-          <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            <div>Attachment 3</div>
-            <button
-              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
-            >
-              {deleteCommentIcon}
-            </button>
-          </div>
-          <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            <div>Attachment 4</div>
-            <button
-              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
-            >
-              {deleteCommentIcon}
-            </button>
-          </div>
-          <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            <div>Attachment 5</div>
-            <button
-              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
-            >
-              {deleteCommentIcon}
-            </button>
-          </div>
-          <div className="flex flex-row justify-between px-4 py-3 rounded-lg shadow-lg bg-gray-200">
-            <div>Attachment 6</div>
-            <button
-              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
-            >
-              {deleteCommentIcon}
-            </button>
+
+          <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-lg bg-gray-200">
+            <div>Attachment 1</div>
+            <div className="flex flex-row items-center gap-x-2">
+              <button
+                className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+              >
+                {downloadIcon}
+              </button>
+              <button
+                onClick={() => alert("Attachment is deleted")}
+                className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+              >
+                {deleteCommentIcon}
+              </button>
+            </div>
           </div>
         </div>
       </div>
