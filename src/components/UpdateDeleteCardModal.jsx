@@ -380,11 +380,13 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
               Attachment 2
             </div>
             <div className="flex flex-row items-center gap-x-2">
-              <button
-                className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
-              >
-                {downloadIcon}
-              </button>
+              <a href={UIImage} download="Example">
+                <button
+                  className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+                >
+                  {downloadIcon}
+                </button>
+              </a>
               <button
                 onClick={() => alert("Attachment is deleted")}
                 className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
@@ -399,11 +401,13 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
               Attachment 3
             </div>
             <div className="flex flex-row items-center gap-x-2">
-              <button
-                className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
-              >
-                {downloadIcon}
-              </button>
+              <a href={UIImage} download="Example">
+                <button
+                  className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+                >
+                  {downloadIcon}
+                </button>
+              </a>
               <button
                 onClick={() => alert("Attachment is deleted")}
                 className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
@@ -415,7 +419,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         </div>
       </div>
 
-      {/* Comments Section */}
+      {/* Comments Sections */}
       <div className="flex flex-col gap-y-3">
         <div className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
           Comments
