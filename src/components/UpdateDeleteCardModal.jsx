@@ -353,7 +353,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
         </div>
         <div className="grid grid-cols-3 gap-x-2 gap-y-4">
           <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-lg bg-gray-200">
-            <div>Attachment 1</div>
+            <div className="w-[80%] overflow-hidden text-ellipsis line-clamp-1">
+              Attachment Attachment Attachment
+            </div>
             <div className="flex flex-row items-center gap-x-2">
               <button
                 className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
@@ -370,7 +372,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
           </div>
 
           <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-lg bg-gray-200">
-            <div>Attachment 1</div>
+            <div className="w-[80%] overflow-hidden text-ellipsis line-clamp-1">
+              Attachment 2
+            </div>
             <div className="flex flex-row items-center gap-x-2">
               <button
                 className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
@@ -387,7 +391,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
           </div>
 
           <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-lg bg-gray-200">
-            <div>Attachment 1</div>
+            <div className="w-[80%] overflow-hidden text-ellipsis line-clamp-1">
+              Attachment 3
+            </div>
             <div className="flex flex-row items-center gap-x-2">
               <button
                 className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
