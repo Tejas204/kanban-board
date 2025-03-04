@@ -10,6 +10,7 @@ import axios from "axios";
 import { Context, server } from "../main";
 import toast from "react-hot-toast";
 import { getInitials } from "../utils/utilities";
+import UIImage from "../assets/Kanban_Board_UI.png";
 
 const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   const { allUsers, setAllUsers, setRefresh, comments } = useContext(Context);
@@ -357,11 +358,14 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
               Attachment Attachment Attachment
             </div>
             <div className="flex flex-row items-center gap-x-2">
-              <button
-                className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
-              >
-                {downloadIcon}
-              </button>
+              <a href={UIImage} download="Example">
+                <button
+                  className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+                >
+                  {downloadIcon}
+                </button>
+              </a>
+
               <button
                 onClick={() => alert("Attachment is deleted")}
                 className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
