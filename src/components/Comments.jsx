@@ -15,7 +15,7 @@ const Comments = ({ comments, cardId, action }) => {
    * @Hook: setNewComment
    * Allows the user to add a new comment
    */
-  const [newComment, setNewComment] = useState();
+  const [newComment, setNewComment] = useState("");
 
   /**
    * @Function: handleAddNewComment
@@ -41,6 +41,7 @@ const Comments = ({ comments, cardId, action }) => {
       );
 
       setRefresh((prev) => !prev);
+      setNewComment("");
       toast.success(data.message);
     } catch (error) {
       toast.error(error.response.data.message);
