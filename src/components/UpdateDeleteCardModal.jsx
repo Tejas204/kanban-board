@@ -11,6 +11,7 @@ import { Context, server } from "../main";
 import toast from "react-hot-toast";
 import { getInitials } from "../utils/utilities";
 import UIImage from "../assets/Kanban_Board_UI.png";
+import Comments from "./Comments";
 
 const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   const { allUsers, setAllUsers, setRefresh, comments } = useContext(Context);
@@ -34,12 +35,6 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
    * Set the action; update or delete
    */
   const [action, setAction] = useState(updateDeleteCard.action);
-
-  /**
-   * @Hook: setNewComment
-   * Allows the user to add a new comment
-   */
-  const [newComment, setNewComment] = useState();
 
   /**
    * @Function: handleUpdateDeleteCard
@@ -92,59 +87,6 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
       } catch (error) {
         toast.error(error.response.data.message);
       }
-    }
-  };
-
-  /**
-   * @Function: handleAddNewComment
-   * @Params:
-   * @Returns: none
-   * Used to create a new comment for a card
-   */
-  const handleAddNewComment = async (event) => {
-    event.preventDefault();
-    try {
-      const { data } = await axios.post(
-        `${server}/comments/createComment`,
-        {
-          comment: newComment,
-          card: updateDeleteCard.id,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
-      );
-
-      setRefresh((prev) => !prev);
-      toast.success(data.message);
-    } catch (error) {
-      toast.error(error.response.data.message);
-    }
-  };
-
-  /**
-   * @Function: handleDeleteComment
-   * @Params: commend id <String>
-   * @Returns: none
-   * Used to delete comment added by a user
-   */
-  const handleDeleteComment = async (commentId, event) => {
-    event.preventDefault();
-    try {
-      const { data } = await axios.delete(
-        `${server}/comments/deleteMyComment/` + commentId,
-        {
-          withCredentials: true,
-        }
-      );
-
-      setRefresh((prev) => !prev);
-      toast.success(data.message);
-    } catch (error) {
-      toast.error(error.response.data.message);
     }
   };
 
@@ -420,71 +362,11 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
       </div>
 
       {/* Comments Sections */}
-      <div className="flex flex-col gap-y-3">
-        <div className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
-          Comments
-        </div>
-        <div className="flex flex-col gap-y-5">
-          {/* New comment */}
-          <form
-            className={`flex flex-row gap-x-4 bg-gray-100 p-3 rounded-lg ${
-              updateDeleteCard.action === "update" ? "visible" : "hidden"
-            }`}
-          >
-            <input
-              className="w-[100%] focus:ring focus:ring-[color:var(--user-icon--bg-color--lavender)] outline-none rounded-lg p-2"
-              placeholder="Add comment"
-              type="text"
-              value={newComment}
-              onChange={(event) => setNewComment(event.target.value)}
-            />
-            <button
-              onClick={handleAddNewComment}
-              className="px-8 py-3 font-bold rounded-lg bg-[color:var(--user-icon--bg-color--lavender)] hover:ring-4 ring-[color:var(--button-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out text-white"
-            >
-              Add
-            </button>
-          </form>
-
-          {/* Existing comments */}
-          <div className="flex flex-col gap-y-3 w-[100%]">
-            {comments.map((comment) => {
-              if (comment.card == updateDeleteCard.id) {
-                return (
-                  <div
-                    key={comment._id}
-                    className="grid grid-cols-10 w-[100%] p-3 bg-gray-100 rounded-lg"
-                  >
-                    <div className="col-span-1">
-                      <div className="flex items-center font-semibold h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)] bg-orange-400">
-                        {getInitials(comment.user).initials}
-                      </div>
-                    </div>
-                    <div className="col-span-9 flex flex-col gap-y-2">
-                      <div className="font-semibold flex flex-row justify-between w-[100%]">
-                        <div>{getInitials(comment.user).userName}</div>
-                        <button
-                          className={`text-gray-500 hover:text-black transition ease-in-out duration-150 ${
-                            updateDeleteCard.action === "update"
-                              ? "visible"
-                              : "hidden"
-                          }`}
-                          onClick={(event) =>
-                            handleDeleteComment(comment._id, event)
-                          }
-                        >
-                          {deleteCommentIcon}
-                        </button>
-                      </div>
-                      <div className="text-justify">{comment.comment}</div>
-                    </div>
-                  </div>
-                );
-              }
-            })}
-          </div>
-        </div>
-      </div>
+      <Comments
+        comments={comments}
+        cardId={updateDeleteCard.id}
+        action={updateDeleteCard.action}
+      ></Comments>
     </div>
   );
 };
