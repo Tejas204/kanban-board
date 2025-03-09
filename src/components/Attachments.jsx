@@ -1,7 +1,7 @@
 import UIImage from "../assets/Kanban_Board_UI.png";
 import { deleteCommentIcon, downloadIcon } from "../data/icons";
 
-const Attachments = () => {
+const Attachments = ({ action }) => {
   return (
     <div className="flex flex-col gap-y-3">
       <div className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
@@ -23,7 +23,9 @@ const Attachments = () => {
 
             <button
               onClick={() => alert("Attachment is deleted")}
-              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+              className={`text-gray-500 hover:text-black transition ease-in-out duration-150 ${
+                action == "update" ? "visible" : "hidden"
+              }`}
             >
               {deleteCommentIcon}
             </button>
@@ -44,7 +46,9 @@ const Attachments = () => {
             </a>
             <button
               onClick={() => alert("Attachment is deleted")}
-              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+              className={`text-gray-500 hover:text-black transition ease-in-out duration-150 ${
+                action == "update" ? "visible" : "hidden"
+              }`}
             >
               {deleteCommentIcon}
             </button>
@@ -65,7 +69,9 @@ const Attachments = () => {
             </a>
             <button
               onClick={() => alert("Attachment is deleted")}
-              className={`text-gray-500 hover:text-black transition ease-in-out duration-150`}
+              className={`text-gray-500 hover:text-black transition ease-in-out duration-150 ${
+                action == "update" ? "visible" : "hidden"
+              }`}
             >
               {deleteCommentIcon}
             </button>
