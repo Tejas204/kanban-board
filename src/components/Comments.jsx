@@ -84,7 +84,7 @@ const Comments = ({ comments, cardId, action }) => {
           }`}
         >
           <input
-            className="w-[100%] focus:ring focus:ring-[color:var(--user-icon--bg-color--lavender)] outline-none rounded-lg p-2"
+            className="w-[100%] bg-white text-[color:var(--board-bg--color)] focus:ring focus:ring-[color:var(--user-icon--bg-color--lavender)] outline-none rounded-lg p-2"
             placeholder="Add comment"
             type="text"
             value={newComment}
@@ -113,7 +113,7 @@ const Comments = ({ comments, cardId, action }) => {
                     </div>
                   </div>
                   <div className="col-span-9 flex flex-col gap-y-2">
-                    <div className="font-semibold flex flex-row justify-between w-[100%]">
+                    <div className="font-semibold flex flex-row justify-between w-[100%] text-[color:var(--board-bg--color)]">
                       <div>{getInitials(comment.user).userName}</div>
                       <button
                         className={`text-gray-500 hover:text-black transition ease-in-out duration-150 ${
@@ -126,7 +126,9 @@ const Comments = ({ comments, cardId, action }) => {
                         {deleteCommentIcon}
                       </button>
                     </div>
-                    <div className="text-justify">{comment.comment}</div>
+                    <div className="text-justify text-[color:var(--board-bg--color)]">
+                      {comment.comment}
+                    </div>
                   </div>
                 </div>
               );
