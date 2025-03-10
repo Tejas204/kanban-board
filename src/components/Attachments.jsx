@@ -81,11 +81,18 @@ const Attachments = ({ action }) => {
         {/* This element will be separated from the mapped attachments */}
         <div className="flex flex-row justify-between px-5 py-3 rounded-lg bg-white border-4 border-dashed border-gray-400">
           <form method="POST">
+            <label
+              for="file"
+              className="overflow-hidden text-ellipsis line-clamp-1 text-gray-500 hover:cursor-pointer"
+            >
+              Upload file
+            </label>
             <input
               type="file"
               name="file"
+              id="file"
               placeholder="Upload"
-              className="w-[80%] overflow-hidden text-ellipsis line-clamp-1 text-gray-500"
+              className="hidden"
             ></input>
           </form>
         </div>
