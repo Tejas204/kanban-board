@@ -8,7 +8,7 @@ const Attachments = ({ action }) => {
         Attachments
       </div>
       <div className="grid grid-cols-3 gap-x-2 gap-y-4">
-        <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-lg bg-gray-200">
+        <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-md bg-gray-200">
           <div className="w-[80%] overflow-hidden text-ellipsis line-clamp-1">
             Attachment Attachment Attachment
           </div>
@@ -32,7 +32,7 @@ const Attachments = ({ action }) => {
           </div>
         </div>
 
-        <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-lg bg-gray-200">
+        <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-md bg-gray-200">
           <div className="w-[80%] overflow-hidden text-ellipsis line-clamp-1">
             Attachment 2
           </div>
@@ -55,7 +55,7 @@ const Attachments = ({ action }) => {
           </div>
         </div>
 
-        <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-lg bg-gray-200">
+        <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-md bg-gray-200">
           <div className="w-[80%] overflow-hidden text-ellipsis line-clamp-1">
             Attachment 3
           </div>
@@ -76,6 +76,18 @@ const Attachments = ({ action }) => {
               {deleteCommentIcon}
             </button>
           </div>
+        </div>
+
+        {/* This element will be separated from the mapped attachments */}
+        <div className="flex flex-row justify-between px-5 py-3 rounded-lg bg-white border-4 border-dashed border-gray-400">
+          <form method="POST">
+            <input
+              type="file"
+              name="file"
+              placeholder="Upload"
+              className="w-[80%] overflow-hidden text-ellipsis line-clamp-1 text-gray-500"
+            ></input>
+          </form>
         </div>
       </div>
     </div>
