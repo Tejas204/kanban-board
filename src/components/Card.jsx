@@ -144,8 +144,8 @@ const Card = ({
                   isMenuVisible ? "visible" : "hidden"
                 }`}
               >
-                <ul className="flex flex-col gap-y-4 text-lg font-semibold">
-                  <li className="text-[color:var(--board-bg--color)] hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
+                <ul className="flex flex-col gap-y-4 text-lg font-semibold text-[color:var(--board-bg--color)]">
+                  <li className="hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
                     <button
                       id="updateButton"
                       onClick={(event) => {
