@@ -23,7 +23,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Card from "../components/Card";
 import Loader from "../components/Loader";
-import Filter from "../components/Filters";
+import FilterPill from "../components/FilterPill";
 
 const Board = () => {
   const { cards, setStateCardArr, isLoading, setMoveDistance } =
@@ -325,17 +325,16 @@ const Board = () => {
     <Loader></Loader>
   ) : (
     <div className="grid grid-cols-12">
-      {/* <div className="col-span-2">
-        <Filter></Filter>
+      {/* <div className="col-span-1 border-2">
+        <FilterPill></FilterPill>
       </div> */}
 
       <div
         className={`col-span-12 flex flex-row h-screen overflow-x-auto no-scrollbar`}
       >
         {/* Filters Div */}
-
+        <FilterPill></FilterPill>
         {/* Columns */}
-
         <div
           className={`${
             showModal.active ||
@@ -353,7 +352,7 @@ const Board = () => {
             collisionDetection={closestCorners}
             sensors={sensors}
           >
-            <div className="flex flex-row mt-0 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar">
+            <div className="flex flex-row mt-0 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar relative">
               <SortableContext
                 items={cards}
                 strategy={horizontalListSortingStrategy}
@@ -410,7 +409,6 @@ const Board = () => {
             </DragOverlay>
           </DndContext>
         </div>
-
         {/* Card Modal **/}
         <NewStateCardModal
           showModal={showModal}
@@ -419,7 +417,6 @@ const Board = () => {
           updateDeleteCard={updateDeleteCard}
           deleteState={deleteState}
         ></NewStateCardModal>
-
         {/* Add state button */}
         <button
           onClick={handleAddState}
