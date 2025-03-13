@@ -325,10 +325,13 @@ const Board = () => {
     <Loader></Loader>
   ) : (
     <div className="grid grid-cols-12">
-      {/* <div className="col-span-2 border-2">
+      {/* <div className="col-span-2">
         <Filter></Filter>
       </div> */}
-      <div className={`col-span-12 flex flex-row h-screen overflow-x-auto`}>
+
+      <div
+        className={`col-span-12 flex flex-row h-screen overflow-x-auto no-scrollbar`}
+      >
         {/* Filters Div */}
 
         {/* Columns */}

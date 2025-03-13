@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Header from "./components/Header";
 import Board from "./pages/Board";
+import Filter from "./components/Filters";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { Context, server } from "./main";
