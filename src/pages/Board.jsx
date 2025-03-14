@@ -324,107 +324,96 @@ const Board = () => {
   return isLoading ? (
     <Loader></Loader>
   ) : (
-    <div className="grid grid-cols-12">
-      {/* <div className="col-span-1 border-2">
-        <FilterPill></FilterPill>
-      </div> */}
-
+    <div className={`flex flex-row h-screen overflow-x-clip `}>
+      {/* Filters Div */}
+      {/* <FilterPill></FilterPill> */}
+      {/* Columns */}
       <div
-        className={`col-span-12 flex flex-row h-screen overflow-x-auto no-scrollbar`}
+        className={`${
+          showModal.active || addState || updateDeleteCard || deleteState.active
+            ? "blur-sm"
+            : "blur-none"
+        }`}
       >
-        {/* Filters Div */}
-        <FilterPill></FilterPill>
-        {/* Columns */}
-        <div
-          className={`${
-            showModal.active ||
-            addState ||
-            updateDeleteCard ||
-            deleteState.active
-              ? "blur-sm"
-              : "blur-none"
-          }`}
+        <DndContext
+          onDragOver={handleDragOver}
+          onDragEnd={handleDragEnd}
+          onDragStart={handleDragStart}
+          collisionDetection={closestCorners}
+          sensors={sensors}
         >
-          <DndContext
-            onDragOver={handleDragOver}
-            onDragEnd={handleDragEnd}
-            onDragStart={handleDragStart}
-            collisionDetection={closestCorners}
-            sensors={sensors}
-          >
-            <div className="flex flex-row mt-0 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar relative">
-              <SortableContext
-                items={cards}
-                strategy={horizontalListSortingStrategy}
-              >
-                {cards.map((column) => {
-                  return (
-                    <Columns
-                      cards={column.cards}
-                      key={column.id}
-                      columnId={column.id}
-                      columnTitle={column.state}
-                      setShowModal={setShowModal}
-                      showModal={showModal}
-                      setUpdateDeleteCard={setUpdateDeleteCard}
-                      setDeleteState={setDeleteState}
-                    ></Columns>
-                  );
-                })}
-              </SortableContext>
-            </div>
-
-            <DragOverlay
-              dropAnimation={{
-                duration: 500,
-                easing: "cubic-bezier(0.18, 0.67, 0.6, 1.22)",
-              }}
-              style={{
-                border: "1px solid gray",
-                borderRadius: "8px",
-                backgroundColor: "rgba(39, 42, 67, 0.15)",
-                backdropFilter: "blur(15px)",
-                rotate: "3deg",
-              }}
+          <div className="flex flex-row mt-0 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar relative">
+            <SortableContext
+              items={cards}
+              strategy={horizontalListSortingStrategy}
             >
-              {activeCard ? (
-                <Card
-                  key={activeCard._id}
-                  id={activeCard._id}
-                  title={activeCard.name}
-                  short_description={activeCard.shortDescription}
-                  assigned_to={activeCard.assignedTo}
-                  priority={activeCard.priority}
-                  due_date={activeCard.dueDate}
-                  state_id={activeCard.state}
-                ></Card>
-              ) : activeState ? (
-                <Columns
-                  cards={activeState.cards}
-                  key={activeState.id}
-                  columnId={activeState.id}
-                  columnTitle={activeState.state}
-                ></Columns>
-              ) : null}
-            </DragOverlay>
-          </DndContext>
-        </div>
-        {/* Card Modal **/}
-        <NewStateCardModal
-          showModal={showModal}
-          addState={addState}
-          hideModal={hideModal}
-          updateDeleteCard={updateDeleteCard}
-          deleteState={deleteState}
-        ></NewStateCardModal>
-        {/* Add state button */}
-        <button
-          onClick={handleAddState}
-          className="absolute bottom-0 right-10 px-6 py-4 rounded-lg text-[color:var(--primary-text--color)] bg-[color:var(--user-icon--bg-color--blue)] font-semibold hover:ring-2 ring-offset-4 ring-offset-[color:var(--filter-bg--color)] ring-[color:var(--user-icon--bg-color--blue)] transition ease-in-out duration-150"
-        >
-          Add State
-        </button>
+              {cards.map((column) => {
+                return (
+                  <Columns
+                    cards={column.cards}
+                    key={column.id}
+                    columnId={column.id}
+                    columnTitle={column.state}
+                    setShowModal={setShowModal}
+                    showModal={showModal}
+                    setUpdateDeleteCard={setUpdateDeleteCard}
+                    setDeleteState={setDeleteState}
+                  ></Columns>
+                );
+              })}
+            </SortableContext>
+          </div>
+
+          <DragOverlay
+            dropAnimation={{
+              duration: 500,
+              easing: "cubic-bezier(0.18, 0.67, 0.6, 1.22)",
+            }}
+            style={{
+              border: "1px solid gray",
+              borderRadius: "8px",
+              backgroundColor: "rgba(39, 42, 67, 0.15)",
+              backdropFilter: "blur(15px)",
+              rotate: "3deg",
+            }}
+          >
+            {activeCard ? (
+              <Card
+                key={activeCard._id}
+                id={activeCard._id}
+                title={activeCard.name}
+                short_description={activeCard.shortDescription}
+                assigned_to={activeCard.assignedTo}
+                priority={activeCard.priority}
+                due_date={activeCard.dueDate}
+                state_id={activeCard.state}
+              ></Card>
+            ) : activeState ? (
+              <Columns
+                cards={activeState.cards}
+                key={activeState.id}
+                columnId={activeState.id}
+                columnTitle={activeState.state}
+              ></Columns>
+            ) : null}
+          </DragOverlay>
+        </DndContext>
       </div>
+      {/* Card Modal **/}
+      <NewStateCardModal
+        showModal={showModal}
+        addState={addState}
+        hideModal={hideModal}
+        updateDeleteCard={updateDeleteCard}
+        deleteState={deleteState}
+      ></NewStateCardModal>
+      {/* Add state button */}
+      <button
+        onClick={handleAddState}
+        className="absolute bottom-0 right-10 px-6 py-4 rounded-lg text-[color:var(--primary-text--color)] bg-[color:var(--user-icon--bg-color--blue)] font-semibold hover:ring-2 ring-offset-4 ring-offset-[color:var(--filter-bg--color)] ring-[color:var(--user-icon--bg-color--blue)] transition ease-in-out duration-150"
+      >
+        Add State
+      </button>
     </div>
   );
 };

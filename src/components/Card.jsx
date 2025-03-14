@@ -140,7 +140,7 @@ const Card = ({
                 {cardMenuIcon}
               </button>
               <div
-                className={`bg-white/70 backdrop-blur-sm shadow-lg p-3 rounded-lg fixed mt-[1.35rem] w-[7rem] ml-[0.5rem] text-center ${
+                className={`bg-white/70 backdrop-blur-sm shadow-lg p-3 rounded-lg absolute mt-[1.35rem] w-[7rem] ml-[0.5rem] text-center ${
                   isMenuVisible ? "visible" : "hidden"
                 }`}
               >

@@ -92,7 +92,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   };
 
   return (
-    <div className="flex flex-col border-2 w-2/5 h-3/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
+    <div className="flex flex-col border-2 w-2/5 h-3/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] no-scrollbar">
       {/* Title */}
       <div className="flex flex-row justify-between">
         <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
