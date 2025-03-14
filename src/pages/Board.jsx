@@ -324,9 +324,9 @@ const Board = () => {
   return isLoading ? (
     <Loader></Loader>
   ) : (
-    <div className={`flex flex-row h-screen overflow-x-clip `}>
+    <div className={`flex flex-row h-screen overflow-x-clip`}>
       {/* Filters Div */}
-      {/* <FilterPill></FilterPill> */}
+      <FilterPill></FilterPill>
       {/* Columns */}
       <div
         className={`${
