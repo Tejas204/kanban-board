@@ -1,6 +1,7 @@
 import reat, { useContext } from "react";
 import { kanbanBoardIcon, teamsIcon, userProfileIcon } from "../data/icons";
 import { Context } from "../main";
+import { Link } from "react-router-dom";
 
 const FilterPill = () => {
   /**
@@ -15,11 +16,7 @@ const FilterPill = () => {
    */
   const handlePillOption = (buttonId) => {
     setPillOption(
-      buttonId === "boardSelection"
-        ? "boardSelection"
-        : buttonId === "teamsSelection"
-        ? "teamsSelection"
-        : "profileSelection"
+      buttonId === "boardSelection" ? "boardSelection" : "teamsSelection"
     );
   };
 
@@ -34,10 +31,17 @@ const FilterPill = () => {
         </button>
       </div>
       <div>
-        <button id="teamsSelection">{teamsIcon}</button>
+        <button
+          id="teamsSelection"
+          onClick={(event) => handlePillOption(event.target.id)}
+        >
+          {teamsIcon}
+        </button>
       </div>
       <div>
-        <button id="profileSelection">{userProfileIcon}</button>
+        <button id="profileSelection">
+          <Link to="/profile">{userProfileIcon}</Link>
+        </button>
       </div>
     </div>
   );

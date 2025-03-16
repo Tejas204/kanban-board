@@ -338,7 +338,11 @@ const Board = () => {
       {/* Columns */}
       <div
         className={`${
-          showModal.active || addState || updateDeleteCard || deleteState.active
+          showModal.active ||
+          addState ||
+          updateDeleteCard ||
+          deleteState.active ||
+          pillOption
             ? "blur-sm"
             : "blur-none"
         }`}
