@@ -5,6 +5,7 @@ import { closeIcon } from "../data/icons";
 import AddStateModal from "./AddStateModal";
 import UpdateDeleteCardModal from "./UpdateDeleteCardModal";
 import DeleteStateModal from "./DeleteStateModal";
+import KanbanBoardSelectorModal from "./KanbanBoardSelectorModal";
 
 const NewStateCardModal = ({
   showModal,
@@ -12,6 +13,7 @@ const NewStateCardModal = ({
   hideModal,
   updateDeleteCard,
   deleteState,
+  pillOption,
 }) => {
   // If user wants to add card
   if (showModal.active) {
@@ -50,6 +52,14 @@ const NewStateCardModal = ({
           hideModal={hideModal}
           columnId={deleteState.columnId}
         ></DeleteStateModal>
+      </div>
+    );
+  } else if (pillOption) {
+    return (
+      <div className={commonFormStyle}>
+        <KanbanBoardSelectorModal
+          hideModal={hideModal}
+        ></KanbanBoardSelectorModal>
       </div>
     );
   }

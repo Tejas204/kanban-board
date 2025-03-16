@@ -26,8 +26,14 @@ import Loader from "../components/Loader";
 import FilterPill from "../components/FilterPill";
 
 const Board = () => {
-  const { cards, setStateCardArr, isLoading, setMoveDistance } =
-    useContext(Context);
+  const {
+    cards,
+    setStateCardArr,
+    isLoading,
+    setMoveDistance,
+    pillOption,
+    setPillOption,
+  } = useContext(Context);
 
   /**
    * @Hook: Sensors
@@ -100,6 +106,8 @@ const Board = () => {
         active: !deleteState.active,
         columnId: "",
       });
+    } else if (pillOption) {
+      setPillOption();
     }
   };
 
@@ -406,6 +414,7 @@ const Board = () => {
         hideModal={hideModal}
         updateDeleteCard={updateDeleteCard}
         deleteState={deleteState}
+        pillOption={pillOption}
       ></NewStateCardModal>
       {/* Add state button */}
       <button

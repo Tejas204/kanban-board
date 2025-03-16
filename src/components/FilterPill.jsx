@@ -14,9 +14,13 @@ const FilterPill = () => {
    * Use to set the pill option after clicking the buttons
    */
   const handlePillOption = (buttonId) => {
-    if (buttonId === "boardSelection") {
-      alert("I am clicked: " + buttonId);
-    }
+    setPillOption(
+      buttonId === "boardSelection"
+        ? "boardSelection"
+        : buttonId === "teamsSelection"
+        ? "teamsSelection"
+        : "profileSelection"
+    );
   };
 
   return (
