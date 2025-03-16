@@ -16,12 +16,12 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
   const [boardSelection, setBoardSelection] = useState("created");
 
   return (
-    <div className="flex flex-col border-2 w-2/5 h-3/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] no-scrollbar">
+    <div className="flex flex-col border-2 w-2/5 h-2/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] no-scrollbar">
       {/* Title */}
       <div className="flex flex-row justify-between">
         <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
           {pillOption === "boardSelection"
-            ? "Select board"
+            ? "Select a kanban board"
             : "View or add new team members"}
         </p>
         <button onClick={hideModal}>{closeIcon}</button>
@@ -41,9 +41,9 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             Created by me
           </button>
           <button
-            onClick={() => setBoardSelection("updated")}
+            onClick={() => setBoardSelection("shared")}
             className={`${
-              boardSelection === "updated"
+              boardSelection === "shared"
                 ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
                 : ""
             } pb-4`}
@@ -51,6 +51,32 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             Shared with me
           </button>
         </div>
+      </div>
+
+      <div className="flex flex-col gap-y-4">
+        <p className="text-lg text-[color:var(--board-bg--color)]">
+          {boardSelection === "created"
+            ? "Choose a board created by you"
+            : "Search and add new members to your team"}
+        </p>
+        <form>
+          <select
+            className={`${
+              boardSelection == "created" ? "visible" : "hidden"
+            } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+          >
+            <option>Board 1</option>
+            <option>Board 2</option>
+            <option>Board 3</option>
+          </select>
+
+          <input
+            placeholder="Search using email id"
+            className={`${
+              boardSelection == "shared" ? "visible" : "hidden"
+            } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+          ></input>
+        </form>
       </div>
 
       {/* Form */}
