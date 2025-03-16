@@ -20,6 +20,7 @@ const AppWrapper = () => {
   const [refresh, setRefresh] = useState(false);
   const [moveDistance, setMoveDistance] = useState(0);
   const [comments, setComments] = useState({});
+  const [pillOption, setPillOption] = useState();
 
   return (
     <Context.Provider
@@ -40,6 +41,8 @@ const AppWrapper = () => {
         setMoveDistance,
         comments,
         setComments,
+        pillOption,
+        setPillOption,
       }}
     >
       <App />

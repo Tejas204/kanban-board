@@ -213,6 +213,7 @@ export const teamsIcon = (
     stroke-width="1.5"
     stroke="currentColor"
     class="size-6"
+    id="teamsSelection"
   >
     <path
       stroke-linecap="round"
@@ -230,6 +231,7 @@ export const kanbanBoardIcon = (
     stroke-width="1.8"
     stroke="currentColor"
     class="size-6"
+    id="boardSelection"
   >
     <path
       stroke-linecap="round"
@@ -247,6 +249,7 @@ export const userProfileIcon = (
     stroke-width="1.8"
     stroke="currentColor"
     class="size-6"
+    id="profileSelection"
   >
     <path
       stroke-linecap="round"
