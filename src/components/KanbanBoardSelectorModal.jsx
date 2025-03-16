@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../main";
 import { closeIcon } from "../data/icons";
 
@@ -8,6 +8,13 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
    * Set context variables
    */
   const { pillOption } = useContext(Context);
+
+  /**
+   * @Hook: setBoardSelection
+   * Used to select the board from 2 section: created by me OR shared with me
+   */
+  const [boardSelection, setBoardSelection] = useState("created");
+
   return (
     <div className="flex flex-col border-2 w-2/5 h-3/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] no-scrollbar">
       {/* Title */}
@@ -18,6 +25,32 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             : "View or add new team members"}
         </p>
         <button onClick={hideModal}>{closeIcon}</button>
+      </div>
+
+      {/* Tabs */}
+      <div className="flex flex-col">
+        <div className="flex flex-row gap-x-10 text-xl text-[color:var(--board-bg--color)] border-b-2">
+          <button
+            onClick={() => setBoardSelection("created")}
+            className={`${
+              boardSelection === "created"
+                ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
+                : ""
+            } pb-4`}
+          >
+            Created by me
+          </button>
+          <button
+            onClick={() => setBoardSelection("updated")}
+            className={`${
+              boardSelection === "updated"
+                ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
+                : ""
+            } pb-4`}
+          >
+            Shared with me
+          </button>
+        </div>
       </div>
 
       {/* Form */}
@@ -33,7 +66,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             </button>
             <button
               type="submit"
-              className={`p-4 w-1/4 ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out`}
+              className={`p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 ring-[color:var(--user-icon--bg-color--lavender)] text-xl font-bold rounded-md transition delay-150 ease-in-out`}
             >
               Submit
             </button>
