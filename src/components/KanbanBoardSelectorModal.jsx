@@ -4,12 +4,6 @@ import { closeIcon } from "../data/icons";
 
 const KanbanBoardSelectorModal = ({ hideModal }) => {
   /**
-   * @Context: Global context
-   * Set context variables
-   */
-  const { pillOption } = useContext(Context);
-
-  /**
    * @Hook: setBoardSelection
    * Used to select the board from 2 section: created by me OR shared with me
    */
@@ -20,9 +14,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
       {/* Title */}
       <div className="flex flex-row justify-between">
         <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
-          {pillOption === "boardSelection"
-            ? "Select a kanban board"
-            : "View or add new team members"}
+          Select a kanban board
         </p>
         <button onClick={hideModal}>{closeIcon}</button>
       </div>

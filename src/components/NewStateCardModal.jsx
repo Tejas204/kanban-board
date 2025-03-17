@@ -55,13 +55,17 @@ const NewStateCardModal = ({
       </div>
     );
   } else if (pillOption) {
-    return (
-      <div className={commonFormStyle}>
-        <KanbanBoardSelectorModal
-          hideModal={hideModal}
-        ></KanbanBoardSelectorModal>
-      </div>
-    );
+    if (pillOption === "boardSelection") {
+      return (
+        <div className={commonFormStyle}>
+          <KanbanBoardSelectorModal
+            hideModal={hideModal}
+          ></KanbanBoardSelectorModal>
+        </div>
+      );
+    } else if (pillOption === "teamsSelection") {
+      return "";
+    }
   }
 };
 
