@@ -68,6 +68,17 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
               boardSelection == "shared" ? "visible" : "hidden"
             } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
           ></input>
+          <div
+            className={`${
+              boardSelection === "shared" ? "visible" : "hidden"
+            } absolute bg-gray-200  w-full px-4`}
+          >
+            <ul className="text-black">
+              <li>Tejas</li>
+              <li>Omkar</li>
+              <li>Abhinav</li>
+            </ul>
+          </div>
         </form>
       </div>
 
