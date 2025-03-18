@@ -9,6 +9,22 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
    */
   const [boardSelection, setBoardSelection] = useState("created");
 
+  /**
+   * @Hook: setUserList
+   * Used to set the array of users for searching
+   */
+  const [userList, setUserList] = useState([
+    { id: 1, name: "Tejas" },
+    { id: 2, name: "Omkar" },
+    { id: 3, name: "Abhinav" },
+  ]);
+
+  /**
+   * @Hook: setSearchValue
+   * Used to set the search value from the input field
+   */
+  const [searchValue, setSearchValue] = useState("");
+
   return (
     <div className="flex flex-col border-2 w-2/5 h-2/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] no-scrollbar">
       {/* Title */}
@@ -64,6 +80,8 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
 
           <input
             placeholder="Search using email id"
+            value={searchValue}
+            onChange={(event) => setSearchValue(event.target.value)}
             className={`${
               boardSelection == "shared" ? "visible" : "hidden"
             } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
@@ -74,9 +92,9 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             } absolute bg-gray-200  w-full px-4`}
           >
             <ul className="text-black">
-              <li>Tejas</li>
-              <li>Omkar</li>
-              <li>Abhinav</li>
+              {userList.map((user) => {
+                return <li key={user.id}>{user.name}</li>;
+              })}
             </ul>
           </div>
         </form>
