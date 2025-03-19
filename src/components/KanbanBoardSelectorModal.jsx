@@ -65,7 +65,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
         <p className="text-lg text-[color:var(--board-bg--color)]">
           {boardSelection === "created"
             ? "Choose a board created by you"
-            : "Search and add new members to your team"}
+            : "Choose a board shared with you"}
         </p>
         <form>
           <select
@@ -78,7 +78,17 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             <option>Board 3</option>
           </select>
 
-          <input
+          <select
+            className={`${
+              boardSelection == "shared" ? "visible" : "hidden"
+            } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+          >
+            <option>Board 4</option>
+            <option>Board 5</option>
+            <option>Board 6</option>
+          </select>
+
+          {/* <input
             placeholder="Search using email id"
             value={searchValue}
             onChange={(event) => setSearchValue(event.target.value)}
@@ -96,7 +106,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
                 return <li key={user.id}>{user.name}</li>;
               })}
             </ul>
-          </div>
+          </div> */}
         </form>
       </div>
 
