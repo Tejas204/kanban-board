@@ -9,16 +9,6 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
    */
   const [boardSelection, setBoardSelection] = useState("created");
 
-  /**
-   * @Hook: setUserList
-   * Used to set the array of users for searching
-   */
-  const [userList, setUserList] = useState([
-    { id: 1, name: "Tejas" },
-    { id: 2, name: "Omkar" },
-    { id: 3, name: "Abhinav" },
-  ]);
-
   return (
     <div className="flex flex-col border-2 w-2/5 h-2/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] no-scrollbar">
       {/* Title */}
