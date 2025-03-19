@@ -88,15 +88,23 @@ const TeamSelectorModal = ({ hideModal }) => {
             </ul>
           </div>
 
-          <select
+          {/* Team removal */}
+          <form
             className={`${
               teamModification == "removeTeamMembers" ? "visible" : "hidden"
-            } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+            } flex flex-col gap-y-3 items-start`}
           >
-            <option>Board 4</option>
-            <option>Board 5</option>
-            <option>Board 6</option>
-          </select>
+            {userList.map((user) => {
+              return (
+                <input
+                  type="checkbox"
+                  name={user.name}
+                  key={user.id}
+                  value={user.name}
+                ></input>
+              );
+            })}
+          </form>
         </form>
       </div>
 
