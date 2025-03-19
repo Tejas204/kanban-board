@@ -6,6 +6,7 @@ import AddStateModal from "./AddStateModal";
 import UpdateDeleteCardModal from "./UpdateDeleteCardModal";
 import DeleteStateModal from "./DeleteStateModal";
 import KanbanBoardSelectorModal from "./KanbanBoardSelectorModal";
+import TeamSelectorModal from "./TeamSelectorModal";
 
 const NewStateCardModal = ({
   showModal,
@@ -64,7 +65,11 @@ const NewStateCardModal = ({
         </div>
       );
     } else if (pillOption === "teamsSelection") {
-      return "";
+      return (
+        <div className={commonFormStyle}>
+          <TeamSelectorModal hideModal={hideModal}></TeamSelectorModal>
+        </div>
+      );
     }
   }
 };

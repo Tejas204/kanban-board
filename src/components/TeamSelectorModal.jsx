@@ -1,30 +1,25 @@
-import React, { useContext, useState } from "react";
-import { Context } from "../main";
+import React, { useState } from "react";
 import { closeIcon } from "../data/icons";
 
-const KanbanBoardSelectorModal = ({ hideModal }) => {
+const TeamSelectorModal = ({ hideModal }) => {
   /**
-   * @Hook: setBoardSelection
-   * Used to select the board from 2 section: created by me OR shared with me
+   * @Hook: setSearchValue
+   * Used to set the search value from the input field
    */
-  const [boardSelection, setBoardSelection] = useState("created");
+  const [searchValue, setSearchValue] = useState("");
 
   /**
-   * @Hook: setUserList
-   * Used to set the array of users for searching
+   * @Hook: setTeamModification
+   * Used to set the value to add or remove team-mates
    */
-  const [userList, setUserList] = useState([
-    { id: 1, name: "Tejas" },
-    { id: 2, name: "Omkar" },
-    { id: 3, name: "Abhinav" },
-  ]);
+  const [teamModification, setTeamModification] = useState("addTeamMembers");
 
   return (
     <div className="flex flex-col border-2 w-2/5 h-2/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] no-scrollbar">
       {/* Title */}
       <div className="flex flex-row justify-between">
         <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
-          Select a kanban board
+          Modify your team
         </p>
         <button onClick={hideModal}>{closeIcon}</button>
       </div>
@@ -33,33 +28,33 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
       <div className="flex flex-col">
         <div className="flex flex-row gap-x-10 text-xl text-[color:var(--board-bg--color)] border-b-2">
           <button
-            onClick={() => setBoardSelection("created")}
+            onClick={() => setTeamModification("addTeamMembers")}
             className={`${
-              boardSelection === "created"
+              teamModification === "addTeamMembers"
                 ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
                 : ""
             } pb-4`}
           >
-            Created by me
+            Add team members
           </button>
           <button
-            onClick={() => setBoardSelection("shared")}
+            onClick={() => setTeamModification("removeTeamMembers")}
             className={`${
-              boardSelection === "shared"
+              teamModification === "removeTeamMembers"
                 ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
                 : ""
             } pb-4`}
           >
-            Shared with me
+            Remove team members
           </button>
         </div>
       </div>
 
       <div className="flex flex-col gap-y-4">
         <p className="text-lg text-[color:var(--board-bg--color)]">
-          {boardSelection === "created"
-            ? "Choose a board created by you"
-            : "Choose a board shared with you"}
+          {teamModification === "addTeamMembers"
+            ? "let your team grow by adding new team members"
+            : "Remove team members"}
         </p>
         <form>
           <select
@@ -83,24 +78,24 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
           </select>
 
           {/* <input
-            placeholder="Search using email id"
-            value={searchValue}
-            onChange={(event) => setSearchValue(event.target.value)}
-            className={`${
-              boardSelection == "shared" ? "visible" : "hidden"
-            } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
-          ></input>
-          <div
-            className={`${
-              boardSelection === "shared" ? "visible" : "hidden"
-            } absolute bg-gray-200  w-full px-4`}
-          >
-            <ul className="text-black">
-              {userList.map((user) => {
-                return <li key={user.id}>{user.name}</li>;
-              })}
-            </ul>
-          </div> */}
+              placeholder="Search using email id"
+              value={searchValue}
+              onChange={(event) => setSearchValue(event.target.value)}
+              className={`${
+                boardSelection == "shared" ? "visible" : "hidden"
+              } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+            ></input>
+            <div
+              className={`${
+                boardSelection === "shared" ? "visible" : "hidden"
+              } absolute bg-gray-200  w-full px-4`}
+            >
+              <ul className="text-black">
+                {userList.map((user) => {
+                  return <li key={user.id}>{user.name}</li>;
+                })}
+              </ul>
+            </div> */}
         </form>
       </div>
 
@@ -128,4 +123,4 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
   );
 };
 
-export default KanbanBoardSelectorModal;
+export default TeamSelectorModal;
