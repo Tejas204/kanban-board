@@ -96,12 +96,21 @@ const TeamSelectorModal = ({ hideModal }) => {
           >
             {userList.map((user) => {
               return (
-                <input
-                  type="checkbox"
-                  name={user.name}
-                  key={user.id}
-                  value={user.name}
-                ></input>
+                <div className="flex flex-row items-center gap-x-4">
+                  <input
+                    type="checkbox"
+                    name={user.name}
+                    key={user.id}
+                    value={user.name}
+                    className="h-4 w-4"
+                  ></input>
+                  <label
+                    for={user.name}
+                    className="text-[color:var(--board-bg--color)] text-lg"
+                  >
+                    {user.name}
+                  </label>
+                </div>
               );
             })}
           </form>
