@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { closeIcon } from "../data/icons";
 
 const TeamSelectorModal = ({ hideModal }) => {
@@ -23,6 +23,29 @@ const TeamSelectorModal = ({ hideModal }) => {
    * Used to set the value to add or remove team-mates
    */
   const [teamModification, setTeamModification] = useState("addTeamMembers");
+
+  /**
+   * @Function: handleTeamSearch
+   * @Params: none
+   * @Returns: sets value of filtered search
+   * Used to set the value of search results
+   */
+  const handleTeamSearch = () => {
+    console.log(
+      // userList.filter((user) =>
+      //   user.name.toLowerCase().includes(searchValue.toLowerCase())
+      // )
+      searchValue
+    );
+  };
+
+  useEffect(() => {
+    setUserList(
+      userList.filter((user) =>
+        user.name.toLowerCase().includes(searchValue.toLowerCase())
+      )
+    );
+  }, [searchValue]);
 
   return (
     <div className="flex flex-col border-2 w-2/5 h-2/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] no-scrollbar">
@@ -71,7 +94,9 @@ const TeamSelectorModal = ({ hideModal }) => {
           <input
             placeholder="Search using email id"
             value={searchValue}
-            onChange={(event) => setSearchValue(event.target.value)}
+            onChange={(event) => {
+              setSearchValue(event.target.value);
+            }}
             className={`${
               teamModification == "addTeamMembers" ? "visible" : "hidden"
             } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
