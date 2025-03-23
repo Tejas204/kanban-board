@@ -17,6 +17,11 @@ const TeamSelectorModal = ({ hideModal }) => {
     { id: 2, name: "Omkar" },
     { id: 3, name: "Abhinav" },
   ]);
+  const [originalUserList, setOriginalUserList] = useState([
+    { id: 1, name: "Tejas" },
+    { id: 2, name: "Omkar" },
+    { id: 3, name: "Abhinav" },
+  ]);
 
   /**
    * @Hook: setTeamModification
@@ -25,26 +30,19 @@ const TeamSelectorModal = ({ hideModal }) => {
   const [teamModification, setTeamModification] = useState("addTeamMembers");
 
   /**
-   * @Function: handleTeamSearch
-   * @Params: none
-   * @Returns: sets value of filtered search
+   * @Hook: useEffect
    * Used to set the value of search results
    */
-  const handleTeamSearch = () => {
-    console.log(
-      // userList.filter((user) =>
-      //   user.name.toLowerCase().includes(searchValue.toLowerCase())
-      // )
-      searchValue
-    );
-  };
-
   useEffect(() => {
-    setUserList(
-      userList.filter((user) =>
-        user.name.toLowerCase().includes(searchValue.toLowerCase())
-      )
-    );
+    if (searchValue == "") {
+      setUserList(originalUserList);
+    } else {
+      setUserList(
+        userList.filter((user) =>
+          user.name.toLowerCase().includes(searchValue.toLowerCase())
+        )
+      );
+    }
   }, [searchValue]);
 
   return (
