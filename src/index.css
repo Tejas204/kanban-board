@@ -5,7 +5,20 @@
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
-    display: none;
+    /* display: none; */
+    background-color: white;
+    height: 4px;
+    width: 6px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: white;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 100vh;
   }
 
   input[type="date"]::-webkit-calendar-picker-indicator {

@@ -16,12 +16,25 @@ const TeamSelectorModal = ({ hideModal }) => {
     { id: 1, name: "Tejas" },
     { id: 2, name: "Omkar" },
     { id: 3, name: "Abhinav" },
+    { id: 4, name: "Abhinav" },
+    { id: 5, name: "Abhinav" },
+    { id: 6, name: "Abhinav" },
   ]);
   const [originalUserList, setOriginalUserList] = useState([
     { id: 1, name: "Tejas" },
     { id: 2, name: "Omkar" },
     { id: 3, name: "Abhinav" },
+    { id: 4, name: "Abhinav" },
+    { id: 5, name: "Abhinav" },
+    { id: 6, name: "Abhinav" },
   ]);
+
+  /**
+   * @Hook: setSearchResultVisibility
+   * Used to control visibility of search results
+   * Displays when clicked on the input
+   */
+  const [searchResultVisibility, setSearchResultVisibility] = useState(false);
 
   /**
    * @Hook: setTeamModification
@@ -95,16 +108,19 @@ const TeamSelectorModal = ({ hideModal }) => {
             onChange={(event) => {
               setSearchValue(event.target.value);
             }}
+            onClick={() => setSearchResultVisibility(!searchResultVisibility)}
             className={`${
               teamModification == "addTeamMembers" ? "visible" : "hidden"
             } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
           ></input>
           <div
             className={`${
-              teamModification === "addTeamMembers" ? "visible" : "hidden"
-            } absolute bg-gray-200  w-full px-4`}
+              teamModification === "addTeamMembers" && searchResultVisibility
+                ? "visible"
+                : "hidden"
+            } fixed bg-[color:var(--background-white)] border-[1px] border-gray-300 rounded-lg shadow-md w-[90%] h-[25%] overflow-y-auto no-scrollbar scrollbar scroll-smooth px-4 py-3`}
           >
-            <ul className="text-black">
+            <ul className="text-black w-[100%]">
               {userList.map((user) => {
                 return <li key={user.id}>{user.name}</li>;
               })}
