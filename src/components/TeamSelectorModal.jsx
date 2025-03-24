@@ -70,11 +70,18 @@ const TeamSelectorModal = ({ hideModal }) => {
    * @Returns: none
    * Sets the selected list of users using hooks
    */
-  const handleSelectedUsers = (event, user) => {
+  const handleSelectedUsers = (event, userId) => {
     event.preventDefault();
 
-    console.log(user);
+    setSelectedUsers((previousSelectedUsers) => {
+      const user = originalUserList.filter((u) => u.id == userId);
+      return [...previousSelectedUsers, user];
+    });
   };
+
+  useEffect(() => {
+    console.log(selectedUsers);
+  });
 
   return (
     <div className="flex flex-col border-2 w-2/5 h-2/5 scrollbar scrollbar overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] scrollbar">
@@ -116,9 +123,15 @@ const TeamSelectorModal = ({ hideModal }) => {
       <div className="flex flex-col gap-y-4">
         <p className="text-lg text-[color:var(--board-bg--color)]">
           {teamModification === "addTeamMembers"
-            ? "Let your team grow by adding new team members"
-            : "Remove team members"}
+            ? "Let your team grow by adding new team members."
+            : "Remove team members."}
         </p>
+        <div className="border-2">
+          {selectedUsers.map((selectedUser) => {
+            return <p className="text-black">{selectedUser.name}</p>;
+          })}
+        </div>
+
         <form>
           <input
             placeholder="Search using email id"
@@ -167,7 +180,7 @@ const TeamSelectorModal = ({ hideModal }) => {
                     name={user.name}
                     key={user.id}
                     value={user.name}
-                    className="h-4 w-4"
+                    className="h-4 w-4 accent-[color:var(--user-icon--bg-color--lavender)]"
                   ></input>
                   <label
                     for={user.name}
