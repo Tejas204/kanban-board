@@ -335,6 +335,7 @@ const Board = () => {
     <div className={`flex flex-row h-screen overflow-x-clip`}>
       {/* Filters Div */}
       <FilterPill></FilterPill>
+
       {/* Columns */}
       <div
         className={`${

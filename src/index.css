@@ -5,7 +5,10 @@
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
-    /* display: none; */
+    display: none;
+  }
+
+  .scrollbar::-webkit-scrollbar {
     background-color: white;
     height: 4px;
     width: 6px;

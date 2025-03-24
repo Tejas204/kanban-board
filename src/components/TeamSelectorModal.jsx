@@ -43,6 +43,12 @@ const TeamSelectorModal = ({ hideModal }) => {
   const [teamModification, setTeamModification] = useState("addTeamMembers");
 
   /**
+   * @Hook: setSelectedUsers
+   * Used to set which users have been selected
+   */
+  const [selectedUsers, setSelectedUsers] = useState([]);
+
+  /**
    * @Hook: useEffect
    * Used to set the value of search results
    */
@@ -58,8 +64,20 @@ const TeamSelectorModal = ({ hideModal }) => {
     }
   }, [searchValue]);
 
+  /**
+   * @Function: handleSelectedUsers
+   * @Params: event <Obj>; user <Obj>
+   * @Returns: none
+   * Sets the selected list of users using hooks
+   */
+  const handleSelectedUsers = (event, user) => {
+    event.preventDefault();
+
+    console.log(user);
+  };
+
   return (
-    <div className="flex flex-col border-2 w-2/5 h-2/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] no-scrollbar">
+    <div className="flex flex-col border-2 w-2/5 h-2/5 scrollbar scrollbar overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] scrollbar">
       {/* Title */}
       <div className="flex flex-row justify-between">
         <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
@@ -118,17 +136,25 @@ const TeamSelectorModal = ({ hideModal }) => {
               teamModification === "addTeamMembers" && searchResultVisibility
                 ? "visible"
                 : "hidden"
-            } fixed bg-[color:var(--background-white)] border-[1px] border-gray-300 rounded-lg shadow-md w-[90%] h-[25%] overflow-y-auto no-scrollbar scrollbar scroll-smooth px-4 py-3`}
+            } fixed bg-[color:var(--background-white)] border-[1px] border-gray-300 rounded-lg shadow-md w-[90%] h-[25%] overflow-y-auto scrollbar scroll-smooth px-4 py-3`}
           >
             <ul className="text-black w-[100%]">
               {userList.map((user) => {
-                return <li key={user.id}>{user.name}</li>;
+                return (
+                  <li key={user.id}>
+                    <button
+                      onClick={(event) => handleSelectedUsers(event, user.id)}
+                    >
+                      {user.name}
+                    </button>
+                  </li>
+                );
               })}
             </ul>
           </div>
 
           {/* Team removal */}
-          <form
+          <div
             className={`${
               teamModification == "removeTeamMembers" ? "visible" : "hidden"
             } flex flex-col gap-y-3 items-start`}
@@ -152,7 +178,7 @@ const TeamSelectorModal = ({ hideModal }) => {
                 </div>
               );
             })}
-          </form>
+          </div>
         </form>
       </div>
 
