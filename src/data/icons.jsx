@@ -84,7 +84,7 @@ export const closeIcon = (
     viewBox="0 0 24 24"
     stroke-width="3"
     stroke="black"
-    className="size-8"
+    className="size-6"
   >
     <path
       stroke-linecap="round"

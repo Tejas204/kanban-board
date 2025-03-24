@@ -84,7 +84,7 @@ const TeamSelectorModal = ({ hideModal }) => {
   });
 
   return (
-    <div className="flex flex-col border-2 w-2/5 h-2/5 scrollbar scrollbar overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] scrollbar">
+    <div className="flex flex-col border-2 w-2/5 h-1/2 scrollbar scrollbar overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] scrollbar">
       {/* Title */}
       <div className="flex flex-row justify-between">
         <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
@@ -126,10 +126,28 @@ const TeamSelectorModal = ({ hideModal }) => {
             ? "Let your team grow by adding new team members."
             : "Remove team members."}
         </p>
-        <div className="border-2">
-          {selectedUsers.map((selectedUser) => {
+        <div
+          className={`grid grid-cols-4 gap-x-1 gap-y-2 ${
+            teamModification === "addTeamMembers" ? "visible" : "hidden"
+          }`}
+        >
+          {/* {selectedUsers.map((selectedUser) => {
             return <p className="text-black">{selectedUser.name}</p>;
-          })}
+          })} */}
+          <div className="flex flex-row gap-x-2 items-center px-2 py-1 rounded-full bg-gray-200 w-fit text-black">
+            <p className="text-md">Tejas Dhopavkar</p>
+            <p>{closeIcon}</p>
+          </div>
+
+          <div className="flex flex-row gap-x-2 items-center px-2 py-1 rounded-full bg-gray-200 w-fit text-black">
+            <p className="text-md">Tejas Dhopavkar</p>
+            <p>{closeIcon}</p>
+          </div>
+
+          <div className="flex flex-row gap-x-2 items-center px-2 py-1 rounded-full bg-gray-200 w-fit text-black">
+            <p className="text-md">Tejas Dhopavkar</p>
+            <p>{closeIcon}</p>
+          </div>
         </div>
 
         <form>
