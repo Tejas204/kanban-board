@@ -19,6 +19,12 @@ const TeamSelectorModal = ({ hideModal }) => {
     { id: 4, name: "Abhinav" },
     { id: 5, name: "Abhinav" },
     { id: 6, name: "Abhinav" },
+    { id: 7, name: "Tejas" },
+    { id: 8, name: "Omkar" },
+    { id: 9, name: "Abhinav" },
+    { id: 10, name: "Abhinav" },
+    { id: 11, name: "Abhinav" },
+    { id: 12, name: "Abhinav" },
   ]);
   const [originalUserList, setOriginalUserList] = useState([
     { id: 1, name: "Tejas" },
@@ -27,6 +33,12 @@ const TeamSelectorModal = ({ hideModal }) => {
     { id: 4, name: "Abhinav" },
     { id: 5, name: "Abhinav" },
     { id: 6, name: "Abhinav" },
+    { id: 7, name: "Tejas" },
+    { id: 8, name: "Omkar" },
+    { id: 9, name: "Abhinav" },
+    { id: 10, name: "Abhinav" },
+    { id: 11, name: "Abhinav" },
+    { id: 12, name: "Abhinav" },
   ]);
 
   /**
@@ -84,7 +96,7 @@ const TeamSelectorModal = ({ hideModal }) => {
   });
 
   return (
-    <div className="flex flex-col border-2 w-2/5 h-1/2 scrollbar scrollbar overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] scrollbar">
+    <div className="flex flex-col border-2 w-2/5 h-1/2 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] scrollbar">
       {/* Title */}
       <div className="flex flex-row justify-between">
         <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
@@ -136,7 +148,13 @@ const TeamSelectorModal = ({ hideModal }) => {
           })} */}
           <div className="flex flex-row gap-x-2 items-center px-2 py-1 rounded-full bg-gray-200 w-fit text-black">
             <p className="text-md">Tejas Dhopavkar</p>
-            <p>{closeIcon}</p>
+            <button
+              onClick={() => {
+                alert("I can be removed");
+              }}
+            >
+              {closeIcon}
+            </button>
           </div>
 
           <div className="flex flex-row gap-x-2 items-center px-2 py-1 rounded-full bg-gray-200 w-fit text-black">
@@ -167,7 +185,7 @@ const TeamSelectorModal = ({ hideModal }) => {
               teamModification === "addTeamMembers" && searchResultVisibility
                 ? "visible"
                 : "hidden"
-            } fixed bg-[color:var(--background-white)] border-[1px] border-gray-300 rounded-lg shadow-md w-[90%] h-[25%] overflow-y-auto scrollbar scroll-smooth px-4 py-3`}
+            } fixed bg-[color:var(--background-white)] border-[1px] border-gray-300 rounded-lg shadow-md w-[90%] h-[25%] overflow-y-auto scrollbar scroll-smooth px-4 py-2`}
           >
             <ul className="text-black w-[100%]">
               {userList.map((user) => {
@@ -188,7 +206,7 @@ const TeamSelectorModal = ({ hideModal }) => {
           <div
             className={`${
               teamModification == "removeTeamMembers" ? "visible" : "hidden"
-            } flex flex-col gap-y-3 items-start`}
+            } flex flex-col gap-y-1 items-start`}
           >
             {userList.map((user) => {
               return (
