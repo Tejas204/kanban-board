@@ -1,22 +1,11 @@
 import React, { useContext } from "react";
 import { Context } from "../main";
 import Loader from "../components/Loader";
+import { getInitials } from "../utils/utilities";
 
 const Profile = () => {
   const { isAuthenticated, user, isLoading } = useContext(Context);
-
-  /**
-   * @Function: getInitials
-   * @Params: user obj from global context <Obj>
-   * @Returns: user initials <Str>
-   * Returns the string of user initials from their full name
-   */
-  const getInitials = (name) => {
-    const nameArray = String(name).split(" ");
-    return (
-      nameArray[0].slice(0, 1) + nameArray[nameArray.length - 1].slice(0, 1)
-    );
-  };
+  console.log(user);
 
   return isLoading ? (
     <Loader />
@@ -28,7 +17,7 @@ const Profile = () => {
         </div>
         <div className="flex justify-center items-center text-center ">
           <div className="flex justify-center items-center p-10 rounded-full w-24 h-24 font-bold text-center text-3xl bg-[color:var(--user-icon--bg-color--lavender)]">
-            {getInitials(user.name)}
+            {getInitials(user._id).initials}
           </div>
         </div>
         <div className="grid grid-cols-2 gap-x-1 gap-y-5 px-3">

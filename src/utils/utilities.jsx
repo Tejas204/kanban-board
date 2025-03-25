@@ -8,6 +8,7 @@ import { Context } from "../main";
  */
 export const getInitials = (assignee) => {
   const { allUsers } = useContext(Context);
+  console.log(assignee);
   const userObj = allUsers.filter((user) => user._id == assignee);
   const nameArray = userObj[0].name.split(" ");
 
