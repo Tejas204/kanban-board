@@ -69,7 +69,7 @@ const TeamSelectorModal = ({ hideModal }) => {
       setUserList(originalUserList);
     } else {
       setUserList(
-        userList.filter((user) =>
+        originalUserList.filter((user) =>
           user.name.toLowerCase().includes(searchValue.toLowerCase())
         )
       );
@@ -86,14 +86,10 @@ const TeamSelectorModal = ({ hideModal }) => {
     event.preventDefault();
 
     setSelectedUsers((previousSelectedUsers) => {
-      const user = originalUserList.filter((u) => u.id == userId);
+      const user = userList.filter((u) => u.id == userId);
       return [...previousSelectedUsers, user];
     });
   };
-
-  useEffect(() => {
-    console.log(selectedUsers);
-  });
 
   return (
     <div className="flex flex-col border-2 w-2/5 h-1/2 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] scrollbar">
@@ -168,12 +164,14 @@ const TeamSelectorModal = ({ hideModal }) => {
           </div>
         </div>
 
+        {/* Search functionality */}
         <form>
           <input
             placeholder="Search using email id"
             value={searchValue}
             onChange={(event) => {
               setSearchValue(event.target.value);
+              console.log(event.target.value);
             }}
             onClick={() => setSearchResultVisibility(!searchResultVisibility)}
             className={`${
