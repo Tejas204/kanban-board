@@ -139,9 +139,6 @@ const TeamSelectorModal = ({ hideModal }) => {
             teamModification === "addTeamMembers" ? "visible" : "hidden"
           }`}
         >
-          {/* {selectedUsers.map((selectedUser) => {
-            return <p className="text-black">{selectedUser.name}</p>;
-          })} */}
           <div className="flex flex-row gap-x-2 items-center px-2 py-1 rounded-full bg-gray-200 w-fit text-black">
             <p className="text-md">Tejas Dhopavkar</p>
             <button
@@ -206,7 +203,7 @@ const TeamSelectorModal = ({ hideModal }) => {
               teamModification == "removeTeamMembers" ? "visible" : "hidden"
             } flex flex-col gap-y-1 items-start`}
           >
-            {userList.map((user) => {
+            {originalUserList.map((user) => {
               return (
                 <div className="flex flex-row items-center gap-x-4">
                   <input
