@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../main";
 import Loader from "../components/Loader";
 import { getInitials } from "../utils/utilities";
+import { emailIcon } from "../data/icons";
 
 const Profile = () => {
   const { isAuthenticated, user, isLoading } = useContext(Context);
@@ -54,17 +55,29 @@ const Profile = () => {
 
       {/* Grid for contacts and business information */}
       <div className="flex flex-row gap-x-5 w-[70%]">
-        <div className="w-[100%] rounded-lg shadow-lg bg-[color:var(--card-bg--color)]">
-          <p>Your team members</p>
-          <ul>
-            <li>Tejas Dhopavkar</li>
-            <li>Abhinav Sharma</li>
-            <li>Advait Naik</li>
-            <li>Omkar Mane</li>
+        <div className="w-[100%] p-10 rounded-lg shadow-lg bg-[color:var(--card-bg--color)]">
+          <p className="text-3xl font-bold">Your team members</p>
+          <ul className="mt-4 text-xl space-y-6">
+            <div className="flex flex-row gap-x-6">
+              <div>{emailIcon}</div>
+              <p>Tejas Dhopavkar</p>
+            </div>
+            <div className="flex flex-row gap-x-6">
+              <div>{emailIcon}</div>
+              <p>Tejas Dhopavkar</p>
+            </div>
+            <div className="flex flex-row gap-x-6">
+              <div>{emailIcon}</div>
+              <p>Tejas Dhopavkar</p>
+            </div>
+            <div className="flex flex-row gap-x-6">
+              <div>{emailIcon}</div>
+              <p>Tejas Dhopavkar</p>
+            </div>
           </ul>
         </div>
 
-        <div className="w-[100%] rounded-lg shadow-lg bg-[color:var(--card-bg--color)]">
+        <div className="w-[100%] p-10 rounded-lg shadow-lg bg-[color:var(--card-bg--color)]">
           <p>Your team members</p>
           <ul>
             <li>Tejas Dhopavkar</li>
