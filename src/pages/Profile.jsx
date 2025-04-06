@@ -41,17 +41,39 @@ const Profile = () => {
       <div className="flex flex-row gap-x-28 p-10 mt-10 items-center bg-[color:var(--card-bg--color)] w-[70%] rounded-lg shadow-xl">
         {/* profile image */}
         <div className="rounded-full bg-[color:var(--user-icon--bg-color--lavender)] p-14">
-          <p className="text-xl font-bold">TD</p>
+          <p className="text-4xl font-bold">TD</p>
         </div>
 
         {/* Profile information */}
-        <div className="flex flex-col gap-y-6 text-xl">
-          <div>Name:</div>
-          <div>Email:</div>
-          <div>Created at:</div>
+        <div className="flex flex-col gap-y-4 text-xl">
+          <div className="text-3xl font-bold">Tejas Dhopavkar</div>
+          <div>Email: tdhopavkar@test.com</div>
+          <div>Created at: 21/07/2025</div>
         </div>
       </div>
-      <div></div>
+
+      {/* Grid for contacts and business information */}
+      <div className="flex flex-row gap-x-5 w-[70%]">
+        <div className="w-[100%] rounded-lg shadow-lg bg-[color:var(--card-bg--color)]">
+          <p>Your team members</p>
+          <ul>
+            <li>Tejas Dhopavkar</li>
+            <li>Abhinav Sharma</li>
+            <li>Advait Naik</li>
+            <li>Omkar Mane</li>
+          </ul>
+        </div>
+
+        <div className="w-[100%] rounded-lg shadow-lg bg-[color:var(--card-bg--color)]">
+          <p>Your team members</p>
+          <ul>
+            <li>Tejas Dhopavkar</li>
+            <li>Abhinav Sharma</li>
+            <li>Advait Naik</li>
+            <li>Omkar Mane</li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
