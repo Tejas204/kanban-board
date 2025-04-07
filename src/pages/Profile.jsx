@@ -78,12 +78,20 @@ const Profile = () => {
         </div>
 
         <div className="w-[100%] p-10 rounded-lg shadow-lg bg-[color:var(--card-bg--color)]">
-          <p>Your team members</p>
-          <ul>
-            <li>Tejas Dhopavkar</li>
-            <li>Abhinav Sharma</li>
-            <li>Advait Naik</li>
-            <li>Omkar Mane</li>
+          <p className="text-3xl font-bold">About</p>
+          <ul className="mt-4 text-xl space-y-6">
+            <div className="flex flex-col gap-x-6">
+              <div className="text-md">Email</div>
+              <p className="font-semibold">tdhopavkar@test.com</p>
+            </div>
+            <div className="flex flex-col gap-x-6">
+              <div className="text-md">Business Phone</div>
+              <p className="font-semibold">+91 1234567890</p>
+            </div>
+            <div className="flex flex-col gap-x-6">
+              <div className="text-md">Personal Phone</div>
+              <p className="font-semibold">+91 9876543210</p>
+            </div>
           </ul>
         </div>
       </div>
