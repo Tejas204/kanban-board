@@ -104,22 +104,25 @@ const TeamSelectorModal = ({ hideModal }) => {
       {/* Tabs */}
       <div className="flex flex-col">
         <div className="flex flex-row gap-x-10 text-xl text-[color:var(--board-bg--color)] border-b-2">
+          {/* Tab 1: Add new team members */}
           <button
             onClick={() => setTeamModification("addTeamMembers")}
             className={`${
               teamModification === "addTeamMembers"
                 ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
-                : ""
+                : "text-gray-500"
             } pb-4`}
           >
             Add team members
           </button>
+
+          {/* Tab 2: Delete team members */}
           <button
             onClick={() => setTeamModification("removeTeamMembers")}
             className={`${
               teamModification === "removeTeamMembers"
                 ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
-                : ""
+                : "text-gray-500"
             } pb-4`}
           >
             Remove team members
