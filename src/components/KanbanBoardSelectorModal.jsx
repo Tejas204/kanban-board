@@ -28,7 +28,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
       {/* Title */}
       <div className="flex flex-row justify-between">
         <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
-          Select a kanban board
+          Manage your kanban boards
         </p>
         <button onClick={hideModal}>{closeIcon}</button>
       </div>
@@ -73,6 +73,8 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
         <p className="text-lg text-[color:var(--board-bg--color)]">
           {boardSelection === "created"
             ? "Choose a board created by you"
+            : boardSelection === "new"
+            ? "Create a new kanban board"
             : "Choose a board shared with you"}
         </p>
         <form>
