@@ -187,7 +187,7 @@ const Columns = ({
           disabled={updateState}
           value={updatedStateTitle}
           onChange={(event) => setUpdatedStateTitle(event.target.value)}
-          className={`text-xl text-[color:var(--primary-text--color)] bg-transparent font-semibold uppercase pl-2 pr-14 py-2 ${
+          className={`text-xl text-[color:var(--primary-text--color)] bg-transparent font-semibold pl-2 pr-14 py-2 ${
             !updateState ? "border-2 border-white" : ""
           }`}
         ></input>

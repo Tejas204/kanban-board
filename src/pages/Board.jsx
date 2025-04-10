@@ -348,6 +348,12 @@ const Board = () => {
             : "blur-none"
         }`}
       >
+        {/* Board title */}
+        <div className="px-10 py-4 text-2xl font-semibold w-[100%] border-b-[1px] border-b-gray-700">
+          My personal board
+        </div>
+
+        {/* DnD area starts */}
         <DndContext
           onDragOver={handleDragOver}
           onDragEnd={handleDragEnd}
@@ -355,7 +361,8 @@ const Board = () => {
           collisionDetection={closestCorners}
           sensors={sensors}
         >
-          <div className="flex flex-row mt-0 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar relative">
+          {/* Establish sortable context - columns */}
+          <div className="flex flex-row mt-2 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar relative">
             <SortableContext
               items={cards}
               strategy={horizontalListSortingStrategy}
@@ -377,6 +384,7 @@ const Board = () => {
             </SortableContext>
           </div>
 
+          {/* Drag overlay to see which element is being dragged and where */}
           <DragOverlay
             dropAnimation={{
               duration: 500,
@@ -412,7 +420,8 @@ const Board = () => {
           </DragOverlay>
         </DndContext>
       </div>
-      {/* Card Modal **/}
+
+      {/* State/Card Modal **/}
       <NewStateCardModal
         showModal={showModal}
         addState={addState}
@@ -421,10 +430,11 @@ const Board = () => {
         deleteState={deleteState}
         pillOption={pillOption}
       ></NewStateCardModal>
+
       {/* Add state button */}
       <button
         onClick={handleAddState}
-        className="absolute bottom-0 right-10 px-6 py-4 rounded-lg text-[color:var(--primary-text--color)] bg-[color:var(--user-icon--bg-color--blue)] font-semibold hover:ring-2 ring-offset-4 ring-offset-[color:var(--filter-bg--color)] ring-[color:var(--user-icon--bg-color--blue)] transition ease-in-out duration-150"
+        className="fixed bottom-4 right-10 px-6 py-4 rounded-lg text-[color:var(--primary-text--color)] bg-[color:var(--user-icon--bg-color--blue)] font-semibold hover:ring-2 ring-offset-4 ring-offset-[color:var(--filter-bg--color)] ring-[color:var(--user-icon--bg-color--blue)] transition ease-in-out duration-150"
       >
         Add State
       </button>
