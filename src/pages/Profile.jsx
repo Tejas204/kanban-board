@@ -41,8 +41,18 @@ const Profile = () => {
     <div className="flex flex-col gap-y-4 items-center">
       <div className="flex flex-row gap-x-28 p-10 mt-10 items-center bg-[color:var(--card-bg--color)] w-[70%] rounded-lg shadow-xl">
         {/* profile image */}
-        <div className="rounded-full bg-[color:var(--user-icon--bg-color--lavender)] p-14">
-          <p className="text-4xl font-bold">TD</p>
+        <div className="flex flex-col items-center justify-center gap-y-5">
+          <div className="rounded-full bg-[color:var(--user-icon--bg-color--lavender)] p-14">
+            <p className="text-4xl font-bold">TD</p>
+          </div>
+
+          <button
+            type="button"
+            className="px-8 py-3 border-2 rounded-lg text-lg"
+            onClick={() => alert("updating my photo")}
+          >
+            Update photo
+          </button>
         </div>
 
         {/* Profile information */}
