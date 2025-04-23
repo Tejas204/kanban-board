@@ -48,7 +48,7 @@ const Profile = () => {
 
           <button
             type="button"
-            className="px-8 py-3 border-2 rounded-lg text-lg"
+            className="px-5 py-3 bg-[color:var(--user-icon--bg-color--blue)] font-semibold rounded-lg text-lg shadow-lg"
             onClick={() => alert("updating my photo")}
           >
             Update photo
@@ -58,8 +58,14 @@ const Profile = () => {
         {/* Profile information */}
         <div className="flex flex-col gap-y-4 text-xl">
           <div className="text-3xl font-bold">Tejas Dhopavkar</div>
-          <div>Email: tdhopavkar@test.com</div>
-          <div>Created at: 21/07/2025</div>
+          <div className="flex flex-col gap-x-6">
+            <div className="text-md">Email</div>
+            <p className="font-semibold">tdhopavkar@test.com</p>
+          </div>
+          <div className="flex flex-col gap-x-6">
+            <div className="text-md">Created on</div>
+            <p className="font-semibold">tdhopavkar@test.com</p>
+          </div>
         </div>
       </div>
 
