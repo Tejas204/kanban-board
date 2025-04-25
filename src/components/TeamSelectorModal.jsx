@@ -51,10 +51,6 @@ const TeamSelectorModal = ({ hideModal }) => {
    */
   const [testHook, setTestHook] = useState([]);
 
-  // useEffect(() => {
-  //   console.log(testHook);
-  // }, [testHook]);
-
   /**
    * @Hook: useEffect
    * Used to set the value of search results
@@ -98,8 +94,6 @@ const TeamSelectorModal = ({ hideModal }) => {
     const checkedUsers = Array.from(event.target.removalUsers).map(
       (checkedUser) => [checkedUser.id, checkedUser.checked]
     );
-
-    console.log(checkedUsers);
   };
 
   return (
