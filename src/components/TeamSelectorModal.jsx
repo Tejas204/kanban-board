@@ -95,7 +95,11 @@ const TeamSelectorModal = ({ hideModal }) => {
   const handleUserRemoval = (event) => {
     event.preventDefault();
 
-    console.log(testHook);
+    const checkedUsers = Array.from(event.target.removalUsers).map(
+      (checkedUser) => [checkedUser.id, checkedUser.checked]
+    );
+
+    console.log(checkedUsers);
   };
 
   return (
@@ -230,19 +234,16 @@ const TeamSelectorModal = ({ hideModal }) => {
         <div className={`flex flex-col gap-y-1 items-start`}>
           {originalUserList.map((user) => {
             return (
-              <div className="flex flex-row items-center gap-x-4">
+              <div key={user.id} className="flex flex-row items-center gap-x-4">
                 <input
                   type="checkbox"
-                  name={user.name}
-                  key={user.id}
+                  name="removalUsers"
+                  id={user.id}
                   value={user.name}
                   className="h-4 w-4 accent-[color:var(--user-icon--bg-color--lavender)]"
-                  onChange={(event) => setTestHook(event.target.value)}
+                  // onChange={(event) => setTestHook(event.target.value)}
                 ></input>
-                <label
-                  for={user.name}
-                  className="text-[color:var(--board-bg--color)] text-lg"
-                >
+                <label className="text-[color:var(--board-bg--color)] text-lg">
                   {user.name}
                 </label>
               </div>
