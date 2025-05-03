@@ -349,7 +349,7 @@ const Board = () => {
         }`}
       >
         {/* Board title */}
-        <div className="px-10 py-4 text-2xl font-semibold w-[100%] border-b-[1px] border-b-gray-700">
+        <div className="px-10 py-4 text-2xl text-[color:var(--primary-text--color)] font-semibold w-[100%] border-b-[1px] border-b-gray-700">
           Personal board
         </div>
 
