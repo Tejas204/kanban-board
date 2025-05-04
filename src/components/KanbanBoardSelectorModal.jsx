@@ -17,10 +17,21 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
    *  1. Create a new board
    *  2. Select a board and render it
    *  3. Open a board shared by me
+   *  4. Delete a kanban board
    */
   const handleKabanBoardActions = (event) => {
     event.preventDefault();
     alert("I have pressed: " + boardSelection);
+  };
+
+  const handleBoardDeletion = (event) => {
+    event.preventDefault();
+    console.log(event.target.removalBoards);
+
+    const deleteBoards = Array.from(event.target.removalBoards).map(
+      (checkedBoards) => [checkedBoards.id, checkedBoards.checked]
+    );
+    console.log(deleteBoards);
   };
 
   return (
@@ -159,15 +170,13 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
         <p className="text-lg text-[color:var(--board-bg--color)]">
           Delete boards
         </p>
-        <form>
-          <div
-            className={`${
-              boardSelection === "delete" ? "visible" : "hidden"
-            } flex flex-row items-center gap-x-4`}
-          >
+        <form onSubmit={(event) => handleBoardDeletion(event)}>
+          <div className={`flex flex-row items-center gap-x-4`}>
             <input
               type="checkbox"
-              name="board1"
+              name="removalBoards"
+              value="board1"
+              id="board1"
               className="h-4 w-4 accent-[color:var(--user-icon--bg-color--lavender)]"
             ></input>
             <label
@@ -176,6 +185,39 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             >
               Board 1
             </label>
+          </div>
+          <div className={`flex flex-row items-center gap-x-4`}>
+            <input
+              type="checkbox"
+              name="removalBoards"
+              value="board2"
+              id="board2"
+              className="h-4 w-4 accent-[color:var(--user-icon--bg-color--lavender)]"
+            ></input>
+            <label
+              for="board2"
+              className="text-[color:var(--board-bg--color)] text-lg"
+            >
+              Board 2
+            </label>
+          </div>
+          <div className={`flex flex-row justify-start gap-x-10 mt-10 `}>
+            <button
+              type="button"
+              onClick={hideModal}
+              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 
+            border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--board-bg--color)] 
+            ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className={`p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
+              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>
