@@ -87,15 +87,13 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
       </div>
 
       {/* Functionality */}
-      <div className="flex flex-col gap-y-4">
+      <div
+        className={`flex flex-col gap-y-4 ${
+          boardSelection == "new" ? "visible" : "hidden"
+        }`}
+      >
         <p className="text-lg text-[color:var(--board-bg--color)]">
-          {boardSelection === "created"
-            ? "Choose a board created by you"
-            : boardSelection === "new"
-            ? "Create a new kanban board"
-            : boardSelection === "shared"
-            ? "Choose a board shared with you"
-            : "Delete boards"}
+          Create a new kanban board
         </p>
         <form>
           {/* Functionality 1: Enter name of new kanban board */}
@@ -105,8 +103,19 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
             placeholder="Enter the name of the board"
           ></input>
+        </form>
+      </div>
 
-          {/* Functionality 2: Select from existing boards created by logged in user */}
+      {/* Functionality 2: Select from existing boards created by logged in user */}
+      <div
+        className={`flex flex-col gap-y-4 ${
+          boardSelection == "created" ? "visible" : "hidden"
+        }`}
+      >
+        <p className="text-lg text-[color:var(--board-bg--color)]">
+          Choose a board created by you
+        </p>
+        <form>
           <select
             className={`${
               boardSelection == "created" ? "visible" : "hidden"
@@ -116,8 +125,19 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             <option>Board 2</option>
             <option>Board 3</option>
           </select>
+        </form>
+      </div>
 
-          {/* Functionality 3: Select from kanban boards shared with logged in user */}
+      {/* Functionality 3: Select from kanban boards shared with logged in user */}
+      <div
+        className={`flex flex-col gap-y-4 ${
+          boardSelection == "shared" ? "visible" : "hidden"
+        }`}
+      >
+        <p className="text-lg text-[color:var(--board-bg--color)]">
+          Choose a board shared with you
+        </p>
+        <form>
           <select
             className={`${
               boardSelection == "shared" ? "visible" : "hidden"
@@ -127,8 +147,19 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             <option>Board 5</option>
             <option>Board 6</option>
           </select>
+        </form>
+      </div>
 
-          {/* Functionality 4: Delete the kanban boards created by logged in user */}
+      {/* Functionality 4: Delete the kanban boards created by logged in user */}
+      <div
+        className={`flex flex-col gap-y-4 ${
+          boardSelection == "delete" ? "visible" : "hidden"
+        }`}
+      >
+        <p className="text-lg text-[color:var(--board-bg--color)]">
+          Delete boards
+        </p>
+        <form>
           <div
             className={`${
               boardSelection === "delete" ? "visible" : "hidden"
