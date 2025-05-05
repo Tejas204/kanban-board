@@ -24,6 +24,7 @@ import toast from "react-hot-toast";
 import Card from "../components/Card";
 import Loader from "../components/Loader";
 import FilterPill from "../components/FilterPill";
+import { confirmIcon, tickmark, updateIcon } from "../data/icons";
 
 const Board = () => {
   const {
@@ -85,6 +86,16 @@ const Board = () => {
   const [activeCard, setActiveCard] = useState(null);
   const [activeState, setActiveState] = useState(null);
 
+  /**
+   * @Hook: setUpdateBoardName
+   * Used to set the confirm icon when updating the board name
+   */
+  const [updateBoardName, setUpdateBoardName] = useState(false);
+
+  const [newBoardName, setNewBoardName] = useState("Personal board");
+
+  const [disableBoardName, setDisableBoardName] = useState(true);
+
   /*
    * @Function: hideModal
    * @Params: none
@@ -144,6 +155,20 @@ const Board = () => {
     } catch (error) {
       toast.error(error.response.data.message);
     }
+  };
+
+  /**
+   * @Function: handleBoardNameUpdate
+   * @Params: event
+   * @Returns: none
+   * Used to call the API to update the name of the board
+   * And flip the state of the hook
+   */
+  const handleBoardNameUpdate = (event) => {
+    event.preventDefault();
+
+    setUpdateBoardName(!updateBoardName);
+    setDisableBoardName(!disableBoardName);
   };
 
   /**
@@ -350,7 +375,20 @@ const Board = () => {
       >
         {/* Board title */}
         <div className="px-10 py-4 text-2xl text-[color:var(--primary-text--color)] font-semibold w-[100%] border-b-[1px] border-b-gray-700">
-          Personal board
+          <form className="flex flex-row items-center gap-x-2">
+            <input
+              type="text"
+              value={`Personal Board`}
+              disabled={disableBoardName}
+              className="bg-[color:var(--board-bg--color)] text-[color:var(--primary-text--color)] border-none p-1 rounded-lg ring-0"
+            ></input>
+            <button
+              type="button"
+              onClick={(event) => handleBoardNameUpdate(event)}
+            >
+              {updateBoardName ? confirmIcon : updateIcon}
+            </button>
+          </form>
         </div>
 
         {/* DnD area starts */}

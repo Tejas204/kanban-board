@@ -102,12 +102,10 @@ const Columns = ({
    * Used to determine if column can be dragged or not
    */
   const handleStateDrag = () => {
-    console.log("Dragging started");
     setColumnDrag(true);
   };
 
   const handleDragEnd = (e) => {
-    console.log("Dragging ended");
     setColumnDrag(false);
   };
 
