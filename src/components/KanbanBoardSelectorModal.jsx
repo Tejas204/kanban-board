@@ -114,6 +114,24 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
             placeholder="Enter the name of the board"
           ></input>
+          <div className={`flex flex-row justify-start gap-x-10 mt-10 `}>
+            <button
+              type="button"
+              onClick={hideModal}
+              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 
+            border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--board-bg--color)] 
+            ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className={`p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
+              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </div>
 
@@ -136,6 +154,24 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             <option>Board 2</option>
             <option>Board 3</option>
           </select>
+          <div className={`flex flex-row justify-start gap-x-10 mt-10 `}>
+            <button
+              type="button"
+              onClick={hideModal}
+              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 
+            border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--board-bg--color)] 
+            ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className={`p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
+              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </div>
 
@@ -158,6 +194,24 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             <option>Board 5</option>
             <option>Board 6</option>
           </select>
+          <div className={`flex flex-row justify-start gap-x-10 mt-10 `}>
+            <button
+              type="button"
+              onClick={hideModal}
+              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 
+            border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--board-bg--color)] 
+            ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className={`p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
+              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </div>
 
@@ -213,30 +267,8 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             </button>
             <button
               type="submit"
-              className={`p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
+              className={`p-4 w-1/4 bg-[color:var(--card-priority--color-high)] ring-[color:var(--card-priority--color-high)] 
               text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-
-      {/* Buttons */}
-      <div className="flex flex-col">
-        <form className="flex flex-col justify-center gap-y-10">
-          <div className={`flex flex-row justify-start gap-x-10 `}>
-            <button
-              type="button"
-              onClick={hideModal}
-              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--board-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
-            >
-              Cancel
-            </button>
-            <button
-              onClick={(event) => handleKabanBoardActions(event)}
-              type="submit"
-              className={`p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 ring-[color:var(--user-icon--bg-color--lavender)] text-xl font-bold rounded-md transition delay-150 ease-in-out`}
             >
               Submit
             </button>
