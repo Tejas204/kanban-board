@@ -92,8 +92,16 @@ const Board = () => {
    */
   const [updateBoardName, setUpdateBoardName] = useState(false);
 
+  /**
+   * @Hook: setNewBoardName
+   * Used to send the updated value of the kanban board
+   */
   const [newBoardName, setNewBoardName] = useState("Personal board");
 
+  /**
+   * @Hook: setDisableBoardName
+   * Used to disable or enable the input field
+   */
   const [disableBoardName, setDisableBoardName] = useState(true);
 
   /*
@@ -378,8 +386,9 @@ const Board = () => {
           <form className="flex flex-row items-center gap-x-2">
             <input
               type="text"
-              value={`Personal Board`}
+              value={newBoardName}
               disabled={disableBoardName}
+              onChange={(event) => setNewBoardName(event.target.value)}
               className="bg-[color:var(--board-bg--color)] text-[color:var(--primary-text--color)] border-none p-1 rounded-lg ring-0"
             ></input>
             <button
