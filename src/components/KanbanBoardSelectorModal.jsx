@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../main";
+import { Context, server } from "../main";
 import { closeIcon } from "../data/icons";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const KanbanBoardSelectorModal = ({ hideModal }) => {
   /**
@@ -10,18 +12,39 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
   const [boardSelection, setBoardSelection] = useState("new");
 
   /**
-   * @Function: handleKabanBoardActions
+   * @Hook: setNewBoardName
+   * Used to set the name of the new kanban board
+   */
+  const [newBoardName, setNewBoardName] = useState("");
+
+  /**
+   * @Function: handleNewBoardCreation
    * @Params: event
    * @Returns: none
-   * Used to handle the kanban board actions:
-   *  1. Create a new board
-   *  2. Select a board and render it
-   *  3. Open a board shared by me
-   *  4. Delete a kanban board
+   * Used to handle the creation of a new kanban board
    */
-  const handleKabanBoardActions = (event) => {
+  const handleNewBoardCreation = async (event) => {
     event.preventDefault();
-    alert("I have pressed: " + boardSelection);
+
+    try {
+      const { data } = await axios.post(
+        `${server}/boards/newKanbanBoard`,
+        {
+          name: newBoardName,
+        },
+        {
+          headers: {
+            "Content-type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+
+      setNewBoardName("");
+      toast.success(data.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
   };
 
   const handleBoardDeletion = (event) => {
@@ -106,13 +129,14 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
         <p className="text-lg text-[color:var(--board-bg--color)]">
           Create a new kanban board
         </p>
-        <form>
-          {/* Functionality 1: Enter name of new kanban board */}
+        <form onSubmit={(event) => handleNewBoardCreation(event)}>
+          {/* Functionality 1: Create a new kanban board */}
           <input
             className={`${
               boardSelection === "new" ? "visible" : "hidden"
             } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
             placeholder="Enter the name of the board"
+            onChange={(event) => setNewBoardName(event.target.value)}
           ></input>
           <div className={`flex flex-row justify-start gap-x-10 mt-10 `}>
             <button
