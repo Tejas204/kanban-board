@@ -8,7 +8,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
   /**
    * Import contexts
    */
-  const { setRefresh, myBoards } = useContext(Context);
+  const { setRefresh, myBoards, sharedBoards } = useContext(Context);
 
   /**
    * @Hook: setBoardSelection
@@ -220,9 +220,9 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
               boardSelection == "shared" ? "visible" : "hidden"
             } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
           >
-            <option>Board 4</option>
-            <option>Board 5</option>
-            <option>Board 6</option>
+            {sharedBoards.map((board) => {
+              return <option key={board._id}>{board.name}</option>;
+            })}
           </select>
           <div className={`flex flex-row justify-start gap-x-10 mt-10 `}>
             <button

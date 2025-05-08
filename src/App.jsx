@@ -27,6 +27,8 @@ function App() {
     setComments,
     myBoards,
     setMyBoards,
+    sharedBoards,
+    setSharedBoards,
   } = useContext(Context);
 
   /**
@@ -126,6 +128,9 @@ function App() {
         axios.get(`${server}/boards/getMyKanbanBoards`, {
           withCredentials: true,
         }),
+        axios.get(`${server}/boards/sharedBoards`, {
+          withCredentials: true,
+        }),
       ])
       .then(
         axios.spread(
@@ -135,7 +140,8 @@ function App() {
             resStates,
             resCards,
             resComments,
-            resMyBoards
+            resMyBoards,
+            resSharedBoards
           ) => {
             setUser(resUser.data.user);
             setAllUsers(resAllUsers.data.users);
@@ -143,6 +149,7 @@ function App() {
             createStateCardArray(resStates.data.states, resCards.data.cards);
             setComments(resComments.data.comments);
             setMyBoards(resMyBoards.data.boards);
+            setSharedBoards(resSharedBoards.data.boards);
           }
         )
       )
@@ -153,6 +160,7 @@ function App() {
         setComments({});
         setIsAuthenticated(false);
         setMyBoards({});
+        setSharedBoards({});
       });
   }, [isAuthenticated, refresh]);
 

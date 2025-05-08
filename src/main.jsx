@@ -22,6 +22,7 @@ const AppWrapper = () => {
   const [comments, setComments] = useState({});
   const [pillOption, setPillOption] = useState();
   const [myBoards, setMyBoards] = useState({});
+  const [sharedBoards, setSharedBoards] = useState({});
 
   return (
     <Context.Provider
@@ -46,6 +47,8 @@ const AppWrapper = () => {
         setPillOption,
         myBoards,
         setMyBoards,
+        sharedBoards,
+        setSharedBoards,
       }}
     >
       <App />
