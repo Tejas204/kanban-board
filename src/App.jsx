@@ -29,6 +29,7 @@ function App() {
     setMyBoards,
     sharedBoards,
     setSharedBoards,
+    setDefaultBoard,
   } = useContext(Context);
 
   /**
@@ -149,6 +150,9 @@ function App() {
             createStateCardArray(resStates.data.states, resCards.data.cards);
             setComments(resComments.data.comments);
             setMyBoards(resMyBoards.data.boards);
+            setDefaultBoard(
+              resMyBoards.data.boards.filter((board) => board.default == true)
+            );
             setSharedBoards(resSharedBoards.data.boards);
           }
         )

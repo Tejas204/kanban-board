@@ -23,6 +23,7 @@ const AppWrapper = () => {
   const [pillOption, setPillOption] = useState();
   const [myBoards, setMyBoards] = useState({});
   const [sharedBoards, setSharedBoards] = useState({});
+  const [defaultBoard, setDefaultBoard] = useState();
 
   return (
     <Context.Provider
@@ -49,6 +50,8 @@ const AppWrapper = () => {
         setMyBoards,
         sharedBoards,
         setSharedBoards,
+        defaultBoard,
+        setDefaultBoard,
       }}
     >
       <App />
