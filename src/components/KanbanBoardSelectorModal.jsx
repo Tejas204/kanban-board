@@ -6,6 +6,11 @@ import toast from "react-hot-toast";
 
 const KanbanBoardSelectorModal = ({ hideModal }) => {
   /**
+   * Import contexts
+   */
+  const { setRefresh, myBoards } = useContext(Context);
+
+  /**
    * @Hook: setBoardSelection
    * Used to select the board from 2 section: created by me OR shared with me
    */
@@ -41,6 +46,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
       );
 
       setNewBoardName("");
+      setRefresh((prev) => !prev);
       toast.success(data.message);
     } catch (error) {
       toast.error(error.response.data.message);
@@ -174,9 +180,9 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
               boardSelection == "created" ? "visible" : "hidden"
             } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
           >
-            <option>Board 1</option>
-            <option>Board 2</option>
-            <option>Board 3</option>
+            {myBoards.map((board) => {
+              return <option key={board._id}>{board.name}</option>;
+            })}
           </select>
           <div className={`flex flex-row justify-start gap-x-10 mt-10 `}>
             <button

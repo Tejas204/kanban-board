@@ -25,6 +25,8 @@ function App() {
     moveDistance,
     setRefresh,
     setComments,
+    myBoards,
+    setMyBoards,
   } = useContext(Context);
 
   /**
@@ -121,15 +123,26 @@ function App() {
         axios.get(`${server}/comments/getMyComments`, {
           withCredentials: true,
         }),
+        axios.get(`${server}/boards/getMyKanbanBoards`, {
+          withCredentials: true,
+        }),
       ])
       .then(
         axios.spread(
-          (resUser, resAllUsers, resStates, resCards, resComments) => {
+          (
+            resUser,
+            resAllUsers,
+            resStates,
+            resCards,
+            resComments,
+            resMyBoards
+          ) => {
             setUser(resUser.data.user);
             setAllUsers(resAllUsers.data.users);
             setIsAuthenticated(true);
             createStateCardArray(resStates.data.states, resCards.data.cards);
             setComments(resComments.data.comments);
+            setMyBoards(resMyBoards.data.boards);
           }
         )
       )
@@ -139,6 +152,7 @@ function App() {
         setStateCardArr([]);
         setComments({});
         setIsAuthenticated(false);
+        setMyBoards({});
       });
   }, [isAuthenticated, refresh]);
 
