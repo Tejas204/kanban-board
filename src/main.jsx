@@ -21,9 +21,9 @@ const AppWrapper = () => {
   const [moveDistance, setMoveDistance] = useState(0);
   const [comments, setComments] = useState({});
   const [pillOption, setPillOption] = useState();
-  const [myBoards, setMyBoards] = useState({});
-  const [sharedBoards, setSharedBoards] = useState({});
-  const [defaultBoard, setDefaultBoard] = useState();
+  const [myBoards, setMyBoards] = useState([]);
+  const [sharedBoards, setSharedBoards] = useState([]);
+  const [defaultBoard, setDefaultBoard] = useState([]);
 
   return (
     <Context.Provider

@@ -34,6 +34,8 @@ const Board = () => {
     setMoveDistance,
     pillOption,
     setPillOption,
+    defaultBoard,
+    myBoards,
   } = useContext(Context);
 
   /**
@@ -96,7 +98,12 @@ const Board = () => {
    * @Hook: setNewBoardName
    * Used to send the updated value of the kanban board
    */
-  const [newBoardName, setNewBoardName] = useState("Personal board");
+
+  const [newBoardName, setNewBoardName] = useState(
+    defaultBoard.map((board) => {
+      return board.name;
+    })
+  );
 
   /**
    * @Hook: setDisableBoardName
