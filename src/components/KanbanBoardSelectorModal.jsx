@@ -255,36 +255,25 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
           Delete boards
         </p>
         <form onSubmit={(event) => handleBoardDeletion(event)}>
-          <div className={`flex flex-row items-center gap-x-4`}>
-            <input
-              type="checkbox"
-              name="removalBoards"
-              value="board1"
-              id="board1"
-              className="h-4 w-4 accent-[color:var(--user-icon--bg-color--lavender)]"
-            ></input>
-            <label
-              for="board1"
-              className="text-[color:var(--board-bg--color)] text-lg"
-            >
-              Board 1
-            </label>
-          </div>
-          <div className={`flex flex-row items-center gap-x-4`}>
-            <input
-              type="checkbox"
-              name="removalBoards"
-              value="board2"
-              id="board2"
-              className="h-4 w-4 accent-[color:var(--user-icon--bg-color--lavender)]"
-            ></input>
-            <label
-              for="board2"
-              className="text-[color:var(--board-bg--color)] text-lg"
-            >
-              Board 2
-            </label>
-          </div>
+          {myBoards.map((board) => {
+            return (
+              <div className={`flex flex-row items-center gap-x-4`}>
+                <input
+                  type="checkbox"
+                  name="removalBoards"
+                  value={board._id}
+                  id={board._id}
+                  className="h-4 w-4 accent-[color:var(--user-icon--bg-color--lavender)]"
+                ></input>
+                <label
+                  for={board._id}
+                  className="text-[color:var(--board-bg--color)] text-lg"
+                >
+                  {board.name}
+                </label>
+              </div>
+            );
+          })}
           <div className={`flex flex-row justify-start gap-x-10 mt-10 `}>
             <button
               type="button"
