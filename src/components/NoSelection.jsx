@@ -23,11 +23,13 @@ const NoSelection = () => {
 
   return (
     <div className="h-full w-full flex items-center justify-center">
+      {/* Title */}
       <div className="flex flex-col h-2/5 gap-y-10 w-2/5 mt-56  rounded-lg border-2 items-start bg-[color:var(--background-white)] px-10 py-10 no-scrollbar">
         <div className="text-3xl font-bold">
           Please select a kanban board to get started
         </div>
 
+        {/* Tabs */}
         <div className="flex flex-row w-[100%] items-start gap-x-6 text-xl text-[color:var(--board-bg--color)] border-b-2">
           <button
             id="created"
@@ -53,6 +55,7 @@ const NoSelection = () => {
           </button>
         </div>
 
+        {/* Forms */}
         <div
           className={`w-full ${
             boardSelection === "created" ? "visible" : "hidden"
