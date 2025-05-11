@@ -150,9 +150,9 @@ function App() {
             createStateCardArray(resStates.data.states, resCards.data.cards);
             setComments(resComments.data.comments);
             setMyBoards(resMyBoards.data.boards);
-            setDefaultBoard(
-              resMyBoards.data.boards.filter((board) => board.default == true)
-            );
+            // setDefaultBoard(
+            //   resMyBoards.data.boards.filter((board) => board.default == true)
+            // );
             setSharedBoards(resSharedBoards.data.boards);
           }
         )

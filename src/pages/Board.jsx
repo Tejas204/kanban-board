@@ -25,6 +25,7 @@ import Card from "../components/Card";
 import Loader from "../components/Loader";
 import FilterPill from "../components/FilterPill";
 import { confirmIcon, tickmark, updateIcon } from "../data/icons";
+import NoSelection from "../components/NoSelection";
 
 const Board = () => {
   const {
@@ -99,11 +100,7 @@ const Board = () => {
    * Used to send the updated value of the kanban board
    */
 
-  const [newBoardName, setNewBoardName] = useState(
-    defaultBoard.map((board) => {
-      return board.name;
-    })
-  );
+  const [newBoardName, setNewBoardName] = useState();
 
   /**
    * @Hook: setDisableBoardName
@@ -371,6 +368,8 @@ const Board = () => {
 
   return isLoading ? (
     <Loader></Loader>
+  ) : defaultBoard ? (
+    <NoSelection></NoSelection>
   ) : (
     <div className={`flex flex-row h-screen overflow-x-clip`}>
       {/* Filters Div */}
@@ -386,7 +385,7 @@ const Board = () => {
           pillOption
             ? "blur-sm"
             : "blur-none"
-        }`}
+        } ${defaultBoard ? "visible" : "hidden"}`}
       >
         {/* Board title */}
         <div className="px-10 py-4 text-2xl text-[color:var(--primary-text--color)] font-semibold w-[100%] border-b-[1px] border-b-gray-700">
@@ -484,7 +483,7 @@ const Board = () => {
         deleteState={deleteState}
         pillOption={pillOption}
       ></NewStateCardModal>
-
+      {console.log(pillOption)}
       {/* Add state button */}
       <button
         onClick={handleAddState}
