@@ -110,63 +110,85 @@ function App() {
    * By verifying authentication, we can check if user is logged in or not
    */
   useEffect(() => {
-    axios
-      .all([
-        axios.get(`${server}/users/myProfile`, {
-          withCredentials: true,
-        }),
-        axios.get(`${server}/users/allUsers`, {
-          withCredentials: true,
-        }),
-        axios.get(`${server}/states/getMyStates`, {
-          withCredentials: true,
-        }),
-        axios.get(`${server}/cards/myCards`, {
-          withCredentials: true,
-        }),
-        axios.get(`${server}/comments/getMyComments`, {
-          withCredentials: true,
-        }),
-        axios.get(`${server}/boards/getMyKanbanBoards`, {
-          withCredentials: true,
-        }),
-        axios.get(`${server}/boards/sharedBoards`, {
-          withCredentials: true,
-        }),
-      ])
-      .then(
-        axios.spread(
-          (
-            resUser,
-            resAllUsers,
-            resStates,
-            resCards,
-            resComments,
-            resMyBoards,
-            resSharedBoards
-          ) => {
-            setUser(resUser.data.user);
-            setAllUsers(resAllUsers.data.users);
-            setIsAuthenticated(true);
-            createStateCardArray(resStates.data.states, resCards.data.cards);
-            setComments(resComments.data.comments);
-            setMyBoards(resMyBoards.data.boards);
-            // setDefaultBoard(
-            //   resMyBoards.data.boards.filter((board) => board.default == true)
-            // );
-            setSharedBoards(resSharedBoards.data.boards);
-          }
+    if (defaultBoard) {
+      axios
+        .all([
+          axios.get(`${server}/users/myProfile`, {
+            withCredentials: true,
+          }),
+          axios.get(`${server}/users/allUsers`, {
+            withCredentials: true,
+          }),
+          axios.get(`${server}/states/getMyStates`, {
+            withCredentials: true,
+          }),
+          axios.get(`${server}/cards/myCards`, {
+            withCredentials: true,
+          }),
+          axios.get(`${server}/comments/getMyComments`, {
+            withCredentials: true,
+          }),
+          axios.get(`${server}/boards/getMyKanbanBoards`, {
+            withCredentials: true,
+          }),
+          axios.get(`${server}/boards/sharedBoards`, {
+            withCredentials: true,
+          }),
+        ])
+        .then(
+          axios.spread(
+            (
+              resUser,
+              resAllUsers,
+              resStates,
+              resCards,
+              resComments,
+              resMyBoards,
+              resSharedBoards
+            ) => {
+              setUser(resUser.data.user);
+              setAllUsers(resAllUsers.data.users);
+              setIsAuthenticated(true);
+              createStateCardArray(resStates.data.states, resCards.data.cards);
+              setComments(resComments.data.comments);
+              setMyBoards(resMyBoards.data.boards);
+              // setDefaultBoard(
+              //   resMyBoards.data.boards.filter((board) => board.default == true)
+              // );
+              setSharedBoards(resSharedBoards.data.boards);
+            }
+          )
         )
-      )
-      .catch((error) => {
-        setUser({});
-        setAllUsers({});
-        setStateCardArr([]);
-        setComments({});
-        setIsAuthenticated(false);
-        setMyBoards({});
-        setSharedBoards({});
-      });
+        .catch((error) => {
+          setUser({});
+          setAllUsers({});
+          setStateCardArr([]);
+          setComments({});
+          setIsAuthenticated(false);
+          setMyBoards({});
+          setSharedBoards({});
+        });
+    } else {
+      axios
+        .all([
+          axios.get(`${server}/boards/getMyKanbanBoards`, {
+            withCredentials: true,
+          }),
+          axios.get(`${server}/boards/sharedBoards`, {
+            withCredentials: true,
+          }),
+        ])
+        .then(
+          axios.spread((resMyBoards, resSharedBoards) => {
+            setMyBoards(resMyBoards.data.boards);
+            setSharedBoards(resSharedBoards.data.boards);
+          })
+        )
+        .catch((error) => {
+          setMyBoards({});
+          setSharedBoards({});
+        });
+    }
   }, [isAuthenticated, refresh, defaultBoard]);
 
   return (

@@ -14,13 +14,19 @@ const NoSelection = () => {
    * @Hook: setTabSelection
    * Used to set the tab the user opens
    */
-  const [tabSelection, setTabSelection] = useState("created");
+  const [tabSelection, setTabSelection] = useState("new");
 
   /**
    * @Hook: setBoardSelection
    * Used to set the value of the initially selected board
    */
   const [boardSelection, setBoardSelection] = useState();
+
+  /**
+   * @Hook: setNewBoardName
+   * Set the name of the new board
+   */
+  const [newBoardName, setNewBoardName] = useState("");
 
   /**
    * @Function: handleTabChange
@@ -56,6 +62,17 @@ const NoSelection = () => {
         {/* Tabs */}
         <div className="flex flex-row w-[100%] items-start gap-x-6 text-xl text-[color:var(--board-bg--color)] border-b-2">
           <button
+            id="new"
+            onClick={(event) => handleTabChange(event)}
+            className={`${
+              tabSelection === "new"
+                ? "shadow-[inset_0_-4px_rgba(145,90,255)] transition ease-in-out delay-100"
+                : "text-gray-500"
+            } pb-4`}
+          >
+            New board
+          </button>
+          <button
             id="created"
             onClick={(event) => handleTabChange(event)}
             className={`${
@@ -80,12 +97,37 @@ const NoSelection = () => {
         </div>
 
         {/* Forms */}
+        {/* New board */}
+        <div
+          className={`w-full ${tabSelection === "new" ? "visible" : "hidden"}`}
+        >
+          <form
+            className="space-y-4"
+            onSubmit={(event) => handleInitialSelection(event)}
+          >
+            <input
+              type="text"
+              value={newBoardName}
+              onChange={(event) => setNewBoardName(event.target.value)}
+              placeholder="Enter the name of the board"
+              className="p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2"
+            ></input>
+            <button
+              type="submit"
+              className="p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
+              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+
+        {/* Created boards */}
         <div
           className={`w-full ${
             tabSelection === "created" ? "visible" : "hidden"
           }`}
         >
-          {/* Created boards */}
           <form
             className="space-y-4"
             onSubmit={(event) => handleInitialSelection(event)}
