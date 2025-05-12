@@ -8,13 +8,19 @@ const NoSelection = () => {
    * @Context:
    * Import context and related hooks
    */
-  const { myBoards, sharedBoards } = useContext(Context);
+  const { myBoards, sharedBoards, setDefaultBoard } = useContext(Context);
+
+  /**
+   * @Hook: setTabSelection
+   * Used to set the tab the user opens
+   */
+  const [tabSelection, setTabSelection] = useState("created");
 
   /**
    * @Hook: setBoardSelection
-   * Used to set the tab the user opens
+   * Used to set the value of the initially selected board
    */
-  const [boardSelection, setBoardSelection] = useState("created");
+  const [boardSelection, setBoardSelection] = useState();
 
   /**
    * @Function: handleTabChange
@@ -25,7 +31,18 @@ const NoSelection = () => {
   const handleTabChange = (event) => {
     event.preventDefault();
 
-    setBoardSelection(event.target.id);
+    setTabSelection(event.target.id);
+  };
+
+  /**
+   * @Function: handleInitialSelection
+   * @Params: event
+   * @Return: none
+   * Used to set the initial value of the board
+   */
+  const handleInitialSelection = (event) => {
+    event.preventDefault();
+    setDefaultBoard(boardSelection);
   };
 
   return (
@@ -42,7 +59,7 @@ const NoSelection = () => {
             id="created"
             onClick={(event) => handleTabChange(event)}
             className={`${
-              boardSelection === "created"
+              tabSelection === "created"
                 ? "shadow-[inset_0_-4px_rgba(145,90,255)] transition ease-in-out delay-100"
                 : "text-gray-500"
             } pb-4`}
@@ -53,7 +70,7 @@ const NoSelection = () => {
             id="shared"
             onClick={(event) => handleTabChange(event)}
             className={`${
-              boardSelection === "shared"
+              tabSelection === "shared"
                 ? "shadow-[inset_0_-4px_rgba(145,90,255)] transition ease-in-out delay-100"
                 : "text-gray-500"
             } pb-4`}
@@ -65,14 +82,25 @@ const NoSelection = () => {
         {/* Forms */}
         <div
           className={`w-full ${
-            boardSelection === "created" ? "visible" : "hidden"
+            tabSelection === "created" ? "visible" : "hidden"
           }`}
         >
           {/* Created boards */}
-          <form className="space-y-4">
-            <select className="p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2">
+          <form
+            className="space-y-4"
+            onSubmit={(event) => handleInitialSelection(event)}
+          >
+            <select
+              onChange={(event) => setBoardSelection(event.target.value)}
+              className="p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2"
+            >
+              <option value="">Select a board</option>
               {myBoards.map((board) => {
-                return <option key={board._id}>{board.name}</option>;
+                return (
+                  <option key={board._id} value={board._id}>
+                    {board.name}
+                  </option>
+                );
               })}
             </select>
             <button
@@ -88,11 +116,18 @@ const NoSelection = () => {
         {/* Shared boards */}
         <div
           className={`w-full ${
-            boardSelection === "shared" ? "visible" : "hidden"
+            tabSelection === "shared" ? "visible" : "hidden"
           }`}
         >
-          <form className="space-y-4">
-            <select className="p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2">
+          <form
+            className="space-y-4"
+            onSubmit={(event) => handleInitialSelection(event)}
+          >
+            <select
+              onChange={(event) => setBoardSelection(event.target.value)}
+              className="p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2"
+            >
+              <option value="">Select a board</option>
               {sharedBoards.map((board) => {
                 return <option key={board._id}>{board.name}</option>;
               })}

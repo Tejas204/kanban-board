@@ -28,6 +28,7 @@ function App() {
     myBoards,
     setMyBoards,
     sharedBoards,
+    defaultBoard,
     setSharedBoards,
     setDefaultBoard,
   } = useContext(Context);
@@ -166,7 +167,7 @@ function App() {
         setMyBoards({});
         setSharedBoards({});
       });
-  }, [isAuthenticated, refresh]);
+  }, [isAuthenticated, refresh, defaultBoard]);
 
   return (
     <Router>

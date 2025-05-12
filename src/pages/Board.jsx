@@ -368,12 +368,13 @@ const Board = () => {
 
   return isLoading ? (
     <Loader></Loader>
-  ) : defaultBoard ? (
+  ) : !defaultBoard ? (
     <NoSelection></NoSelection>
   ) : (
     <div className={`flex flex-row h-screen overflow-x-clip`}>
       {/* Filters Div */}
       <FilterPill></FilterPill>
+      {console.log(defaultBoard)}
 
       {/* Columns */}
       <div
@@ -385,7 +386,7 @@ const Board = () => {
           pillOption
             ? "blur-sm"
             : "blur-none"
-        } ${defaultBoard ? "visible" : "hidden"}`}
+        }`}
       >
         {/* Board title */}
         <div className="px-10 py-4 text-2xl text-[color:var(--primary-text--color)] font-semibold w-[100%] border-b-[1px] border-b-gray-700">
@@ -483,7 +484,6 @@ const Board = () => {
         deleteState={deleteState}
         pillOption={pillOption}
       ></NewStateCardModal>
-      {console.log(pillOption)}
       {/* Add state button */}
       <button
         onClick={handleAddState}
