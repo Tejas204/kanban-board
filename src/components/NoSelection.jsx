@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import FilterPill from "./FilterPill";
 import KanbanBoardSelectorModal from "./KanbanBoardSelectorModal";
+import { Context } from "../main";
 
 const NoSelection = () => {
+  /**
+   * @Context:
+   * Import context and related hooks
+   */
+  const { myBoards, sharedBoards } = useContext(Context);
+
   /**
    * @Hook: setBoardSelection
    * Used to set the tab the user opens
@@ -36,7 +43,7 @@ const NoSelection = () => {
             onClick={(event) => handleTabChange(event)}
             className={`${
               boardSelection === "created"
-                ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
+                ? "shadow-[inset_0_-4px_rgba(145,90,255)] transition ease-in-out delay-100"
                 : "text-gray-500"
             } pb-4`}
           >
@@ -47,7 +54,7 @@ const NoSelection = () => {
             onClick={(event) => handleTabChange(event)}
             className={`${
               boardSelection === "shared"
-                ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
+                ? "shadow-[inset_0_-4px_rgba(145,90,255)] transition ease-in-out delay-100"
                 : "text-gray-500"
             } pb-4`}
           >
@@ -61,26 +68,42 @@ const NoSelection = () => {
             boardSelection === "created" ? "visible" : "hidden"
           }`}
         >
-          <form>
+          {/* Created boards */}
+          <form className="space-y-4">
             <select className="p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2">
-              <option>Board 1</option>
-              <option>Board 1</option>
-              <option>Board 1</option>
+              {myBoards.map((board) => {
+                return <option key={board._id}>{board.name}</option>;
+              })}
             </select>
+            <button
+              type="submit"
+              className="p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
+              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out"
+            >
+              Submit
+            </button>
           </form>
         </div>
 
+        {/* Shared boards */}
         <div
           className={`w-full ${
             boardSelection === "shared" ? "visible" : "hidden"
           }`}
         >
-          <form>
+          <form className="space-y-4">
             <select className="p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2">
-              <option>Board 2</option>
-              <option>Board 2</option>
-              <option>Board 2</option>
+              {sharedBoards.map((board) => {
+                return <option key={board._id}>{board.name}</option>;
+              })}
             </select>
+            <button
+              type="submit"
+              className="p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
+              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out"
+            >
+              Submit
+            </button>
           </form>
         </div>
       </div>
