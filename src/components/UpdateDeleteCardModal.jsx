@@ -179,7 +179,6 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                         : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
                     } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
                     onChange={(event) => setAssignedTo(event.target.value)}
-                    value={getInitials(assignedTo).userName}
                     disabled={
                       action === "delete"
                         ? true
@@ -189,7 +188,15 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     }
                   >
                     {allUsers.map((user) => {
-                      return <option value={user._id}>{user.name}</option>;
+                      if (user._id == assignedTo) {
+                        return (
+                          <option value={user._id} selected>
+                            {user.name}
+                          </option>
+                        );
+                      } else {
+                        return <option value={user._id}>{user.name}</option>;
+                      }
                     })}
                   </select>
                 </td>
