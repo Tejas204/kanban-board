@@ -110,12 +110,14 @@ const Board = () => {
 
   /**
    * @Hook: useEffect
-   * Set the name of the board
+   * Set the name of the board, if it has been selected
    */
   useEffect(() => {
     var selectedBoard = myBoards.filter((board) => board._id == defaultBoard);
-    setNewBoardName(selectedBoard.length ? JSON.parse(selectedBoard) : {});
-  }, []);
+    if (selectedBoard.length) {
+      setNewBoardName(selectedBoard[0]["name"]);
+    }
+  }, [defaultBoard]);
 
   /*
    * @Function: hideModal
@@ -401,7 +403,7 @@ const Board = () => {
           <form className="flex flex-row items-center gap-x-2">
             <input
               type="text"
-              value={newBoardName[0]}
+              value={newBoardName}
               disabled={disableBoardName}
               onChange={(event) => setNewBoardName(event.target.value)}
               className="bg-[color:var(--board-bg--color)] text-[color:var(--primary-text--color)] border-none p-1 rounded-lg ring-0"
