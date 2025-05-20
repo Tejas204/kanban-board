@@ -39,6 +39,9 @@ const Board = () => {
     myBoards,
   } = useContext(Context);
 
+  /* **************************************************************** */
+  /* *********************** Hooks ********************************** */
+  /* **************************************************************** */
   /**
    * @Hook: Sensors
    * Ensure that sorting starts when dragging for 10px or more
@@ -119,6 +122,10 @@ const Board = () => {
     }
   }, [defaultBoard]);
 
+  /* **************************************************************** */
+  /* ********************** Functions ******************************* */
+  /* **************************************************************** */
+
   /*
    * @Function: hideModal
    * @Params: none
@@ -181,15 +188,47 @@ const Board = () => {
   };
 
   /**
+   * @Function: enableDisableBoard
+   * @Params: event
+   * @Returns: none
+   * @Used: To set if the name field can be made editable or not
+   */
+  const enableDisableBoard = (event) => {
+    event.preventDefault();
+
+    setUpdateBoardName(!updateBoardName);
+    setDisableBoardName(!disableBoardName);
+  };
+
+  /**
    * @Function: handleBoardNameUpdate
    * @Params: event
    * @Returns: none
    * Used to call the API to update the name of the board
    * And flip the state of the hook
    */
-  const handleBoardNameUpdate = (event) => {
+  const handleBoardNameUpdate = async (event) => {
     event.preventDefault();
+    if (updateBoardName && !disableBoardName) {
+      try {
+        const { data } = await axios.put(
+          `${server}/boards/updateBoard/${defaultBoard}`,
+          {
+            name: newBoardName,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
 
+        toast.success(data.message);
+      } catch (error) {
+        toast.error(error.response.data.message);
+      }
+    }
     setUpdateBoardName(!updateBoardName);
     setDisableBoardName(!disableBoardName);
   };
@@ -376,6 +415,10 @@ const Board = () => {
       });
     }
   };
+
+  /* **************************************************************** */
+  /* ************************ HTML ********************************** */
+  /* **************************************************************** */
 
   return isLoading ? (
     <Loader></Loader>
