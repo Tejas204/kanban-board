@@ -100,13 +100,22 @@ const Board = () => {
    * Used to send the updated value of the kanban board
    */
 
-  const [newBoardName, setNewBoardName] = useState();
+  const [newBoardName, setNewBoardName] = useState({});
 
   /**
    * @Hook: setDisableBoardName
    * Used to disable or enable the input field
    */
   const [disableBoardName, setDisableBoardName] = useState(true);
+
+  /**
+   * @Hook: useEffect
+   * Set the name of the board
+   */
+  useEffect(() => {
+    var selectedBoard = myBoards.filter((board) => board._id == defaultBoard);
+    setNewBoardName(selectedBoard.length ? JSON.parse(selectedBoard) : {});
+  }, []);
 
   /*
    * @Function: hideModal
@@ -374,7 +383,6 @@ const Board = () => {
     <div className={`flex flex-row h-screen overflow-x-clip`}>
       {/* Filters Div */}
       <FilterPill></FilterPill>
-      {console.log(defaultBoard)}
 
       {/* Columns */}
       <div
@@ -393,7 +401,7 @@ const Board = () => {
           <form className="flex flex-row items-center gap-x-2">
             <input
               type="text"
-              value={newBoardName}
+              value={newBoardName[0]}
               disabled={disableBoardName}
               onChange={(event) => setNewBoardName(event.target.value)}
               className="bg-[color:var(--board-bg--color)] text-[color:var(--primary-text--color)] border-none p-1 rounded-lg ring-0"
