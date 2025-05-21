@@ -19,7 +19,7 @@ const Footer = () => {
 
         {/* Privacy statement and Copyright */}
         <p className="text-[color:var(--primary-text--color)]">
-          &copy; 2024 Kanbanize IND. All rights reserved
+          &copy; {new Date().getFullYear()} Kanbanize IND. All rights reserved
         </p>
       </div>
 
