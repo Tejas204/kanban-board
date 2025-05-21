@@ -18,16 +18,16 @@ const Home = () => {
           <p className="text-xl font-semibold">Included in your free plan:</p>
           <ul className="pl-4">
             <li className="flex flex-row gap-x-5 text-xl pb-9">
-              {tickmark} 10 user licenses
+              {tickmark} Create kanban boards
             </li>
             <li className="flex flex-row gap-x-5 text-xl pb-9">
-              {tickmark} Workflows and automation
+              {tickmark} Add teams and share boards with them
             </li>
             <li className="flex flex-row gap-x-5 text-xl pb-9">
-              {tickmark} Project templates - including scrum, kanban, and more
+              {tickmark} Easily switch between boards for better multi-tasking
             </li>
             <li className="flex flex-row gap-x-5 text-xl pb-9">
-              {tickmark} Integrations with thousands of other tools
+              {tickmark} Communicate easily using the comment section
             </li>
           </ul>
         </div>
