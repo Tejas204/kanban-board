@@ -230,12 +230,13 @@ const Card = ({
               }
             </div>
           </div>
-          <div className="flex flex-row gap-x-2">
+          {/* To enable when functionality to add attachments will be activated */}
+          {/* <div className="flex flex-row gap-x-2">
             <button className="text-gray-500">{attachmentIcon}</button>
             <div className="text-lg text-[color:var(--secondary-text--color)]">
               2
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

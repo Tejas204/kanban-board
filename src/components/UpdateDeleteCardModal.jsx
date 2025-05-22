@@ -298,7 +298,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
       </div>
 
       {/* Attachment section */}
-      <Attachments action={updateDeleteCard.action}></Attachments>
+      {/* <Attachments action={updateDeleteCard.action}></Attachments> */}
 
       {/* Comments Sections */}
       <Comments
