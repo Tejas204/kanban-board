@@ -114,7 +114,7 @@ const TeamSelectorModal = ({ hideModal }) => {
             onClick={() => setTeamModification("addTeamMembers")}
             className={`${
               teamModification === "addTeamMembers"
-                ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
+                ? "shadow-[inset_0_-4px_rgba(145,90,255)] transition ease-in-out delay-100"
                 : "text-gray-500"
             } pb-4`}
           >
@@ -126,7 +126,7 @@ const TeamSelectorModal = ({ hideModal }) => {
             onClick={() => setTeamModification("removeTeamMembers")}
             className={`${
               teamModification === "removeTeamMembers"
-                ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
+                ? "shadow-[inset_0_-4px_rgba(145,90,255)] transition ease-in-out delay-100"
                 : "text-gray-500"
             } pb-4`}
           >
@@ -137,7 +137,7 @@ const TeamSelectorModal = ({ hideModal }) => {
 
       {/* Team selection text */}
       <div className="flex flex-col gap-y-4">
-        <p className="text-lg text-[color:var(--board-bg--color)]">
+        <p className="text-lg text-[color:var(--board-bg--color)] transition ease-in-out delay-100">
           {teamModification === "addTeamMembers"
             ? "Let your team grow by adding new team members."
             : "Remove team members."}

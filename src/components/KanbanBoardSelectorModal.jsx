@@ -81,7 +81,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             onClick={() => setBoardSelection("new")}
             className={`${
               boardSelection == "new"
-                ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
+                ? "shadow-[inset_0_-4px_rgba(145,90,255)] transition ease-in-out delay-100"
                 : "text-gray-500"
             } pb-4`}
           >
@@ -93,7 +93,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             onClick={() => setBoardSelection("created")}
             className={`${
               boardSelection === "created"
-                ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
+                ? "shadow-[inset_0_-4px_rgba(145,90,255)] transition ease-in-out delay-100"
                 : "text-gray-500"
             } pb-4`}
           >
@@ -105,7 +105,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             onClick={() => setBoardSelection("shared")}
             className={`${
               boardSelection === "shared"
-                ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
+                ? "shadow-[inset_0_-4px_rgba(145,90,255)] transition ease-in-out delay-100"
                 : "text-gray-500"
             } pb-4`}
           >
@@ -117,7 +117,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             onClick={() => setBoardSelection("delete")}
             className={`${
               boardSelection === "delete"
-                ? "shadow-[inset_0_-4px_rgba(145,90,255)]"
+                ? "shadow-[inset_0_-4px_rgba(145,90,255)] transition ease-in-out delay-100"
                 : "text-gray-500"
             } pb-4`}
           >
