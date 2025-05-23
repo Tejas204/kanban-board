@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import FilterPill from "./FilterPill";
 import KanbanBoardSelectorModal from "./KanbanBoardSelectorModal";
 import { Context } from "../main";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const NoSelection = () => {
   /**
@@ -49,6 +51,25 @@ const NoSelection = () => {
   const handleInitialSelection = (event) => {
     event.preventDefault();
     setDefaultBoard(boardSelection);
+
+    try {
+      const { data } = axios.post(
+        `${server}/selectBoard`,
+        {
+          boardId: boardSelection,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+
+      toast.success(data.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
   };
 
   return (
