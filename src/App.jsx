@@ -185,8 +185,8 @@ function App() {
           })
         )
         .catch((error) => {
-          setMyBoards({});
-          setSharedBoards({});
+          setMyBoards([]);
+          setSharedBoards([]);
         });
     }
   }, [isAuthenticated, refresh, defaultBoard]);
