@@ -55,3 +55,4 @@ Modify the homepage UI to give a more modern look
 ** Update cookies **
 1. How to update existing cookie using nodejs
 2. How to fetch data stored in cookie to the front end
+Issue: Cookie is not updating

@@ -10,7 +10,8 @@ const NoSelection = () => {
    * @Context:
    * Import context and related hooks
    */
-  const { myBoards, sharedBoards, setDefaultBoard } = useContext(Context);
+  const { myBoards, sharedBoards, setDefaultBoard, setRefresh } =
+    useContext(Context);
 
   /**
    * @Hook: setTabSelection
@@ -48,12 +49,12 @@ const NoSelection = () => {
    * @Return: none
    * Used to set the initial value of the board
    */
-  const handleInitialSelection = (event) => {
+  const handleInitialSelection = async (event) => {
     event.preventDefault();
     setDefaultBoard(boardSelection);
 
     try {
-      const { data } = axios.post(
+      const { data } = await axios.post(
         `${server}/selectBoard`,
         {
           boardId: boardSelection,
@@ -67,6 +68,7 @@ const NoSelection = () => {
       );
 
       toast.success(data.message);
+      // setRefresh((prev) => !prev);
     } catch (error) {
       toast.error(error.response.data.message);
     }

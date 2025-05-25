@@ -182,6 +182,7 @@ function App() {
           axios.spread((resMyBoards, resSharedBoards) => {
             setMyBoards(resMyBoards.data.boards);
             setSharedBoards(resSharedBoards.data.boards);
+            setDefaultBoard(resMyBoards.data.selectedBoard);
           })
         )
         .catch((error) => {
