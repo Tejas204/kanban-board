@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import FilterPill from "./FilterPill";
 import KanbanBoardSelectorModal from "./KanbanBoardSelectorModal";
-import { Context } from "../main";
+import { Context, server } from "../main";
 import axios from "axios";
 import toast from "react-hot-toast";
 
@@ -51,11 +51,10 @@ const NoSelection = () => {
    */
   const handleInitialSelection = async (event) => {
     event.preventDefault();
-    setDefaultBoard(boardSelection);
 
     try {
-      const { data } = await axios.post(
-        `${server}/selectBoard`,
+      await axios.post(
+        `${server}/boards/selectBoard`,
         {
           boardId: boardSelection,
         },
@@ -67,10 +66,12 @@ const NoSelection = () => {
         }
       );
 
-      toast.success(data.message);
+      toast.success("Let's get going");
+      setDefaultBoard(boardSelection);
       // setRefresh((prev) => !prev);
     } catch (error) {
-      toast.error(error.response.data.message);
+      console.log(error);
+      toast.error("Could not find the board");
     }
   };
 
