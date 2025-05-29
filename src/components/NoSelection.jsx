@@ -163,7 +163,7 @@ const NoSelection = () => {
               <option value="">Select a board</option>
               {myBoards.map((board) => {
                 return (
-                  <option key={board._id} value={board._id}>
+                  <option key={board._id} value={board}>
                     {board.name}
                   </option>
                 );
