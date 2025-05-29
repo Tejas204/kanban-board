@@ -5,8 +5,9 @@
 4. API to change password - Done
 5. Comments - WIP
 
-
-** Making columns sortable **
+##############################################################
+**************** Making columns sortable *********************
+##############################################################
 
 * Status: Complete
 
@@ -27,7 +28,9 @@
 3. The updated state array, active card's new index and the distance will be shared to an API.
 4. The API will update the indices in the DB for a distance D.
 
-** Adding Comments **
+##############################################################
+**************** Adding Comments *****************************
+##############################################################
 
 * Status - Complete
 
@@ -45,17 +48,29 @@
 1. Make GET call to fetch all comments
 2. Design functions to make POST and DELETE calls
 
-** Redefine home page **
+##############################################################
+******************** Redefine home page **********************
+##############################################################
 
 * Status - WIP
 
-* UI Changes *
 Modify the homepage UI to give a more modern look
 
-** Update cookies **
+##############################################################
+******************** Update cookies **************************
+##############################################################
 1. How to update existing cookie using nodejs
 2. How to fetch data stored in cookie to the front end
 3. Issue: Cookie is not updating - Fixed
 4. Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
     at sendCookies (file:///opt/render/project/src/utils/features.js:9:6)
     at setSelectedBoard (file:///opt/render/project/src/controllers/boards.js:138:5)
+
+##############################################################
+******************** Modify DB structures ********************
+##############################################################
+1. All necessary DB's should have a reference to kanban boards
+    - columns
+    - user
+2. The API should fetch items related to the selected DB
+3. API's for shared access should work
