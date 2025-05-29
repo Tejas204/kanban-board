@@ -23,7 +23,7 @@ const NoSelection = () => {
    * @Hook: setBoardSelection
    * Used to set the value of the initially selected board
    */
-  const [boardSelection, setBoardSelection] = useState();
+  const [boardSelection, setBoardSelection] = useState({});
 
   /**
    * @Hook: setNewBoardName
@@ -162,8 +162,9 @@ const NoSelection = () => {
             >
               <option value="">Select a board</option>
               {myBoards.map((board) => {
+                console.log(board);
                 return (
-                  <option key={board._id} value={board}>
+                  <option key={board._id} value={board._id}>
                     {board.name}
                   </option>
                 );

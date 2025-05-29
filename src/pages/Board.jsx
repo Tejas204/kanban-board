@@ -117,7 +117,7 @@ const Board = () => {
    */
   useEffect(() => {
     var selectedBoard = myBoards.filter(
-      (board) => board._id == defaultBoard._id
+      (board) => board._id == defaultBoard || board._id == defaultBoard._id
     );
     if (selectedBoard.length) {
       setNewBoardName(selectedBoard[0]["name"]);
@@ -214,7 +214,9 @@ const Board = () => {
     if (updateBoardName && !disableBoardName) {
       try {
         const { data } = await axios.put(
-          `${server}/boards/updateBoard/${defaultBoard._id}`,
+          `${server}/boards/updateBoard/${
+            defaultBoard._id ? defaultBoard._id : defaultBoard
+          }`,
           {
             name: newBoardName,
           },
