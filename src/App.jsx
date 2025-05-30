@@ -152,9 +152,6 @@ function App() {
               createStateCardArray(resStates.data.states, resCards.data.cards);
               setComments(resComments.data.comments);
               setMyBoards(resMyBoards.data.boards);
-              // setDefaultBoard(
-              //   resMyBoards.data.boards.filter((board) => board.default == true)
-              // );
               setSharedBoards(resSharedBoards.data.boards);
             }
           )
@@ -168,7 +165,7 @@ function App() {
           setMyBoards({});
           setSharedBoards({});
         });
-    } else {
+    } else if (!defaultBoard) {
       axios
         .all([
           axios.get(`${server}/boards/getMyKanbanBoards`, {
@@ -186,8 +183,10 @@ function App() {
           })
         )
         .catch((error) => {
+          console.log(error.request);
           setMyBoards([]);
           setSharedBoards([]);
+          setDefaultBoard(null);
         });
     }
   }, [isAuthenticated, refresh, defaultBoard]);
