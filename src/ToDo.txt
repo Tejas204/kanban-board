@@ -71,6 +71,10 @@ Modify the homepage UI to give a more modern look
 ##############################################################
 1. All necessary DB's should have a reference to kanban boards
     - columns
-    - user
 2. The API should fetch items related to the selected DB
 3. API's for shared access should work
+
+##############################################################
+************************ Bugs ********************************
+##############################################################
+1. Cards are not getting created
