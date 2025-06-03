@@ -165,7 +165,7 @@ function App() {
           setMyBoards({});
           setSharedBoards({});
         });
-    } else if (!defaultBoard) {
+    } else if (!defaultBoard && isAuthenticated) {
       axios
         .all([
           axios.get(`${server}/boards/getMyKanbanBoards`, {
