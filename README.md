@@ -10,6 +10,7 @@ This repository contains the code for a full stack Kanban board. The details of 
 5. Update cards
 6. Drag cards between columns
 7. Sort the cards vertically
+8. Add and remove team members
 
 ## Technology Stack
 
