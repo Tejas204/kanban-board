@@ -58,17 +58,23 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Background colors */
-  --board-bg--color: #191b2b;
-  /*--card-bg--color: #272a43;*/
-  --card-bg--color: rgba(39, 42, 67, 0.75);
-  --header-bg--color: #272a43;
+  /* --board-bg--color: #191b2b;
+  --card-bg--color: rgba(39, 42, 67, 0.75);   --card-bg--color: #272a43; */
+  /* --header-bg--color: #272a43;
   --filter-bg--color: #151724;
+  --background-white: #ffffff; */
+
+  --board-bg--color: #121212;
+  /*--card-bg--color: #272a43;*/
+  --card-bg--color: #1e1e1e;
+  --header-bg--color: #1a1a1a;
+  --filter-bg--color: #222222;
   --background-white: #ffffff;
 
   /* Text colors */
   --primary-text--color: #dfe0e4;
   --primary-dark--text-color: var(--board-bg--color);
-  --secondary-text--color: #9fa5b4;
+  --secondary-text--color: #14171e;
   --field-disabled--color: #d0d3da;
   --text-disabled--color: #9496a2;
 
