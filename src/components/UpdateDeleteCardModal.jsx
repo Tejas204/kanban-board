@@ -17,10 +17,10 @@ import Attachments from "./Attachments";
 const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   const { allUsers, setAllUsers, setRefresh, comments } = useContext(Context);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setTitle. setShortDescription, setAssignedTo. setPriority, updateDueDate
    * Used to set title, short desc, assigned to, priority, due date of card on the modal
-   */
+   -----------------------------------------------------------------------*/
   const [title, setTitle] = useState(updateDeleteCard.title);
   const [shortDescription, setShortDescription] = useState(
     updateDeleteCard.short_description
@@ -31,16 +31,16 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
     updateDeleteCard.due_date.split("T")[0]
   );
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setAction
    * Set the action; update or delete
-   */
+   -----------------------------------------------------------------------*/
   const [action, setAction] = useState(updateDeleteCard.action);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleUpdateDeleteCard
    * Used to make PUT or DEL API call to update or delete the card
-   */
+   -----------------------------------------------------------------------*/
   const handleUpdateDeleteCard = async (event) => {
     event.preventDefault();
 

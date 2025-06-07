@@ -6,19 +6,19 @@ import toast from "react-hot-toast";
 import { Link, Navigate } from "react-router-dom";
 
 const Login = () => {
-  /**
+  /**-----------------------------------------------------------------------
    * @Hooks: For setting name, email and authentication check
-   */
+   -----------------------------------------------------------------------*/
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { isAuthenticated, setIsAuthenticated, isLoading, setIsLoading } =
     useContext(Context);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleLogin
    * @Params: event
    * Login handler function to make API call
-   */
+   -----------------------------------------------------------------------*/
   const handleLogin = async (event) => {
     event.preventDefault();
     setIsLoading(true);

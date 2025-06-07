@@ -6,25 +6,25 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const ResetPassword = () => {
-  /**
+  /**-----------------------------------------------------------------------
    * @Context: Import context variables
-   */
+   -----------------------------------------------------------------------*/
   const { isLoading } = useContext(Context);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setEmail, setPassword, setNewPassword
    * Used for tracking the email, new and confirmed password
-   */
+   -----------------------------------------------------------------------*/
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handlePasswordReset
    * @Params: event
    * @Returns: none
    * Used for password validation and to call the password reset API
-   */
+   -----------------------------------------------------------------------*/
   const handlePasswordReset = async (event) => {
     event.preventDefault();
     if (password === newPassword) {

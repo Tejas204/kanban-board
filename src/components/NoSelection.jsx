@@ -6,49 +6,49 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const NoSelection = () => {
-  /**
+  /**-----------------------------------------------------------------------
    * @Context:
    * Import context and related hooks
-   */
+   -----------------------------------------------------------------------*/
   const { myBoards, sharedBoards, setDefaultBoard, setRefresh } =
     useContext(Context);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setTabSelection
    * Used to set the tab the user opens
-   */
+   -----------------------------------------------------------------------*/
   const [tabSelection, setTabSelection] = useState("new");
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setBoardSelection
    * Used to set the value of the initially selected board
-   */
+   -----------------------------------------------------------------------*/
   const [boardSelection, setBoardSelection] = useState({});
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setNewBoardName
    * Set the name of the new board
-   */
+   -----------------------------------------------------------------------*/
   const [newBoardName, setNewBoardName] = useState("");
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleTabChange
    * @Params: event
    * @Returns: none
    * Used to handle which tab to display by using the hook
-   */
+   -----------------------------------------------------------------------*/
   const handleTabChange = (event) => {
     event.preventDefault();
 
     setTabSelection(event.target.id);
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleInitialSelection
    * @Params: event
    * @Return: none
    * Used to set the initial value of the board
-   */
+   -----------------------------------------------------------------------*/
   const handleInitialSelection = async (event) => {
     event.preventDefault();
 

@@ -7,10 +7,10 @@ import toast from "react-hot-toast";
 const DeleteStateModal = ({ hideModal, columnId }) => {
   const { setRefresh } = useContext(Context);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleDeleteState
    * Makes a DEL call to the server to delete the state and coresponding calls
-   */
+   -----------------------------------------------------------------------*/
   const handleDeleteState = async (event) => {
     event.preventDefault();
 

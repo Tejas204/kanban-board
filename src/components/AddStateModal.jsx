@@ -5,18 +5,18 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const AddStateModal = ({ hideModal }) => {
-  /**
+  /**-----------------------------------------------------------------------
    * @Hooks: setStateName, useContext
    * Set the name of the new state created by current logged in user
    * Set the context for component to use
-   */
+   -----------------------------------------------------------------------*/
   const { user, setRefresh, cards } = useContext(Context);
   const [stateName, setStateName] = useState();
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: createNewState
    * Create new state when form is submitted
-   */
+   -----------------------------------------------------------------------*/
   const createNewState = async (event) => {
     event.preventDefault();
 

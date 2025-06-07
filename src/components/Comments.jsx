@@ -6,23 +6,23 @@ import { Context, server } from "../main";
 import { deleteCommentIcon } from "../data/icons";
 
 const Comments = ({ comments, cardId, action }) => {
-  /**
+  /**-----------------------------------------------------------------------
    * @Context: utilize content
-   */
+   -----------------------------------------------------------------------*/
   const { setRefresh } = useContext(Context);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setNewComment
    * Allows the user to add a new comment
-   */
+   -----------------------------------------------------------------------*/
   const [newComment, setNewComment] = useState("");
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleAddNewComment
    * @Params:
    * @Returns: none
    * Used to create a new comment for a card
-   */
+   -----------------------------------------------------------------------*/
   const handleAddNewComment = async (event) => {
     event.preventDefault();
     try {
@@ -48,12 +48,12 @@ const Comments = ({ comments, cardId, action }) => {
     }
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleDeleteComment
    * @Params: commend id <String>
    * @Returns: none
    * Used to delete comment added by a user
-   */
+   -----------------------------------------------------------------------*/
   const handleDeleteComment = async (commentId, event) => {
     event.preventDefault();
     try {

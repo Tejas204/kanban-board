@@ -23,21 +23,21 @@ const Card = ({
   state_id,
   setUpdateDeleteCard,
 }) => {
-  /**
+  /**-----------------------------------------------------------------------
    * @Contants: Delta variables
-   */
+   -----------------------------------------------------------------------*/
   const delta = 10;
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: useContext
    * Utilize context variables
-   */
+   -----------------------------------------------------------------------*/
   const { comments } = useContext(Context);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: set useSortable
    * @Accept: elements of type card
-   */
+   -----------------------------------------------------------------------*/
   const {
     attributes,
     listeners,
@@ -54,33 +54,33 @@ const Card = ({
     transition,
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setStartX, setStartY
    * Set the X and Y coordinate
-   */
+   -----------------------------------------------------------------------*/
   const [startX, setStartX] = useState();
   const [startY, setStartY] = useState();
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setNewDueDate
    * Set the new date from date picker
-   */
+   -----------------------------------------------------------------------*/
   const [newDueDate, setNewDueDate] = useState(() =>
     new Date(due_date).toLocaleDateString()
   );
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setIsMenuVisible
    * Set the visibility of menu items for a card
-   */
+   -----------------------------------------------------------------------*/
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleModalDisplay
    * @Params: Id of button
    * @Returns: none
    * Depending on the button clicked, display the modal
-   */
+   -----------------------------------------------------------------------*/
   const handleModalDisplay = (buttonId) => {
     setUpdateDeleteCard({
       action:
@@ -99,11 +99,11 @@ const Card = ({
     });
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handle date change
    * @Input: new date value
    * @Returns: none
-   */
+   -----------------------------------------------------------------------*/
   const handleDateChange = (event) => {
     setNewDueDate(event.target.value);
   };

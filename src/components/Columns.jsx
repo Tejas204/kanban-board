@@ -20,12 +20,12 @@ import { server } from "../main";
 import toast from "react-hot-toast";
 import { CSS } from "@dnd-kit/utilities";
 
-/**
+/**-----------------------------------------------------------------------
  * @Function: useDidMount
  * Returns: didMount; boolean
  * Initialize didMount as true
  * Set didMount to false upon first render
- */
+ -----------------------------------------------------------------------*/
 export const useDidMount = () => {
   const didMount = useRef(true);
 
@@ -45,31 +45,31 @@ const Columns = ({
   setUpdateDeleteCard,
   setDeleteState,
 }) => {
-  /**
+  /**-----------------------------------------------------------------------
    * @Call: useDidMount
    * call useDidMount() on render
-   */
+   -----------------------------------------------------------------------*/
   const isMount = useDidMount();
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setDisplayModal
    * Set displayModal as true when user clicks on add icon
-   */
+   -----------------------------------------------------------------------*/
   const [displayModal, setDisplayModal] = useState(false);
 
-  /*
+  /*-----------------------------------------------------------------------
    * @Function: handleShowModal
    * Params: none
    * Displays the modal
-   */
+   -----------------------------------------------------------------------*/
   const handleShowModal = () => {
     setDisplayModal(!displayModal);
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: Passes value of displayModal to Parent Component: Board.jsx
    * Does not display in first render
-   */
+   -----------------------------------------------------------------------*/
   useEffect(() => {
     if (!isMount) {
       setShowModal({
@@ -79,28 +79,28 @@ const Columns = ({
     }
   }, [displayModal]);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setUpdateState
    * Used to update the name of the state
-   */
+   -----------------------------------------------------------------------*/
   const [updateState, setUpdateState] = useState(true);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setUpdatedColumnTitle
    * Used to set value of the state field
-   */
+   -----------------------------------------------------------------------*/
   const [updatedStateTitle, setUpdatedStateTitle] = useState(columnTitle);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setColumnDrag
    * Used to give sortable reference to column if it is dragged with handle
-   */
+   -----------------------------------------------------------------------*/
   const [columnDrag, setColumnDrag] = useState(false);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleStateDrag
    * Used to determine if column can be dragged or not
-   */
+   -----------------------------------------------------------------------*/
   const handleStateDrag = () => {
     setColumnDrag(true);
   };
@@ -109,10 +109,10 @@ const Columns = ({
     setColumnDrag(false);
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleStateNameUpdate
    * Used to call the API to update the name of the state
-   */
+   -----------------------------------------------------------------------*/
   const handleStateNameUpdate = () => {
     try {
       setUpdateState(!updateState);
@@ -137,9 +137,9 @@ const Columns = ({
     }
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: Droppable
-   */
+   -----------------------------------------------------------------------*/
   // const { setNodeRef } = useDroppable({
   //   id: columnId,
   // });

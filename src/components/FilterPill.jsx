@@ -4,16 +4,16 @@ import { Context } from "../main";
 import { Link } from "react-router-dom";
 
 const FilterPill = () => {
-  /**
+  /**-----------------------------------------------------------------------
    * @Context: Global context
    * Set context variables
-   */
+   -----------------------------------------------------------------------*/
   const { setPillOption } = useContext(Context);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handlePillOption
    * Use to set the pill option after clicking the buttons
-   */
+   -----------------------------------------------------------------------*/
   const handlePillOption = (buttonId) => {
     setPillOption(
       buttonId === "boardSelection" ? "boardSelection" : "teamsSelection"

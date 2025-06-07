@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import { closeIcon } from "../data/icons";
 
 const TeamSelectorModal = ({ hideModal }) => {
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setSearchValue
    * Used to set the search value from the input field
-   */
+   -----------------------------------------------------------------------*/
   const [searchValue, setSearchValue] = useState("");
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setUserList
    * Used to set the array of users for searching
-   */
+   -----------------------------------------------------------------------*/
   const [userList, setUserList] = useState([
     { id: 1, name: "Tejas" },
     { id: 2, name: "Omkar" },
@@ -27,34 +27,34 @@ const TeamSelectorModal = ({ hideModal }) => {
     { id: 5, name: "Abhinav" },
   ]);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setSearchResultVisibility
    * Used to control visibility of search results
    * Displays when clicked on the input
-   */
+   -----------------------------------------------------------------------*/
   const [searchResultVisibility, setSearchResultVisibility] = useState(false);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setTeamModification
    * Used to set the value to add or remove team-mates
-   */
+   -----------------------------------------------------------------------*/
   const [teamModification, setTeamModification] = useState("addTeamMembers");
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setSelectedUsers
    * Used to set which users have been selected
-   */
+   -----------------------------------------------------------------------*/
   const [selectedUsers, setSelectedUsers] = useState([]);
 
-  /**
+  /**-----------------------------------------------------------------------
    * Test hook
-   */
+   -----------------------------------------------------------------------*/
   const [testHook, setTestHook] = useState([]);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: useEffect
    * Used to set the value of search results
-   */
+   -----------------------------------------------------------------------*/
   useEffect(() => {
     if (searchValue == "") {
       setUserList(originalUserList);
@@ -67,12 +67,12 @@ const TeamSelectorModal = ({ hideModal }) => {
     }
   }, [searchValue]);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleSelectedUsers
    * @Params: event <Obj>; user <Obj>
    * @Returns: none
    * Sets the selected list of users using hooks
-   */
+   -----------------------------------------------------------------------*/
   const handleSelectedUsers = (event, userId) => {
     event.preventDefault();
 
@@ -82,12 +82,12 @@ const TeamSelectorModal = ({ hideModal }) => {
     });
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleUserRemoval
    * @Params: event <obj>
    * @Returns: none
    * Calls the API to remove user access from a kanban board
-   */
+   -----------------------------------------------------------------------*/
   const handleUserRemoval = (event) => {
     event.preventDefault();
 

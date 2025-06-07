@@ -12,11 +12,11 @@ const Register = () => {
   const { isAuthenticated, setIsAuthenticated, isLoading, setIsLoading } =
     useContext(Context);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: registrationHandler
    * @Params: event
    * Function to make register API call
-   */
+   -----------------------------------------------------------------------*/
   const registrationHandler = async (event) => {
     event.preventDefault();
     setIsLoading(true);

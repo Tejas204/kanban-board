@@ -11,10 +11,10 @@ const Header = () => {
   const { isAuthenticated, setIsAuthenticated, isLoading, setIsLoading } =
     useContext(Context);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: logoutHandler
    * Calls logout API and renders toast messages
-   */
+   -----------------------------------------------------------------------*/
   const logoutHandler = async () => {
     try {
       const { data } = await axios.get(`${server}/users/logout`, {

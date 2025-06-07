@@ -42,10 +42,11 @@ const Board = () => {
   /* **************************************************************** */
   /* *********************** Hooks ********************************** */
   /* **************************************************************** */
-  /**
+
+  /**-----------------------------------------------------------------------
    * @Hook: Sensors
    * Ensure that sorting starts when dragging for 10px or more
-   */
+   -----------------------------------------------------------------------*/
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: {
       distance: 10,
@@ -55,66 +56,66 @@ const Board = () => {
   const keyboardSensor = useSensor(KeyboardSensor);
   const sensors = useSensors(mouseSensor, keyboardSensor);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setCardModal
    * Controls card modal display
-   */
+   -----------------------------------------------------------------------*/
   const [showModal, setShowModal] = useState({
     active: false,
     columnId: "",
   });
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setAddState
    * Controls card modal display
-   */
+   -----------------------------------------------------------------------*/
   const [addState, setAddState] = useState(false);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setUpdateDeleteCard
    * Sets value if user wants to update card or delete card
-   */
+   -----------------------------------------------------------------------*/
   const [updateDeleteCard, setUpdateDeleteCard] = useState();
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setDeleteState
    * Sets value if user wants to delete state
-   */
+   -----------------------------------------------------------------------*/
   const [deleteState, setDeleteState] = useState({
     active: false,
     columnId: "",
   });
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setActiveCard, setActiveState
    * sets the ID of the active card and state
-   */
+   -----------------------------------------------------------------------*/
   const [activeCard, setActiveCard] = useState(null);
   const [activeState, setActiveState] = useState(null);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setUpdateBoardName
    * Used to set the confirm icon when updating the board name
-   */
+   -----------------------------------------------------------------------*/
   const [updateBoardName, setUpdateBoardName] = useState(false);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setNewBoardName
    * Used to send the updated value of the kanban board
-   */
+   -----------------------------------------------------------------------*/
 
   const [newBoardName, setNewBoardName] = useState({});
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setDisableBoardName
    * Used to disable or enable the input field
-   */
+   -----------------------------------------------------------------------*/
   const [disableBoardName, setDisableBoardName] = useState(true);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: useEffect
    * Set the name of the board, if it has been selected
-   */
+   -----------------------------------------------------------------------*/
   useEffect(() => {
     var selectedBoard = myBoards.filter(
       (board) => board._id == defaultBoard || board._id == defaultBoard._id
@@ -128,12 +129,12 @@ const Board = () => {
   /* ********************** Functions ******************************* */
   /* **************************************************************** */
 
-  /*
+  /*-----------------------------------------------------------------------
    * @Function: hideModal
    * @Params: none
    * @Returns: none
    * Displays the modal
-   */
+   -----------------------------------------------------------------------*/
   const hideModal = () => {
     if (showModal.active) {
       setShowModal({
@@ -154,22 +155,22 @@ const Board = () => {
     }
   };
 
-  /*
+  /*-----------------------------------------------------------------------
    * @Function: handleAddState
    * @Params: none
    * @Returns: none
    * Displays the modal
-   */
+   -----------------------------------------------------------------------*/
   const handleAddState = () => {
     setAddState(!addState);
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleStateChange
    * @Params: id of new state and card
    * @Return: none
    * Make API call to update the state of the card
-   */
+   -----------------------------------------------------------------------*/
   const handleStateChange = async (cardId, stateId) => {
     try {
       const { data } = await axios.put(
@@ -189,12 +190,12 @@ const Board = () => {
     }
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: enableDisableBoard
    * @Params: event
    * @Returns: none
    * @Used: To set if the name field can be made editable or not
-   */
+   -----------------------------------------------------------------------*/
   const enableDisableBoard = (event) => {
     event.preventDefault();
 
@@ -202,13 +203,13 @@ const Board = () => {
     setDisableBoardName(!disableBoardName);
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleBoardNameUpdate
    * @Params: event
    * @Returns: none
    * Used to call the API to update the name of the board
    * And flip the state of the hook
-   */
+   -----------------------------------------------------------------------*/
   const handleBoardNameUpdate = async (event) => {
     event.preventDefault();
     if (updateBoardName && !disableBoardName) {
@@ -237,20 +238,20 @@ const Board = () => {
     setDisableBoardName(!disableBoardName);
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: Return state of dragged card
    * @Params: card id <Int>
    * @Returns: index <Int>
-   */
+   -----------------------------------------------------------------------*/
   const getActiveCard = (id) => {
     return cards.find((card) => card._id === id);
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: Return state of column
    * @Params: id <Str>
    * @Returns: state_id <Str>
-   */
+   -----------------------------------------------------------------------*/
   const findColumn = (id) => {
     //If item is dropped over some other area
     if (!id) {
@@ -276,12 +277,12 @@ const Board = () => {
     return cards.find((c) => c.id == column.columnId);
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleDragStart
    * @Params: event
    * @Return: npne
    * It sets the active id of the active card and fetches its details for overlay
-   */
+   -----------------------------------------------------------------------*/
   const handleDragStart = (e) => {
     const { active } = e;
 
@@ -293,12 +294,12 @@ const Board = () => {
     );
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleDragOver
    * @Params: event <obj>
    * @Returns: array[<obj>]
    * Update the state of dragged card
-   */
+   -----------------------------------------------------------------------*/
   const handleDragOver = (event) => {
     const { active, over, delta } = event;
 
@@ -362,12 +363,12 @@ const Board = () => {
     }
   };
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleDragEnd
    * @Params: event <obj>
    * @Returns: array[<obj>]
    * Update the state of dragged card
-   */
+   -----------------------------------------------------------------------*/
   const handleDragEnd = (e) => {
     const { active, over } = e;
     setActiveCard(null);

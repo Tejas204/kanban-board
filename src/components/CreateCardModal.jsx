@@ -8,20 +8,20 @@ import { Context, server } from "../main";
 const CreateCardModal = ({ hideModal, columnId }) => {
   const { allUsers, setRefresh } = useContext(Context);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setTitle. setShortDescription, setAssignedTo. setPriority, updateDueDate
    * Used to set title, short desc, assigned to, priority, due date of new card on the modal
-   */
+   *-----------------------------------------------------------------------*/
   const [title, setTitle] = useState("");
   const [shortDescription, setShortDescription] = useState("");
   const [assignedTo, setAssignedTo] = useState();
   const [priority, setPriority] = useState();
   const [dueDate, setDueDate] = useState();
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleCreateCard
    * Used to create a new card with new values
-   */
+   *-----------------------------------------------------------------------*/
   const handleCreateCard = async (event) => {
     event.preventDefault();
     try {

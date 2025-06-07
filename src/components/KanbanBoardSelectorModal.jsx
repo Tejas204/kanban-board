@@ -5,29 +5,29 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const KanbanBoardSelectorModal = ({ hideModal }) => {
-  /**
+  /**-----------------------------------------------------------------------
    * Import contexts
-   */
+   -----------------------------------------------------------------------*/
   const { setRefresh, myBoards, sharedBoards } = useContext(Context);
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setBoardSelection
    * Used to select the board from 2 section: created by me OR shared with me
-   */
+   -----------------------------------------------------------------------*/
   const [boardSelection, setBoardSelection] = useState("new");
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Hook: setNewBoardName
    * Used to set the name of the new kanban board
-   */
+   -----------------------------------------------------------------------*/
   const [newBoardName, setNewBoardName] = useState("");
 
-  /**
+  /**-----------------------------------------------------------------------
    * @Function: handleNewBoardCreation
    * @Params: event
    * @Returns: none
    * Used to handle the creation of a new kanban board
-   */
+   -----------------------------------------------------------------------*/
   const handleNewBoardCreation = async (event) => {
     event.preventDefault();
 
