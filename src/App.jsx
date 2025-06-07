@@ -31,9 +31,11 @@ function App() {
     defaultBoard,
     setSharedBoards,
     setDefaultBoard,
+    tokenAvailable,
+    setTokenAvailable,
   } = useContext(Context);
 
-  /**
+  /** -----------------------------------------------------------------------
    * @Function: createStateCardArray
    * @Params: receivedStates, receivedCards <Obj>
    * @Returns: stateCardArray <Array[Obj]>
@@ -45,7 +47,7 @@ function App() {
    *        CARDS: ARR[OBJ]
    *      }
    *     ]
-   */
+   *-----------------------------------------------------------------------*/
   const createStateCardArray = (receivedStates, receivedCards) => {
     var arr = [];
     receivedStates.map((state) => {
@@ -60,8 +62,9 @@ function App() {
     setStateCardArr(arr);
   };
 
-  /**
-   * @Hook: runs on every update to move distance and cards, indicating a change in state indices
+  /**-----------------------------------------------------------------------
+   * @Hook: runs on every update to move distance and cards, 
+   *        indicating a change in state indices
    * Make a array of objects of updated state id and new indices
    * Makes a PUT API call to update the index of states
    *
@@ -71,7 +74,7 @@ function App() {
    *      id: "78ksd", index: 0
    *    }
    * ]
-   */
+   -----------------------------------------------------------------------*/
   useEffect(() => {
     let distance = Math.abs(moveDistance);
     const stateIdIndexArray = [];
@@ -83,8 +86,6 @@ function App() {
         });
         distance--;
       }
-
-      // Make API call
       try {
         axios.put(
           `${server}/states/updateStateIndices`,
@@ -105,10 +106,10 @@ function App() {
     }
   }, [moveDistance]);
 
-  /**
+  /** -----------------------------------------------------------------------
    * @Hook: Runs on every render to keep user logged in on refresh
    * By verifying authentication, we can check if user is logged in or not
-   */
+   * -----------------------------------------------------------------------*/
   useEffect(() => {
     if (defaultBoard) {
       axios
@@ -165,28 +166,43 @@ function App() {
           setMyBoards({});
           setSharedBoards({});
         });
-    } else if (!defaultBoard && isAuthenticated) {
+    } else if (!defaultBoard) {
+      console.log("i am in");
       axios
-        .all([
-          axios.get(`${server}/boards/getMyKanbanBoards`, {
-            withCredentials: true,
-          }),
-          axios.get(`${server}/boards/sharedBoards`, {
-            withCredentials: true,
-          }),
-        ])
-        .then(
-          axios.spread((resMyBoards, resSharedBoards) => {
-            setMyBoards(resMyBoards.data.boards);
-            setSharedBoards(resSharedBoards.data.boards);
-            setDefaultBoard(resMyBoards.data.selectedBoard);
-          })
-        )
+        .get(`${server}/users/getToken`, {
+          withCredentials: true,
+        })
+        .then((response) => {
+          setTokenAvailable(response.data.token);
+
+          if (response.data.token) {
+            // --------------------------
+            axios
+              .all([
+                axios.get(`${server}/boards/getMyKanbanBoards`, {
+                  withCredentials: true,
+                }),
+                axios.get(`${server}/boards/sharedBoards`, {
+                  withCredentials: true,
+                }),
+              ])
+              .then(
+                axios.spread((resMyBoards, resSharedBoards) => {
+                  setMyBoards(resMyBoards.data.boards);
+                  setSharedBoards(resSharedBoards.data.boards);
+                  setDefaultBoard(resMyBoards.data.selectedBoard);
+                })
+              )
+              .catch((error) => {
+                setMyBoards([]);
+                setSharedBoards([]);
+                setDefaultBoard(null);
+              });
+          }
+          // --------------------------
+        })
         .catch((error) => {
-          console.log(error.request);
-          setMyBoards([]);
-          setSharedBoards([]);
-          setDefaultBoard(null);
+          setTokenAvailable(false);
         });
     }
   }, [isAuthenticated, refresh, defaultBoard]);

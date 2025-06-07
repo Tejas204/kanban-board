@@ -24,6 +24,7 @@ const AppWrapper = () => {
   const [myBoards, setMyBoards] = useState([]);
   const [sharedBoards, setSharedBoards] = useState([]);
   const [defaultBoard, setDefaultBoard] = useState(null);
+  const [tokenAvailable, setTokenAvailable] = useState(false);
 
   return (
     <Context.Provider
@@ -52,6 +53,8 @@ const AppWrapper = () => {
         setSharedBoards,
         defaultBoard,
         setDefaultBoard,
+        tokenAvailable,
+        setTokenAvailable,
       }}
     >
       <App />
