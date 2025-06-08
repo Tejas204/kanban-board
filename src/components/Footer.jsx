@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="grid grid-cols-3 gap-x-2 w-[100%] mt-[5%] py-14 px-10 fixed bottom-0 bg-[color:var(--header-bg--color)]">
+    <footer className="grid grid-cols-3 gap-x-2 w-[100%] py-14 px-10 mt-auto bg-[color:var(--header-bg--color)]">
       {/* Footer Hero Section */}
       <div className="flex flex-col gap-y-6 px-6">
         {/* Logo */}
@@ -26,7 +26,7 @@ const Footer = () => {
       {/* Menu and Social Media */}
       <div className="grid grid-cols-2">
         {/* Menu */}
-        <div className="flex flex-col gap-y-6 px-6 border-l-[0.1rem] border-[color:var(--secondary-text--color)]">
+        <div className="flex flex-col gap-y-6 px-6">
           {/* Menu Header */}
           <p className="text-[color:var(--primary-text--color)] text-xl font-bold">
             Menu
@@ -62,9 +62,9 @@ const Footer = () => {
         </div>
 
         {/* Social Media List */}
-        <div className="flex flex-col gap-y-6 px-6 border-l-[0.1rem] border-[color:var(--secondary-text--color)]">
+        <div className="flex flex-col gap-y-6 px-6">
           {/* Social Media */}
-          <p className="text-[color:var(--secondary-text--color)] text-xl font-bold">
+          <p className="text-[color:var(--primary-text--color)] text-xl font-bold">
             Follow us on
           </p>
 
@@ -99,7 +99,7 @@ const Footer = () => {
       </div>
 
       {/* Contact Us */}
-      <div className="flex flex-col gap-y-6 px-6 border-l-[0.1rem] border-[color:var(--secondary-text--color)]">
+      <div className="flex flex-col gap-y-6 px-6">
         {/* Call to action */}
         <p className="text-[color:var(--primary-text--color)] text-xl font-bold">
           Want an improved experience?
@@ -116,7 +116,7 @@ const Footer = () => {
           </button>
         </form>
       </div>
-    </div>
+    </footer>
   );
 };
 

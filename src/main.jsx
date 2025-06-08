@@ -9,9 +9,9 @@ export const server = "https://kanban-board-06yn.onrender.com/api/v1";
 export const Context = createContext({ isAuthenticated: false });
 
 const AppWrapper = () => {
-  /**
+  /**-----------------------------------------------------------------------
    * @Hooks: Used to provide authentication and throttling
-   */
+   -----------------------------------------------------------------------*/
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState({});

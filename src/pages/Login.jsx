@@ -51,9 +51,9 @@ const Login = () => {
   if (isAuthenticated) return <Navigate to="/card" />;
 
   return (
-    <div>
+    <div className="flex flex-col min-h-[100vh]">
       <div className="flex h-[100%] w-[100%] justify-center items-center">
-        <div className="flex flex-col rounded-md mt-[3%] py-10 px-16 gap-y-14 shadow-xl text-[color:var(--primary-text--color)] bg-[color:var(--card-bg--color)]">
+        <div className="flex flex-col rounded-md mt-[3%] mb-[3%] py-10 px-16 gap-y-14 shadow-xl text-[color:var(--primary-text--color)] bg-[color:var(--card-bg--color)]">
           <div className="flex flex-col items-center gap-y-2">
             <p className="text-4xl">Get Started</p>
             <p className="text-xl">Free for users, no credit card needed</p>

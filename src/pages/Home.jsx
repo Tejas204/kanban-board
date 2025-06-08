@@ -7,8 +7,8 @@ import { tickmark } from "../data/icons";
 const Home = () => {
   return (
     // Parent div
-    <div>
-      <div className="grid grid-cols-2 ml-[8%] mt-[5%]">
+    <div className="flex flex-col min-h-[100vh]">
+      <div className="grid grid-cols-2 ml-[8%] mt-[5%] mb-10">
         {/* Capmaign Div */}
         <div className="flex flex-col gap-y-9 text-[color:var(--primary-text--color)] w-[70%]">
           <p className="text-6xl">Create a Kanban board for your team</p>
