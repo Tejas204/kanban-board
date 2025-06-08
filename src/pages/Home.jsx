@@ -41,6 +41,15 @@ const Home = () => {
         </div>
       </div>
 
+      <div class="size-20 transform-3d">
+        <div class="translate-z-12 rotate-x-0 bg-sky-300/75 ...">1</div>
+        <div class="-translate-z-12 rotate-y-18 bg-sky-300/75 ...">2</div>
+        <div class="translate-x-12 rotate-y-90 bg-sky-300/75 ...">3</div>
+        <div class="-translate-x-12 -rotate-y-90 bg-sky-300/75 ...">4</div>
+        <div class="-translate-y-12 rotate-x-90 bg-sky-300/75 ...">5</div>
+        <div class="translate-y-12 -rotate-x-90 bg-sky-300/75 ...">6</div>
+      </div>
+
       {/* Footer */}
       <Footer></Footer>
     </div>
