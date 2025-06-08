@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="grid grid-cols-3 gap-x-2 w-[100%] mt-[5%] py-14 px-10 bg-[color:var(--header-bg--color)]">
+    <div className="grid grid-cols-3 gap-x-2 w-[100%] mt-[5%] py-14 px-10 fixed bottom-0 bg-[color:var(--header-bg--color)]">
       {/* Footer Hero Section */}
       <div className="flex flex-col gap-y-6 px-6">
         {/* Logo */}
