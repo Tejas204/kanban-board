@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Jira from "../assets/Jira.png";
+import Kanbanize_2 from "../assets/Kanbanize_4.png";
 import Kanbanize from "../assets/Kanbanize.png";
 import { Link, Navigate } from "react-router-dom";
 import { headerMenuItems } from "../data/tasks";
@@ -35,7 +35,7 @@ const Header = () => {
         className="flex flex-row gap-x-5 p-4 ml-[2%] text-2xl items-center font-bold text-(--primary-text--color)"
         to="/"
       >
-        <img src={Kanbanize} className="h-10 w-10"></img>
+        <img src={Kanbanize_2} className="h-10 w-10"></img>
         <p>Kanbanize</p>
       </Link>
 

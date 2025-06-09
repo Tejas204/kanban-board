@@ -179,7 +179,7 @@ const Columns = ({
       </div>
 
       {/* Title */}
-      <div className="flex flex-row justify-between items-center pb-5 pl-5 pr-5 border-b-4 border-(--user-icon--bg-color--purple)">
+      <div className="flex flex-row justify-between items-center pb-5 pl-5 pr-5 border-b-4 border-(--secondary-text--color)">
         <input
           type="text"
           disabled={updateState}

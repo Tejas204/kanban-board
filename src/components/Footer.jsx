@@ -1,5 +1,6 @@
 import React from "react";
 import Kanbanize from "../assets/Kanbanize.png";
+import Kanbanize_2 from "../assets/Kanbanize_4.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -8,7 +9,7 @@ const Footer = () => {
       {/* Footer Hero Section */}
       <div className="flex flex-col gap-y-6 px-6">
         {/* Logo */}
-        <img src={Kanbanize} alt="" className="h-24 w-24" />
+        <img src={Kanbanize_2} alt="" className="h-24 w-24" />
 
         {/* Company summary */}
         <p className="text-(--primary-text--color) text-lg">

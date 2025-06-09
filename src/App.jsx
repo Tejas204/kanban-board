@@ -167,7 +167,6 @@ function App() {
           setSharedBoards({});
         });
     } else if (!defaultBoard) {
-      console.log("i am in");
       axios
         .get(`${server}/users/getToken`, {
           withCredentials: true,
