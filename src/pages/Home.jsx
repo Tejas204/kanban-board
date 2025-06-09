@@ -7,13 +7,13 @@ import { tickmark } from "../data/icons";
 const Home = () => {
   return (
     // Parent div
-    <div className="flex flex-col min-h-[100vh]">
+    <div className="flex flex-col min-h-screen">
       <div className="grid grid-cols-2 ml-[8%] mt-[5%] mb-10">
         {/* Capmaign Div */}
-        <div className="flex flex-col gap-y-9 text-[color:var(--primary-text--color)] w-[70%]">
+        <div className="flex flex-col gap-y-9 text-(--primary-text--color) w-[70%]">
           <p className="text-6xl">Create a Kanban board for your team</p>
           <p className="text-3xl">
-            Start your project off right with a board build for all teams
+            Start your project off right with a board built for all teams
           </p>
           <p className="text-xl font-semibold">Included in your free plan:</p>
           <ul className="pl-4">
@@ -33,21 +33,16 @@ const Home = () => {
         </div>
 
         {/* Form Div */}
-        <div className="w-[100%]">
+        <div className="w-full flex flex-row perspective-origin-top transform-3d">
           <img
             src={UIImage}
-            className="w-[90%] shadow-2xl border-[0.1rem] border-[color:var(--user-icon--bg-color--lavender)]"
+            className="w-[95%] shadow-2xl border-[0.1rem] border-(--user-icon--bg-color--lavender) rotate-x-[47deg] rotate-y-[31deg] rotate-[324deg]  -translate-x-[150px]"
           ></img>
+          {/* <img
+            src={UIImage}
+            className="w-[95%] shadow-2xl border-[0.1rem] border-(--user-icon--bg-color--lavender) rotate-x-[47deg] rotate-y-[31deg] rotate-[324deg] -translate-x-[950px]"
+          ></img> */}
         </div>
-      </div>
-
-      <div class="size-20 transform-3d">
-        <div class="translate-z-12 rotate-x-0 bg-sky-300/75 ...">1</div>
-        <div class="-translate-z-12 rotate-y-18 bg-sky-300/75 ...">2</div>
-        <div class="translate-x-12 rotate-y-90 bg-sky-300/75 ...">3</div>
-        <div class="-translate-x-12 -rotate-y-90 bg-sky-300/75 ...">4</div>
-        <div class="-translate-y-12 rotate-x-90 bg-sky-300/75 ...">5</div>
-        <div class="translate-y-12 -rotate-x-90 bg-sky-300/75 ...">6</div>
       </div>
 
       {/* Footer */}

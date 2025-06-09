@@ -1,29 +1,49 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer utilities {
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility no-scrollbar {
   /* Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     display: none;
   }
+}
 
-  .scrollbar::-webkit-scrollbar {
+@utility scrollbar {
+  &::-webkit-scrollbar {
     background-color: white;
     height: 4px;
     width: 6px;
   }
 
-  .scrollbar::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-track {
     border-radius: 100vh;
     background: white;
   }
 
-  .scrollbar::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-thumb {
     background: gray;
     border-radius: 100vh;
   }
+}
 
+@layer utilities {
   input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 1.6rem;
     filter: invert(1);
@@ -66,18 +86,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   /* Background colors */
-  --board-bg--color: #191b2b;
+  /* --board-bg--color: #191b2b;
   --card-bg--color: rgba(39, 42, 67, 0.75);
   --header-bg--color: #272a43;
   --filter-bg--color: #151724;
-  --background-white: #ffffff;
+  --background-white: #ffffff; */
 
-  /* --board-bg--color: #121212; */
-  /*--card-bg--color: #272a43;*/
-  /* --card-bg--color: #1e1e1e;
+  --board-bg--color: #121212;
+  --card-bg--color: #1e1e1e;
   --header-bg--color: #1a1a1a;
   --filter-bg--color: #222222;
-  --background-white: #ffffff; */
+  --background-white: #ffffff;
 
   /* Text colors */
   --primary-text--color: #dfe0e4;

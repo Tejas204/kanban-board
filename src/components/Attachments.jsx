@@ -4,12 +4,12 @@ import { deleteCommentIcon, downloadIcon } from "../data/icons";
 const Attachments = ({ action }) => {
   return (
     <div className="flex flex-col gap-y-3">
-      <div className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
+      <div className="text-3xl font-semibold text-(--board-bg--color)">
         Attachments
       </div>
       <div className="grid grid-cols-3 gap-x-2 gap-y-4">
         <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-md bg-gray-200">
-          <div className="w-[80%] overflow-hidden text-ellipsis line-clamp-1 text-[color:var(--board-bg--color)]">
+          <div className="w-[80%] overflow-hidden text-ellipsis line-clamp-1 text-(--board-bg--color)">
             Attachment Attachment Attachment
           </div>
           <div className="flex flex-row items-center gap-x-2">
@@ -33,7 +33,7 @@ const Attachments = ({ action }) => {
         </div>
 
         <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-md bg-gray-200">
-          <div className="w-[80%] overflow-hidden text-ellipsis line-clamp-1 text-[color:var(--board-bg--color)]">
+          <div className="w-[80%] overflow-hidden text-ellipsis line-clamp-1 text-(--board-bg--color)">
             Attachment 2
           </div>
           <div className="flex flex-row items-center gap-x-2">
@@ -56,7 +56,7 @@ const Attachments = ({ action }) => {
         </div>
 
         <div className="flex flex-row justify-between px-5 py-3 rounded-lg shadow-md bg-gray-200">
-          <div className="w-[80%] overflow-hidden text-ellipsis line-clamp-1 text-[color:var(--board-bg--color)]">
+          <div className="w-[80%] overflow-hidden text-ellipsis line-clamp-1 text-(--board-bg--color)">
             Attachment 3
           </div>
           <div className="flex flex-row items-center gap-x-2">

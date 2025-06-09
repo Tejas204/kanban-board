@@ -74,6 +74,6 @@ const NewStateCardModal = ({
   }
 };
 
-const commonFormStyle = `z-10 h-screen w-screen flex justify-center mx-auto rounded absolute`;
+const commonFormStyle = `z-10 h-screen w-screen flex justify-center mx-auto rounded-sm absolute`;
 
 export default NewStateCardModal;

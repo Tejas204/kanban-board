@@ -55,9 +55,9 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-[100vh]">
-      <div className="flex h-[100%] w-[100%] justify-center items-center">
-        <div className="flex flex-col rounded-md mt-[3%] mb-[3%] py-10 px-28 gap-y-14 shadow-xl text-[color:var(--primary-text--color)] bg-[color:var(--card-bg--color)]">
+    <div className="flex flex-col min-h-screen">
+      <div className="flex h-full w-full justify-center items-center">
+        <div className="flex flex-col rounded-md mt-[3%] mb-[3%] py-10 px-28 gap-y-14 shadow-xl text-(--primary-text--color) bg-(--card-bg--color)">
           <div className="flex flex-col items-center gap-y-2">
             <p className="text-4xl">Reset password</p>
             <p className="text-xl">Enter and confirm your new password</p>
@@ -68,29 +68,29 @@ const ResetPassword = () => {
             onSubmit={handlePasswordReset}
           >
             <input
-              className="p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg"
+              className="p-4 rounded-md bg-(--board-bg--color) border-[0.1rem] text-lg"
               type="text"
               placeholder="Email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
             ></input>
             <input
-              className="p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg"
+              className="p-4 rounded-md bg-(--board-bg--color) border-[0.1rem] text-lg"
               type="password"
               placeholder="New Password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             ></input>
             <input
-              className="p-4 rounded-md bg-[color:var(--board-bg--color)] border-[0.1rem] text-lg"
+              className="p-4 rounded-md bg-(--board-bg--color) border-[0.1rem] text-lg"
               type="password"
               placeholder="Confirm New Password"
               value={newPassword}
               onChange={(event) => setNewPassword(event.target.value)}
             ></input>
             <button
-              className="p-4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-lg font-bold rounded-md 
-              hover:ring-2 ring-[color:var(--button-bg--color)] ring-offset-4 ring-offset-[color:var(--card-bg--color)] transition delay-150 ease-in-out"
+              className="p-4 bg-(--button-bg--color) text-(--button-text--color) text-lg font-bold rounded-md 
+              hover:ring-2 ring-(--button-bg--color) ring-offset-4 ring-offset-(--card-bg--color) transition delay-150 ease-in-out"
               type="submit"
               disabled={isLoading}
             >

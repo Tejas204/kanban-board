@@ -30,9 +30,9 @@ const Header = () => {
   };
 
   return (
-    <div className="flex flex-row justify-between sticky top-0 right-0 z-50 w-[100%] items-center shadow-lg bg-[color:var(--header-bg--color)]">
+    <div className="flex flex-row justify-between sticky top-0 right-0 z-50 w-full items-center shadow-lg bg-(--header-bg--color)">
       <Link
-        className="flex flex-row gap-x-5 p-4 ml-[2%] text-2xl items-center font-bold text-[color:var(--primary-text--color)]"
+        className="flex flex-row gap-x-5 p-4 ml-[2%] text-2xl items-center font-bold text-(--primary-text--color)"
         to="/"
       >
         <img src={Kanbanize} className="h-10 w-10"></img>
@@ -40,7 +40,7 @@ const Header = () => {
       </Link>
 
       <div className="p-4 mr-[7%]">
-        <ul className="flex flex-row gap-x-16 font-semibold text-xl text-[color:var(--secondary-text--color)]">
+        <ul className="flex flex-row gap-x-16 font-semibold text-xl text-(--secondary-text--color)">
           <Link className={headerMenuItem} to="/">
             Home
           </Link>
@@ -77,6 +77,6 @@ const Header = () => {
 };
 
 const headerMenuItem =
-  "hover:text-[color:var(--primary-text--color)] transition delay-100 ease-in-out cursor-pointer";
+  "hover:text-(--primary-text--color) transition delay-100 ease-in-out cursor-pointer";
 
 export default Header;

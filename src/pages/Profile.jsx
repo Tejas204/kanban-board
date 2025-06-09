@@ -11,8 +11,8 @@ const Profile = () => {
   return isLoading ? (
     <Loader />
   ) : (
-    <div className="flex flex-col gap-y-4 items-center text-[color:var(--primary-text--color)]">
-      <div className="flex flex-row gap-x-28 p-10 mt-10 items-center bg-[color:var(--card-bg--color)] w-[70%] rounded-lg shadow-xl">
+    <div className="flex flex-col gap-y-4 items-center text-(--primary-text--color)">
+      <div className="flex flex-row gap-x-28 p-10 mt-10 items-center bg-(--card-bg--color) w-[70%] rounded-lg shadow-xl">
         {/* profile image */}
         <div className="flex flex-col items-center justify-center gap-y-5">
           <div className="rounded-full border-2 p-14">
@@ -51,7 +51,7 @@ const Profile = () => {
 
       {/* Grid for contacts and business information */}
       <div className="flex flex-row gap-x-5 w-[70%]">
-        <div className="w-[100%] p-10 rounded-lg shadow-lg bg-[color:var(--card-bg--color)]">
+        <div className="w-full p-10 rounded-lg shadow-lg bg-(--card-bg--color)">
           <p className="text-3xl font-bold">Your team members</p>
           <ul className="mt-4 text-xl space-y-6">
             <div className="flex flex-row gap-x-6">
@@ -73,7 +73,7 @@ const Profile = () => {
           </ul>
         </div>
 
-        <div className="w-[100%] p-10 rounded-lg shadow-lg bg-[color:var(--card-bg--color)]">
+        <div className="w-full p-10 rounded-lg shadow-lg bg-(--card-bg--color)">
           <p className="text-3xl font-bold">About</p>
           <ul className="mt-4 text-xl space-y-6">
             <div className="flex flex-col gap-x-6">

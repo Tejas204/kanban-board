@@ -168,7 +168,7 @@ const Columns = ({
       style={style}
     >
       {/* Drag handle */}
-      <div className="flex flex-row justify-center top-0 items-center w-[100%]">
+      <div className="flex flex-row justify-center top-0 items-center w-full">
         <div
           onDragStart={handleStateDrag}
           onDragEnd={handleDragEnd}
@@ -179,13 +179,13 @@ const Columns = ({
       </div>
 
       {/* Title */}
-      <div className="flex flex-row justify-between items-center pb-5 pl-5 pr-5 border-b-4 border-[color:var(--user-icon--bg-color--purple)]">
+      <div className="flex flex-row justify-between items-center pb-5 pl-5 pr-5 border-b-4 border-(--user-icon--bg-color--purple)">
         <input
           type="text"
           disabled={updateState}
           value={updatedStateTitle}
           onChange={(event) => setUpdatedStateTitle(event.target.value)}
-          className={`text-xl text-[color:var(--primary-text--color)] bg-transparent font-semibold pl-2 pr-14 py-2 ${
+          className={`text-xl text-(--primary-text--color) bg-transparent font-semibold pl-2 pr-14 py-2 ${
             !updateState ? "border-2 border-white" : ""
           }`}
         ></input>
@@ -193,7 +193,7 @@ const Columns = ({
         {/* Buttons and Icons */}
         <div className="flex flex-row gap-x-7 items-center">
           <button
-            className="text-[color:var(--button-text--color)]"
+            className="text-(--button-text--color)"
             type="button"
             title={updateState ? "Update State" : "Confirm Update"}
             onClick={handleStateNameUpdate}
@@ -201,7 +201,7 @@ const Columns = ({
             {updateState ? updateIcon : confirmIcon}
           </button>
           <button
-            className="text-[color:var(--button-text--color)]"
+            className="text-(--button-text--color)"
             type="button"
             title="Delete State"
             onClick={() =>
@@ -214,7 +214,7 @@ const Columns = ({
             {deleteIcon}
           </button>
           <button
-            className="text-[color:var(--button-text--color)]"
+            className="text-(--button-text--color)"
             onClick={handleShowModal}
             type="button"
             title="Add Card"
@@ -226,7 +226,7 @@ const Columns = ({
 
       {/* Cards */}
       <SortableContext items={cards} strategy={verticalListSortingStrategy}>
-        <div className="flex flex-col items-center w-[100%] gap-y-7 p-7 h-[90%]">
+        <div className="flex flex-col items-center w-full gap-y-7 p-7 h-[90%]">
           {cards.map((card) => {
             return (
               <Card

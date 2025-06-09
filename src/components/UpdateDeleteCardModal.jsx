@@ -92,10 +92,10 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
   };
 
   return (
-    <div className="flex flex-col border-2 w-2/5 h-3/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] no-scrollbar">
+    <div className="flex flex-col border-2 w-2/5 h-3/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-xs bg-(--background-white) no-scrollbar">
       {/* Title */}
       <div className="flex flex-row justify-between">
-        <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
+        <p className="text-3xl font-semibold text-(--board-bg--color)">
           {updateDeleteCard.action === "update"
             ? "Update Card"
             : updateDeleteCard.action === "view"
@@ -114,7 +114,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
           <table>
             <tbody>
               <tr>
-                <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
+                <td className="text-xl font-semibold text-(--board-bg--color)">
                   Title
                 </td>
                 <td>
@@ -123,9 +123,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     placeholder="Create a new API"
                     className={`p-4 w-full border-[0.15rem] ${
                       updateDeleteCard.action == "delete"
-                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)] cursor-not-allowed"
-                        : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
-                    } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+                        ? "border-(--field-disabled--color) text-(--text-disabled--color) cursor-not-allowed"
+                        : "border-(--secondary-text--color) text-(--card-bg--color)"
+                    } bg-(--background-white) text-lg rounded-md mb-2`}
                     value={title}
                     onChange={(event) => setTitle(event.target.value)}
                     disabled={
@@ -139,7 +139,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                 </td>
               </tr>
               <tr>
-                <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
+                <td className="text-xl font-semibold text-(--board-bg--color)">
                   Short Description
                 </td>
                 <td>
@@ -148,9 +148,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     placeholder="The API should make a GET call"
                     className={`p-4 w-full border-[0.15rem] ${
                       updateDeleteCard.action == "delete"
-                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)] cursor-not-allowed"
-                        : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
-                    } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+                        ? "border-(--field-disabled--color) text-(--text-disabled--color) cursor-not-allowed"
+                        : "border-(--secondary-text--color) text-(--card-bg--color)"
+                    } bg-(--background-white) text-lg rounded-md mb-2`}
                     value={shortDescription}
                     onChange={(event) =>
                       setShortDescription(event.target.value)
@@ -166,7 +166,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                 </td>
               </tr>
               <tr>
-                <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
+                <td className="text-xl font-semibold text-(--board-bg--color)">
                   Assigned to
                 </td>
                 <td>
@@ -175,9 +175,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     id="newCardPriority"
                     className={`p-4 w-full border-[0.15rem] ${
                       updateDeleteCard.action == "delete"
-                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)] cursor-not-allowed"
-                        : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
-                    } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+                        ? "border-(--field-disabled--color) text-(--text-disabled--color) cursor-not-allowed"
+                        : "border-(--secondary-text--color) text-(--card-bg--color)"
+                    } bg-(--background-white) text-lg rounded-md mb-2`}
                     onChange={(event) => setAssignedTo(event.target.value)}
                     disabled={
                       action === "delete"
@@ -202,7 +202,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                 </td>
               </tr>
               <tr>
-                <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
+                <td className="text-xl font-semibold text-(--board-bg--color)">
                   Priority
                 </td>
                 <td>
@@ -211,9 +211,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     id="newCardPriority"
                     className={`p-4 w-full border-[0.15rem] ${
                       updateDeleteCard.action == "delete"
-                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)] cursor-not-allowed"
-                        : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
-                    } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+                        ? "border-(--field-disabled--color) text-(--text-disabled--color) cursor-not-allowed"
+                        : "border-(--secondary-text--color) text-(--card-bg--color)"
+                    } bg-(--background-white) text-lg rounded-md mb-2`}
                     onChange={(event) => setPriority(event.target.value)}
                     disabled={
                       action === "delete"
@@ -237,7 +237,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                 </td>
               </tr>
               <tr>
-                <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
+                <td className="text-xl font-semibold text-(--board-bg--color)">
                   Due Date
                 </td>
                 <td>
@@ -245,9 +245,9 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                     type="date"
                     className={`p-4 w-full border-[0.15rem] ${
                       updateDeleteCard.action == "delete"
-                        ? "border-[color:var(--field-disabled--color)] text-[color:var(--text-disabled--color)] cursor-not-allowed"
-                        : "border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)]"
-                    } bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+                        ? "border-(--field-disabled--color) text-(--text-disabled--color) cursor-not-allowed"
+                        : "border-(--secondary-text--color) text-(--card-bg--color)"
+                    } bg-(--background-white) text-lg rounded-md mb-2`}
                     name="dueDate"
                     id="dueDate"
                     value={dueDate}
@@ -269,7 +269,7 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
             <button
               type="button"
               onClick={hideModal}
-              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--board-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+              className="p-4 w-1/4 bg-(--background-white) text-(--board-bg--color) border-4 border-(--board-bg--color) text-xl font-bold rounded-md hover:ring-4 ring-(--board-bg--color) ring-offset-4 ring-offset-(--background-white) transition delay-150 ease-in-out"
             >
               Cancel
             </button>
@@ -279,13 +279,13 @@ const UpdateDeleteCardModal = ({ updateDeleteCard, hideModal }) => {
                 updateDeleteCard.action === "view" ? "hidden" : "visible"
               } ${
                 updateDeleteCard.action === "update"
-                  ? "bg-[color:var(--button-bg--color)]"
-                  : "bg-[color:var(--card-priority--color-high)]"
+                  ? "bg-(--button-bg--color)"
+                  : "bg-(--card-priority--color-high)"
               } text-white text-xl font-bold rounded-md hover:ring-4 ${
                 updateDeleteCard.action === "update"
-                  ? "ring-[color:var(--button-bg--color)]"
-                  : "ring-[color:var(--card-priority--color-high)]"
-              } ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out`}
+                  ? "ring-(--button-bg--color)"
+                  : "ring-(--card-priority--color-high)"
+              } ring-offset-4 ring-offset-(--background-white) transition delay-150 ease-in-out`}
             >
               {updateDeleteCard.action === "update"
                 ? "Update"

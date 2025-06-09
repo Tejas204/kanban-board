@@ -97,10 +97,10 @@ const TeamSelectorModal = ({ hideModal }) => {
   };
 
   return (
-    <div className="flex flex-col border-2 w-2/5 h-1/2 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] scrollbar">
+    <div className="flex flex-col border-2 w-2/5 h-1/2 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-xs bg-(--background-white) scrollbar">
       {/* Title */}
       <div className="flex flex-row justify-between">
-        <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
+        <p className="text-3xl font-semibold text-(--board-bg--color)">
           Modify your team
         </p>
         <button onClick={hideModal}>{closeIcon}</button>
@@ -108,7 +108,7 @@ const TeamSelectorModal = ({ hideModal }) => {
 
       {/* Tabs */}
       <div className="flex flex-col">
-        <div className="flex flex-row gap-x-10 text-xl text-[color:var(--board-bg--color)] border-b-2">
+        <div className="flex flex-row gap-x-10 text-xl text-(--board-bg--color) border-b-2">
           {/* Tab 1: Add new team members */}
           <button
             onClick={() => setTeamModification("addTeamMembers")}
@@ -137,7 +137,7 @@ const TeamSelectorModal = ({ hideModal }) => {
 
       {/* Team selection text */}
       <div className="flex flex-col gap-y-4">
-        <p className="text-lg text-[color:var(--board-bg--color)] transition ease-in-out delay-100">
+        <p className="text-lg text-(--board-bg--color) transition ease-in-out delay-100">
           {teamModification === "addTeamMembers"
             ? "Let your team grow by adding new team members."
             : "Remove team members."}
@@ -176,14 +176,14 @@ const TeamSelectorModal = ({ hideModal }) => {
             console.log(event.target.value);
           }}
           onClick={() => setSearchResultVisibility(!searchResultVisibility)}
-          className={`p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+          className={`p-4 w-full border-[0.15rem] border-(--secondary-text--color) text-(--card-bg--color) bg-(--background-white) text-lg rounded-md mb-2`}
         ></input>
         <div
           className={`${
             searchResultVisibility ? "visible" : "hidden"
-          } fixed bg-[color:var(--background-white)] border-[1px] border-gray-300 rounded-lg shadow-md w-[90%] h-[25%] overflow-y-auto scrollbar scroll-smooth px-4 py-2`}
+          } fixed bg-(--background-white) border border-gray-300 rounded-lg shadow-md w-[90%] h-[25%] overflow-y-auto scrollbar scroll-smooth px-4 py-2`}
         >
-          <ul className="text-black w-[100%]">
+          <ul className="text-black w-full">
             {userList.map((user) => {
               return (
                 <li key={user.id}>
@@ -202,16 +202,16 @@ const TeamSelectorModal = ({ hideModal }) => {
           <button
             type="button"
             onClick={hideModal}
-            className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 
-            border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--board-bg--color)] 
-            ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+            className="p-4 w-1/4 bg-(--background-white) text-(--board-bg--color) border-4 
+            border-(--board-bg--color) text-xl font-bold rounded-md hover:ring-4 ring-(--board-bg--color) 
+            ring-offset-4 ring-offset-(--background-white) transition delay-150 ease-in-out"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className={`p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
-              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
+            className={`p-4 w-1/4 bg-(--user-icon--bg-color--lavender) ring-(--user-icon--bg-color--lavender) 
+              text-white ring-offset-4 ring-offset-(--background-white) hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
           >
             Submit
           </button>
@@ -234,10 +234,10 @@ const TeamSelectorModal = ({ hideModal }) => {
                   name="removalUsers"
                   id={user.id}
                   value={user.name}
-                  className="h-4 w-4 accent-[color:var(--user-icon--bg-color--lavender)]"
+                  className="h-4 w-4 accent-(--user-icon--bg-color--lavender)"
                   // onChange={(event) => setTestHook(event.target.value)}
                 ></input>
-                <label className="text-[color:var(--board-bg--color)] text-lg">
+                <label className="text-(--board-bg--color) text-lg">
                   {user.name}
                 </label>
               </div>
@@ -249,15 +249,15 @@ const TeamSelectorModal = ({ hideModal }) => {
           <button
             type="button"
             onClick={hideModal}
-            className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--board-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+            className="p-4 w-1/4 bg-(--background-white) text-(--board-bg--color) border-4 border-(--board-bg--color) text-xl font-bold rounded-md hover:ring-4 ring-(--board-bg--color) ring-offset-4 ring-offset-(--background-white) transition delay-150 ease-in-out"
           >
             Cancel
           </button>
           <button
             type="submit"
             className={`p-4 w-1/4
-            bg-[color:var(--card-priority--color-high)] ring-[color:var(--card-priority--color-high)]
-            text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl 
+            bg-(--card-priority--color-high) ring-(--card-priority--color-high)
+            text-white ring-offset-4 ring-offset-(--background-white) hover:ring-4 text-xl 
             font-bold rounded-md transition delay-150 ease-in-out`}
           >
             Submit

@@ -73,7 +73,7 @@ const Comments = ({ comments, cardId, action }) => {
 
   return (
     <div className="flex flex-col gap-y-3">
-      <div className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
+      <div className="text-3xl font-semibold text-(--board-bg--color)">
         Comments
       </div>
       <div className="flex flex-col gap-y-5">
@@ -84,7 +84,7 @@ const Comments = ({ comments, cardId, action }) => {
           }`}
         >
           <input
-            className="w-[100%] bg-white text-[color:var(--board-bg--color)] focus:ring focus:ring-[color:var(--user-icon--bg-color--lavender)] outline-none rounded-lg p-2"
+            className="w-full bg-white text-(--board-bg--color) focus:ring-3 focus:ring-(--user-icon--bg-color--lavender) outline-hidden rounded-lg p-2"
             placeholder="Add comment"
             type="text"
             value={newComment}
@@ -92,28 +92,28 @@ const Comments = ({ comments, cardId, action }) => {
           />
           <button
             onClick={handleAddNewComment}
-            className="px-8 py-3 font-bold rounded-lg bg-[color:var(--user-icon--bg-color--lavender)] hover:ring-4 ring-[color:var(--button-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out text-white"
+            className="px-8 py-3 font-bold rounded-lg bg-(--user-icon--bg-color--lavender) hover:ring-4 ring-(--button-bg--color) ring-offset-4 ring-offset-(--background-white) transition delay-150 ease-in-out text-white"
           >
             Add
           </button>
         </form>
 
         {/* Existing comments */}
-        <div className="flex flex-col gap-y-3 w-[100%]">
+        <div className="flex flex-col gap-y-3 w-full">
           {comments.map((comment) => {
             if (comment.card == cardId) {
               return (
                 <div
                   key={comment._id}
-                  className="grid grid-cols-10 w-[100%] p-3 bg-gray-100 rounded-lg"
+                  className="grid grid-cols-10 w-full p-3 bg-gray-100 rounded-lg"
                 >
                   <div className="col-span-1">
-                    <div className="flex items-center font-semibold h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)] bg-orange-400">
+                    <div className="flex items-center font-semibold h-11 w-11 p-3 rounded-full text-(--primary-dark--text-color) bg-orange-400">
                       {getInitials(comment.user).initials}
                     </div>
                   </div>
                   <div className="col-span-9 flex flex-col gap-y-2">
-                    <div className="font-semibold flex flex-row justify-between w-[100%] text-[color:var(--board-bg--color)]">
+                    <div className="font-semibold flex flex-row justify-between w-full text-(--board-bg--color)">
                       <div>{getInitials(comment.user).userName}</div>
                       <button
                         className={`text-gray-500 hover:text-black transition ease-in-out duration-150 ${
@@ -126,7 +126,7 @@ const Comments = ({ comments, cardId, action }) => {
                         {deleteCommentIcon}
                       </button>
                     </div>
-                    <div className="text-justify text-[color:var(--board-bg--color)]">
+                    <div className="text-justify text-(--board-bg--color)">
                       {comment.comment}
                     </div>
                   </div>

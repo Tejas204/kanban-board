@@ -78,13 +78,13 @@ const NoSelection = () => {
   return (
     <div className="h-full w-full flex items-center justify-center">
       {/* Title */}
-      <div className="flex flex-col h-2/5 gap-y-10 w-2/5 mt-56  rounded-lg border-2 items-start bg-[color:var(--background-white)] px-10 py-10 no-scrollbar">
+      <div className="flex flex-col h-2/5 gap-y-10 w-2/5 mt-56  rounded-lg border-2 items-start bg-(--background-white) px-10 py-10 no-scrollbar">
         <div className="text-3xl font-bold">
           Please select a kanban board to get started
         </div>
 
         {/* Tabs */}
-        <div className="flex flex-row w-[100%] items-start gap-x-6 text-xl text-[color:var(--board-bg--color)] border-b-2">
+        <div className="flex flex-row w-full items-start gap-x-6 text-xl text-(--board-bg--color) border-b-2">
           <button
             id="new"
             onClick={(event) => handleTabChange(event)}
@@ -134,12 +134,12 @@ const NoSelection = () => {
               value={newBoardName}
               onChange={(event) => setNewBoardName(event.target.value)}
               placeholder="Enter the name of the board"
-              className="p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2"
+              className="p-4 w-full border-[0.15rem] border-(--secondary-text--color) text-(--card-bg--color) bg-(--background-white) text-lg rounded-md mb-2"
             ></input>
             <button
               type="submit"
-              className="p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
-              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out"
+              className="p-4 w-1/4 bg-(--user-icon--bg-color--lavender) ring-(--user-icon--bg-color--lavender) 
+              text-white ring-offset-4 ring-offset-(--background-white) hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out"
             >
               Submit
             </button>
@@ -158,7 +158,7 @@ const NoSelection = () => {
           >
             <select
               onChange={(event) => setBoardSelection(event.target.value)}
-              className="p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2"
+              className="p-4 w-full border-[0.15rem] border-(--secondary-text--color) text-(--card-bg--color) bg-(--background-white) text-lg rounded-md mb-2"
             >
               <option value="">Select a board</option>
               {myBoards.map((board) => {
@@ -172,8 +172,8 @@ const NoSelection = () => {
             </select>
             <button
               type="submit"
-              className="p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
-              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out"
+              className="p-4 w-1/4 bg-(--user-icon--bg-color--lavender) ring-(--user-icon--bg-color--lavender) 
+              text-white ring-offset-4 ring-offset-(--background-white) hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out"
             >
               Submit
             </button>
@@ -192,7 +192,7 @@ const NoSelection = () => {
           >
             <select
               onChange={(event) => setBoardSelection(event.target.value)}
-              className="p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2"
+              className="p-4 w-full border-[0.15rem] border-(--secondary-text--color) text-(--card-bg--color) bg-(--background-white) text-lg rounded-md mb-2"
             >
               <option value="">Select a board</option>
               {sharedBoards.map((board) => {
@@ -201,8 +201,8 @@ const NoSelection = () => {
             </select>
             <button
               type="submit"
-              className="p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
-              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out"
+              className="p-4 w-1/4 bg-(--user-icon--bg-color--lavender) ring-(--user-icon--bg-color--lavender) 
+              text-white ring-offset-4 ring-offset-(--background-white) hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out"
             >
               Submit
             </button>

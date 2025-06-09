@@ -64,10 +64,10 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
   };
 
   return (
-    <div className="flex flex-col border-2 w-2/5 h-2/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)] no-scrollbar">
+    <div className="flex flex-col border-2 w-2/5 h-2/5 overflow-y-auto mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-xs bg-(--background-white) no-scrollbar">
       {/* Title */}
       <div className="flex flex-row justify-between">
-        <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
+        <p className="text-3xl font-semibold text-(--board-bg--color)">
           Manage your kanban boards
         </p>
         <button onClick={hideModal}>{closeIcon}</button>
@@ -75,7 +75,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
 
       {/* Tabs */}
       <div className="flex flex-col">
-        <div className="flex flex-row gap-x-6 text-xl text-[color:var(--board-bg--color)] border-b-2">
+        <div className="flex flex-row gap-x-6 text-xl text-(--board-bg--color) border-b-2">
           {/* Tab 1: New Kanban Board */}
           <button
             onClick={() => setBoardSelection("new")}
@@ -132,7 +132,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
           boardSelection == "new" ? "visible" : "hidden"
         }`}
       >
-        <p className="text-lg text-[color:var(--board-bg--color)]">
+        <p className="text-lg text-(--board-bg--color)">
           Create a new kanban board
         </p>
         <form onSubmit={(event) => handleNewBoardCreation(event)}>
@@ -140,7 +140,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
           <input
             className={`${
               boardSelection === "new" ? "visible" : "hidden"
-            } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+            } p-4 w-full border-[0.15rem] border-(--secondary-text--color) text-(--card-bg--color) bg-(--background-white) text-lg rounded-md mb-2`}
             placeholder="Enter the name of the board"
             onChange={(event) => setNewBoardName(event.target.value)}
           ></input>
@@ -148,16 +148,16 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             <button
               type="button"
               onClick={hideModal}
-              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 
-            border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--board-bg--color)] 
-            ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+              className="p-4 w-1/4 bg-(--background-white) text-(--board-bg--color) border-4 
+            border-(--board-bg--color) text-xl font-bold rounded-md hover:ring-4 ring-(--board-bg--color) 
+            ring-offset-4 ring-offset-(--background-white) transition delay-150 ease-in-out"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className={`p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
-              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
+              className={`p-4 w-1/4 bg-(--user-icon--bg-color--lavender) ring-(--user-icon--bg-color--lavender) 
+              text-white ring-offset-4 ring-offset-(--background-white) hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
             >
               Submit
             </button>
@@ -171,14 +171,14 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
           boardSelection == "created" ? "visible" : "hidden"
         }`}
       >
-        <p className="text-lg text-[color:var(--board-bg--color)]">
+        <p className="text-lg text-(--board-bg--color)">
           Choose a board created by you
         </p>
         <form>
           <select
             className={`${
               boardSelection == "created" ? "visible" : "hidden"
-            } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+            } p-4 w-full border-[0.15rem] border-(--secondary-text--color) text-(--card-bg--color) bg-(--background-white) text-lg rounded-md mb-2`}
           >
             {myBoards.map((board) => {
               return <option key={board._id}>{board.name}</option>;
@@ -188,16 +188,16 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             <button
               type="button"
               onClick={hideModal}
-              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 
-            border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--board-bg--color)] 
-            ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+              className="p-4 w-1/4 bg-(--background-white) text-(--board-bg--color) border-4 
+            border-(--board-bg--color) text-xl font-bold rounded-md hover:ring-4 ring-(--board-bg--color) 
+            ring-offset-4 ring-offset-(--background-white) transition delay-150 ease-in-out"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className={`p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
-              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
+              className={`p-4 w-1/4 bg-(--user-icon--bg-color--lavender) ring-(--user-icon--bg-color--lavender) 
+              text-white ring-offset-4 ring-offset-(--background-white) hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
             >
               Submit
             </button>
@@ -211,14 +211,14 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
           boardSelection == "shared" ? "visible" : "hidden"
         }`}
       >
-        <p className="text-lg text-[color:var(--board-bg--color)]">
+        <p className="text-lg text-(--board-bg--color)">
           Choose a board shared with you
         </p>
         <form>
           <select
             className={`${
               boardSelection == "shared" ? "visible" : "hidden"
-            } p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-[color:var(--card-bg--color)] bg-[color:var(--background-white)] text-lg rounded-md mb-2`}
+            } p-4 w-full border-[0.15rem] border-(--secondary-text--color) text-(--card-bg--color) bg-(--background-white) text-lg rounded-md mb-2`}
           >
             {sharedBoards.map((board) => {
               return <option key={board._id}>{board.name}</option>;
@@ -228,16 +228,16 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             <button
               type="button"
               onClick={hideModal}
-              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 
-            border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--board-bg--color)] 
-            ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+              className="p-4 w-1/4 bg-(--background-white) text-(--board-bg--color) border-4 
+            border-(--board-bg--color) text-xl font-bold rounded-md hover:ring-4 ring-(--board-bg--color) 
+            ring-offset-4 ring-offset-(--background-white) transition delay-150 ease-in-out"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className={`p-4 w-1/4 bg-[color:var(--user-icon--bg-color--lavender)] ring-[color:var(--user-icon--bg-color--lavender)] 
-              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
+              className={`p-4 w-1/4 bg-(--user-icon--bg-color--lavender) ring-(--user-icon--bg-color--lavender) 
+              text-white ring-offset-4 ring-offset-(--background-white) hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
             >
               Submit
             </button>
@@ -251,7 +251,7 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
           boardSelection == "delete" ? "visible" : "hidden"
         }`}
       >
-        <p className="text-lg text-[color:var(--board-bg--color)]">
+        <p className="text-lg text-(--board-bg--color)">
           Delete boards
         </p>
         <form onSubmit={(event) => handleBoardDeletion(event)}>
@@ -263,11 +263,11 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
                   name="removalBoards"
                   value={board._id}
                   id={board._id}
-                  className="h-4 w-4 accent-[color:var(--user-icon--bg-color--lavender)]"
+                  className="h-4 w-4 accent-(--user-icon--bg-color--lavender)"
                 ></input>
                 <label
                   for={board._id}
-                  className="text-[color:var(--board-bg--color)] text-lg"
+                  className="text-(--board-bg--color) text-lg"
                 >
                   {board.name}
                 </label>
@@ -278,16 +278,16 @@ const KanbanBoardSelectorModal = ({ hideModal }) => {
             <button
               type="button"
               onClick={hideModal}
-              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 
-            border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--board-bg--color)] 
-            ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+              className="p-4 w-1/4 bg-(--background-white) text-(--board-bg--color) border-4 
+            border-(--board-bg--color) text-xl font-bold rounded-md hover:ring-4 ring-(--board-bg--color) 
+            ring-offset-4 ring-offset-(--background-white) transition delay-150 ease-in-out"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className={`p-4 w-1/4 bg-[color:var(--card-priority--color-high)] ring-[color:var(--card-priority--color-high)] 
-              text-white ring-offset-4 ring-offset-[color:var(--background-white)] hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
+              className={`p-4 w-1/4 bg-(--card-priority--color-high) ring-(--card-priority--color-high) 
+              text-white ring-offset-4 ring-offset-(--background-white) hover:ring-4 text-xl font-bold rounded-md transition delay-150 ease-in-out`}
             >
               Submit
             </button>

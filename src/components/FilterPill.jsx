@@ -21,7 +21,7 @@ const FilterPill = () => {
   };
 
   return (
-    <div className="flex flex-col gap-y-14 text-[color:var(--primary-text--color)] h-fit z-10 absolute left-3 top-[40%] rounded-full w-fit bg-[color:var(--user-icon--bg-color--lavender)] p-4">
+    <div className="flex flex-col gap-y-14 text-(--primary-text--color) h-fit z-10 absolute left-3 top-[40%] rounded-full w-fit bg-(--user-icon--bg-color--lavender) p-4">
       <div>
         <button
           id="boardSelection"

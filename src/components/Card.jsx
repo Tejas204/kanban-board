@@ -110,7 +110,7 @@ const Card = ({
 
   return (
     <div
-      className={`flex flex-col w-[430px] shadow-2xl rounded-lg  bg-[color:var(--card-bg--color)] ${
+      className={`flex flex-col w-[430px] shadow-2xl rounded-lg  bg-(--card-bg--color) ${
         isDragging ? "opacity-20" : ""
       }`}
       ref={setNodeRef}
@@ -125,10 +125,10 @@ const Card = ({
         <div className="flex flex-row justify-between">
           {/* Title and assignment */}
           <div className="flex flex-col">
-            <p className="text-xl text-[color:var(--primary-text--color)] font-semibold">
+            <p className="text-xl text-(--primary-text--color) font-semibold">
               {title}
             </p>
-            <p className="text-[color:var(--secondary-text--color)] line-clamp-2">
+            <p className="text-(--secondary-text--color) line-clamp-2">
               {short_description}
             </p>
           </div>
@@ -140,12 +140,12 @@ const Card = ({
                 {cardMenuIcon}
               </button>
               <div
-                className={`bg-white/70 backdrop-blur-sm shadow-lg p-3 rounded-lg absolute mt-[1.35rem] w-[7rem] ml-[0.5rem] text-center ${
+                className={`bg-white/70 backdrop-blur-xs shadow-lg p-3 rounded-lg absolute mt-[1.35rem] w-28 ml-2 text-center ${
                   isMenuVisible ? "visible" : "hidden"
                 }`}
               >
-                <ul className="flex flex-col gap-y-4 text-lg font-semibold text-[color:var(--board-bg--color)]">
-                  <li className="hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
+                <ul className="flex flex-col gap-y-4 text-lg font-semibold text-(--board-bg--color)">
+                  <li className="hover:bg-(--button-bg--color) hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
                     <button
                       id="updateButton"
                       onClick={(event) => {
@@ -155,7 +155,7 @@ const Card = ({
                       Update
                     </button>
                   </li>
-                  <li className="hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
+                  <li className="hover:bg-(--button-bg--color) hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
                     <button
                       id="deleteButton"
                       onClick={(event) => {
@@ -165,7 +165,7 @@ const Card = ({
                       Delete
                     </button>
                   </li>
-                  <li className="hover:bg-[color:var(--button-bg--color)] hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
+                  <li className="hover:bg-(--button-bg--color) hover:text-white rounded-lg p-1 transition ease-in-out duration-150">
                     <button
                       id="viewButton"
                       onClick={(event) => {
@@ -182,19 +182,19 @@ const Card = ({
         </div>
 
         {/* Due date */}
-        <div className="text-lg text-[color:var(--secondary-text--color)] pb-1">
+        <div className="text-lg text-(--secondary-text--color) pb-1">
           Due by: {newDueDate}
         </div>
 
         {/* Priority */}
-        <div className="text-[color:var(--primary-text--color)] text-lg w-fit">
+        <div className="text-(--primary-text--color) text-lg w-fit">
           <p
-            className={`w-[100%] overflow-hidden text-[color:var(--primary-dark--text-color)] font-semibold overflow-ellipsis text-nowrap px-4 py-1 rounded-full ${
+            className={`w-full overflow-hidden text-(--primary-dark--text-color) font-semibold text-ellipsis text-nowrap px-4 py-1 rounded-full ${
               priority == 1
-                ? "bg-[color:var(--card-priority--color-high)]"
+                ? "bg-(--card-priority--color-high)"
                 : priority == 2
-                ? "bg-[color:var(--card-priority--color-medium)]"
-                : "bg-[color:var(--card-priority--color-low)]"
+                ? "bg-(--card-priority--color-medium)"
+                : "bg-(--card-priority--color-low)"
             }`}
           >
             {priority == 1 ? "High" : priority == 2 ? "Medium" : "Low"}
@@ -206,13 +206,13 @@ const Card = ({
       {/* <CardFunctions isDragging={triggerOnClick}></CardFunctions> */}
       <div className="flex flex-row justify-between items-center space-x-5 px-6 py-3">
         <div
-          className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full text-[color:var(--primary-dark--text-color)]
+          className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full text-(--primary-dark--text-color)
                     ${
                       priority == 1
-                        ? "bg-[color:var(--card-priority--color-high)]"
+                        ? "bg-(--card-priority--color-high)"
                         : priority == 2
-                        ? "bg-[color:var(--card-priority--color-medium)]"
-                        : "bg-[color:var(--card-priority--color-low)]"
+                        ? "bg-(--card-priority--color-medium)"
+                        : "bg-(--card-priority--color-low)"
                     }`}
         >
           {getInitials(assigned_to).initials}
@@ -222,7 +222,7 @@ const Card = ({
         <div className="flex flex-row gap-x-6">
           <div className="flex flex-row gap-x-2">
             <button className="text-gray-500">{messageIcon}</button>
-            <div className="text-lg text-[color:var(--secondary-text--color)]">
+            <div className="text-lg text-(--secondary-text--color)">
               {
                 comments.filter((comment) => {
                   return comment.card == id;
@@ -233,7 +233,7 @@ const Card = ({
           {/* To enable when functionality to add attachments will be activated */}
           {/* <div className="flex flex-row gap-x-2">
             <button className="text-gray-500">{attachmentIcon}</button>
-            <div className="text-lg text-[color:var(--secondary-text--color)]">
+            <div className="text-lg text-(--secondary-text--color)">
               2
             </div>
           </div> */}

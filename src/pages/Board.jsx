@@ -442,19 +442,19 @@ const Board = () => {
           updateDeleteCard ||
           deleteState.active ||
           pillOption
-            ? "blur-sm"
+            ? "blur-xs"
             : "blur-none"
         }`}
       >
         {/* Board title */}
-        <div className="px-10 py-4 text-2xl text-[color:var(--primary-text--color)] font-semibold w-[100%] border-b-[1px] border-b-gray-700">
+        <div className="px-10 py-4 text-2xl text-(--primary-text--color) font-semibold w-full border-b border-b-gray-700">
           <form className="flex flex-row items-center gap-x-2">
             <input
               type="text"
               value={newBoardName}
               disabled={disableBoardName}
               onChange={(event) => setNewBoardName(event.target.value)}
-              className="bg-[color:var(--board-bg--color)] text-[color:var(--primary-text--color)] border-none p-1 rounded-lg ring-0"
+              className="bg-(--board-bg--color) text-(--primary-text--color) border-none p-1 rounded-lg ring-0"
             ></input>
             <button
               type="button"
@@ -545,7 +545,7 @@ const Board = () => {
       {/* Add state button */}
       <button
         onClick={handleAddState}
-        className="fixed bottom-4 right-10 px-6 py-4 rounded-lg text-lg text-[color:var(--primary-text--color)] bg-[color:var(--user-icon--bg-color--blue)] font-semibold hover:ring-2 ring-offset-4 ring-offset-[color:var(--filter-bg--color)] ring-[color:var(--user-icon--bg-color--blue)] transition ease-in-out duration-150"
+        className="fixed bottom-4 right-10 px-6 py-4 rounded-lg text-lg text-(--primary-text--color) bg-(--user-icon--bg-color--blue) font-semibold hover:ring-2 ring-offset-4 ring-offset-(--filter-bg--color) ring-(--user-icon--bg-color--blue) transition ease-in-out duration-150"
       >
         Add State
       </button>

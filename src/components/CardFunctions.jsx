@@ -92,19 +92,19 @@ const CardFunctions = ({ isDragging }) => {
       </p>
       <button
         onClick={showCardDetails}
-        className="flex flex-row text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150 p-2"
+        className="flex flex-row text-(--secondary-text--color) hover:text-(--primary-text--color) transition ease-in-out delay-150 p-2"
       >
         {messageIcon}
       </button>
       <button
         onClick={deleteCard}
-        className="flex flex-row text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150 p-2"
+        className="flex flex-row text-(--secondary-text--color) hover:text-(--primary-text--color) transition ease-in-out delay-150 p-2"
       >
         {deleteIcon}
       </button>
       <button
         onClick={updateDeadline}
-        className="flex flex-row space-x-2 text-[color:var(--secondary-text--color)] hover:text-[color:var(--primary-text--color)] transition ease-in-out delay-150 p-2"
+        className="flex flex-row space-x-2 text-(--secondary-text--color) hover:text-(--primary-text--color) transition ease-in-out delay-150 p-2"
       >
         {calendarIcon}
       </button>

@@ -52,10 +52,10 @@ const CreateCardModal = ({ hideModal, columnId }) => {
   };
 
   return (
-    <div className="flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-sm bg-[color:var(--background-white)]">
+    <div className="flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-xs bg-(--background-white)">
       {/* Title */}
       <div className="flex flex-row justify-between">
-        <p className="text-3xl font-semibold text-[color:var(--board-bg--color)]">
+        <p className="text-3xl font-semibold text-(--board-bg--color)">
           Create a card
         </p>
         <button onClick={hideModal}>{closeIcon}</button>
@@ -70,7 +70,7 @@ const CreateCardModal = ({ hideModal, columnId }) => {
           <table>
             <tbody>
               <tr>
-                <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
+                <td className="text-xl font-semibold text-(--board-bg--color)">
                   Title
                 </td>
                 <td>
@@ -83,7 +83,7 @@ const CreateCardModal = ({ hideModal, columnId }) => {
                 </td>
               </tr>
               <tr>
-                <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
+                <td className="text-xl font-semibold text-(--board-bg--color)">
                   Short Description
                 </td>
                 <td>
@@ -98,7 +98,7 @@ const CreateCardModal = ({ hideModal, columnId }) => {
                 </td>
               </tr>
               <tr>
-                <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
+                <td className="text-xl font-semibold text-(--board-bg--color)">
                   Assigned to
                 </td>
                 <td>
@@ -115,7 +115,7 @@ const CreateCardModal = ({ hideModal, columnId }) => {
                 </td>
               </tr>
               <tr>
-                <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
+                <td className="text-xl font-semibold text-(--board-bg--color)">
                   Priority
                 </td>
                 <td>
@@ -136,7 +136,7 @@ const CreateCardModal = ({ hideModal, columnId }) => {
                 </td>
               </tr>
               <tr>
-                <td className="text-xl font-semibold text-[color:var(--board-bg--color)]">
+                <td className="text-xl font-semibold text-(--board-bg--color)">
                   Due Date
                 </td>
                 <td>
@@ -155,13 +155,13 @@ const CreateCardModal = ({ hideModal, columnId }) => {
           <div className="flex flex-row justify-start gap-x-10">
             <button
               type="submit"
-              className="p-4 w-1/4 bg-[color:var(--background-white)] text-[color:var(--board-bg--color)] border-4 border-[color:var(--board-bg--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--card-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+              className="p-4 w-1/4 bg-(--background-white) text-(--board-bg--color) border-4 border-(--board-bg--color) text-xl font-bold rounded-md hover:ring-4 ring-(--card-bg--color) ring-offset-4 ring-offset-(--background-white) transition delay-150 ease-in-out"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="p-4 w-1/4 bg-[color:var(--button-bg--color)] text-[color:var(--button-text--color)] text-xl font-bold rounded-md hover:ring-4 ring-[color:var(--button-bg--color)] ring-offset-4 ring-offset-[color:var(--background-white)] transition delay-150 ease-in-out"
+              className="p-4 w-1/4 bg-(--button-bg--color) text-(--button-text--color) text-xl font-bold rounded-md hover:ring-4 ring-(--button-bg--color) ring-offset-4 ring-offset-(--background-white) transition delay-150 ease-in-out"
             >
               Submit
             </button>
@@ -172,6 +172,6 @@ const CreateCardModal = ({ hideModal, columnId }) => {
   );
 };
 
-const formStyle = `p-4 w-full border-[0.15rem] border-[color:var(--secondary-text--color)] text-lg rounded-md mb-2 bg-[color:var(--background-white)] text-[color:var(--card-bg--color)]`;
+const formStyle = `p-4 w-full border-[0.15rem] border-(--secondary-text--color) text-lg rounded-md mb-2 bg-(--background-white) text-(--card-bg--color)`;
 
 export default CreateCardModal;
