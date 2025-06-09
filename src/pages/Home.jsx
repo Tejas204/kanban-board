@@ -42,7 +42,7 @@ const Home = () => {
         <div className="w-full flex flex-row col-span-1">
           <img
             src={UI}
-            className="scale-150 mt-20 shadow-2xl shadow-gray-800 "
+            className="scale-150 mt-20 shadow-2xl rounded-lg shadow-gray-900 border-[0.1rem] border-gray-700 "
           ></img>
         </div>
       </div>
