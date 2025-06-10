@@ -8,7 +8,7 @@ const Home = () => {
   return (
     // Parent div
     <div className="flex flex-col min-h-screen overflow-x-hidden gap-y-32">
-      <div className="relative grid grid-cols-2 ml-[8%] mt-[5%] mb-10">
+      <div className="relative grid grid-cols-2 ml-[8%] mt-[6%]">
         {/* Capmaign Div */}
         <div className="flex flex-col col-span-1 gap-y-9 text-(--primary-text--color) w-[70%]">
           <p className="text-6xl">Create a Kanban board for your team</p>
@@ -42,7 +42,7 @@ const Home = () => {
         <div className="w-full flex flex-row col-span-1">
           <img
             src={UI}
-            className="scale-150 mt-20 shadow-2xl rounded-lg shadow-gray-900 border-[0.1rem] border-gray-700 "
+            className="lg:scale-150 xl:scale-125 mt-20 shadow-2xl rounded-lg shadow-gray-700 border-[0.1rem] border-gray-700 1s ease-in-out"
           ></img>
         </div>
       </div>
@@ -53,7 +53,7 @@ const Home = () => {
         ></img>
       </div> */}
       {/* Footer */}
-      <div className="relative">
+      <div className="relative mt-10">
         <Footer></Footer>
       </div>
     </div>
