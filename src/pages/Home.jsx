@@ -2,13 +2,14 @@ import React from "react";
 import UI from "../assets/Kanban_Home_Page_UI.png";
 import UIImage from "../assets/Kanban_Board_UI.png";
 import Footer from "../components/Footer";
-import { tickmark } from "../data/icons";
+import { messageIcon, tickmark } from "../data/icons";
+import CardUI from "../components/CardUI";
 
 const Home = () => {
   return (
     // Parent div
     <div className="flex flex-col min-h-screen overflow-x-hidden gap-y-32">
-      <div className="relative grid grid-cols-2 ml-[8%] mt-[6%]">
+      <div className="relative grid grid-cols-2 ml-[4%] mt-[6%]">
         {/* Capmaign Div */}
         <div className="flex flex-col col-span-1 gap-y-9 text-(--primary-text--color) w-[70%]">
           <p className="text-6xl">Create a Kanban board for your team</p>
@@ -33,25 +34,34 @@ const Home = () => {
         </div>
 
         {/* Hero Image */}
-        {/* <div className="w-full flex flex-row">
-          <img
-            src={UI}
-            className="scale-150 mt-20 relative shadow-2xl border-[0.1rem] border-(--text-disabled--color)"
-          ></img>
-        </div> */}
         <div className="w-full flex flex-row col-span-1">
           <img
             src={UI}
-            className="lg:scale-150 xl:scale-125 mt-20 shadow-2xl rounded-lg shadow-gray-700 border-[0.1rem] border-gray-700 1s ease-in-out"
+            className="lg:scale-150 xl:scale-125 shadow-2xl rounded-lg shadow-gray-900 border-[0.1rem] border-gray-700"
           ></img>
         </div>
       </div>
-      {/* <div className="w-full flex flex-row">
-        <img
-          src={UI}
-          className="scale-75 left-1/3 top-25 sticky shadow-2xl border-[0.1rem] border-(--text-disabled--color)"
-        ></img>
-      </div> */}
+
+      {/* Cards Info */}
+      <div className="grid grid-cols-2 bg-red ml-[4%] mr-[4%]">
+        {/* -----------------------------------------------------------------------
+          Cards 
+          -----------------------------------------------------------------------*/}
+        <div className="col-span-1 flex flex-row -gap-x-10 border-2 p-10 transform-3d">
+          <div className="-rotate-y-30 rotate-x-30 -rotate-z-1">
+            <CardUI></CardUI>
+          </div>
+          <div className="-rotate-y-30 rotate-x-30 -rotate-z-1">
+            <CardUI></CardUI>
+          </div>
+          <div className="-rotate-y-30 rotate-x-30 -rotate-z-1">
+            <CardUI></CardUI>
+          </div>
+        </div>
+
+        {/* Cards Description */}
+        <div className="col-span-1 border-2 p-10"></div>
+      </div>
       {/* Footer */}
       <div className="relative mt-10">
         <Footer></Footer>
