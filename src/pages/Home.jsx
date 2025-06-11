@@ -47,14 +47,14 @@ const Home = () => {
         {/* -----------------------------------------------------------------------
           Cards 
           -----------------------------------------------------------------------*/}
-        <div className="col-span-1 flex flex-row -gap-x-10 border-2 p-10 transform-3d">
-          <div className="-rotate-y-30 rotate-x-30 -rotate-z-1">
+        <div className="col-span-1 flex flex-row p-10 transform-3d">
+          <div className="-rotate-y-30 rotate-x-30 -rotate-z-1 z-1">
             <CardUI></CardUI>
           </div>
-          <div className="-rotate-y-30 rotate-x-30 -rotate-z-1">
+          <div className="-rotate-y-30 rotate-x-30 -rotate-z-1 z-2 translate-x-40">
             <CardUI></CardUI>
           </div>
-          <div className="-rotate-y-30 rotate-x-30 -rotate-z-1">
+          <div className="-rotate-y-30 rotate-x-30 -rotate-z-1 z-10">
             <CardUI></CardUI>
           </div>
         </div>
