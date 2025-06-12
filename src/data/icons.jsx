@@ -101,7 +101,6 @@ export const tickmark = (
     viewBox="0 0 24 24"
     stroke-width="4"
     stroke="currentColor"
-    className="w-6 h-6"
   >
     <path
       stroke-linecap="round"
