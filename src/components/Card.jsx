@@ -119,11 +119,15 @@ const Card = ({
       style={style}
     >
       <div
-        className={`flex flex-col px-4 py-4 border-b-2 border-b-gray-600 gap-y-2`}
+        className={`flex flex-col px-4 py-4 border-b-2 border-b-(--text-disabled--color) gap-y-2`}
       >
-        {/* Primary details */}
+        {/* -----------------------------------------------------------------------
+        Primary details 
+        -----------------------------------------------------------------------*/}
         <div className="flex flex-row justify-between">
-          {/* Title and assignment */}
+          {/* -----------------------------------------------------------------------
+          Title and assignment 
+          -----------------------------------------------------------------------*/}
           <div className="flex flex-col">
             <p className="text-xl text-(--primary-text--color) font-semibold">
               {title}
@@ -133,7 +137,9 @@ const Card = ({
             </p>
           </div>
 
-          {/* Menu options */}
+          {/* -----------------------------------------------------------------------
+          Menu options 
+          -----------------------------------------------------------------------*/}
           <div className="flex flex-row items-center">
             <div className="flex flex-col gap-y-2">
               <button onClick={() => setIsMenuVisible(!isMenuVisible)}>
@@ -181,12 +187,16 @@ const Card = ({
           </div>
         </div>
 
-        {/* Due date */}
+        {/* -----------------------------------------------------------------------
+        Due date 
+        -----------------------------------------------------------------------*/}
         <div className="text-lg text-(--secondary-text--color) pb-1">
           Due by: {newDueDate}
         </div>
 
-        {/* Priority */}
+        {/* -----------------------------------------------------------------------
+        Priority 
+        -----------------------------------------------------------------------*/}
         <div className="text-(--primary-text--color) text-lg w-fit">
           <p
             className={`w-full overflow-hidden text-(--primary-dark--text-color) font-semibold text-ellipsis text-nowrap px-4 py-1 rounded-full ${
@@ -202,7 +212,9 @@ const Card = ({
         </div>
       </div>
 
-      {/* Icons */}
+      {/* -----------------------------------------------------------------------
+      Icons 
+      -----------------------------------------------------------------------*/}
       {/* <CardFunctions isDragging={triggerOnClick}></CardFunctions> */}
       <div className="flex flex-row justify-between items-center space-x-5 px-6 py-3">
         <div
@@ -218,7 +230,9 @@ const Card = ({
           {getInitials(assigned_to).initials}
         </div>
 
-        {/* Comments and attachments */}
+        {/* -----------------------------------------------------------------------
+        Comments and attachments 
+        -----------------------------------------------------------------------*/}
         <div className="flex flex-row gap-x-6">
           <div className="flex flex-row gap-x-2">
             <button className="text-gray-500">{messageIcon}</button>

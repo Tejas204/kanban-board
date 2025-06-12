@@ -93,7 +93,8 @@ body {
   --background-white: #ffffff; */
 
   --board-bg--color: #121212;
-  --card-bg--color: rgba(30, 30, 30, 0.2); /*#1e1e1e*/
+  --card-bg--color: #1e1e1e;
+  --card-bg--color-UI: rgba(40, 40, 40, 1);
   --header-bg--color: #1e1e1e;
   --filter-bg--color: #222222;
   --background-white: #ffffff;
