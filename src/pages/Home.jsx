@@ -12,36 +12,36 @@ const Home = () => {
         {/* ----------------------------------------------------------------------- 
           Capmaign Div 
           -----------------------------------------------------------------------*/}
-        <div className="flex flex-col md:col-span-1 gap-y-9 text-(--primary-text--color) w-[100%] xl:w-[70%] md:text-justify">
-          <p className="text-lg font-semibold md:text-3xl lg:text-6xl">
+        <div className="flex flex-col md:col-span-1 gap-y-9 text-(--primary-text--color) w-[100%] xl:w-[70%] text-center md:text-justify">
+          <p className="text-3xl font-semibold md:text-3xl lg:text-6xl">
             Create a Kanban board for your team
           </p>
-          <p className="text-md md:text-2xl lg:text-3xl">
+          <p className="text-xl md:text-2xl lg:text-3xl">
             Start your project off right with a board built for all teams
           </p>
-          <p className="text-sm md:text-lg lg:text-2xl font-semibold">
+          <p className="text-md md:text-lg lg:text-2xl">
             Included in your free plan:
           </p>
           <ul className="pl-4 text-(--secondary-text--color)">
-            <li className="flex flex-row gap-x-5 items-center text-xs md:text-lg lg:text-2xl pb-9">
+            <li className="flex flex-row justify-center md:justify-normal gap-x-5 items-center text-md md:text-lg lg:text-2xl pb-9">
               <span className="h-4 w-4 md:h-5 md:5 lg:h-6 lg:w-6">
                 {tickmark}
               </span>
               Create kanban boards
             </li>
-            <li className="flex flex-row gap-x-5 items-center text-xs md:text-lg lg:text-2xl pb-9">
+            <li className="flex flex-row justify-center md:justify-normal gap-x-5 items-center text-md md:text-lg lg:text-2xl pb-9">
               <span className="h-4 w-4 md:h-5 md:5 lg:h-6 lg:w-6">
                 {tickmark}
               </span>{" "}
               Add teams and share boards with them
             </li>
-            <li className="flex flex-row gap-x-5 items-center text-xs md:text-lg lg:text-2xl pb-9">
+            <li className="flex flex-row justify-center md:justify-normal gap-x-5 items-center text-md md:text-lg lg:text-2xl pb-9">
               <span className="h-4 w-4 md:h-5 md:5 lg:h-6 lg:w-6">
                 {tickmark}
               </span>{" "}
               Easily switch between boards for better multi-tasking
             </li>
-            <li className="flex flex-row gap-x-5 items-center text-xs md:text-lg lg:text-2xl pb-9">
+            <li className="flex flex-row justify-center md:justify-normal gap-x-5 items-center text-md md:text-lg lg:text-2xl pb-9">
               <span className="h-4 w-4 md:h-5 md:5 lg:h-6 lg:w-6">
                 {tickmark}
               </span>{" "}
