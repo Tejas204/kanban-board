@@ -1,7 +1,7 @@
 import react from "react";
 import { messageIcon } from "../data/icons";
 
-const CardUI = () => {
+const CardUI = ({ priority }) => {
   return (
     <div className="flex flex-row">
       <div
@@ -33,7 +33,13 @@ const CardUI = () => {
           {/* Priority */}
           <div className="text-(--primary-text--color) text-lg w-fit">
             <p
-              className={`w-full overflow-hidden text-(--primary-dark--text-color) font-semibold text-ellipsis text-nowrap px-4 py-1 rounded-full bg-(--card-priority--color-high)`}
+              className={`w-full overflow-hidden text-(--primary-dark--text-color) font-semibold text-ellipsis text-nowrap px-4 py-1 rounded-full ${
+                priority == "high"
+                  ? "bg-(--card-priority--color-high)"
+                  : priority == "medium"
+                  ? "bg-(--card-priority--color-medium)"
+                  : "bg-(--card-priority--color-low)"
+              } `}
             >
               High
             </p>
@@ -44,7 +50,13 @@ const CardUI = () => {
         <div className="flex flex-row justify-between items-center space-x-5 px-6 py-3">
           <div
             className={`flex justify-center font-bold items-center h-11 w-11 p-3 rounded-full text-(--primary-dark--text-color)
-                                bg-(--card-priority--color-high)`}
+                                ${
+                                  priority == "high"
+                                    ? "bg-(--card-priority--color-high)"
+                                    : priority == "medium"
+                                    ? "bg-(--card-priority--color-medium)"
+                                    : "bg-(--card-priority--color-low)"
+                                }`}
           >
             TD
           </div>

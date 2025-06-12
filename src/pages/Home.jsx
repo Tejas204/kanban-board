@@ -43,19 +43,20 @@ const Home = () => {
       </div>
 
       {/* Cards Info */}
-      <div className="grid grid-cols-2 bg-red ml-[4%] mr-[4%]">
+      <div className="grid grid-cols-2 bg-red ml-[4%] mr-[4%] mb-[4%]">
         {/* -----------------------------------------------------------------------
           Cards 
+          -rotate-y-30 rotate-x-30 -rotate-z-1 
           -----------------------------------------------------------------------*/}
-        <div className="col-span-1 flex flex-row p-10 transform-3d">
-          <div className="-rotate-y-30 rotate-x-30 -rotate-z-1 z-1">
-            <CardUI></CardUI>
+        <div className="col-span-1 flex flex-row p-10 transform-3d relative">
+          <div className="absolute backdrop-blur-3xl z-0 rotate-y-30 -rotate-x-30">
+            <CardUI priority="high"></CardUI>
           </div>
-          <div className="-rotate-y-30 rotate-x-30 -rotate-z-1 z-2 translate-x-40">
-            <CardUI></CardUI>
+          <div className="absolute backdrop-blur-3xl translate-x-40 z-10 rotate-y-30 -rotate-x-30">
+            <CardUI priority="medium"></CardUI>
           </div>
-          <div className="-rotate-y-30 rotate-x-30 -rotate-z-1 z-10">
-            <CardUI></CardUI>
+          <div className="absolute backdrop-blur-3xl translate-x-80 z-20 rotate-y-30 -rotate-x-30">
+            <CardUI priority="low"></CardUI>
           </div>
         </div>
 
