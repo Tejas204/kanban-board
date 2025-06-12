@@ -167,7 +167,9 @@ const Columns = ({
       {...listeners}
       style={style}
     >
-      {/* Drag handle */}
+      {/* -----------------------------------------------------------------------
+      Drag handle 
+      -----------------------------------------------------------------------*/}
       <div className="flex flex-row justify-center top-0 items-center w-full">
         <div
           onDragStart={handleStateDrag}
@@ -178,7 +180,9 @@ const Columns = ({
         </div>
       </div>
 
-      {/* Title */}
+      {/* -----------------------------------------------------------------------
+      Title 
+      -----------------------------------------------------------------------*/}
       <div className="flex flex-row justify-between items-center pb-5 pl-5 pr-5 border-b-4 border-(--secondary-text--color)">
         <input
           type="text"
@@ -190,7 +194,9 @@ const Columns = ({
           }`}
         ></input>
 
-        {/* Buttons and Icons */}
+        {/* -----------------------------------------------------------------------
+        Buttons and Icons 
+        -----------------------------------------------------------------------*/}
         <div className="flex flex-row gap-x-7 items-center">
           <button
             className="text-(--button-text--color)"
@@ -224,7 +230,9 @@ const Columns = ({
         </div>
       </div>
 
-      {/* Cards */}
+      {/* -----------------------------------------------------------------------
+      Cards 
+      -----------------------------------------------------------------------*/}
       <SortableContext items={cards} strategy={verticalListSortingStrategy}>
         <div className="flex flex-col items-center w-full gap-y-7 p-7 h-[90%]">
           {cards.map((card) => {

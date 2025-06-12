@@ -77,7 +77,9 @@ const Comments = ({ comments, cardId, action }) => {
         Comments
       </div>
       <div className="flex flex-col gap-y-5">
-        {/* New comment */}
+        {/* -----------------------------------------------------------------------
+        New comment 
+        -----------------------------------------------------------------------*/}
         <form
           className={`flex flex-row gap-x-4 bg-gray-100 p-3 rounded-lg ${
             action === "update" ? "visible" : "hidden"
@@ -98,7 +100,9 @@ const Comments = ({ comments, cardId, action }) => {
           </button>
         </form>
 
-        {/* Existing comments */}
+        {/* -----------------------------------------------------------------------
+        Existing comments 
+        -----------------------------------------------------------------------*/}
         <div className="flex flex-col gap-y-3 w-full">
           {comments.map((comment) => {
             if (comment.card == cardId) {

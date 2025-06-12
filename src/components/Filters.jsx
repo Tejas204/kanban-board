@@ -3,17 +3,21 @@ import React from "react";
 const Filters = () => {
   return (
     <div className="flex flex-col gap-y-9 w-[25%] bg-(--filter-bg--color) px-14 py-5">
-      {/* Title */}
+      {/* -----------------------------------------------------------------------
+      Title 
+      -----------------------------------------------------------------------*/}
       <div className="flex flex-row gap-10 items-center">
-        <p className="text-2xl text-(--primary-text--color)">
-          Filter tasks
-        </p>
+        <p className="text-2xl text-(--primary-text--color)">Filter tasks</p>
       </div>
 
-      {/* Filters */}
+      {/* -----------------------------------------------------------------------
+      Filters 
+      -----------------------------------------------------------------------*/}
       <div className="flex flex-col">
         <form className="flex flex-col gap-y-6">
-          {/* State */}
+          {/* -----------------------------------------------------------------------
+          State 
+          -----------------------------------------------------------------------*/}
           <select
             name="state"
             id="state"
@@ -26,7 +30,9 @@ const Filters = () => {
             <option value="complete">Complete</option>
           </select>
 
-          {/* Assigned to */}
+          {/* -----------------------------------------------------------------------
+          Assigned to 
+          -----------------------------------------------------------------------*/}
           <select
             name="assignment"
             id="assignment"
@@ -39,7 +45,9 @@ const Filters = () => {
             <option value="Dhiren">Dhiren</option>
           </select>
 
-          {/* Priority */}
+          {/* -----------------------------------------------------------------------
+          Priority 
+          -----------------------------------------------------------------------*/}
           <select
             name="priority"
             id="priority"
@@ -50,7 +58,9 @@ const Filters = () => {
             <option value="Low">Low</option>
           </select>
 
-          {/* Due Date */}
+          {/* -----------------------------------------------------------------------
+          Due Date 
+          -----------------------------------------------------------------------*/}
           <select
             name="dueDate"
             id="dueDate"
@@ -61,7 +71,9 @@ const Filters = () => {
             <option value="Tomorrow">Tomorrow</option>
           </select>
 
-          {/* Buttons - Reset and Apply */}
+          {/* -----------------------------------------------------------------------
+          Buttons - Reset and Apply 
+          -----------------------------------------------------------------------*/}
           <div className="flex flex-row justify-between">
             <button className="px-8 py-3 text-lg rounded-md hover:ring-2 ring-offset-4 ring-offset-(--filter-bg--color) ring-(--user-icon--bg-color--blue) bg-(--user-icon--bg-color--blue) transition ease-in-out delay-100">
               Reset

@@ -52,7 +52,7 @@ const Home = () => {
         {/* -----------------------------------------------------------------------
           Cards 
           -----------------------------------------------------------------------*/}
-        <div className="col-span-1 flex flex-row p-10 transform-3d perspective-origin-top-left relative">
+        <div className="col-span-1 flex flex-row p-10 transform-3d perspective-none relative">
           <div className="absolute z-0 rotate-y-30 -rotate-x-30">
             <CardUI
               priority="high"

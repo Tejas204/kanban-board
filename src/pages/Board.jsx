@@ -431,10 +431,14 @@ const Board = () => {
     <NoSelection></NoSelection>
   ) : (
     <div className={`flex flex-row h-screen overflow-x-clip`}>
-      {/* Filters Div */}
+      {/* -----------------------------------------------------------------------
+      Filters Div 
+      -----------------------------------------------------------------------*/}
       <FilterPill></FilterPill>
 
-      {/* Columns */}
+      {/* -----------------------------------------------------------------------
+      Columns 
+      -----------------------------------------------------------------------*/}
       <div
         className={`${
           showModal.active ||
@@ -446,7 +450,9 @@ const Board = () => {
             : "blur-none"
         }`}
       >
-        {/* Board title */}
+        {/* -----------------------------------------------------------------------
+        Board title 
+        -----------------------------------------------------------------------*/}
         <div className="px-10 py-4 text-2xl text-(--primary-text--color) font-semibold w-full border-b border-b-gray-700">
           <form className="flex flex-row items-center gap-x-2">
             <input
@@ -465,7 +471,9 @@ const Board = () => {
           </form>
         </div>
 
-        {/* DnD area starts */}
+        {/* -----------------------------------------------------------------------
+        DnD area starts 
+        -----------------------------------------------------------------------*/}
         <DndContext
           onDragOver={handleDragOver}
           onDragEnd={handleDragEnd}
@@ -473,7 +481,9 @@ const Board = () => {
           collisionDetection={closestCorners}
           sensors={sensors}
         >
-          {/* Establish sortable context - columns */}
+          {/* -----------------------------------------------------------------------
+          Establish sortable context - columns 
+          -----------------------------------------------------------------------*/}
           <div className="flex flex-row mt-2 px-10 gap-x-10 w-screen overflow-x-auto no-scrollbar relative">
             <SortableContext
               items={cards}
@@ -496,7 +506,9 @@ const Board = () => {
             </SortableContext>
           </div>
 
-          {/* Drag overlay to see which element is being dragged and where */}
+          {/* -----------------------------------------------------------------------
+          Drag overlay to see which element is being dragged and where 
+          -----------------------------------------------------------------------*/}
           <DragOverlay
             dropAnimation={{
               duration: 500,
@@ -533,7 +545,9 @@ const Board = () => {
         </DndContext>
       </div>
 
-      {/* State/Card Modal **/}
+      {/* -----------------------------------------------------------------------
+      State/Card Modal 
+      -----------------------------------------------------------------------**/}
       <NewStateCardModal
         showModal={showModal}
         addState={addState}
@@ -542,7 +556,9 @@ const Board = () => {
         deleteState={deleteState}
         pillOption={pillOption}
       ></NewStateCardModal>
-      {/* Add state button */}
+      {/* -----------------------------------------------------------------------
+      Add state button 
+      -----------------------------------------------------------------------*/}
       <button
         onClick={handleAddState}
         className="fixed bottom-4 right-10 px-6 py-4 rounded-lg text-lg text-(--primary-text--color) bg-(--user-icon--bg-color--blue) font-semibold hover:ring-2 ring-offset-4 ring-offset-(--filter-bg--color) ring-(--user-icon--bg-color--blue) transition ease-in-out duration-150"

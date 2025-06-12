@@ -28,7 +28,9 @@ const DeleteStateModal = ({ hideModal, columnId }) => {
 
   return (
     <div className="flex flex-col border-2 w-2/5 h-fit  mt-40 rounded-md px-10 py-4 gap-y-8 backdrop-blur-xs bg-(--background-white)">
-      {/* Title */}
+      {/* -----------------------------------------------------------------------
+      Title 
+      -----------------------------------------------------------------------*/}
       <div className="flex flex-row justify-between">
         <p className="text-3xl font-semibold text-(--board-bg--color)">
           Do you want to delete this state?
@@ -36,7 +38,9 @@ const DeleteStateModal = ({ hideModal, columnId }) => {
         <button onClick={hideModal}>{closeIcon}</button>
       </div>
 
-      {/* Form */}
+      {/* -----------------------------------------------------------------------
+      Form 
+      -----------------------------------------------------------------------*/}
       <div className="flex flex-col">
         <form
           className="flex flex-col justify-center gap-y-10"
