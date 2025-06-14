@@ -64,11 +64,11 @@ const Home = () => {
       {/* ----------------------------------------------------------------------- 
         Cards Info 
         -----------------------------------------------------------------------*/}
-      <div className="grid grid-cols-2 bg-red ml-[4%] mt-[4%] mr-[4%] mb-[8%] pt-10">
+      <div className="2xl:grid 2xl:grid-cols-2 mx-[2%] mt-[4%] mb-[8%] pt-10">
         {/* -----------------------------------------------------------------------
           Cards 
           -----------------------------------------------------------------------*/}
-        <div className="col-span-1 flex flex-row p-10 transform-3d perspective-none relative">
+        <div className="2xl:col-span-1 flex flex-row p-10 transform-3d perspective-none relative">
           <div className="absolute z-0 rotate-y-30 -rotate-x-30">
             <CardUI
               priority="high"
@@ -78,7 +78,7 @@ const Home = () => {
               dueDate="14/06/2025"
             ></CardUI>
           </div>
-          <div className="absolute translate-x-30 z-10 rotate-y-30 -rotate-x-30">
+          <div className="absolute 2xl:translate-x-30 z-10 rotate-y-30 -rotate-x-30">
             <CardUI
               priority="medium"
               user="AS"
@@ -87,7 +87,7 @@ const Home = () => {
               dueDate="18/06/2025"
             ></CardUI>
           </div>
-          <div className="absolute translate-x-60 z-20 rotate-y-30 -rotate-x-30">
+          <div className="absolute 2xl:translate-x-60 z-20 rotate-y-30 -rotate-x-30">
             <CardUI
               priority="low"
               user="VJ"
@@ -101,11 +101,11 @@ const Home = () => {
         {/* ----------------------------------------------------------------------- 
           Cards Description 
           -----------------------------------------------------------------------*/}
-        <div className="col-span-1 text-(--primary-text--color)">
-          <p className="text-4xl font-semibold">
+        <div className="2xl:col-span-1 text-(--primary-text--color)">
+          <p className="text-6xl font-semibold">
             Track and prioritize your work easily
           </p>
-          <p className="text-xl text-(--secondary-text--color) pt-2 text-justify">
+          <p className="text-2xl text-(--secondary-text--color) pt-2 text-justify">
             Stay organized with customizable boards that adapt to your workflow.
             Set priorities and deadlines so you always know what matters most.
             Monitor progress at a glance with simple, drag-and-drop task
