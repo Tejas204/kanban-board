@@ -8,40 +8,40 @@ import CardUI from "../components/CardUI";
 const Home = () => {
   return (
     <div className="2xl:flex 2xl:flex-col min-h-screen overflow-x-hidden gap-y-32">
-      <div className="relative 2xl:grid 2xl:grid-cols-2 ml-[4%] mt-[6%]">
+      <div className="relative 2xl:grid 2xl:grid-cols-2 mx-[2%] mt-[6%]">
         {/* ----------------------------------------------------------------------- 
           Capmaign Div 
           -----------------------------------------------------------------------*/}
         <div className="flex flex-col md:col-span-1 gap-y-9 text-(--primary-text--color) w-[100%] xl:w-[70%] text-center md:text-justify">
-          <p className="text-3xl font-semibold md:text-3xl lg:text-4xl xl:6xl">
+          <p className="text-3xl px-3 font-semibold md:text-3xl lg:text-4xl xl:text-6xl">
             Create a Kanban board for your team
           </p>
-          <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl">
+          <p className="text-lg px-3 md:text-xl lg:text-2xl xl:text-3xl">
             Start your project off right with a board built for all teams
           </p>
-          <p className="text-md md:text-lg lg:text-xl xl:text-2xl">
+          <p className="text-md px-3 md:text-lg lg:text-xl xl:text-2xl">
             Included in your free plan:
           </p>
-          <ul className="pl-4 text-(--secondary-text--color)">
-            <li className="flex flex-row text-start md:justify-normal gap-x-5 items-center text-sm md:text-md lg:text-lg xl:text-2xl pb-9">
+          <ul className="pl-4 pr-4 text-(--secondary-text--color)">
+            <li className="flex flex-row text-start md:justify-normal gap-x-5 items-center text-sm md:text-lg lg:text-lg xl:text-2xl pb-9">
               <span className="h-4 w-4 md:h-5 md:5 lg:h-6 lg:w-6">
                 {tickmark}
               </span>
               Create kanban boards
             </li>
-            <li className="flex flex-row text-start md:justify-normal gap-x-5 items-center text-sm md:text-md lg:text-lg xl:text-2xl pb-9">
+            <li className="flex flex-row text-start md:justify-normal gap-x-5 items-center text-sm md:text-lg lg:text-lg xl:text-2xl pb-9">
               <span className="h-4 w-4 md:h-5 md:5 lg:h-6 lg:w-6">
                 {tickmark}
               </span>{" "}
               Add teams and share boards with them
             </li>
-            <li className="flex flex-row text-start md:justify-normal gap-x-5 items-center text-sm md:text-md lg:text-lg xl:text-2xl pb-9">
+            <li className="flex flex-row text-start md:justify-normal gap-x-5 items-center text-sm md:text-lg lg:text-lg xl:text-2xl pb-9">
               <span className="h-4 w-4 md:h-5 md:5 lg:h-6 lg:w-6">
                 {tickmark}
               </span>{" "}
               Easily switch between boards for better multi-tasking
             </li>
-            <li className="flex flex-row text-start md:justify-normal gap-x-5 items-center text-sm md:text-md lg:text-lg xl:text-2xl pb-9">
+            <li className="flex flex-row text-start md:justify-normal gap-x-5 items-center text-sm md:text-lg lg:text-lg xl:text-2xl pb-9">
               <span className="h-4 w-4 md:h-5 md:5 lg:h-6 lg:w-6">
                 {tickmark}
               </span>{" "}
@@ -56,7 +56,7 @@ const Home = () => {
         <div className="w-full flex flex-row md:col-span-1">
           <img
             src={UI}
-            className="lg:scale-150 xl:scale-125 shadow-2xl rounded-lg shadow-gray-900 border-[0.1rem] border-gray-700"
+            className="md:scale-95 lg:scale-90 xl:scale-100 2xl:scale-125 shadow-2xl rounded-lg shadow-gray-900 border-[0.1rem] border-gray-700"
           ></img>
         </div>
       </div>
