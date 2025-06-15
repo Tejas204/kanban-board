@@ -14,7 +14,7 @@ const CardUI = ({ priority, user, shortDescription, description, dueDate }) => {
       onMouseLeave={() => setHoverState(!hoverState)}
       className={`flex flex-col w-[430px] shadow-2xl backdrop-blur-3xl rounded-lg bg-gradient-to-tr from-(--card-bg--color) to-(--board-bg--color) border-[0.1rem] border-(--text-disabled--color) transition ease-in-out delay-200 duration-300 ${
         hoverState
-          ? "hover:-translate-y-20 hover:bg-(--card-bg--color-UI) hover:bg-gradient-to-tr hover:from-(--card-bg--color-UI) hover:to-(--board-bg--color)"
+          ? "hover:-translate-y-40 hover:bg-(--card-bg--color-UI) hover:bg-gradient-to-tr hover:from-(--card-bg--color-UI) hover:to-(--board-bg--color)"
           : ""
       }`}
     >
