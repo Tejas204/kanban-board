@@ -1,7 +1,15 @@
 import react, { useState } from "react";
 import { cardMenuIcon, messageIcon } from "../data/icons";
 
-const CardUI = ({ priority, user, shortDescription, description, dueDate }) => {
+const CardUI = ({
+  priority,
+  user,
+  shortDescription,
+  description,
+  dueDate,
+  comments,
+  hover,
+}) => {
   /**-----------------------------------------------------------------------
    * @Hook: setHoverState
    * Used to toggle classes on hover
@@ -99,7 +107,9 @@ const CardUI = ({ priority, user, shortDescription, description, dueDate }) => {
         <div className="flex flex-row gap-x-6">
           <div className="flex flex-row gap-x-2">
             <button className="text-gray-500">{messageIcon}</button>
-            <div className="text-lg text-(--secondary-text--color)">4</div>
+            <div className="text-lg text-(--secondary-text--color)">
+              {comments}
+            </div>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ const Home = () => {
   const [hoverState, setHoverState] = useState(false);
 
   return (
-    <div className="2xl:flex 2xl:flex-col min-h-screen overflow-x-hidden gap-y-32">
+    <div className="flex flex-col min-h-screen overflow-x-hidden gap-y-10 md:gap-y-20 lg:gap-y-28 xl:gap-y-32">
       <div className="relative mx-[2%] mt-[6%]">
         {/* ----------------------------------------------------------------------- 
           Capmaign Div 
@@ -89,15 +89,15 @@ const Home = () => {
       {/* ----------------------------------------------------------------------- 
         Cards Info 
         -----------------------------------------------------------------------*/}
-      <div className="2xl:grid 2xl:grid-cols-2 mx-[2%] mt-[4%] mb-[8%] pt-10">
+      <div className="flex flex-col justify-center lg:gap-y-20 2xl:grid p-3 2xl:grid-cols-2 mx-[2%] mt-[4%] mb-[8%] pt-10 relative">
         {/* ----------------------------------------------------------------------- 
           Cards Description 
           -----------------------------------------------------------------------*/}
-        <div className="2xl:col-span-1 text-(--primary-text--color)">
-          <p className="text-6xl font-semibold">
+        <div className="2xl:col-span-1 text-(--primary-text--color) relative">
+          <p className="text-3xl text-center md:text-3xl lg:text-4xl xl:text-6xl font-semibold xl:text-justify">
             Track and prioritize your work easily
           </p>
-          <p className="text-2xl text-(--secondary-text--color) pt-2 text-justify">
+          <p className="text-md text-center md:text-lg lg:text-xl xl:text-2xl text-(--secondary-text--color) pt-2 xl:text-justify">
             Stay organized with customizable boards that adapt to your workflow.
             Set priorities and deadlines so you always know what matters most.
             Monitor progress at a glance with simple, drag-and-drop task
@@ -108,32 +108,35 @@ const Home = () => {
         {/* -----------------------------------------------------------------------
           Cards 
           -----------------------------------------------------------------------*/}
-        <div className="2xl:col-span-1 flex flex-row justify-center p-10 transform-3d perspective-none relative">
-          <div className="absolute z-20 -rotate-y-30 -rotate-x-30">
+        <div className="2xl:col-span-1 flex flex-row gap-x-20 justify-center transform-3d perspective-none relative">
+          <div className="absolute z-20 -rotate-y-30 -rotate-x-30 scale-50 lg:scale-75 xl:scale-125">
             <CardUI
               priority="low"
               user="VJ"
               shortDescription="Feature: Add team members"
               description="Develop a feature to add new team members to the board"
               dueDate="20/06/2025"
+              comments="4"
             ></CardUI>
           </div>
-          <div className="absolute 2xl:translate-x-30 z-10 -rotate-y-30 -rotate-x-30">
+          <div className="absolute 2xl:translate-x-30 translate-x-10 z-20 -rotate-y-30 -rotate-x-30 scale-50 lg:scale-75 xl:scale-125">
             <CardUI
               priority="medium"
               user="AS"
               shortDescription="Client showback"
               description="Schedule a call with the client for showback to showcase latest features"
               dueDate="18/06/2025"
+              comments="6"
             ></CardUI>
           </div>
-          <div className="absolute 2xl:translate-x-60 z-0 -rotate-y-30 -rotate-x-30">
+          <div className="absolute 2xl:translate-x-60 translate-x-20 z-20 -rotate-y-30 -rotate-x-30 scale-50 lg:scale-75 xl:scale-125">
             <CardUI
               priority="high"
               user="TD"
               shortDescription="Bug: Unable to onboard new users"
               description="Cannot onboard new users due to issue wirh register API"
               dueDate="14/06/2025"
+              comments="12"
             ></CardUI>
           </div>
         </div>
@@ -142,12 +145,12 @@ const Home = () => {
       {/* ----------------------------------------------------------------------- 
           Cards Features
           -----------------------------------------------------------------------*/}
-      <div className="w-[100%] bg-white">
+      {/* <div className="w-[100%] bg-white">
         <div className="grid-cols-5">
           <div className="col-span-4 border-2">Hi</div>
           <div className="col-span-1">Bye</div>
         </div>
-      </div>
+      </div> */}
 
       {/* -----------------------------------------------------------------------
         Footer 
