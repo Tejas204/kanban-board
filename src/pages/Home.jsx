@@ -92,7 +92,7 @@ const Home = () => {
       {/* ----------------------------------------------------------------------- 
         Cards Info 
         -----------------------------------------------------------------------*/}
-      <div className="flex flex-col xl:space-y-10 2xl:space-y-0 justify-center lg:gap-y-20 2xl:grid 2xl:grid-cols-2 p-3 mx-[2%] mt-[4%] relative">
+      <div className="flex flex-col xl:space-y-10 2xl:space-y-0 justify-center lg:gap-y-20 2xl:grid 2xl:grid-cols-2 p-3 mx-[2%] mb-[4%] mt-[4%] relative">
         {/* ----------------------------------------------------------------------- 
           Cards Description 
           -----------------------------------------------------------------------*/}
@@ -150,10 +150,23 @@ const Home = () => {
       {/* ----------------------------------------------------------------------- 
           Cards Features
           -----------------------------------------------------------------------*/}
-      <div className="w-[100%] bg-white">
-        <div className="grid-cols-5">
-          <div className="col-span-4 border-2">Hi</div>
-          <div className="col-span-1">Bye</div>
+      <div className="bg-white">
+        <div className="flex flex-col w-[100%] p-20">
+          <p className="text-3xl px-3 font-semibold md:text-3xl lg:text-4xl xl:text-6xl">
+            Manage multiple projects with ease
+          </p>
+          <p className="text-lg px-3 md:text-xl lg:text-2xl xl:text-3xl">
+            Keep tasks, timelines, and teams aligned across every project.
+            Streamline your workflow with powerful a tool built for multitasking
+            success.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-5 grid-rows-2">
+          <div className="col-span-3 border-2">Hi</div>
+          <div className="col-span-2 border-2">Bye</div>
+          <div className="col-span-2 border-2">Hi</div>
+          <div className="col-span-3 border-2">Hi</div>
         </div>
       </div>
 
