@@ -9,7 +9,7 @@ const Home = () => {
   const [hoverState, setHoverState] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-screen overflow-x-hidden gap-y-10 md:gap-y-20 lg:gap-y-28 xl:gap-y-32">
+    <div className="flex flex-col min-h-screen overflow-x-hidden gap-y-7 md:gap-y-20 lg:gap-y-28 xl:gap-y-32">
       <div className="relative mx-[2%] mt-[6%]">
         {/* ----------------------------------------------------------------------- 
           Capmaign Div 
@@ -60,7 +60,10 @@ const Home = () => {
             onMouseLeave={() => setHoverState(!hoverState)}
             className="mb-[4%] lg:mb-[2%]"
           >
-            <button className="flex flex-row items-center gap-x-0 md:gap-x-4 py-2 px-6 md:py-3 md:px-7 lg:px-10 lg:py-4 border-2 rounded-full bg-white text-(--board-bg--color) 2xl:text-2xl font-semibold hover:cursor-pointer">
+            <button
+              className="flex flex-row items-center gap-x-1 md:gap-x-4 py-2 px-6 md:py-3 md:px-7 lg:px-10 lg:py-4 border-2 rounded-full bg-white text-(--board-bg--color) text-md md:text-lg lg:text-xl 2xl:text-2xl font-semibold hover:cursor-pointer
+            hover:ring-2 ring-(--background-white) ring-offset-4 ring-offset-(--card-bg--color) delay-150 transition ease-in-out"
+            >
               Try it now
               <span
                 className={`${
@@ -89,7 +92,7 @@ const Home = () => {
       {/* ----------------------------------------------------------------------- 
         Cards Info 
         -----------------------------------------------------------------------*/}
-      <div className="flex flex-col justify-center lg:gap-y-20 2xl:grid p-3 2xl:grid-cols-2 mx-[2%] mt-[4%] mb-[8%] pt-10 relative">
+      <div className="flex flex-col xl:space-y-10 2xl:space-y-0 justify-center lg:gap-y-20 2xl:grid 2xl:grid-cols-2 p-3 mx-[2%] mt-[4%] relative">
         {/* ----------------------------------------------------------------------- 
           Cards Description 
           -----------------------------------------------------------------------*/}
@@ -108,36 +111,38 @@ const Home = () => {
         {/* -----------------------------------------------------------------------
           Cards 
           -----------------------------------------------------------------------*/}
-        <div className="2xl:col-span-1 flex flex-row gap-x-20 justify-center transform-3d perspective-none relative">
-          <div className="absolute z-20 -rotate-y-30 -rotate-x-30 scale-50 lg:scale-75 xl:scale-125">
-            <CardUI
-              priority="low"
-              user="VJ"
-              shortDescription="Feature: Add team members"
-              description="Develop a feature to add new team members to the board"
-              dueDate="20/06/2025"
-              comments="4"
-            ></CardUI>
-          </div>
-          <div className="absolute 2xl:translate-x-30 translate-x-10 z-20 -rotate-y-30 -rotate-x-30 scale-50 lg:scale-75 xl:scale-125">
-            <CardUI
-              priority="medium"
-              user="AS"
-              shortDescription="Client showback"
-              description="Schedule a call with the client for showback to showcase latest features"
-              dueDate="18/06/2025"
-              comments="6"
-            ></CardUI>
-          </div>
-          <div className="absolute 2xl:translate-x-60 translate-x-20 z-20 -rotate-y-30 -rotate-x-30 scale-50 lg:scale-75 xl:scale-125">
-            <CardUI
-              priority="high"
-              user="TD"
-              shortDescription="Bug: Unable to onboard new users"
-              description="Cannot onboard new users due to issue wirh register API"
-              dueDate="14/06/2025"
-              comments="12"
-            ></CardUI>
+        <div className="2xl:col-span-1 relative">
+          <div className="flex flex-row justify-center transform-3d perspective-none">
+            <div className="relative top-0 z-20 -rotate-y-30 translate-x-40 md:translate-x-35 lg:translate-x-25 xl:translate-x-5  2xl:translate-x-0 -rotate-x-30 scale-50 lg:scale-75 xl:scale-125">
+              <CardUI
+                priority="low"
+                user="VJ"
+                shortDescription="Feature: Add team members"
+                description="Develop a feature to add new team members to the board"
+                dueDate="20/06/2025"
+                comments="4"
+              ></CardUI>
+            </div>
+            <div className="absolute top-0 z-20 -rotate-y-30 -rotate-x-30 scale-50 lg:scale-75 xl:scale-125">
+              <CardUI
+                priority="medium"
+                user="AS"
+                shortDescription="Client showback"
+                description="Schedule a call with the client for showback to showcase latest features"
+                dueDate="18/06/2025"
+                comments="6"
+              ></CardUI>
+            </div>
+            <div className="relative top-0 -translate-x-40 md:-translate-x-35 lg:-translate-x-25 xl:-translate-x-5 2xl:-translate-x-0  z-20 -rotate-y-30 -rotate-x-30 scale-50 lg:scale-75 xl:scale-125">
+              <CardUI
+                priority="high"
+                user="TD"
+                shortDescription="Bug: Unable to onboard new users"
+                description="Cannot onboard new users due to issue wirh register API"
+                dueDate="14/06/2025"
+                comments="12"
+              ></CardUI>
+            </div>
           </div>
         </div>
       </div>
@@ -145,12 +150,12 @@ const Home = () => {
       {/* ----------------------------------------------------------------------- 
           Cards Features
           -----------------------------------------------------------------------*/}
-      {/* <div className="w-[100%] bg-white">
+      <div className="w-[100%] bg-white">
         <div className="grid-cols-5">
           <div className="col-span-4 border-2">Hi</div>
           <div className="col-span-1">Bye</div>
         </div>
-      </div> */}
+      </div>
 
       {/* -----------------------------------------------------------------------
         Footer 

@@ -208,7 +208,7 @@ function App() {
 
   return (
     <Router>
-      <Header></Header>
+      {/* <Header></Header> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/card" element={<Board />} />
