@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import UI from "../assets/Kanban_Home_Page_UI.png";
 import UIImage from "../assets/Kanban_Board_UI.png";
+import cardMovement from "../assets/card_movement.png";
 import Footer from "../components/Footer";
 import { arrowRight, messageIcon, tickmark } from "../data/icons";
 import CardUI from "../components/CardUI";
@@ -151,7 +152,7 @@ const Home = () => {
           Cards Features
           -----------------------------------------------------------------------*/}
       <div className="bg-white">
-        <div className="flex flex-col w-[100%] p-20">
+        <div className="flex flex-col w-[100%] p-15">
           <p className="text-3xl px-3 font-semibold md:text-3xl lg:text-4xl xl:text-6xl">
             Manage multiple projects with ease
           </p>
@@ -162,11 +163,14 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-5 grid-rows-2">
-          <div className="col-span-3 border-2">Hi</div>
-          <div className="col-span-2 border-2">Bye</div>
-          <div className="col-span-2 border-2">Hi</div>
-          <div className="col-span-3 border-2">Hi</div>
+        <div className="grid grid-cols-5 gap-x-10 gap-y-10 grid-rows-2 p-16">
+          <div className="col-span-3 relative">
+            <div className="h-[100%] w-[100%] bg-radial from-black to-gray-700 absolute z-10 opacity-80 rounded-4xl hover:opacity-10 transition delay-200 duration-300 ease-in-out"></div>
+            <img src={cardMovement} className="rounded-4xl"></img>
+          </div>
+          <div className="col-span-2 border-2 rounded-4xl">Bye</div>
+          <div className="col-span-2 border-2 rounded-4xl">Hi</div>
+          <div className="col-span-3 border-2 rounded-4xl">Hi</div>
         </div>
       </div>
 
