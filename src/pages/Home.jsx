@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import UI from "../assets/Kanban_Home_Page_UI.png";
 import UIImage from "../assets/Kanban_Board_UI.png";
 import cardMovement from "../assets/card_movement.png";
+import columnMovement from "../assets/column_movement.png";
 import Footer from "../components/Footer";
 import { arrowRight, messageIcon, tickmark } from "../data/icons";
 import CardUI from "../components/CardUI";
@@ -170,7 +171,10 @@ const Home = () => {
           </div>
           <div className="col-span-2 border-2 rounded-4xl">Bye</div>
           <div className="col-span-2 border-2 rounded-4xl">Hi</div>
-          <div className="col-span-3 border-2 rounded-4xl">Hi</div>
+          <div className="col-span-3 border-2 relative">
+            <div className="h-[100%] w-[100%] bg-radial from-black to-gray-700 absolute z-10 opacity-80 rounded-4xl hover:opacity-10 transition delay-200 duration-300 ease-in-out"></div>
+            <img src={columnMovement} className="rounded-4xl"></img>
+          </div>
         </div>
       </div>
 
