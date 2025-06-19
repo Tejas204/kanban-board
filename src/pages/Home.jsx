@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import UI from "../assets/Kanban_Home_Page_UI.png";
 import UIImage from "../assets/Kanban_Board_UI.png";
 import cardMovement from "../assets/card_movement.png";
-import columnMovement from "../assets/column_movement.png";
+import columnMovement from "../assets/columnMovement.png";
 import Footer from "../components/Footer";
 import { arrowRight, messageIcon, tickmark } from "../data/icons";
 import CardUI from "../components/CardUI";
@@ -164,16 +164,31 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-5 gap-x-10 gap-y-10 grid-rows-2 p-16">
-          <div className="col-span-3 relative">
-            <div className="h-[100%] w-[100%] bg-radial from-black to-gray-700 absolute z-10 opacity-80 rounded-4xl hover:opacity-10 transition delay-200 duration-300 ease-in-out"></div>
-            <img src={cardMovement} className="rounded-4xl"></img>
+        <div className="grid grid-cols-5 gap-x-5 gap-y-10 grid-rows-2 p-16">
+          <div className="col-span-3 relative ">
+            {/* <div className="h-[100%] w-[100%] bg-radial from-black to-gray-700 absolute z-10 opacity-20 rounded-4xl transition delay-200 duration-300 ease-in-out"></div> */}
+            <img
+              src={cardMovement}
+              className="rounded-4xl h-4/5 w-[100%]"
+            ></img>
           </div>
+
           <div className="col-span-2 border-2 rounded-4xl">Bye</div>
+
           <div className="col-span-2 border-2 rounded-4xl">Hi</div>
-          <div className="col-span-3 border-2 relative">
-            <div className="h-[100%] w-[100%] bg-radial from-black to-gray-700 absolute z-10 opacity-80 rounded-4xl hover:opacity-10 transition delay-200 duration-300 ease-in-out"></div>
-            <img src={columnMovement} className="rounded-4xl"></img>
+
+          <div className="col-span-3 relative">
+            {/* <div className="h-[100%] w-[100%] bg-radial from-black to-gray-700 absolute z-10 opacity-20 rounded-4xl transition delay-200 duration-300 ease-in-out">
+              <p className="text-white absolute bottom-0 p-10 z-20">Hi there</p>
+            </div> */}
+            <div className="absolute z-20 p-10 bottom-0">
+              <p className="text-white text-2xl font-semibold">Hi There</p>
+              <p className="text-white text-2xl">lroem</p>
+            </div>
+            <img
+              src={columnMovement}
+              className="rounded-4xl h-ful h-4/5 w-[100%]"
+            ></img>
           </div>
         </div>
       </div>
