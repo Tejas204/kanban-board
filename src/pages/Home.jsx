@@ -3,6 +3,8 @@ import UI from "../assets/Kanban_Home_Page_UI.png";
 import UIImage from "../assets/Kanban_Board_UI.png";
 import cardMovement from "../assets/card_movement.png";
 import columnMovement from "../assets/columnMovement.png";
+import addComment from "../assets/addComment.png";
+import manageBoard from "../assets/ManageBoard.png";
 import Footer from "../components/Footer";
 import { arrowRight, messageIcon, tickmark } from "../data/icons";
 import CardUI from "../components/CardUI";
@@ -86,7 +88,7 @@ const Home = () => {
         <div className="w-full flex flex-row md:col-span-1">
           <img
             src={UI}
-            className="md:scale-95 lg:scale-90 xl:scale-100 2xl:scale-90 shadow-2xl rounded-lg shadow-gray-800 border-[0.1rem] border-gray-700"
+            className="md:scale-95 lg:scale-90 xl:scale-100 2xl:scale-90 shadow-2xl rounded-lg shadow-gray-800 border-[0.1rem] border-gray-700 mask-b-from-100"
           ></img>
         </div>
       </div>
@@ -164,33 +166,48 @@ const Home = () => {
           </p>
         </div>
 
+        {/* ----------------------------------------------------------------------- 
+          Cards Features 1: 
+          -----------------------------------------------------------------------*/}
         <div className="grid grid-cols-5 gap-x-5 gap-y-10 grid-rows-2 p-16">
-          <div className="col-span-3 relative ">
-            {/* <div className="h-[100%] w-[100%] bg-radial from-black to-gray-700 absolute z-10 opacity-20 rounded-4xl transition delay-200 duration-300 ease-in-out"></div> */}
-            <div className="bg-[url('src/assets/card_movement.png')] rounded-4xl h-full w-[100%] mask-linear-50 mask-t-from-10% to mask-t-to-900%">
-              <div className="h-full rounded-4xl transition ease-in-out delay-200 duration-300"></div>
-            </div>
-            {/* <img
+          <div className="col-span-3 relative rounded-4xl bg-black">
+            <div className="text-white">Hi there</div>
+            <img
               src={cardMovement}
-              className="rounded-4xl h-full w-[100%]"
-            ></img> */}
+              className="rounded-4xl h-full w-[100%] mask-b-from-0"
+            ></img>
           </div>
 
-          <div className="col-span-2 border-2 rounded-4xl">Bye</div>
+          {/* ----------------------------------------------------------------------- 
+          Cards Features 2: 
+          -----------------------------------------------------------------------*/}
+          <div className="col-span-2 rounded-4xl bg-black">
+            <div className="text-white">Hi there</div>
+            <img
+              src={addComment}
+              className="rounded-4xl h-full w-[100%] mask-b-from-0"
+            ></img>
+          </div>
 
-          <div className="col-span-2 border-2 rounded-4xl">Hi</div>
+          {/* ----------------------------------------------------------------------- 
+          Cards Features 3: 
+          -----------------------------------------------------------------------*/}
+          <div className="col-span-2 rounded-4xl bg-black">
+            <div className="text-white">Hi there</div>
+            <img
+              src={manageBoard}
+              className="rounded-4xl h-full w-[100%] mask-b-from-0"
+            ></img>
+          </div>
 
-          <div className="col-span-3 relative">
-            {/* <div className="h-[100%] w-[100%] bg-radial from-black to-gray-700 absolute z-10 opacity-20 rounded-4xl transition delay-200 duration-300 ease-in-out">
-              <p className="text-white absolute bottom-0 p-10 z-20">Hi there</p>
-            </div> */}
-            <div className="absolute z-20 p-10 bottom-0">
-              <p className="text text-2xl font-semibold">Hi There</p>
-              <p className="text-white text-2xl">lroem</p>
-            </div>
+          {/* ----------------------------------------------------------------------- 
+          Cards Features 4: 
+          -----------------------------------------------------------------------*/}
+          <div className="col-span-3 relative rounded-4xl bg-black">
+            <div className="text-white">Hi there</div>
             <img
               src={columnMovement}
-              className="rounded-4xl h-full w-[100%]"
+              className="rounded-4xl h-full w-[100%] mask-b-from-0"
             ></img>
           </div>
         </div>

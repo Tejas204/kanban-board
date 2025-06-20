@@ -13,6 +13,7 @@ const CardUI = ({
   /**-----------------------------------------------------------------------
    * @Hook: setHoverState
    * Used to toggle classes on hover
+   * mask-l-from-80% mask-l-to-100%
    -----------------------------------------------------------------------*/
   const [hoverState, setHoverState] = useState(false);
 
@@ -20,7 +21,7 @@ const CardUI = ({
     <div
       onMouseEnter={() => setHoverState(!hoverState)}
       onMouseLeave={() => setHoverState(!hoverState)}
-      className={`flex flex-col w-[430px] shadow-2xl backdrop-blur-3xl rounded-lg bg-gradient-to-tl from-(--card-bg--color) to-(--board-bg--color) border-[0.1rem] border-(--text-disabled--color) transition ease-in-out delay-200 duration-300 ${
+      className={`flex flex-col w-[430px] shadow-2xl rounded-lg backdrop-blur-3xl bg-gradient-to-tl from-(--card-bg--color) to-(--board-bg--color) border-[0.1rem] border-(--text-disabled--color) transition ease-in-out delay-200 duration-300 ${
         hoverState
           ? "hover:-translate-y-40 hover:bg-(--card-bg--color-UI) hover:bg-gradient-to-tl hover:from-(--card-bg--color-UI) hover:to-(--board-bg--color)"
           : ""
