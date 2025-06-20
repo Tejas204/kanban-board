@@ -167,10 +167,13 @@ const Home = () => {
         <div className="grid grid-cols-5 gap-x-5 gap-y-10 grid-rows-2 p-16">
           <div className="col-span-3 relative ">
             {/* <div className="h-[100%] w-[100%] bg-radial from-black to-gray-700 absolute z-10 opacity-20 rounded-4xl transition delay-200 duration-300 ease-in-out"></div> */}
-            <img
+            <div className="bg-[url('src/assets/card_movement.png')] rounded-4xl h-full w-[100%] mask-linear-50 mask-t-from-10% to mask-t-to-900%">
+              <div className="h-full rounded-4xl transition ease-in-out delay-200 duration-300"></div>
+            </div>
+            {/* <img
               src={cardMovement}
-              className="rounded-4xl h-4/5 w-[100%]"
-            ></img>
+              className="rounded-4xl h-full w-[100%]"
+            ></img> */}
           </div>
 
           <div className="col-span-2 border-2 rounded-4xl">Bye</div>
@@ -182,12 +185,12 @@ const Home = () => {
               <p className="text-white absolute bottom-0 p-10 z-20">Hi there</p>
             </div> */}
             <div className="absolute z-20 p-10 bottom-0">
-              <p className="text-white text-2xl font-semibold">Hi There</p>
+              <p className="text text-2xl font-semibold">Hi There</p>
               <p className="text-white text-2xl">lroem</p>
             </div>
             <img
               src={columnMovement}
-              className="rounded-4xl h-ful h-4/5 w-[100%]"
+              className="rounded-4xl h-full w-[100%]"
             ></img>
           </div>
         </div>
