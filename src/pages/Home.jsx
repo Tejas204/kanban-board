@@ -181,8 +181,13 @@ const Home = () => {
           {/* ----------------------------------------------------------------------- 
           Cards Features 2: 
           -----------------------------------------------------------------------*/}
-          <div className="col-span-2 rounded-4xl bg-black">
-            <div className="text-white">Hi there</div>
+          <div className="col-span-2 relative rounded-4xl bg-black">
+            <div className="absolute bottom-0 p-10">
+              <p className="text-white text-3xl font-bold">Add your thoughts</p>
+              <p className="text-(--secondary-text--color) text-xl font-bold">
+                Communicate easily using the comment section
+              </p>
+            </div>
             <img
               src={addComment}
               className="rounded-4xl h-full w-[100%] mask-b-from-0"
