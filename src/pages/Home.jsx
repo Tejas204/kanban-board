@@ -171,7 +171,15 @@ const Home = () => {
           -----------------------------------------------------------------------*/}
         <div className="grid grid-cols-5 gap-x-5 gap-y-10 grid-rows-2 p-16">
           <div className="col-span-3 relative rounded-4xl bg-black">
-            <div className="text-white">Hi there</div>
+            <div className="absolute bottom-0 p-10">
+              <p className="text-white text-3xl font-bold">
+                Create kanban boards
+              </p>
+              <p className="text-(--secondary-text--color) text-xl font-bold">
+                Multi-task using separate boards to manage your work, projects
+                and even your day
+              </p>
+            </div>
             <img
               src={cardMovement}
               className="rounded-4xl h-full w-[100%] mask-b-from-0"
@@ -197,8 +205,16 @@ const Home = () => {
           {/* ----------------------------------------------------------------------- 
           Cards Features 3: 
           -----------------------------------------------------------------------*/}
-          <div className="col-span-2 rounded-4xl bg-black">
-            <div className="text-white">Hi there</div>
+          <div className="col-span-2 relative rounded-4xl bg-black">
+            <div className="absolute bottom-0 p-10">
+              <p className="text-white text-3xl font-bold">
+                Easily manage your boards
+              </p>
+              <p className="text-(--secondary-text--color) text-xl font-bold">
+                Creare new boards, share them with others & collaborate to
+                achieve goals faster
+              </p>
+            </div>
             <img
               src={manageBoard}
               className="rounded-4xl h-full w-[100%] mask-b-from-0"
@@ -209,7 +225,14 @@ const Home = () => {
           Cards Features 4: 
           -----------------------------------------------------------------------*/}
           <div className="col-span-3 relative rounded-4xl bg-black">
-            <div className="text-white">Hi there</div>
+            <div className="absolute bottom-0 p-10">
+              <p className="text-white text-3xl font-bold">
+                Customization at your fingertips
+              </p>
+              <p className="text-(--secondary-text--color) text-xl font-bold">
+                Move columns, cards, add or remove members fast
+              </p>
+            </div>
             <img
               src={columnMovement}
               className="rounded-4xl h-full w-[100%] mask-b-from-0"
