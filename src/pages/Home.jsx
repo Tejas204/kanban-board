@@ -242,9 +242,31 @@ const Home = () => {
       </div>
 
       {/* -----------------------------------------------------------------------
+        Motivation 
+        -----------------------------------------------------------------------*/}
+      <div className="flex flex-col xl:flex-row xl:gap-x-10 justify-center text-md md:text-lg xl:text-xl 2xl:text-6xl text-white font-bold">
+        <p>Plan. Execute.Build</p>
+        <button
+          className="flex flex-row items-center gap-x-1 md:gap-x-4 py-2 px-6 md:py-3 md:px-7 lg:px-10 lg:py-4 border-2 rounded-full bg-white text-(--board-bg--color) text-md md:text-lg lg:text-xl 2xl:text-2xl font-semibold hover:cursor-pointer
+            hover:ring-2 ring-(--background-white) ring-offset-4 ring-offset-(--card-bg--color) delay-150 transition ease-in-out"
+        >
+          Get started
+          <span
+            className={`${
+              hoverState
+                ? "translate-x-4 duration-200 delay-150 transition ease-in-out"
+                : "duration-200 delay-150 transition ease-in-out"
+            }`}
+          >
+            {arrowRight}
+          </span>
+        </button>
+      </div>
+
+      {/* -----------------------------------------------------------------------
         Footer 
         -----------------------------------------------------------------------*/}
-      <div className="relative mt-10">
+      <div className="relative ">
         <Footer></Footer>
       </div>
     </div>
