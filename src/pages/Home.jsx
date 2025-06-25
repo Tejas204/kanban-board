@@ -155,7 +155,7 @@ const Home = () => {
           Cards Features
           -----------------------------------------------------------------------*/}
       <div className="bg-white">
-        <div className="flex flex-col w-[100%] p-15">
+        <div className="flex flex-col w-[100%] p-15 text-center">
           <p className="text-3xl px-3 font-semibold md:text-3xl lg:text-4xl xl:text-6xl">
             Manage multiple projects with ease
           </p>
@@ -169,73 +169,73 @@ const Home = () => {
         {/* ----------------------------------------------------------------------- 
           Cards Features 1: 
           -----------------------------------------------------------------------*/}
-        <div className="grid grid-cols-5 gap-x-5 gap-y-10 grid-rows-2 p-16">
-          <div className="col-span-3 relative rounded-4xl bg-black">
+        <div className="flex flex-col xl:grid xl:grid-cols-5 gap-x-5 gap-y-10 grid-rows-2 p-16">
+          <div className="xl:col-span-3 relative rounded-4xl bg-black">
             <div className="absolute bottom-0 p-10">
-              <p className="text-white text-3xl font-bold">
+              <p className="text-white text-3xl font-bold md:text-3xl lg:text-4xl xl:text-6xl">
                 Create kanban boards
               </p>
-              <p className="text-(--secondary-text--color) text-xl font-bold">
+              <p className="text-(--secondary-text--color) text-sm md:text-md lg:text-lg xl:text-xl font-bold">
                 Multi-task using separate boards to manage your work, projects
                 and even your day
               </p>
             </div>
             <img
               src={cardMovement}
-              className="rounded-4xl h-full w-[100%] mask-b-from-0"
+              className="rounded-4xl h-full w-[100%] md:mask-b-from-0"
             ></img>
           </div>
 
           {/* ----------------------------------------------------------------------- 
           Cards Features 2: 
           -----------------------------------------------------------------------*/}
-          <div className="col-span-2 relative rounded-4xl bg-black">
+          <div className="xl:col-span-2 relative rounded-4xl bg-black">
             <div className="absolute bottom-0 p-10">
               <p className="text-white text-3xl font-bold">Add your thoughts</p>
-              <p className="text-(--secondary-text--color) text-xl font-bold">
+              <p className="text-(--secondary-text--color) text-sm md:text-md lg:text-lg xl:text-xl font-bold">
                 Communicate easily using the comment section
               </p>
             </div>
             <img
               src={addComment}
-              className="rounded-4xl h-full w-[100%] mask-b-from-0"
+              className="rounded-4xl h-full w-[100%] md:mask-b-from-0"
             ></img>
           </div>
 
           {/* ----------------------------------------------------------------------- 
           Cards Features 3: 
           -----------------------------------------------------------------------*/}
-          <div className="col-span-2 relative rounded-4xl bg-black">
+          <div className="xl:col-span-2 relative rounded-4xl bg-black">
             <div className="absolute bottom-0 p-10">
               <p className="text-white text-3xl font-bold">
                 Easily manage your boards
               </p>
-              <p className="text-(--secondary-text--color) text-xl font-bold">
+              <p className="text-(--secondary-text--color) text-sm md:text-md lg:text-lg xl:text-xl font-bold">
                 Creare new boards, share them with others & collaborate to
                 achieve goals faster
               </p>
             </div>
             <img
               src={manageBoard}
-              className="rounded-4xl h-full w-[100%] mask-b-from-0"
+              className="rounded-4xl h-full w-[100%] md:mask-b-from-0"
             ></img>
           </div>
 
           {/* ----------------------------------------------------------------------- 
           Cards Features 4: 
           -----------------------------------------------------------------------*/}
-          <div className="col-span-3 relative rounded-4xl bg-black">
+          <div className="xl:col-span-3 relative rounded-4xl bg-black">
             <div className="absolute bottom-0 p-10">
               <p className="text-white text-3xl font-bold">
                 Customization at your fingertips
               </p>
-              <p className="text-(--secondary-text--color) text-xl font-bold">
+              <p className="text-(--secondary-text--color) text-sm md:text-md lg:text-lg xl:text-xl font-bold">
                 Move columns, cards, add or remove members fast
               </p>
             </div>
             <img
               src={columnMovement}
-              className="rounded-4xl h-full w-[100%] mask-b-from-0"
+              className="rounded-4xl h-full w-[100%] md:mask-b-from-0"
             ></img>
           </div>
         </div>
@@ -244,8 +244,8 @@ const Home = () => {
       {/* -----------------------------------------------------------------------
         Motivation 
         -----------------------------------------------------------------------*/}
-      <div className="flex flex-col xl:flex-row xl:gap-x-10 justify-center text-md md:text-lg xl:text-xl 2xl:text-6xl text-white font-bold">
-        <p>Plan. Execute.Build</p>
+      <div className="flex flex-col items-center gap-y-4 xl:flex-row xl:gap-x-10 justify-center text-lg md:text-3xl xl:text-4xl 2xl:text-6xl text-white font-bold">
+        <p>Plan.Execute.Build</p>
         <button
           className="flex flex-row items-center gap-x-1 md:gap-x-4 py-2 px-6 md:py-3 md:px-7 lg:px-10 lg:py-4 border-2 rounded-full bg-white text-(--board-bg--color) text-md md:text-lg lg:text-xl 2xl:text-2xl font-semibold hover:cursor-pointer
             hover:ring-2 ring-(--background-white) ring-offset-4 ring-offset-(--card-bg--color) delay-150 transition ease-in-out"
