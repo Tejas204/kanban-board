@@ -30,17 +30,17 @@ const Header = () => {
   };
 
   return (
-    <div className="flex flex-row justify-between sticky top-0 right-0 z-50 w-full items-center shadow-lg bg-(--header-bg--color)">
+    <div className="flex flex-row justify-between sticky top-0 right-0 z-50 w-full items-center shadow-lg bg-(--card-bg--color-UI) backdrop-blur-3xl">
       <Link
-        className="flex flex-row gap-x-5 p-4 ml-[2%] text-2xl items-center font-bold text-(--primary-text--color)"
+        className="flex flex-row gap-x-10 p-5 ml-[2%] items-center font-bold text-(--primary-text--color)"
         to="/"
       >
-        <img src={Kanbanize_2} className="h-10 w-10"></img>
-        <p>Kanbanize</p>
+        <img src={Kanbanize_2} className="h-14 w-14"></img>
+        <p className="text-sm md:text-md xl:text-4xl">Kanbanize</p>
       </Link>
 
       <div className="p-4 mr-[7%]">
-        <ul className="flex flex-row gap-x-16 font-semibold text-xl text-(--secondary-text--color)">
+        <ul className="flex flex-row gap-x-16 font-semibold items-center text-sm md:text-md xl:text-2xl text-(--secondary-text--color)">
           <Link className={headerMenuItem} to="/">
             Home
           </Link>
@@ -77,6 +77,6 @@ const Header = () => {
 };
 
 const headerMenuItem =
-  "hover:text-(--primary-text--color) transition delay-100 ease-in-out cursor-pointer";
+  "hover:text-white hover:bg-(--header-bg--item-hover) px-4 py-3 rounded-xl transition delay-100 ease-in-out cursor-pointer";
 
 export default Header;

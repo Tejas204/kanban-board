@@ -6,25 +6,33 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="flex flex-col gap-y-5 justify-center items-center lg:flex-1 lg:grid lg:grid-cols-3 gap-x-2 min-h-[30vh] w-full py-14 px-10 mt-auto bg-(--header-bg--color) relative bottom-0">
-      {/* Footer Hero Section */}
+      {/* ----------------------------------------------------------------------- 
+      Footer Hero Section 
+      ----------------------------------------------------------------------- */}
       <div className="flex flex-col justify-center items-center text-center lg:justify-start lg:items-start lg:text-start gap-y-6 px-6">
         {/* Logo */}
         <img src={Kanbanize_2} alt="" className="h-16 w-16 md:h-24 md:w-24" />
 
-        {/* Company summary */}
+        {/*-----------------------------------------------------------------------  
+        Company summary 
+        ----------------------------------------------------------------------- */}
         <p className="text-(--primary-text--color) text-sm md:text-md xl:text-2xl">
           Kanbanize lets you create kanban boards to help you manage your team,
           tasks and projects better. Use the interactive board, prioritize your
           tasks and make your project a success.
         </p>
 
-        {/* Privacy statement and Copyright */}
+        {/* ----------------------------------------------------------------------- 
+        Privacy statement and Copyright 
+        ----------------------------------------------------------------------- */}
         <p className="text-(--primary-text--color) text-xs md:text-sm lg:text-md xl:text-lg">
           &copy; {new Date().getFullYear()} Kanbanize IND. All rights reserved
         </p>
       </div>
 
-      {/* Menu and Social Media */}
+      {/* ----------------------------------------------------------------------- 
+      Menu and Social Media 
+      ----------------------------------------------------------------------- */}
       <div className="grid grid-cols-2">
         {/* Menu */}
         <div className="flex flex-col gap-y-6 px-6 items-center lg:items-start">
@@ -62,7 +70,9 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Social Media List */}
+        {/* ----------------------------------------------------------------------- 
+        Social Media List 
+        ----------------------------------------------------------------------- */}
         <div className="flex flex-col gap-y-6 px-6">
           {/* Social Media */}
           <p className="text-(--primary-text--color) text-sm md:text-md xl:text-2xl font-bold items-center lg:items-start">
@@ -99,7 +109,9 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Contact Us */}
+      {/* ----------------------------------------------------------------------- 
+      Contact Us 
+      ----------------------------------------------------------------------- */}
       <div className="flex flex-col w-[100%] gap-y-6 px-6">
         {/* Call to action */}
         <p className="text-(--primary-text--color) text-center lg:text-start text-sm md:text-md xl:text-2xl font-bold">

@@ -26,35 +26,6 @@ const Home = () => {
             From chaos to clarity in seconds. Plan, track, and crush team goals
             – all in one place.
           </p>
-          {/* <p className="text-md px-3 md:text-lg lg:text-xl xl:text-2xl">
-            Included in your free plan:
-          </p>
-          <ul className="pl-4 pr-4 text-(--secondary-text--color)">
-            <li className="flex flex-row text-start md:justify-normal gap-x-5 items-center text-sm md:text-lg lg:text-lg xl:text-2xl pb-9">
-              <span className="h-4 w-4 md:h-5 md:5 lg:h-6 lg:w-6">
-                {tickmark}
-              </span>
-              Create kanban boards
-            </li>
-            <li className="flex flex-row text-start md:justify-normal gap-x-5 items-center text-sm md:text-lg lg:text-lg xl:text-2xl pb-9">
-              <span className="h-4 w-4 md:h-5 md:5 lg:h-6 lg:w-6">
-                {tickmark}
-              </span>{" "}
-              Add teams and share boards with them
-            </li>
-            <li className="flex flex-row text-start md:justify-normal gap-x-5 items-center text-sm md:text-lg lg:text-lg xl:text-2xl pb-9">
-              <span className="h-4 w-4 md:h-5 md:5 lg:h-6 lg:w-6">
-                {tickmark}
-              </span>{" "}
-              Easily switch between boards for better multi-tasking
-            </li>
-            <li className="flex flex-row text-start md:justify-normal gap-x-5 items-center text-sm md:text-lg lg:text-lg xl:text-2xl pb-9">
-              <span className="h-4 w-4 md:h-5 md:5 lg:h-6 lg:w-6">
-                {tickmark}
-              </span>{" "}
-              Communicate easily using the comment section
-            </li>
-          </ul> */}
 
           {/* ----------------------------------------------------------------------- 
           Hero button 
