@@ -101,10 +101,10 @@ const Home = () => {
           Cards Description 
           -----------------------------------------------------------------------*/}
         <div className="2xl:col-span-1 text-(--primary-text--color) relative">
-          <p className="text-3xl text-center md:text-3xl lg:text-4xl xl:text-6xl font-semibold xl:text-justify">
+          <p className="text-3xl text-center md:text-3xl lg:text-4xl xl:text-6xl font-semibold 2xl:text-justify">
             Track and prioritize your work easily
           </p>
-          <p className="text-md text-center md:text-lg lg:text-xl xl:text-2xl text-(--secondary-text--color) pt-2 xl:text-justify">
+          <p className="text-md text-center md:text-lg lg:text-xl xl:text-2xl text-(--secondary-text--color) pt-2 2xl:text-justify">
             Stay organized with customizable boards that adapt to your workflow.
             Set priorities and deadlines so you always know what matters most.
             Monitor progress at a glance with simple, drag-and-drop task
