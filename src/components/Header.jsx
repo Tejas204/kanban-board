@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Kanbanize_2 from "../assets/Kanbanize_4.png";
 import Kanbanize from "../assets/Kanbanize.png";
 import { Link, Navigate } from "react-router-dom";
@@ -9,11 +9,23 @@ import toast from "react-hot-toast";
 import { hamburgerIcon } from "../data/icons";
 
 const Header = () => {
+  /**-----------------------------------------------------------------------
+   * @Hook: Contexts
+   * Import global contexts here
+   -----------------------------------------------------------------------*/
   const { isAuthenticated, setIsAuthenticated, isLoading, setIsLoading } =
     useContext(Context);
 
   /**-----------------------------------------------------------------------
+   * @Hook: setMobileMenuVisibility
+   * Used to set the visibility of mobile menu
+   -----------------------------------------------------------------------*/
+  const [mobileMenuVisibility, setMobileMenuVisibility] = useState(false);
+
+  /**-----------------------------------------------------------------------
    * @Function: logoutHandler
+   * @Params: None
+   * @Returns: None
    * Calls logout API and renders toast messages
    -----------------------------------------------------------------------*/
   const logoutHandler = async () => {
@@ -28,6 +40,18 @@ const Header = () => {
       toast.error(error.response.data.message);
       setIsAuthenticated(true);
     }
+  };
+
+  /**-----------------------------------------------------------------------
+   * @Function: handleMobileMenu
+   * @Params: None
+   * @Returns: None
+   * Used to set the visibility of mobile menu items on click
+   -----------------------------------------------------------------------*/
+  const handleMobileMenu = (event) => {
+    event.preventDefault();
+
+    setMobileMenuVisibility(!mobileMenuVisibility);
   };
 
   return (
@@ -98,6 +122,7 @@ const Header = () => {
           <button
             type="button"
             class="m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            onClick={(event) => handleMobileMenu(event)}
           >
             <span class="sr-only">Open main menu</span>
             <div className="text-white">{hamburgerIcon}</div>
@@ -143,7 +168,13 @@ const Header = () => {
       {/* ----------------------------------------------------------------------- 
       Mobile menu
       ----------------------------------------------------------------------- */}
-      <div className="md:hidden flex flex-col border-t-[0.1rem] border-t-(--text-disabled--color)">
+      <div
+        className={`md:hidden flex flex-col relative bg-(--card-bg--color-UI) border-t-[0.1rem] border-t-(--text-disabled--color) ${
+          mobileMenuVisibility
+            ? "visible transition ease-out duration-500"
+            : "hidden transition ease-in duration-75"
+        }`}
+      >
         <Link className={headerMenuItem} to="/">
           Home
         </Link>
