@@ -50,7 +50,7 @@ const Register = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex h-full w-full p-4 justify-center items-center">
-        <div className="flex flex-col rounded-md mt-[3%] mb-[3%] py-10 px-16 gap-y-10 md:gap-y-12 xl:gap-y-14 shadow-xl text-(--primary-text--color) bg-(--card-bg--color)">
+        <div className="flex flex-col rounded-lg mt-[3%] mb-[3%] py-10 px-16 gap-y-10 md:gap-y-12 xl:gap-y-14 shadow-xl text-(--primary-text--color) bg-(--card-bg--color)">
           <div className="flex flex-col items-center gap-y-2">
             <p className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl text-center">
               Register Now
