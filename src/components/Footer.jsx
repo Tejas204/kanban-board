@@ -16,7 +16,7 @@ const Footer = () => {
         {/*-----------------------------------------------------------------------  
         Company summary 
         ----------------------------------------------------------------------- */}
-        <p className="text-(--primary-text--color) text-sm md:text-md xl:text-2xl">
+        <p className="text-(--primary-text--color) text-sm md:text-md xl:text-2xl text-justify">
           Kanbanize lets you create kanban boards to help you manage your team,
           tasks and projects better. Use the interactive board, prioritize your
           tasks and make your project a success.
@@ -124,7 +124,7 @@ const Footer = () => {
             className="p-4 text-sm md:text-md xl:text-2xl rounded-md bg-[color:var(--board-bg--color)] text-[color:var(--secondary-text--color)] border-[0.1rem] h-32"
             placeholder="Share your feedback..."
           ></textarea>
-          <button className="p-2 lg:p-2 bg-(--button-bg--color) text-(--button-text--color) text-sm md:text-md xl:text-2xl font-bold rounded-md hover:ring-2 ring-(--button-bg--color) ring-offset-4 ring-offset-(--card-bg--color) transition delay-150 ease-in-out">
+          <button className="p-2 lg:p-4 bg-(--button-bg--color) text-(--button-text--color) text-sm md:text-md xl:text-2xl font-bold rounded-md hover:ring-2 ring-(--button-bg--color) ring-offset-4 ring-offset-(--card-bg--color) transition delay-150 ease-in-out">
             Submit
           </button>
         </form>
