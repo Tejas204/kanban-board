@@ -16,7 +16,7 @@ const Footer = () => {
         {/*-----------------------------------------------------------------------  
         Company summary 
         ----------------------------------------------------------------------- */}
-        <p className="text-(--primary-text--color) text-sm md:text-md xl:text-2xl text-justify">
+        <p className="text-(--primary-text--color) text-md md:text-lg xl:text-2xl text-center xl:text-justify">
           Kanbanize lets you create kanban boards to help you manage your team,
           tasks and projects better. Use the interactive board, prioritize your
           tasks and make your project a success.
@@ -37,7 +37,7 @@ const Footer = () => {
         {/* Menu */}
         <div className="flex flex-col gap-y-6 px-6 items-center lg:items-start">
           {/* Menu Header */}
-          <p className="text-(--primary-text--color) text-sm md:text-md xl:text-2xl font-bold">
+          <p className="text-(--primary-text--color) text-md md:text-lg lg:text-xl xl:text-2xl font-bold">
             Menu
           </p>
 
@@ -73,9 +73,9 @@ const Footer = () => {
         {/* ----------------------------------------------------------------------- 
         Social Media List 
         ----------------------------------------------------------------------- */}
-        <div className="flex flex-col gap-y-6 px-6">
+        <div className="flex flex-col gap-y-6 px-6 items-center lg:items-start">
           {/* Social Media */}
-          <p className="text-(--primary-text--color) text-sm md:text-md xl:text-2xl font-bold items-center lg:items-start">
+          <p className="text-(--primary-text--color) text-md md:text-lg lg:text-xl xl:text-2xl font-bold">
             Follow us on
           </p>
 
@@ -114,14 +114,14 @@ const Footer = () => {
       ----------------------------------------------------------------------- */}
       <div className="flex flex-col w-[100%] gap-y-6 px-6">
         {/* Call to action */}
-        <p className="text-(--primary-text--color) text-center lg:text-start text-sm md:text-md xl:text-2xl font-bold">
+        <p className="text-(--primary-text--color) text-center lg:text-start text-md md:text-lg lg:text-lg xl:text-2xl font-bold">
           Want an improved experience?
         </p>
 
         {/* Feedback form*/}
         <form className="flex flex-col xl:gap-y-8 gap-y-4">
           <textarea
-            className="p-4 text-sm md:text-md xl:text-2xl rounded-md bg-[color:var(--board-bg--color)] text-[color:var(--secondary-text--color)] border-[0.1rem] h-32"
+            className="p-4 text-sm md:text-md lg:text-lg xl:text-2xl rounded-md bg-[color:var(--board-bg--color)] text-[color:var(--secondary-text--color)] border-[0.1rem] h-32"
             placeholder="Share your feedback..."
           ></textarea>
           <button className="p-2 md:p-3 lg:p-4 bg-(--button-bg--color) text-(--button-text--color) text-sm md:text-md xl:text-2xl font-bold rounded-md hover:ring-2 ring-(--button-bg--color) ring-offset-4 ring-offset-(--card-bg--color) transition delay-150 ease-in-out">

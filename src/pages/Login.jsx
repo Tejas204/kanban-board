@@ -65,21 +65,21 @@ const Login = () => {
 
           <form className="flex flex-col gap-y-5" onSubmit={handleLogin}>
             <input
-              className="p-2 md:p-3 xl:p-4 rounded-md bg-(--board-bg--color) border-[0.1rem] text-md md:text-lg xl:text-xl"
+              className="p-2 md:p-3 xl:p-4 rounded-md bg-(--board-bg--color) border-[0.1rem] text-sm md:text-md md:text-lg xl:text-xl"
               type="text"
               placeholder="Email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
             ></input>
             <input
-              className="p-2 md:p-3 xl:p-4 rounded-md bg-(--board-bg--color) border-[0.1rem] text-md md:text-lg xl:text-xl"
+              className="p-2 md:p-3 xl:p-4 rounded-md bg-(--board-bg--color) border-[0.1rem] text-sm md:text-md md:text-lg xl:text-xl"
               type="password"
               placeholder="Password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             ></input>
             <button
-              className="p-2 md:p-3 lg:p-4 bg-(--button-bg--color) text-(--button-text--color) text-md md:text-lg xl:text-xl font-bold rounded-md 
+              className="p-2 md:p-3 lg:p-4 bg-(--button-bg--color) text-(--button-text--color) text-sm md:text-md md:text-lg xl:text-xl font-bold rounded-md 
                   hover:ring-2 ring-(--button-bg--color) ring-offset-4 ring-offset-(--card-bg--color) transition delay-150 ease-in-out"
               type="submit"
               disabled={isLoading}
@@ -88,7 +88,7 @@ const Login = () => {
             </button>
             <Link
               to="/resetPassword"
-              className="text-center text-md md:text-lg xl:text-xl text-(--primary-text--color) underline decoration-2 underline-offset-8 hover:decoration-(--button-bg--color) transition ease-linear duration-150"
+              className="text-center text-sm md:text-md md:text-lg xl:text-xl text-(--primary-text--color) underline decoration-2 underline-offset-8 hover:decoration-(--button-bg--color) transition ease-linear duration-150"
             >
               Forgot password?
             </Link>
@@ -97,7 +97,7 @@ const Login = () => {
           {/* Other Sign in options text */}
           <div className="flex flex-row justify-center items-center gap-x-2">
             <hr className="w-24 bg-(--secondary-text--color)"></hr>
-            <p className="text-md md:text-lg xl:text-xl text-center font-semibold">
+            <p className="text-sm md:text-md md:text-lg xl:text-xl text-center font-semibold">
               Or sign in with the help of
             </p>
             <hr className="w-24 bg-(--secondary-text--color)"></hr>
@@ -105,16 +105,16 @@ const Login = () => {
 
           {/* Other sign in options */}
           <div className="grid grid-cols-2 gap-x-4 gap-y-7">
-            <div className="p-2 md:p-3 xl:p-4 border-[0.1rem] text-center text-md md:text-lg xl:text-xl font-semibold rounded-md shadow-lg hover:bg-(--button-bg--color) hover:border-(--button-bg--color) transition delay-100 ease-in-out cursor-pointer">
+            <div className="p-2 md:p-3 xl:p-4 border-[0.1rem] text-center text-sm md:text-md md:text-lg xl:text-xl font-semibold rounded-md shadow-lg hover:bg-(--button-bg--color) hover:border-(--button-bg--color) transition delay-100 ease-in-out cursor-pointer">
               Google
             </div>
-            <div className="p-2 md:p-3 xl:p-4 border-[0.1rem] text-center text-md md:text-lg xl:text-xl font-semibold rounded-md shadow-lg hover:bg-(--button-bg--color) hover:border-(--button-bg--color) transition delay-100 ease-in-out cursor-pointer">
+            <div className="p-2 md:p-3 xl:p-4 border-[0.1rem] text-center text-sm md:text-md md:text-lg xl:text-xl font-semibold rounded-md shadow-lg hover:bg-(--button-bg--color) hover:border-(--button-bg--color) transition delay-100 ease-in-out cursor-pointer">
               Microsoft
             </div>
-            <div className="p-2 md:p-3 xl:p-4 border-[0.1rem] text-center text-md md:text-lg xl:text-xl font-semibold rounded-md shadow-lg hover:bg-(--button-bg--color) hover:border-(--button-bg--color) transition delay-100 ease-in-out cursor-pointer">
+            <div className="p-2 md:p-3 xl:p-4 border-[0.1rem] text-center text-sm md:text-md md:text-lg xl:text-xl font-semibold rounded-md shadow-lg hover:bg-(--button-bg--color) hover:border-(--button-bg--color) transition delay-100 ease-in-out cursor-pointer">
               Apple
             </div>
-            <div className="p-2 md:p-3 xl:p-4 border-[0.1rem] text-center text-md md:text-lg xl:text-xl font-semibold rounded-md shadow-lg hover:bg-(--button-bg--color) hover:border-(--button-bg--color) transition delay-100 ease-in-out cursor-pointer">
+            <div className="p-2 md:p-3 xl:p-4 border-[0.1rem] text-center text-sm md:text-md md:text-lg xl:text-xl font-semibold rounded-md shadow-lg hover:bg-(--button-bg--color) hover:border-(--button-bg--color) transition delay-100 ease-in-out cursor-pointer">
               Slack
             </div>
           </div>
