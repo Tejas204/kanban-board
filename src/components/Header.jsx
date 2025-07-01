@@ -108,17 +108,17 @@ const Header = () => {
       Logo and title
       ----------------------------------------------------------------------- */}
         <Link
-          className="flex flex-row grow gap-x-10 p-5 ml-[2%] items-center font-bold text-(--primary-text--color)"
+          className="flex flex-row grow gap-x-4 md:gap-x-6 xl:gap-x-10 p-5 ml-[2%] items-center font-bold text-(--primary-text--color)"
           to="/"
         >
           <img src={Kanbanize_2} className="h-14 w-14"></img>
-          <p className="text-sm md:text-md xl:text-4xl">Kanbanize</p>
+          <p className="text-lg md:text-2xl xl:text-4xl">Kanbanize</p>
         </Link>
 
         {/* ----------------------------------------------------------------------- 
       Hamburger button for mobile menu links
       ----------------------------------------------------------------------- */}
-        <div class="flex md:hidden">
+        <div class="flex lg:hidden">
           <button
             type="button"
             class="m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -132,7 +132,7 @@ const Header = () => {
         {/* ----------------------------------------------------------------------- 
         Main menu links
         ----------------------------------------------------------------------- */}
-        <div class="hidden md:flex md:flex-1 md:gap-x-16 md:justify-end">
+        <div class="hidden lg:flex lg:flex-1 lg:gap-x-16 lg:justify-end">
           <Link className={headerMenuItem} to="/">
             Home
           </Link>
@@ -169,7 +169,7 @@ const Header = () => {
       Mobile menu
       ----------------------------------------------------------------------- */}
       <div
-        className={`md:hidden flex flex-col relative bg-(--card-bg--color-UI) border-t-[0.1rem] border-t-(--text-disabled--color) ${
+        className={`lg:hidden flex flex-col relative bg-(--card-bg--color-UI) border-t-[0.1rem] border-t-(--text-disabled--color) ${
           mobileMenuVisibility
             ? "visible transition ease-out duration-500"
             : "hidden transition ease-in duration-75"
@@ -210,6 +210,6 @@ const Header = () => {
 };
 
 const headerMenuItem =
-  "hover:text-white hover:bg-(--header-bg--item-hover) px-4 py-3 rounded-xl transition delay-100 ease-in-out cursor-pointer text-sm md:text-md xl:text-2xl";
+  "hover:text-white hover:bg-(--header-bg--item-hover) px-4 py-3 rounded-xl transition delay-100 ease-in-out cursor-pointer text-md md:text-lg xl:text-2xl";
 
 export default Header;
