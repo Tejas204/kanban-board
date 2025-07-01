@@ -67,15 +67,15 @@ const Home = () => {
       {/* ----------------------------------------------------------------------- 
         Cards Info 
         -----------------------------------------------------------------------*/}
-      <div className="flex flex-col xl:space-y-10 2xl:space-y-0 justify-center lg:gap-y-20 2xl:grid 2xl:grid-cols-2 p-3 mx-[2%] mb-[4%] mt-[4%] relative">
+      <div className="flex flex-col xl:space-y-10 2xl:space-y-0 2xl:space-x-10 justify-center lg:gap-y-20 2xl:grid 2xl:grid-cols-2 p-3 mx-[2%] mb-[4%] mt-[4%] relative">
         {/* ----------------------------------------------------------------------- 
           Cards Description 
           -----------------------------------------------------------------------*/}
         <div className="2xl:col-span-1 text-(--primary-text--color) relative">
-          <p className="text-3xl text-center md:text-3xl lg:text-4xl xl:text-6xl font-semibold 2xl:text-justify">
+          <p className="text-3xl text-center md:text-3xl lg:text-4xl xl:text-6xl font-semibold 2xl:text-start">
             Track and prioritize your work easily
           </p>
-          <p className="text-md text-center md:text-lg lg:text-xl xl:text-2xl text-(--secondary-text--color) pt-2 2xl:text-justify">
+          <p className="text-md text-center md:text-lg lg:text-xl xl:text-2xl text-(--secondary-text--color) pt-2 2xl:text-start">
             Stay organized with customizable boards that adapt to your workflow.
             Set priorities and deadlines so you always know what matters most.
             Monitor progress at a glance with simple, drag-and-drop task
@@ -138,75 +138,114 @@ const Home = () => {
         </div>
 
         {/* ----------------------------------------------------------------------- 
-          Cards Features 1: 
+          Cards Features
           -----------------------------------------------------------------------*/}
         <div className="flex flex-col xl:grid xl:grid-cols-5 gap-x-5 gap-y-10 grid-rows-2 p-16">
-          <div className="xl:col-span-3 relative rounded-4xl bg-black">
+          {/* ----------------------------------------------------------------------- 
+          Cards Features 1: 
+          -----------------------------------------------------------------------*/}
+          <div className="visible md:hidden flex flex-col justify-center items-center bg-none">
+            <p className=" text-black text-center text-xl font-bold md:text-3xl lg:text-4xl xl:text-6xl">
+              Create kanban boards
+            </p>
+            <p className="text-black text-center text-sm md:text-md lg:text-lg xl:text-xl">
+              Multi-task using separate boards to manage your work, projects and
+              even your day
+            </p>
+          </div>
+          <div className="xl:col-span-3 relative rounded-lg bg-black">
             <div className="absolute bottom-0 p-10">
-              <p className="text-white text-3xl font-bold md:text-3xl lg:text-4xl xl:text-6xl">
+              <p className="invisible md:visible  text-white text-3xl font-bold">
                 Create kanban boards
               </p>
-              <p className="text-(--secondary-text--color) text-sm md:text-md lg:text-lg xl:text-xl font-bold">
+              <p className="invisible md:visible text-(--secondary-text--color) text-sm md:text-md lg:text-lg xl:text-xl font-bold">
                 Multi-task using separate boards to manage your work, projects
                 and even your day
               </p>
             </div>
             <img
               src={cardMovement}
-              className="rounded-4xl h-full w-[100%] md:mask-b-from-0"
+              className="rounded-lg h-full w-[100%] mask-b-from-0"
             ></img>
           </div>
 
           {/* ----------------------------------------------------------------------- 
           Cards Features 2: 
           -----------------------------------------------------------------------*/}
-          <div className="xl:col-span-2 relative rounded-4xl bg-black">
+          <div className="visible md:hidden flex flex-col justify-center items-center">
+            <p className="text-black text-center text-xl font-bold md:text-3xl lg:text-4xl xl:text-6xl">
+              Add your thoughts
+            </p>
+            <p className="text-black text-center text-sm md:text-md lg:text-lg xl:text-xl">
+              Communicate easily using the comment section
+            </p>
+          </div>
+          <div className="xl:col-span-2 relative rounded-lg bg-black">
             <div className="absolute bottom-0 p-10">
-              <p className="text-white text-3xl font-bold">Add your thoughts</p>
-              <p className="text-(--secondary-text--color) text-sm md:text-md lg:text-lg xl:text-xl font-bold">
+              <p className="invisible md:visible text-white text-3xl font-bold">
+                Add your thoughts
+              </p>
+              <p className="invisible md:visible text-(--secondary-text--color) text-sm md:text-md lg:text-lg xl:text-xl font-bold">
                 Communicate easily using the comment section
               </p>
             </div>
             <img
               src={addComment}
-              className="rounded-4xl h-full w-[100%] md:mask-b-from-0"
+              className="rounded-4xl h-full w-[100%] mask-b-from-0"
             ></img>
           </div>
 
           {/* ----------------------------------------------------------------------- 
           Cards Features 3: 
           -----------------------------------------------------------------------*/}
-          <div className="xl:col-span-2 relative rounded-4xl bg-black">
+          <div className="visible md:hidden flex flex-col justify-center items-center">
+            <p className=" text-black text-center text-xl font-bold md:text-3xl lg:text-4xl xl:text-6xl">
+              Easily manage your boards
+            </p>
+            <p className="text-black text-center text-sm md:text-md lg:text-lg xl:text-xl">
+              Creare new boards, share them with others & collaborate to achieve
+              goals faster
+            </p>
+          </div>
+          <div className="xl:col-span-2 relative rounded-lg bg-black">
             <div className="absolute bottom-0 p-10">
-              <p className="text-white text-3xl font-bold">
+              <p className="invisible md:visible text-white text-3xl font-bold">
                 Easily manage your boards
               </p>
-              <p className="text-(--secondary-text--color) text-sm md:text-md lg:text-lg xl:text-xl font-bold">
+              <p className="invisible md:visible text-(--secondary-text--color) text-sm md:text-md lg:text-lg xl:text-xl font-bold">
                 Creare new boards, share them with others & collaborate to
                 achieve goals faster
               </p>
             </div>
             <img
               src={manageBoard}
-              className="rounded-4xl h-full w-[100%] md:mask-b-from-0"
+              className="rounded-4xl h-full w-[100%] mask-b-from-0"
             ></img>
           </div>
 
           {/* ----------------------------------------------------------------------- 
           Cards Features 4: 
           -----------------------------------------------------------------------*/}
-          <div className="xl:col-span-3 relative rounded-4xl bg-black">
+          <div className="visible md:hidden flex flex-col justify-center items-center">
+            <p className="text-black text-center text-xl font-bold md:text-3xl lg:text-4xl xl:text-6xl">
+              Customization at your fingertips
+            </p>
+            <p className="text-black text-center text-sm md:text-md lg:text-lg xl:text-xl">
+              Move columns, cards, add or remove members fast
+            </p>
+          </div>
+          <div className="xl:col-span-3 relative rounded-lg bg-black">
             <div className="absolute bottom-0 p-10">
-              <p className="text-white text-3xl font-bold">
+              <p className="invisible md:visible  text-white text-3xl font-bold">
                 Customization at your fingertips
               </p>
-              <p className="text-(--secondary-text--color) text-sm md:text-md lg:text-lg xl:text-xl font-bold">
+              <p className="invisible md:visible text-(--secondary-text--color) text-sm md:text-md lg:text-lg xl:text-xl font-bold">
                 Move columns, cards, add or remove members fast
               </p>
             </div>
             <img
               src={columnMovement}
-              className="rounded-4xl h-full w-[100%] md:mask-b-from-0"
+              className="rounded-4xl h-full w-[100%] mask-b-from-0"
             ></img>
           </div>
         </div>
